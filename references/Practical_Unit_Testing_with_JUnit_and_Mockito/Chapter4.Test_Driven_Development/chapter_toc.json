@@ -1,0 +1,418 @@
+[
+  {
+    "id": 50,
+    "title": "Chapter€4.€Test Driven Development",
+    "level": 1,
+    "page": 54,
+    "parent_id": 22,
+    "children_ids": [
+      51,
+      55,
+      62,
+      71,
+      72,
+      73,
+      74,
+      75,
+      78,
+      79,
+      80
+    ],
+    "start_page": 54,
+    "end_page": 78,
+    "page_count": 25
+  },
+  {
+    "id": 51,
+    "title": "4.1.€When to Write Tests?",
+    "level": 2,
+    "page": 54,
+    "parent_id": 50,
+    "children_ids": [
+      52,
+      53,
+      54
+    ],
+    "start_page": 54,
+    "end_page": 55,
+    "page_count": 2
+  },
+  {
+    "id": 52,
+    "title": "4.1.1.€Test Last (AKA Code First) Development",
+    "level": 3,
+    "page": 55,
+    "parent_id": 51,
+    "children_ids": [],
+    "start_page": 55,
+    "end_page": 55,
+    "page_count": 1
+  },
+  {
+    "id": 53,
+    "title": "4.1.2.€Test First Development",
+    "level": 3,
+    "page": 55,
+    "parent_id": 51,
+    "children_ids": [],
+    "start_page": 55,
+    "end_page": 55,
+    "page_count": 1
+  },
+  {
+    "id": 54,
+    "title": "4.1.3.€Always after a Bug is Found",
+    "level": 3,
+    "page": 55,
+    "parent_id": 51,
+    "children_ids": [],
+    "start_page": 55,
+    "end_page": 55,
+    "page_count": 1
+  },
+  {
+    "id": 55,
+    "title": "4.2.€TDD Rhythm",
+    "level": 2,
+    "page": 56,
+    "parent_id": 50,
+    "children_ids": [
+      56,
+      58,
+      59,
+      61
+    ],
+    "start_page": 56,
+    "end_page": 59,
+    "page_count": 4
+  },
+  {
+    "id": 56,
+    "title": "4.2.1.€RED - Write a Test that Fails",
+    "level": 3,
+    "page": 57,
+    "parent_id": 55,
+    "children_ids": [
+      57
+    ],
+    "start_page": 57,
+    "end_page": 57,
+    "page_count": 1
+  },
+  {
+    "id": 57,
+    "title": "Readable Assertion Message",
+    "level": 4,
+    "page": 58,
+    "parent_id": 56,
+    "children_ids": [],
+    "start_page": 58,
+    "end_page": 58,
+    "page_count": 1
+  },
+  {
+    "id": 58,
+    "title": "4.2.2.€GREEN - Write the Simplest Thing that Works",
+    "level": 3,
+    "page": 58,
+    "parent_id": 55,
+    "children_ids": [],
+    "start_page": 58,
+    "end_page": 58,
+    "page_count": 1
+  },
+  {
+    "id": 59,
+    "title": "4.2.3.€REFACTOR - Improve the Code",
+    "level": 3,
+    "page": 59,
+    "parent_id": 55,
+    "children_ids": [
+      60
+    ],
+    "start_page": 59,
+    "end_page": 59,
+    "page_count": 1
+  },
+  {
+    "id": 60,
+    "title": "Refactoring the Tests",
+    "level": 4,
+    "page": 60,
+    "parent_id": 59,
+    "children_ids": [],
+    "start_page": 60,
+    "end_page": 60,
+    "page_count": 1
+  },
+  {
+    "id": 61,
+    "title": "4.2.4.€Here We Go Again",
+    "level": 3,
+    "page": 60,
+    "parent_id": 55,
+    "children_ids": [],
+    "start_page": 60,
+    "end_page": 60,
+    "page_count": 1
+  },
+  {
+    "id": 62,
+    "title": "4.3.€Test First Example",
+    "level": 2,
+    "page": 60,
+    "parent_id": 50,
+    "children_ids": [
+      63,
+      64,
+      65,
+      66,
+      67,
+      68
+    ],
+    "start_page": 60,
+    "end_page": 70,
+    "page_count": 11
+  },
+  {
+    "id": 63,
+    "title": "4.3.1.€The Problem",
+    "level": 3,
+    "page": 61,
+    "parent_id": 62,
+    "children_ids": [],
+    "start_page": 61,
+    "end_page": 61,
+    "page_count": 1
+  },
+  {
+    "id": 64,
+    "title": "4.3.2.€RED - Write a Failing Test",
+    "level": 3,
+    "page": 61,
+    "parent_id": 62,
+    "children_ids": [],
+    "start_page": 61,
+    "end_page": 62,
+    "page_count": 2
+  },
+  {
+    "id": 65,
+    "title": "4.3.3.€GREEN - Fix the Code",
+    "level": 3,
+    "page": 63,
+    "parent_id": 62,
+    "children_ids": [],
+    "start_page": 63,
+    "end_page": 63,
+    "page_count": 1
+  },
+  {
+    "id": 66,
+    "title": "4.3.4.€REFACTOR - Even If Only a Little Bit",
+    "level": 3,
+    "page": 64,
+    "parent_id": 62,
+    "children_ids": [],
+    "start_page": 64,
+    "end_page": 64,
+    "page_count": 1
+  },
+  {
+    "id": 67,
+    "title": "4.3.5.€First Cycle Finished",
+    "level": 3,
+    "page": 64,
+    "parent_id": 62,
+    "children_ids": [],
+    "start_page": 64,
+    "end_page": 64,
+    "page_count": 1
+  },
+  {
+    "id": 68,
+    "title": "4.3.6.€Fail, Pass, Refactor, …",
+    "level": 3,
+    "page": 65,
+    "parent_id": 62,
+    "children_ids": [
+      69,
+      70
+    ],
+    "start_page": 65,
+    "end_page": 70,
+    "page_count": 6
+  },
+  {
+    "id": 69,
+    "title": "But is It Comparable?",
+    "level": 4,
+    "page": 66,
+    "parent_id": 68,
+    "children_ids": [],
+    "start_page": 66,
+    "end_page": 66,
+    "page_count": 1
+  },
+  {
+    "id": 70,
+    "title": "Comparison Tests",
+    "level": 4,
+    "page": 67,
+    "parent_id": 68,
+    "children_ids": [],
+    "start_page": 67,
+    "end_page": 70,
+    "page_count": 4
+  },
+  {
+    "id": 71,
+    "title": "4.4.€Benefits",
+    "level": 2,
+    "page": 71,
+    "parent_id": 50,
+    "children_ids": [],
+    "start_page": 71,
+    "end_page": 71,
+    "page_count": 1
+  },
+  {
+    "id": 72,
+    "title": "4.5.€Conclusions and Comments",
+    "level": 2,
+    "page": 71,
+    "parent_id": 50,
+    "children_ids": [],
+    "start_page": 71,
+    "end_page": 71,
+    "page_count": 1
+  },
+  {
+    "id": 73,
+    "title": "4.6.€How to Start Coding TDD",
+    "level": 2,
+    "page": 72,
+    "parent_id": 50,
+    "children_ids": [],
+    "start_page": 72,
+    "end_page": 72,
+    "page_count": 1
+  },
+  {
+    "id": 74,
+    "title": "4.7.€When not To Use Test-First?",
+    "level": 2,
+    "page": 73,
+    "parent_id": 50,
+    "children_ids": [],
+    "start_page": 73,
+    "end_page": 73,
+    "page_count": 1
+  },
+  {
+    "id": 75,
+    "title": "4.8.€Should I Follow It Blindly?",
+    "level": 2,
+    "page": 74,
+    "parent_id": 50,
+    "children_ids": [
+      76,
+      77
+    ],
+    "start_page": 74,
+    "end_page": 74,
+    "page_count": 1
+  },
+  {
+    "id": 76,
+    "title": "4.8.1.€Write Good Assertion Messages from the Beginning",
+    "level": 3,
+    "page": 74,
+    "parent_id": 75,
+    "children_ids": [],
+    "start_page": 74,
+    "end_page": 74,
+    "page_count": 1
+  },
+  {
+    "id": 77,
+    "title": "4.8.2.€If the Test Passes \"By Default\"",
+    "level": 3,
+    "page": 74,
+    "parent_id": 75,
+    "children_ids": [],
+    "start_page": 74,
+    "end_page": 74,
+    "page_count": 1
+  },
+  {
+    "id": 78,
+    "title": "4.9.€TDD & Javadocs",
+    "level": 2,
+    "page": 75,
+    "parent_id": 50,
+    "children_ids": [],
+    "start_page": 75,
+    "end_page": 75,
+    "page_count": 1
+  },
+  {
+    "id": 79,
+    "title": "4.10.€TDD is Not Only about Unit Tests",
+    "level": 2,
+    "page": 76,
+    "parent_id": 50,
+    "children_ids": [],
+    "start_page": 76,
+    "end_page": 76,
+    "page_count": 1
+  },
+  {
+    "id": 80,
+    "title": "4.11.€Exercises",
+    "level": 2,
+    "page": 77,
+    "parent_id": 50,
+    "children_ids": [
+      81,
+      82,
+      83
+    ],
+    "start_page": 77,
+    "end_page": 78,
+    "page_count": 2
+  },
+  {
+    "id": 81,
+    "title": "4.11.1.€Password Validator",
+    "level": 3,
+    "page": 77,
+    "parent_id": 80,
+    "children_ids": [],
+    "start_page": 77,
+    "end_page": 77,
+    "page_count": 1
+  },
+  {
+    "id": 82,
+    "title": "4.11.2.€Regex",
+    "level": 3,
+    "page": 77,
+    "parent_id": 80,
+    "children_ids": [],
+    "start_page": 77,
+    "end_page": 77,
+    "page_count": 1
+  },
+  {
+    "id": 83,
+    "title": "4.11.3.€Booking System",
+    "level": 3,
+    "page": 77,
+    "parent_id": 80,
+    "children_ids": [],
+    "start_page": 77,
+    "end_page": 78,
+    "page_count": 2
+  }
+]

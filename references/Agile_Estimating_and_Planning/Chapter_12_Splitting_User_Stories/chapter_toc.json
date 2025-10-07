@@ -1,0 +1,164 @@
+[
+  {
+    "id": 80,
+    "title": "Chapter 12: Splitting User Stories",
+    "level": 1,
+    "page": 152,
+    "parent_id": 61,
+    "children_ids": [
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91
+    ],
+    "start_page": 152,
+    "end_page": 161,
+    "page_count": 10
+  },
+  {
+    "id": 81,
+    "title": "When to Split a User Story",
+    "level": 2,
+    "page": 152,
+    "parent_id": 80,
+    "children_ids": [],
+    "start_page": 152,
+    "end_page": 152,
+    "page_count": 1
+  },
+  {
+    "id": 82,
+    "title": "Splitting across Data Boundaries",
+    "level": 2,
+    "page": 153,
+    "parent_id": 80,
+    "children_ids": [],
+    "start_page": 153,
+    "end_page": 154,
+    "page_count": 2
+  },
+  {
+    "id": 83,
+    "title": "Splitting on Operational Boundaries",
+    "level": 2,
+    "page": 155,
+    "parent_id": 80,
+    "children_ids": [],
+    "start_page": 155,
+    "end_page": 155,
+    "page_count": 1
+  },
+  {
+    "id": 84,
+    "title": "Removing Cross-Cutting Concerns",
+    "level": 2,
+    "page": 156,
+    "parent_id": 80,
+    "children_ids": [],
+    "start_page": 156,
+    "end_page": 156,
+    "page_count": 1
+  },
+  {
+    "id": 85,
+    "title": "Don't Meet Performance Constraints",
+    "level": 2,
+    "page": 157,
+    "parent_id": 80,
+    "children_ids": [],
+    "start_page": 157,
+    "end_page": 157,
+    "page_count": 1
+  },
+  {
+    "id": 86,
+    "title": "Split Stories of Mixed Priority",
+    "level": 2,
+    "page": 158,
+    "parent_id": 80,
+    "children_ids": [],
+    "start_page": 158,
+    "end_page": 158,
+    "page_count": 1
+  },
+  {
+    "id": 87,
+    "title": "Don't Split a Story into Tasks",
+    "level": 2,
+    "page": 158,
+    "parent_id": 80,
+    "children_ids": [],
+    "start_page": 158,
+    "end_page": 158,
+    "page_count": 1
+  },
+  {
+    "id": 88,
+    "title": "Avoid the Temptation of Related Changes",
+    "level": 2,
+    "page": 159,
+    "parent_id": 80,
+    "children_ids": [],
+    "start_page": 159,
+    "end_page": 159,
+    "page_count": 1
+  },
+  {
+    "id": 89,
+    "title": "Combining Stories",
+    "level": 2,
+    "page": 159,
+    "parent_id": 80,
+    "children_ids": [],
+    "start_page": 159,
+    "end_page": 159,
+    "page_count": 1
+  },
+  {
+    "id": 90,
+    "title": "Summary",
+    "level": 2,
+    "page": 160,
+    "parent_id": 80,
+    "children_ids": [],
+    "start_page": 160,
+    "end_page": 160,
+    "page_count": 1
+  },
+  {
+    "id": 91,
+    "title": "Discussion Questions",
+    "level": 2,
+    "page": 160,
+    "parent_id": 80,
+    "children_ids": [],
+    "start_page": 160,
+    "end_page": 161,
+    "page_count": 2
+  },
+  {
+    "id": 92,
+    "title": "Part IV: Scheduling",
+    "level": 0,
+    "page": 162,
+    "parent_id": null,
+    "children_ids": [
+      93,
+      99,
+      108,
+      114,
+      121,
+      129
+    ],
+    "start_page": 162,
+    "end_page": 243,
+    "page_count": 82
+  }
+]

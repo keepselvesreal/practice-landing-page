@@ -1,0 +1,50 @@
+[
+  {
+    "id": 73,
+    "title": "Chapter 13: Simplification by Separation",
+    "level": 1,
+    "page": 148,
+    "parent_id": 72,
+    "children_ids": [
+      74,
+      75,
+      76
+    ],
+    "start_page": 148,
+    "end_page": 153,
+    "page_count": 6
+  },
+  {
+    "id": 74,
+    "title": "Complex Business Rules",
+    "level": 2,
+    "page": 148,
+    "parent_id": 73,
+    "children_ids": [],
+    "start_page": 148,
+    "end_page": 150,
+    "page_count": 3
+  },
+  {
+    "id": 75,
+    "title": "Rental History",
+    "level": 2,
+    "page": 151,
+    "parent_id": 73,
+    "children_ids": [],
+    "start_page": 151,
+    "end_page": 152,
+    "page_count": 2
+  },
+  {
+    "id": 76,
+    "title": "Summary",
+    "level": 2,
+    "page": 153,
+    "parent_id": 73,
+    "children_ids": [],
+    "start_page": 153,
+    "end_page": 153,
+    "page_count": 1
+  }
+]

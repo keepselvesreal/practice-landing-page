@@ -1,0 +1,134 @@
+[
+  {
+    "id": 171,
+    "title": "Chapter 23: A Case Study: Bomb Shelter Studios",
+    "level": 1,
+    "page": 292,
+    "parent_id": 170,
+    "children_ids": [
+      172,
+      173,
+      174,
+      175,
+      176,
+      177,
+      178,
+      179,
+      180,
+      181
+    ],
+    "start_page": 292,
+    "end_page": 343,
+    "page_count": 52
+  },
+  {
+    "id": 172,
+    "title": "Day 1—Monday Morning",
+    "level": 2,
+    "page": 293,
+    "parent_id": 171,
+    "children_ids": [],
+    "start_page": 293,
+    "end_page": 300,
+    "page_count": 8
+  },
+  {
+    "id": 173,
+    "title": "Estimating the User Stories",
+    "level": 2,
+    "page": 301,
+    "parent_id": 171,
+    "children_ids": [],
+    "start_page": 301,
+    "end_page": 311,
+    "page_count": 11
+  },
+  {
+    "id": 174,
+    "title": "Preparing for Product Research",
+    "level": 2,
+    "page": 312,
+    "parent_id": 171,
+    "children_ids": [],
+    "start_page": 312,
+    "end_page": 314,
+    "page_count": 3
+  },
+  {
+    "id": 175,
+    "title": "Iteration and Release Planning, Round 1",
+    "level": 2,
+    "page": 315,
+    "parent_id": 171,
+    "children_ids": [],
+    "start_page": 315,
+    "end_page": 332,
+    "page_count": 18
+  },
+  {
+    "id": 176,
+    "title": "Two Weeks Later",
+    "level": 2,
+    "page": 333,
+    "parent_id": 171,
+    "children_ids": [],
+    "start_page": 333,
+    "end_page": 333,
+    "page_count": 1
+  },
+  {
+    "id": 177,
+    "title": "Planning the Second Iteration",
+    "level": 2,
+    "page": 334,
+    "parent_id": 171,
+    "children_ids": [],
+    "start_page": 334,
+    "end_page": 335,
+    "page_count": 2
+  },
+  {
+    "id": 178,
+    "title": "Two Weeks Later",
+    "level": 2,
+    "page": 336,
+    "parent_id": 171,
+    "children_ids": [],
+    "start_page": 336,
+    "end_page": 336,
+    "page_count": 1
+  },
+  {
+    "id": 179,
+    "title": "Revising the Release Plan",
+    "level": 2,
+    "page": 336,
+    "parent_id": 171,
+    "children_ids": [],
+    "start_page": 336,
+    "end_page": 338,
+    "page_count": 3
+  },
+  {
+    "id": 180,
+    "title": "Presenting the Revised Plan to Phil",
+    "level": 2,
+    "page": 339,
+    "parent_id": 171,
+    "children_ids": [],
+    "start_page": 339,
+    "end_page": 342,
+    "page_count": 4
+  },
+  {
+    "id": 181,
+    "title": "Eighteen Weeks Later",
+    "level": 2,
+    "page": 343,
+    "parent_id": 171,
+    "children_ids": [],
+    "start_page": 343,
+    "end_page": 343,
+    "page_count": 1
+  }
+]

@@ -1,0 +1,245 @@
+[
+  {
+    "id": 190,
+    "title": "11 Streams and processes: working with infinite data",
+    "level": 1,
+    "page": 317,
+    "parent_id": 189,
+    "children_ids": [
+      191,
+      198,
+      205,
+      209
+    ],
+    "start_page": 317,
+    "end_page": 349,
+    "page_count": 33
+  },
+  {
+    "id": 191,
+    "title": "11.1 Streams: generating and processing infinite lists",
+    "level": 2,
+    "page": 318,
+    "parent_id": 190,
+    "children_ids": [
+      192,
+      193,
+      194,
+      195,
+      196,
+      197
+    ],
+    "start_page": 318,
+    "end_page": 330,
+    "page_count": 13
+  },
+  {
+    "id": 192,
+    "title": "11.1.1 Labeling elements in a List",
+    "level": 3,
+    "page": 319,
+    "parent_id": 191,
+    "children_ids": [],
+    "start_page": 319,
+    "end_page": 320,
+    "page_count": 2
+  },
+  {
+    "id": 193,
+    "title": "11.1.2 Producing an infinite list of numbers",
+    "level": 3,
+    "page": 321,
+    "parent_id": 191,
+    "children_ids": [],
+    "start_page": 321,
+    "end_page": 321,
+    "page_count": 1
+  },
+  {
+    "id": 194,
+    "title": "11.1.3 Digression: what does it mean for a function to be total?",
+    "level": 3,
+    "page": 322,
+    "parent_id": 191,
+    "children_ids": [],
+    "start_page": 322,
+    "end_page": 322,
+    "page_count": 1
+  },
+  {
+    "id": 195,
+    "title": "11.1.4 Processing infinite lists",
+    "level": 3,
+    "page": 323,
+    "parent_id": 191,
+    "children_ids": [],
+    "start_page": 323,
+    "end_page": 324,
+    "page_count": 2
+  },
+  {
+    "id": 196,
+    "title": "11.1.5 The Stream data type",
+    "level": 3,
+    "page": 325,
+    "parent_id": 191,
+    "children_ids": [],
+    "start_page": 325,
+    "end_page": 326,
+    "page_count": 2
+  },
+  {
+    "id": 197,
+    "title": "11.1.6 An arithmetic quiz using streams of random numbers",
+    "level": 3,
+    "page": 327,
+    "parent_id": 191,
+    "children_ids": [],
+    "start_page": 327,
+    "end_page": 330,
+    "page_count": 4
+  },
+  {
+    "id": 198,
+    "title": "11.2 Infinite processes: writing interactive total programs",
+    "level": 2,
+    "page": 331,
+    "parent_id": 190,
+    "children_ids": [
+      199,
+      200,
+      201,
+      202,
+      203,
+      204
+    ],
+    "start_page": 331,
+    "end_page": 339,
+    "page_count": 9
+  },
+  {
+    "id": 199,
+    "title": "11.2.1 Describing infinite processes",
+    "level": 3,
+    "page": 332,
+    "parent_id": 198,
+    "children_ids": [],
+    "start_page": 332,
+    "end_page": 332,
+    "page_count": 1
+  },
+  {
+    "id": 200,
+    "title": "11.2.2 Executing infinite processes",
+    "level": 3,
+    "page": 333,
+    "parent_id": 198,
+    "children_ids": [],
+    "start_page": 333,
+    "end_page": 333,
+    "page_count": 1
+  },
+  {
+    "id": 201,
+    "title": "11.2.3 Executing infinite processes as total functions",
+    "level": 3,
+    "page": 334,
+    "parent_id": 198,
+    "children_ids": [],
+    "start_page": 334,
+    "end_page": 334,
+    "page_count": 1
+  },
+  {
+    "id": 202,
+    "title": "11.2.4 Generating infinite structures using Lazy types",
+    "level": 3,
+    "page": 335,
+    "parent_id": 198,
+    "children_ids": [],
+    "start_page": 335,
+    "end_page": 336,
+    "page_count": 2
+  },
+  {
+    "id": 203,
+    "title": "11.2.5 Extending do notation for InfIO",
+    "level": 3,
+    "page": 337,
+    "parent_id": 198,
+    "children_ids": [],
+    "start_page": 337,
+    "end_page": 337,
+    "page_count": 1
+  },
+  {
+    "id": 204,
+    "title": "11.2.6 A total arithmetic quiz",
+    "level": 3,
+    "page": 337,
+    "parent_id": 198,
+    "children_ids": [],
+    "start_page": 337,
+    "end_page": 339,
+    "page_count": 3
+  },
+  {
+    "id": 205,
+    "title": "11.3 Interactive programs with termination",
+    "level": 2,
+    "page": 340,
+    "parent_id": 190,
+    "children_ids": [
+      206,
+      207,
+      208
+    ],
+    "start_page": 340,
+    "end_page": 348,
+    "page_count": 9
+  },
+  {
+    "id": 206,
+    "title": "11.3.1 Refining InfIO: introducing termination",
+    "level": 3,
+    "page": 340,
+    "parent_id": 205,
+    "children_ids": [],
+    "start_page": 340,
+    "end_page": 342,
+    "page_count": 3
+  },
+  {
+    "id": 207,
+    "title": "11.3.2 Domain-specific commands",
+    "level": 3,
+    "page": 343,
+    "parent_id": 205,
+    "children_ids": [],
+    "start_page": 343,
+    "end_page": 345,
+    "page_count": 3
+  },
+  {
+    "id": 208,
+    "title": "11.3.3 Sequencing Commands with do notation",
+    "level": 3,
+    "page": 346,
+    "parent_id": 205,
+    "children_ids": [],
+    "start_page": 346,
+    "end_page": 348,
+    "page_count": 3
+  },
+  {
+    "id": 209,
+    "title": "11.4 Summary",
+    "level": 2,
+    "page": 349,
+    "parent_id": 190,
+    "children_ids": [],
+    "start_page": 349,
+    "end_page": 349,
+    "page_count": 1
+  }
+]

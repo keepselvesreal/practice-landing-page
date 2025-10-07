@@ -1,0 +1,38 @@
+[
+  {
+    "id": 86,
+    "title": "Chapter 16: Developer Acceptance Tests",
+    "level": 1,
+    "page": 168,
+    "parent_id": 72,
+    "children_ids": [
+      87,
+      88
+    ],
+    "start_page": 168,
+    "end_page": 175,
+    "page_count": 8
+  },
+  {
+    "id": 87,
+    "title": "Component Acceptance Tests",
+    "level": 2,
+    "page": 168,
+    "parent_id": 86,
+    "children_ids": [],
+    "start_page": 168,
+    "end_page": 173,
+    "page_count": 6
+  },
+  {
+    "id": 88,
+    "title": "Summary",
+    "level": 2,
+    "page": 174,
+    "parent_id": 86,
+    "children_ids": [],
+    "start_page": 174,
+    "end_page": 175,
+    "page_count": 2
+  }
+]

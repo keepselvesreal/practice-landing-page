@@ -1,0 +1,86 @@
+[
+  {
+    "id": 97,
+    "title": "Chapter 14: The Sniper Wins the Auction",
+    "level": 1,
+    "page": 164,
+    "parent_id": 71,
+    "children_ids": [
+      98,
+      99,
+      100,
+      101,
+      102,
+      103
+    ],
+    "start_page": 164,
+    "end_page": 173,
+    "page_count": 10
+  },
+  {
+    "id": 98,
+    "title": "First, a Failing Test",
+    "level": 2,
+    "page": 164,
+    "parent_id": 97,
+    "children_ids": [],
+    "start_page": 164,
+    "end_page": 164,
+    "page_count": 1
+  },
+  {
+    "id": 99,
+    "title": "Who Knows about Bidders?",
+    "level": 2,
+    "page": 165,
+    "parent_id": 97,
+    "children_ids": [],
+    "start_page": 165,
+    "end_page": 167,
+    "page_count": 3
+  },
+  {
+    "id": 100,
+    "title": "The Sniper Has More to Say",
+    "level": 2,
+    "page": 168,
+    "parent_id": 97,
+    "children_ids": [],
+    "start_page": 168,
+    "end_page": 168,
+    "page_count": 1
+  },
+  {
+    "id": 101,
+    "title": "The Sniper Acquires Some State",
+    "level": 2,
+    "page": 169,
+    "parent_id": 97,
+    "children_ids": [],
+    "start_page": 169,
+    "end_page": 170,
+    "page_count": 2
+  },
+  {
+    "id": 102,
+    "title": "The Sniper Wins",
+    "level": 2,
+    "page": 171,
+    "parent_id": 97,
+    "children_ids": [],
+    "start_page": 171,
+    "end_page": 172,
+    "page_count": 2
+  },
+  {
+    "id": 103,
+    "title": "Making Steady Progress",
+    "level": 2,
+    "page": 173,
+    "parent_id": 97,
+    "children_ids": [],
+    "start_page": 173,
+    "end_page": 173,
+    "page_count": 1
+  }
+]

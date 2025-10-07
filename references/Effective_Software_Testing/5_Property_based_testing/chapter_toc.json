@@ -1,0 +1,147 @@
+[
+  {
+    "id": 114,
+    "title": "5 Property-based testing",
+    "level": 0,
+    "page": 145,
+    "parent_id": null,
+    "children_ids": [
+      115,
+      116,
+      117,
+      118,
+      119,
+      120,
+      124,
+      125
+    ],
+    "start_page": 145,
+    "end_page": 168,
+    "page_count": 24
+  },
+  {
+    "id": 115,
+    "title": "5.1 Example 1: The passing grade program",
+    "level": 1,
+    "page": 146,
+    "parent_id": 114,
+    "children_ids": [],
+    "start_page": 146,
+    "end_page": 149,
+    "page_count": 4
+  },
+  {
+    "id": 116,
+    "title": "5.2 Example 2: Testing the unique method",
+    "level": 1,
+    "page": 150,
+    "parent_id": 114,
+    "children_ids": [],
+    "start_page": 150,
+    "end_page": 151,
+    "page_count": 2
+  },
+  {
+    "id": 117,
+    "title": "5.3 Example 3: Testing the indexOf method",
+    "level": 1,
+    "page": 152,
+    "parent_id": 114,
+    "children_ids": [],
+    "start_page": 152,
+    "end_page": 156,
+    "page_count": 5
+  },
+  {
+    "id": 118,
+    "title": "5.4 Example 4: Testing the Basket class",
+    "level": 1,
+    "page": 157,
+    "parent_id": 114,
+    "children_ids": [],
+    "start_page": 157,
+    "end_page": 163,
+    "page_count": 7
+  },
+  {
+    "id": 119,
+    "title": "5.5 Example 5: Creating complex domain objects",
+    "level": 1,
+    "page": 164,
+    "parent_id": 114,
+    "children_ids": [],
+    "start_page": 164,
+    "end_page": 164,
+    "page_count": 1
+  },
+  {
+    "id": 120,
+    "title": "5.6 Property-based testing in the real world",
+    "level": 1,
+    "page": 165,
+    "parent_id": 114,
+    "children_ids": [
+      121,
+      122,
+      123
+    ],
+    "start_page": 165,
+    "end_page": 166,
+    "page_count": 2
+  },
+  {
+    "id": 121,
+    "title": "5.6.1 Example-based testing vs. property-based testing",
+    "level": 2,
+    "page": 165,
+    "parent_id": 120,
+    "children_ids": [],
+    "start_page": 165,
+    "end_page": 165,
+    "page_count": 1
+  },
+  {
+    "id": 122,
+    "title": "5.6.2 Common issues in property-based tests",
+    "level": 2,
+    "page": 166,
+    "parent_id": 120,
+    "children_ids": [],
+    "start_page": 166,
+    "end_page": 166,
+    "page_count": 1
+  },
+  {
+    "id": 123,
+    "title": "5.6.3 Creativity is key",
+    "level": 2,
+    "page": 167,
+    "parent_id": 120,
+    "children_ids": [],
+    "start_page": 167,
+    "end_page": 167,
+    "page_count": 1
+  },
+  {
+    "id": 124,
+    "title": "Exercises",
+    "level": 1,
+    "page": 167,
+    "parent_id": 114,
+    "children_ids": [],
+    "start_page": 167,
+    "end_page": 167,
+    "page_count": 1
+  },
+  {
+    "id": 125,
+    "title": "Summary",
+    "level": 1,
+    "page": 167,
+    "parent_id": 114,
+    "children_ids": [],
+    "start_page": 167,
+    "end_page": 168,
+    "page_count": 2
+  }
+]

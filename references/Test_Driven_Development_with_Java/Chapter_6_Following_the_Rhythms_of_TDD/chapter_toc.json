@@ -1,0 +1,123 @@
+[
+  {
+    "id": 95,
+    "title": "Chapter 6: Following the Rhythms of TDD",
+    "level": 0,
+    "page": 98,
+    "parent_id": null,
+    "children_ids": [
+      96,
+      97,
+      101,
+      102,
+      103,
+      104
+    ],
+    "start_page": 98,
+    "end_page": 117,
+    "page_count": 20
+  },
+  {
+    "id": 96,
+    "title": "Technical requirements",
+    "level": 1,
+    "page": 98,
+    "parent_id": 95,
+    "children_ids": [],
+    "start_page": 98,
+    "end_page": 98,
+    "page_count": 1
+  },
+  {
+    "id": 97,
+    "title": "Following the RGR cycle",
+    "level": 1,
+    "page": 98,
+    "parent_id": 95,
+    "children_ids": [
+      98,
+      99,
+      100
+    ],
+    "start_page": 98,
+    "end_page": 101,
+    "page_count": 4
+  },
+  {
+    "id": 98,
+    "title": "Starting on red",
+    "level": 2,
+    "page": 99,
+    "parent_id": 97,
+    "children_ids": [],
+    "start_page": 99,
+    "end_page": 99,
+    "page_count": 1
+  },
+  {
+    "id": 99,
+    "title": "Keep it simple – moving to green",
+    "level": 2,
+    "page": 100,
+    "parent_id": 97,
+    "children_ids": [],
+    "start_page": 100,
+    "end_page": 100,
+    "page_count": 1
+  },
+  {
+    "id": 100,
+    "title": "Refactoring to clean code",
+    "level": 2,
+    "page": 101,
+    "parent_id": 97,
+    "children_ids": [],
+    "start_page": 101,
+    "end_page": 101,
+    "page_count": 1
+  },
+  {
+    "id": 101,
+    "title": "Writing our next tests for Wordz",
+    "level": 1,
+    "page": 102,
+    "parent_id": 95,
+    "children_ids": [],
+    "start_page": 102,
+    "end_page": 114,
+    "page_count": 13
+  },
+  {
+    "id": 102,
+    "title": "Summary",
+    "level": 1,
+    "page": 115,
+    "parent_id": 95,
+    "children_ids": [],
+    "start_page": 115,
+    "end_page": 115,
+    "page_count": 1
+  },
+  {
+    "id": 103,
+    "title": "Questions and answers",
+    "level": 1,
+    "page": 115,
+    "parent_id": 95,
+    "children_ids": [],
+    "start_page": 115,
+    "end_page": 115,
+    "page_count": 1
+  },
+  {
+    "id": 104,
+    "title": "Further reading",
+    "level": 1,
+    "page": 116,
+    "parent_id": 95,
+    "children_ids": [],
+    "start_page": 116,
+    "end_page": 117,
+    "page_count": 2
+  }
+]

@@ -1,0 +1,466 @@
+[
+  {
+    "id": 126,
+    "title": "Chapter€7.€Things You Should Know",
+    "level": 1,
+    "page": 118,
+    "parent_id": 119,
+    "children_ids": [
+      127,
+      133,
+      134,
+      135,
+      136,
+      137,
+      138,
+      141,
+      145,
+      148,
+      152,
+      156,
+      157
+    ],
+    "start_page": 118,
+    "end_page": 151,
+    "page_count": 34
+  },
+  {
+    "id": 127,
+    "title": "7.1.€What Values To Check?",
+    "level": 2,
+    "page": 118,
+    "parent_id": 126,
+    "children_ids": [
+      128,
+      129,
+      130,
+      131,
+      132
+    ],
+    "start_page": 118,
+    "end_page": 121,
+    "page_count": 4
+  },
+  {
+    "id": 128,
+    "title": "7.1.1.€Expected Values",
+    "level": 3,
+    "page": 118,
+    "parent_id": 127,
+    "children_ids": [],
+    "start_page": 118,
+    "end_page": 118,
+    "page_count": 1
+  },
+  {
+    "id": 129,
+    "title": "7.1.2.€Boundary Values",
+    "level": 3,
+    "page": 119,
+    "parent_id": 127,
+    "children_ids": [],
+    "start_page": 119,
+    "end_page": 119,
+    "page_count": 1
+  },
+  {
+    "id": 130,
+    "title": "7.1.3.€Strange Values",
+    "level": 3,
+    "page": 119,
+    "parent_id": 127,
+    "children_ids": [],
+    "start_page": 119,
+    "end_page": 119,
+    "page_count": 1
+  },
+  {
+    "id": 131,
+    "title": "7.1.4.€Should You Always Care?",
+    "level": 3,
+    "page": 120,
+    "parent_id": 127,
+    "children_ids": [],
+    "start_page": 120,
+    "end_page": 120,
+    "page_count": 1
+  },
+  {
+    "id": 132,
+    "title": "7.1.5.€Not Only Input Parameters",
+    "level": 3,
+    "page": 121,
+    "parent_id": 127,
+    "children_ids": [],
+    "start_page": 121,
+    "end_page": 121,
+    "page_count": 1
+  },
+  {
+    "id": 133,
+    "title": "7.2.€How To Choose the Next Test To Write",
+    "level": 2,
+    "page": 122,
+    "parent_id": 126,
+    "children_ids": [],
+    "start_page": 122,
+    "end_page": 122,
+    "page_count": 1
+  },
+  {
+    "id": 134,
+    "title": "7.3.€How to skip a test?",
+    "level": 2,
+    "page": 123,
+    "parent_id": 126,
+    "children_ids": [],
+    "start_page": 123,
+    "end_page": 124,
+    "page_count": 2
+  },
+  {
+    "id": 135,
+    "title": "7.4.€More about Expected Exceptions",
+    "level": 2,
+    "page": 125,
+    "parent_id": 126,
+    "children_ids": [],
+    "start_page": 125,
+    "end_page": 125,
+    "page_count": 1
+  },
+  {
+    "id": 136,
+    "title": "7.5.€Mockito Exceptions",
+    "level": 2,
+    "page": 126,
+    "parent_id": 126,
+    "children_ids": [],
+    "start_page": 126,
+    "end_page": 126,
+    "page_count": 1
+  },
+  {
+    "id": 137,
+    "title": "7.6.€Stubbing Void Methods",
+    "level": 2,
+    "page": 127,
+    "parent_id": 126,
+    "children_ids": [],
+    "start_page": 127,
+    "end_page": 127,
+    "page_count": 1
+  },
+  {
+    "id": 138,
+    "title": "7.7.€Mockito Matchers",
+    "level": 2,
+    "page": 127,
+    "parent_id": 126,
+    "children_ids": [
+      139,
+      140
+    ],
+    "start_page": 127,
+    "end_page": 129,
+    "page_count": 3
+  },
+  {
+    "id": 139,
+    "title": "7.7.1.€Hamcrest Matchers Integration",
+    "level": 3,
+    "page": 129,
+    "parent_id": 138,
+    "children_ids": [],
+    "start_page": 129,
+    "end_page": 129,
+    "page_count": 1
+  },
+  {
+    "id": 140,
+    "title": "7.7.2.€Matchers Warning",
+    "level": 3,
+    "page": 130,
+    "parent_id": 138,
+    "children_ids": [],
+    "start_page": 130,
+    "end_page": 130,
+    "page_count": 1
+  },
+  {
+    "id": 141,
+    "title": "7.8.€Unit Testing Asynchronous Code",
+    "level": 2,
+    "page": 130,
+    "parent_id": 126,
+    "children_ids": [
+      142,
+      143,
+      144
+    ],
+    "start_page": 130,
+    "end_page": 135,
+    "page_count": 6
+  },
+  {
+    "id": 142,
+    "title": "7.8.1.€Waiting for the Asynchronous Task to Finish",
+    "level": 3,
+    "page": 133,
+    "parent_id": 141,
+    "children_ids": [],
+    "start_page": 133,
+    "end_page": 134,
+    "page_count": 2
+  },
+  {
+    "id": 143,
+    "title": "7.8.2.€Making Asynchronous Synchronous",
+    "level": 3,
+    "page": 135,
+    "parent_id": 141,
+    "children_ids": [],
+    "start_page": 135,
+    "end_page": 135,
+    "page_count": 1
+  },
+  {
+    "id": 144,
+    "title": "7.8.3.€Conclusions",
+    "level": 3,
+    "page": 136,
+    "parent_id": 141,
+    "children_ids": [],
+    "start_page": 136,
+    "end_page": 136,
+    "page_count": 1
+  },
+  {
+    "id": 145,
+    "title": "7.9.€Time is not on Your Side",
+    "level": 2,
+    "page": 136,
+    "parent_id": 126,
+    "children_ids": [
+      146,
+      147
+    ],
+    "start_page": 136,
+    "end_page": 140,
+    "page_count": 5
+  },
+  {
+    "id": 146,
+    "title": "7.9.1.€Test Every Date (Within Reason)",
+    "level": 3,
+    "page": 140,
+    "parent_id": 145,
+    "children_ids": [],
+    "start_page": 140,
+    "end_page": 140,
+    "page_count": 1
+  },
+  {
+    "id": 147,
+    "title": "7.9.2.€Conclusions",
+    "level": 3,
+    "page": 141,
+    "parent_id": 145,
+    "children_ids": [],
+    "start_page": 141,
+    "end_page": 141,
+    "page_count": 1
+  },
+  {
+    "id": 148,
+    "title": "7.10.€Testing Collections",
+    "level": 2,
+    "page": 141,
+    "parent_id": 126,
+    "children_ids": [
+      149,
+      151
+    ],
+    "start_page": 141,
+    "end_page": 143,
+    "page_count": 3
+  },
+  {
+    "id": 149,
+    "title": "7.10.1.€Specialised Assertions",
+    "level": 3,
+    "page": 141,
+    "parent_id": 148,
+    "children_ids": [
+      150
+    ],
+    "start_page": 141,
+    "end_page": 142,
+    "page_count": 2
+  },
+  {
+    "id": 150,
+    "title": "Testing collections by property",
+    "level": 4,
+    "page": 142,
+    "parent_id": 149,
+    "children_ids": [],
+    "start_page": 142,
+    "end_page": 142,
+    "page_count": 1
+  },
+  {
+    "id": 151,
+    "title": "7.10.2.€The TDD Approach - Step by Step",
+    "level": 3,
+    "page": 143,
+    "parent_id": 148,
+    "children_ids": [],
+    "start_page": 143,
+    "end_page": 143,
+    "page_count": 1
+  },
+  {
+    "id": 152,
+    "title": "7.11.€Parameterized tests revisited",
+    "level": 2,
+    "page": 144,
+    "parent_id": 126,
+    "children_ids": [
+      153,
+      154,
+      155
+    ],
+    "start_page": 144,
+    "end_page": 147,
+    "page_count": 4
+  },
+  {
+    "id": 153,
+    "title": "7.11.1.€Data Provider Method",
+    "level": 3,
+    "page": 144,
+    "parent_id": 152,
+    "children_ids": [],
+    "start_page": 144,
+    "end_page": 145,
+    "page_count": 2
+  },
+  {
+    "id": 154,
+    "title": "7.11.2.€Reading Test Data From CSV File",
+    "level": 3,
+    "page": 146,
+    "parent_id": 152,
+    "children_ids": [],
+    "start_page": 146,
+    "end_page": 146,
+    "page_count": 1
+  },
+  {
+    "id": 155,
+    "title": "7.11.3.€Converters",
+    "level": 3,
+    "page": 147,
+    "parent_id": 152,
+    "children_ids": [],
+    "start_page": 147,
+    "end_page": 147,
+    "page_count": 1
+  },
+  {
+    "id": 156,
+    "title": "7.12.€Conclusions",
+    "level": 2,
+    "page": 148,
+    "parent_id": 126,
+    "children_ids": [],
+    "start_page": 148,
+    "end_page": 148,
+    "page_count": 1
+  },
+  {
+    "id": 157,
+    "title": "7.13.€Exercises",
+    "level": 2,
+    "page": 149,
+    "parent_id": 126,
+    "children_ids": [
+      158,
+      159,
+      160,
+      161,
+      162,
+      163
+    ],
+    "start_page": 149,
+    "end_page": 151,
+    "page_count": 3
+  },
+  {
+    "id": 158,
+    "title": "7.13.1.€Design Test Cases: State Testing",
+    "level": 3,
+    "page": 149,
+    "parent_id": 157,
+    "children_ids": [],
+    "start_page": 149,
+    "end_page": 149,
+    "page_count": 1
+  },
+  {
+    "id": 159,
+    "title": "7.13.2.€Design Test Cases: Interactions Testing",
+    "level": 3,
+    "page": 149,
+    "parent_id": 157,
+    "children_ids": [],
+    "start_page": 149,
+    "end_page": 149,
+    "page_count": 1
+  },
+  {
+    "id": 160,
+    "title": "7.13.3.€Test Collections",
+    "level": 3,
+    "page": 149,
+    "parent_id": 157,
+    "children_ids": [],
+    "start_page": 149,
+    "end_page": 149,
+    "page_count": 1
+  },
+  {
+    "id": 161,
+    "title": "7.13.4.€Time Testing",
+    "level": 3,
+    "page": 150,
+    "parent_id": 157,
+    "children_ids": [],
+    "start_page": 150,
+    "end_page": 150,
+    "page_count": 1
+  },
+  {
+    "id": 162,
+    "title": "7.13.5.€Redesign of the TimeProvider class",
+    "level": 3,
+    "page": 150,
+    "parent_id": 157,
+    "children_ids": [],
+    "start_page": 150,
+    "end_page": 150,
+    "page_count": 1
+  },
+  {
+    "id": 163,
+    "title": "7.13.6.€Write a Custom Matcher",
+    "level": 3,
+    "page": 150,
+    "parent_id": 157,
+    "children_ids": [],
+    "start_page": 150,
+    "end_page": 151,
+    "page_count": 2
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "id": 7,
+    "title": "1. What's Wrong With Layers?",
+    "level": 0,
+    "page": 10,
+    "parent_id": null,
+    "children_ids": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "start_page": 10,
+    "end_page": 16,
+    "page_count": 7
+  },
+  {
+    "id": 8,
+    "title": "It Promotes Database-Driven Design",
+    "level": 1,
+    "page": 11,
+    "parent_id": 7,
+    "children_ids": [],
+    "start_page": 11,
+    "end_page": 11,
+    "page_count": 1
+  },
+  {
+    "id": 9,
+    "title": "It's Prone to Shortcuts",
+    "level": 1,
+    "page": 12,
+    "parent_id": 7,
+    "children_ids": [],
+    "start_page": 12,
+    "end_page": 12,
+    "page_count": 1
+  },
+  {
+    "id": 10,
+    "title": "It Grows Hard to Test",
+    "level": 1,
+    "page": 13,
+    "parent_id": 7,
+    "children_ids": [],
+    "start_page": 13,
+    "end_page": 13,
+    "page_count": 1
+  },
+  {
+    "id": 11,
+    "title": "It Hides the Use Cases",
+    "level": 1,
+    "page": 14,
+    "parent_id": 7,
+    "children_ids": [],
+    "start_page": 14,
+    "end_page": 14,
+    "page_count": 1
+  },
+  {
+    "id": 12,
+    "title": "It Makes Parallel Work Difficult",
+    "level": 1,
+    "page": 15,
+    "parent_id": 7,
+    "children_ids": [],
+    "start_page": 15,
+    "end_page": 15,
+    "page_count": 1
+  },
+  {
+    "id": 13,
+    "title": "How Does This Help Me Build Maintainable Software?",
+    "level": 1,
+    "page": 16,
+    "parent_id": 7,
+    "children_ids": [],
+    "start_page": 16,
+    "end_page": 16,
+    "page_count": 1
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "id": 89,
+    "title": "Chapter 17: Decouple with Interfaces",
+    "level": 1,
+    "page": 176,
+    "parent_id": 72,
+    "children_ids": [
+      90,
+      91,
+      92,
+      93
+    ],
+    "start_page": 176,
+    "end_page": 183,
+    "page_count": 8
+  },
+  {
+    "id": 90,
+    "title": "Tests for a Service Provider",
+    "level": 2,
+    "page": 176,
+    "parent_id": 89,
+    "children_ids": [],
+    "start_page": 176,
+    "end_page": 179,
+    "page_count": 4
+  },
+  {
+    "id": 91,
+    "title": "Separating User Interface from Service",
+    "level": 2,
+    "page": 180,
+    "parent_id": 89,
+    "children_ids": [],
+    "start_page": 180,
+    "end_page": 180,
+    "page_count": 1
+  },
+  {
+    "id": 92,
+    "title": "Reusable Business Rules",
+    "level": 2,
+    "page": 181,
+    "parent_id": 89,
+    "children_ids": [],
+    "start_page": 181,
+    "end_page": 181,
+    "page_count": 1
+  },
+  {
+    "id": 93,
+    "title": "Summary",
+    "level": 2,
+    "page": 182,
+    "parent_id": 89,
+    "children_ids": [],
+    "start_page": 182,
+    "end_page": 183,
+    "page_count": 2
+  }
+]

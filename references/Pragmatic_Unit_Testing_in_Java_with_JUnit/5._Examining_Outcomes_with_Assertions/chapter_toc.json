@@ -1,0 +1,122 @@
+[
+  {
+    "id": 52,
+    "title": "5. Examining Outcomes with Assertions",
+    "level": 1,
+    "page": 117,
+    "parent_id": 51,
+    "children_ids": [
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61
+    ],
+    "start_page": 117,
+    "end_page": 140,
+    "page_count": 24
+  },
+  {
+    "id": 53,
+    "title": "Using the Core Assertion Forms",
+    "level": 2,
+    "page": 118,
+    "parent_id": 52,
+    "children_ids": [],
+    "start_page": 118,
+    "end_page": 120,
+    "page_count": 3
+  },
+  {
+    "id": 54,
+    "title": "Assertion Messages: Redundant Messages for Assertions",
+    "level": 2,
+    "page": 121,
+    "parent_id": 52,
+    "children_ids": [],
+    "start_page": 121,
+    "end_page": 121,
+    "page_count": 1
+  },
+  {
+    "id": 55,
+    "title": "Other Common JUnit Assertion Forms",
+    "level": 2,
+    "page": 122,
+    "parent_id": 52,
+    "children_ids": [],
+    "start_page": 122,
+    "end_page": 129,
+    "page_count": 8
+  },
+  {
+    "id": 56,
+    "title": "Expecting Exceptions",
+    "level": 2,
+    "page": 130,
+    "parent_id": 52,
+    "children_ids": [],
+    "start_page": 130,
+    "end_page": 132,
+    "page_count": 3
+  },
+  {
+    "id": 57,
+    "title": "Assert That Nothing Happened: assertDoesNotThrow",
+    "level": 2,
+    "page": 133,
+    "parent_id": 52,
+    "children_ids": [],
+    "start_page": 133,
+    "end_page": 133,
+    "page_count": 1
+  },
+  {
+    "id": 58,
+    "title": "Alternate Assertion Approaches",
+    "level": 2,
+    "page": 134,
+    "parent_id": 52,
+    "children_ids": [],
+    "start_page": 134,
+    "end_page": 135,
+    "page_count": 2
+  },
+  {
+    "id": 59,
+    "title": "Third-Party Assertion Libraries",
+    "level": 2,
+    "page": 136,
+    "parent_id": 52,
+    "children_ids": [],
+    "start_page": 136,
+    "end_page": 138,
+    "page_count": 3
+  },
+  {
+    "id": 60,
+    "title": "Eliminating Non-Tests",
+    "level": 2,
+    "page": 139,
+    "parent_id": 52,
+    "children_ids": [],
+    "start_page": 139,
+    "end_page": 139,
+    "page_count": 1
+  },
+  {
+    "id": 61,
+    "title": "Summary",
+    "level": 2,
+    "page": 140,
+    "parent_id": 52,
+    "children_ids": [],
+    "start_page": 140,
+    "end_page": 140,
+    "page_count": 1
+  }
+]

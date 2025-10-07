@@ -1,0 +1,98 @@
+[
+  {
+    "id": 16,
+    "title": "Chapter 2: Test-Driven Development with Objects",
+    "level": 1,
+    "page": 38,
+    "parent_id": 6,
+    "children_ids": [
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "start_page": 38,
+    "end_page": 45,
+    "page_count": 8
+  },
+  {
+    "id": 17,
+    "title": "A Web of Objects",
+    "level": 2,
+    "page": 38,
+    "parent_id": 16,
+    "children_ids": [],
+    "start_page": 38,
+    "end_page": 38,
+    "page_count": 1
+  },
+  {
+    "id": 18,
+    "title": "Values and Objects",
+    "level": 2,
+    "page": 38,
+    "parent_id": 16,
+    "children_ids": [],
+    "start_page": 38,
+    "end_page": 38,
+    "page_count": 1
+  },
+  {
+    "id": 19,
+    "title": "Follow the Messages",
+    "level": 2,
+    "page": 39,
+    "parent_id": 16,
+    "children_ids": [],
+    "start_page": 39,
+    "end_page": 41,
+    "page_count": 3
+  },
+  {
+    "id": 20,
+    "title": "Tell, Don't Ask",
+    "level": 2,
+    "page": 42,
+    "parent_id": 16,
+    "children_ids": [],
+    "start_page": 42,
+    "end_page": 42,
+    "page_count": 1
+  },
+  {
+    "id": 21,
+    "title": "But Sometimes Ask",
+    "level": 2,
+    "page": 42,
+    "parent_id": 16,
+    "children_ids": [],
+    "start_page": 42,
+    "end_page": 42,
+    "page_count": 1
+  },
+  {
+    "id": 22,
+    "title": "Unit-Testing the Collaborating Objects",
+    "level": 2,
+    "page": 43,
+    "parent_id": 16,
+    "children_ids": [],
+    "start_page": 43,
+    "end_page": 43,
+    "page_count": 1
+  },
+  {
+    "id": 23,
+    "title": "Support for TDD with Mock Objects",
+    "level": 2,
+    "page": 44,
+    "parent_id": 16,
+    "children_ids": [],
+    "start_page": 44,
+    "end_page": 45,
+    "page_count": 2
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "id": 121,
+    "title": "Chapter 18: Filling In the Details",
+    "level": 1,
+    "page": 230,
+    "parent_id": 71,
+    "children_ids": [
+      122,
+      123,
+      124
+    ],
+    "start_page": 230,
+    "end_page": 239,
+    "page_count": 10
+  },
+  {
+    "id": 122,
+    "title": "A More Useful Application",
+    "level": 2,
+    "page": 230,
+    "parent_id": 121,
+    "children_ids": [],
+    "start_page": 230,
+    "end_page": 230,
+    "page_count": 1
+  },
+  {
+    "id": 123,
+    "title": "Stop When We've Had Enough",
+    "level": 2,
+    "page": 230,
+    "parent_id": 121,
+    "children_ids": [],
+    "start_page": 230,
+    "end_page": 236,
+    "page_count": 7
+  },
+  {
+    "id": 124,
+    "title": "Observations",
+    "level": 2,
+    "page": 237,
+    "parent_id": 121,
+    "children_ids": [],
+    "start_page": 237,
+    "end_page": 239,
+    "page_count": 3
+  }
+]

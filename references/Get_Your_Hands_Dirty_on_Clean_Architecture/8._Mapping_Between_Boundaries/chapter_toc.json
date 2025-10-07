@@ -1,0 +1,86 @@
+[
+  {
+    "id": 60,
+    "title": "8. Mapping Between Boundaries",
+    "level": 0,
+    "page": 76,
+    "parent_id": null,
+    "children_ids": [
+      61,
+      62,
+      63,
+      64,
+      65,
+      66
+    ],
+    "start_page": 76,
+    "end_page": 82,
+    "page_count": 7
+  },
+  {
+    "id": 61,
+    "title": "The ``No Mapping'' Strategy",
+    "level": 1,
+    "page": 76,
+    "parent_id": 60,
+    "children_ids": [],
+    "start_page": 76,
+    "end_page": 76,
+    "page_count": 1
+  },
+  {
+    "id": 62,
+    "title": "The ``Two-Way'' Mapping Strategy",
+    "level": 1,
+    "page": 77,
+    "parent_id": 60,
+    "children_ids": [],
+    "start_page": 77,
+    "end_page": 78,
+    "page_count": 2
+  },
+  {
+    "id": 63,
+    "title": "The ``Full'' Mapping Strategy",
+    "level": 1,
+    "page": 79,
+    "parent_id": 60,
+    "children_ids": [],
+    "start_page": 79,
+    "end_page": 79,
+    "page_count": 1
+  },
+  {
+    "id": 64,
+    "title": "The ``One-Way'' Mapping Strategy",
+    "level": 1,
+    "page": 80,
+    "parent_id": 60,
+    "children_ids": [],
+    "start_page": 80,
+    "end_page": 80,
+    "page_count": 1
+  },
+  {
+    "id": 65,
+    "title": "When to use which Mapping Strategy?",
+    "level": 1,
+    "page": 81,
+    "parent_id": 60,
+    "children_ids": [],
+    "start_page": 81,
+    "end_page": 81,
+    "page_count": 1
+  },
+  {
+    "id": 66,
+    "title": "How Does This Help Me Build Maintainable Software?",
+    "level": 1,
+    "page": 82,
+    "parent_id": 60,
+    "children_ids": [],
+    "start_page": 82,
+    "end_page": 82,
+    "page_count": 1
+  }
+]

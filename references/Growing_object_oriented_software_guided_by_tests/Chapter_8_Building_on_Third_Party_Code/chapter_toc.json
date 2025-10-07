@@ -1,0 +1,73 @@
+[
+  {
+    "id": 67,
+    "title": "Chapter 8: Building on Third-Party Code",
+    "level": 1,
+    "page": 94,
+    "parent_id": 29,
+    "children_ids": [
+      68,
+      69,
+      70
+    ],
+    "start_page": 94,
+    "end_page": 97,
+    "page_count": 4
+  },
+  {
+    "id": 68,
+    "title": "Introduction",
+    "level": 2,
+    "page": 94,
+    "parent_id": 67,
+    "children_ids": [],
+    "start_page": 94,
+    "end_page": 94,
+    "page_count": 1
+  },
+  {
+    "id": 69,
+    "title": "Only Mock Types That You Own",
+    "level": 2,
+    "page": 94,
+    "parent_id": 67,
+    "children_ids": [],
+    "start_page": 94,
+    "end_page": 95,
+    "page_count": 2
+  },
+  {
+    "id": 70,
+    "title": "Mock Application Objects in Integration Tests",
+    "level": 2,
+    "page": 96,
+    "parent_id": 67,
+    "children_ids": [],
+    "start_page": 96,
+    "end_page": 97,
+    "page_count": 2
+  },
+  {
+    "id": 71,
+    "title": "Part III: A Worked Example",
+    "level": 0,
+    "page": 98,
+    "parent_id": null,
+    "children_ids": [
+      72,
+      77,
+      81,
+      85,
+      91,
+      97,
+      104,
+      111,
+      115,
+      121,
+      125
+    ],
+    "start_page": 98,
+    "end_page": 251,
+    "page_count": 154
+  }
+]

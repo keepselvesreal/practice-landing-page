@@ -1,0 +1,366 @@
+[
+  {
+    "id": 208,
+    "title": "11 Integrating unit testing into the organization",
+    "level": 1,
+    "page": 241,
+    "parent_id": 181,
+    "children_ids": [
+      209,
+      213,
+      221,
+      226,
+      227,
+      237
+    ],
+    "start_page": 241,
+    "end_page": 258,
+    "page_count": 18
+  },
+  {
+    "id": 209,
+    "title": "11.1 Steps to becoming an agent of change",
+    "level": 2,
+    "page": 241,
+    "parent_id": 208,
+    "children_ids": [
+      210,
+      211,
+      212
+    ],
+    "start_page": 241,
+    "end_page": 243,
+    "page_count": 3
+  },
+  {
+    "id": 210,
+    "title": "11.1.1 Be prepared for the tough questions",
+    "level": 3,
+    "page": 242,
+    "parent_id": 209,
+    "children_ids": [],
+    "start_page": 242,
+    "end_page": 242,
+    "page_count": 1
+  },
+  {
+    "id": 211,
+    "title": "11.1.2 Convince insiders: Champions and blockers",
+    "level": 3,
+    "page": 242,
+    "parent_id": 209,
+    "children_ids": [],
+    "start_page": 242,
+    "end_page": 242,
+    "page_count": 1
+  },
+  {
+    "id": 212,
+    "title": "11.1.3 Identify possible starting points",
+    "level": 3,
+    "page": 243,
+    "parent_id": 209,
+    "children_ids": [],
+    "start_page": 243,
+    "end_page": 243,
+    "page_count": 1
+  },
+  {
+    "id": 213,
+    "title": "11.2 Ways to succeed",
+    "level": 2,
+    "page": 244,
+    "parent_id": 208,
+    "children_ids": [
+      214,
+      215,
+      216,
+      217,
+      218,
+      219,
+      220
+    ],
+    "start_page": 244,
+    "end_page": 249,
+    "page_count": 6
+  },
+  {
+    "id": 214,
+    "title": "11.2.1 Guerrilla implementation (bottom-up)",
+    "level": 3,
+    "page": 245,
+    "parent_id": 213,
+    "children_ids": [],
+    "start_page": 245,
+    "end_page": 245,
+    "page_count": 1
+  },
+  {
+    "id": 215,
+    "title": "11.2.2 Convincing management (top-down)",
+    "level": 3,
+    "page": 245,
+    "parent_id": 213,
+    "children_ids": [],
+    "start_page": 245,
+    "end_page": 245,
+    "page_count": 1
+  },
+  {
+    "id": 216,
+    "title": "11.2.3 Experiments as door openers",
+    "level": 3,
+    "page": 245,
+    "parent_id": 213,
+    "children_ids": [],
+    "start_page": 245,
+    "end_page": 245,
+    "page_count": 1
+  },
+  {
+    "id": 217,
+    "title": "11.2.4 Get an outside champion",
+    "level": 3,
+    "page": 246,
+    "parent_id": 213,
+    "children_ids": [],
+    "start_page": 246,
+    "end_page": 246,
+    "page_count": 1
+  },
+  {
+    "id": 218,
+    "title": "11.2.5 Make progress visible",
+    "level": 3,
+    "page": 247,
+    "parent_id": 213,
+    "children_ids": [],
+    "start_page": 247,
+    "end_page": 247,
+    "page_count": 1
+  },
+  {
+    "id": 219,
+    "title": "11.2.6 Aim for specific goals, metrics, and KPIs",
+    "level": 3,
+    "page": 248,
+    "parent_id": 213,
+    "children_ids": [],
+    "start_page": 248,
+    "end_page": 249,
+    "page_count": 2
+  },
+  {
+    "id": 220,
+    "title": "11.2.7 Realize that there will be hurdles",
+    "level": 3,
+    "page": 250,
+    "parent_id": 213,
+    "children_ids": [],
+    "start_page": 250,
+    "end_page": 250,
+    "page_count": 1
+  },
+  {
+    "id": 221,
+    "title": "11.3 Ways to fail",
+    "level": 2,
+    "page": 250,
+    "parent_id": 208,
+    "children_ids": [
+      222,
+      223,
+      224,
+      225
+    ],
+    "start_page": 250,
+    "end_page": 251,
+    "page_count": 2
+  },
+  {
+    "id": 222,
+    "title": "11.3.1 Lack of a driving force",
+    "level": 3,
+    "page": 251,
+    "parent_id": 221,
+    "children_ids": [],
+    "start_page": 251,
+    "end_page": 251,
+    "page_count": 1
+  },
+  {
+    "id": 223,
+    "title": "11.3.2 Lack of political support",
+    "level": 3,
+    "page": 251,
+    "parent_id": 221,
+    "children_ids": [],
+    "start_page": 251,
+    "end_page": 251,
+    "page_count": 1
+  },
+  {
+    "id": 224,
+    "title": "11.3.3 Ad hoc implementations and first impressions",
+    "level": 3,
+    "page": 251,
+    "parent_id": 221,
+    "children_ids": [],
+    "start_page": 251,
+    "end_page": 251,
+    "page_count": 1
+  },
+  {
+    "id": 225,
+    "title": "11.3.4 Lack of team support",
+    "level": 3,
+    "page": 252,
+    "parent_id": 221,
+    "children_ids": [],
+    "start_page": 252,
+    "end_page": 252,
+    "page_count": 1
+  },
+  {
+    "id": 226,
+    "title": "11.4 Influence factors",
+    "level": 2,
+    "page": 252,
+    "parent_id": 208,
+    "children_ids": [],
+    "start_page": 252,
+    "end_page": 253,
+    "page_count": 2
+  },
+  {
+    "id": 227,
+    "title": "11.5 Tough questions and answers",
+    "level": 2,
+    "page": 254,
+    "parent_id": 208,
+    "children_ids": [
+      228,
+      229,
+      230,
+      231,
+      232,
+      233,
+      234,
+      235,
+      236
+    ],
+    "start_page": 254,
+    "end_page": 256,
+    "page_count": 3
+  },
+  {
+    "id": 228,
+    "title": "11.5.1 How much time will unit testing add to the current process?",
+    "level": 3,
+    "page": 254,
+    "parent_id": 227,
+    "children_ids": [],
+    "start_page": 254,
+    "end_page": 254,
+    "page_count": 1
+  },
+  {
+    "id": 229,
+    "title": "11.5.2 Will my QA job be at risk because of unit testing?",
+    "level": 3,
+    "page": 255,
+    "parent_id": 227,
+    "children_ids": [],
+    "start_page": 255,
+    "end_page": 255,
+    "page_count": 1
+  },
+  {
+    "id": 230,
+    "title": "11.5.3 Is there proof that unit testing helps?",
+    "level": 3,
+    "page": 256,
+    "parent_id": 227,
+    "children_ids": [],
+    "start_page": 256,
+    "end_page": 256,
+    "page_count": 1
+  },
+  {
+    "id": 231,
+    "title": "11.5.4 Why is the QA department still finding bugs?",
+    "level": 3,
+    "page": 256,
+    "parent_id": 227,
+    "children_ids": [],
+    "start_page": 256,
+    "end_page": 256,
+    "page_count": 1
+  },
+  {
+    "id": 232,
+    "title": "11.5.5 We have lots of code without tests: Where do we start?",
+    "level": 3,
+    "page": 256,
+    "parent_id": 227,
+    "children_ids": [],
+    "start_page": 256,
+    "end_page": 256,
+    "page_count": 1
+  },
+  {
+    "id": 233,
+    "title": "11.5.6 What if we develop a combination of software and hardware?",
+    "level": 3,
+    "page": 257,
+    "parent_id": 227,
+    "children_ids": [],
+    "start_page": 257,
+    "end_page": 257,
+    "page_count": 1
+  },
+  {
+    "id": 234,
+    "title": "11.5.7 How can we know we don’t have bugs in our tests?",
+    "level": 3,
+    "page": 257,
+    "parent_id": 227,
+    "children_ids": [],
+    "start_page": 257,
+    "end_page": 257,
+    "page_count": 1
+  },
+  {
+    "id": 235,
+    "title": "11.5.8 Why do I need tests if my debugger shows that my code works?",
+    "level": 3,
+    "page": 257,
+    "parent_id": 227,
+    "children_ids": [],
+    "start_page": 257,
+    "end_page": 257,
+    "page_count": 1
+  },
+  {
+    "id": 236,
+    "title": "11.5.9 What about TDD?",
+    "level": 3,
+    "page": 257,
+    "parent_id": 227,
+    "children_ids": [],
+    "start_page": 257,
+    "end_page": 257,
+    "page_count": 1
+  },
+  {
+    "id": 237,
+    "title": "Summary",
+    "level": 2,
+    "page": 257,
+    "parent_id": 208,
+    "children_ids": [],
+    "start_page": 257,
+    "end_page": 258,
+    "page_count": 2
+  }
+]

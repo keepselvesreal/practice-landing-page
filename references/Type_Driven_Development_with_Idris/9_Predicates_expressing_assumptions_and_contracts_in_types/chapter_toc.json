@@ -1,0 +1,184 @@
+[
+  {
+    "id": 157,
+    "title": "9 Predicates: expressing assumptions and contracts in types",
+    "level": 1,
+    "page": 262,
+    "parent_id": 56,
+    "children_ids": [
+      158,
+      164,
+      171
+    ],
+    "start_page": 262,
+    "end_page": 283,
+    "page_count": 22
+  },
+  {
+    "id": 158,
+    "title": "9.1 Membership tests: the Elem predicate",
+    "level": 2,
+    "page": 263,
+    "parent_id": 157,
+    "children_ids": [
+      159,
+      160,
+      161,
+      162,
+      163
+    ],
+    "start_page": 263,
+    "end_page": 275,
+    "page_count": 13
+  },
+  {
+    "id": 159,
+    "title": "9.1.1 Removing an element from a Vect",
+    "level": 3,
+    "page": 264,
+    "parent_id": 158,
+    "children_ids": [],
+    "start_page": 264,
+    "end_page": 264,
+    "page_count": 1
+  },
+  {
+    "id": 160,
+    "title": "9.1.2 The Elem type: guaranteeing a value is in a vector",
+    "level": 3,
+    "page": 265,
+    "parent_id": 158,
+    "children_ids": [],
+    "start_page": 265,
+    "end_page": 266,
+    "page_count": 2
+  },
+  {
+    "id": 161,
+    "title": "9.1.3 Removing an element from a Vect: types as contracts",
+    "level": 3,
+    "page": 267,
+    "parent_id": 158,
+    "children_ids": [],
+    "start_page": 267,
+    "end_page": 269,
+    "page_count": 3
+  },
+  {
+    "id": 162,
+    "title": "9.1.4 auto-implicit arguments: automatically constructing proofs",
+    "level": 3,
+    "page": 270,
+    "parent_id": 158,
+    "children_ids": [],
+    "start_page": 270,
+    "end_page": 270,
+    "page_count": 1
+  },
+  {
+    "id": 163,
+    "title": "9.1.5 Decidable predicates: deciding membership of a vector",
+    "level": 3,
+    "page": 271,
+    "parent_id": 158,
+    "children_ids": [],
+    "start_page": 271,
+    "end_page": 275,
+    "page_count": 5
+  },
+  {
+    "id": 164,
+    "title": "9.2 Expressing program state in types: a guessing game",
+    "level": 2,
+    "page": 276,
+    "parent_id": 157,
+    "children_ids": [
+      165,
+      166,
+      167,
+      168,
+      169,
+      170
+    ],
+    "start_page": 276,
+    "end_page": 282,
+    "page_count": 7
+  },
+  {
+    "id": 165,
+    "title": "9.2.1 Representing the game’s state",
+    "level": 3,
+    "page": 276,
+    "parent_id": 164,
+    "children_ids": [],
+    "start_page": 276,
+    "end_page": 276,
+    "page_count": 1
+  },
+  {
+    "id": 166,
+    "title": "9.2.2 A top-level game function",
+    "level": 3,
+    "page": 277,
+    "parent_id": 164,
+    "children_ids": [],
+    "start_page": 277,
+    "end_page": 277,
+    "page_count": 1
+  },
+  {
+    "id": 167,
+    "title": "9.2.3 A predicate for validating user input: ValidInput",
+    "level": 3,
+    "page": 277,
+    "parent_id": 164,
+    "children_ids": [],
+    "start_page": 277,
+    "end_page": 278,
+    "page_count": 2
+  },
+  {
+    "id": 168,
+    "title": "9.2.4 Processing a guess",
+    "level": 3,
+    "page": 279,
+    "parent_id": 164,
+    "children_ids": [],
+    "start_page": 279,
+    "end_page": 280,
+    "page_count": 2
+  },
+  {
+    "id": 169,
+    "title": "9.2.5 Deciding input validity: checking ValidInput",
+    "level": 3,
+    "page": 281,
+    "parent_id": 164,
+    "children_ids": [],
+    "start_page": 281,
+    "end_page": 281,
+    "page_count": 1
+  },
+  {
+    "id": 170,
+    "title": "9.2.6 Completing the top-level game implementation",
+    "level": 3,
+    "page": 281,
+    "parent_id": 164,
+    "children_ids": [],
+    "start_page": 281,
+    "end_page": 282,
+    "page_count": 2
+  },
+  {
+    "id": 171,
+    "title": "9.3 Summary",
+    "level": 2,
+    "page": 283,
+    "parent_id": 157,
+    "children_ids": [],
+    "start_page": 283,
+    "end_page": 283,
+    "page_count": 1
+  }
+]

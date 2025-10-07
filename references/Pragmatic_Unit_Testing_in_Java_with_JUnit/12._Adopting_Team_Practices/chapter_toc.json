@@ -1,0 +1,62 @@
+[
+  {
+    "id": 115,
+    "title": "12. Adopting Team Practices",
+    "level": 1,
+    "page": 248,
+    "parent_id": 104,
+    "children_ids": [
+      116,
+      117,
+      118,
+      119
+    ],
+    "start_page": 248,
+    "end_page": 256,
+    "page_count": 9
+  },
+  {
+    "id": 116,
+    "title": "Coming up to Speed",
+    "level": 2,
+    "page": 248,
+    "parent_id": 115,
+    "children_ids": [],
+    "start_page": 248,
+    "end_page": 248,
+    "page_count": 1
+  },
+  {
+    "id": 117,
+    "title": "Getting on the Same Page with Your Team",
+    "level": 2,
+    "page": 249,
+    "parent_id": 115,
+    "children_ids": [],
+    "start_page": 249,
+    "end_page": 253,
+    "page_count": 5
+  },
+  {
+    "id": 118,
+    "title": "Practicing Continuous Integration",
+    "level": 2,
+    "page": 254,
+    "parent_id": 115,
+    "children_ids": [],
+    "start_page": 254,
+    "end_page": 255,
+    "page_count": 2
+  },
+  {
+    "id": 119,
+    "title": "Summary",
+    "level": 2,
+    "page": 256,
+    "parent_id": 115,
+    "children_ids": [],
+    "start_page": 256,
+    "end_page": 256,
+    "page_count": 1
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "id": 57,
+    "title": "Chapter 7: Achieving Object-Oriented Design",
+    "level": 1,
+    "page": 82,
+    "parent_id": 29,
+    "children_ids": [
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66
+    ],
+    "start_page": 82,
+    "end_page": 93,
+    "page_count": 12
+  },
+  {
+    "id": 58,
+    "title": "How Writing a Test First Helps the Design",
+    "level": 2,
+    "page": 82,
+    "parent_id": 57,
+    "children_ids": [],
+    "start_page": 82,
+    "end_page": 82,
+    "page_count": 1
+  },
+  {
+    "id": 59,
+    "title": "Communication over Classification",
+    "level": 2,
+    "page": 83,
+    "parent_id": 57,
+    "children_ids": [],
+    "start_page": 83,
+    "end_page": 83,
+    "page_count": 1
+  },
+  {
+    "id": 60,
+    "title": "Value Types",
+    "level": 2,
+    "page": 84,
+    "parent_id": 57,
+    "children_ids": [],
+    "start_page": 84,
+    "end_page": 84,
+    "page_count": 1
+  },
+  {
+    "id": 61,
+    "title": "Where Do Objects Come From?",
+    "level": 2,
+    "page": 85,
+    "parent_id": 57,
+    "children_ids": [],
+    "start_page": 85,
+    "end_page": 87,
+    "page_count": 3
+  },
+  {
+    "id": 62,
+    "title": "Identify Relationships with Interfaces",
+    "level": 2,
+    "page": 88,
+    "parent_id": 57,
+    "children_ids": [],
+    "start_page": 88,
+    "end_page": 88,
+    "page_count": 1
+  },
+  {
+    "id": 63,
+    "title": "Refactor Interfaces Too",
+    "level": 2,
+    "page": 88,
+    "parent_id": 57,
+    "children_ids": [],
+    "start_page": 88,
+    "end_page": 88,
+    "page_count": 1
+  },
+  {
+    "id": 64,
+    "title": "Compose Objects to Describe System Behavior",
+    "level": 2,
+    "page": 89,
+    "parent_id": 57,
+    "children_ids": [],
+    "start_page": 89,
+    "end_page": 89,
+    "page_count": 1
+  },
+  {
+    "id": 65,
+    "title": "Building Up to Higher-Level Programming",
+    "level": 2,
+    "page": 90,
+    "parent_id": 57,
+    "children_ids": [],
+    "start_page": 90,
+    "end_page": 91,
+    "page_count": 2
+  },
+  {
+    "id": 66,
+    "title": "And What about Classes?",
+    "level": 2,
+    "page": 92,
+    "parent_id": 57,
+    "children_ids": [],
+    "start_page": 92,
+    "end_page": 93,
+    "page_count": 2
+  }
+]

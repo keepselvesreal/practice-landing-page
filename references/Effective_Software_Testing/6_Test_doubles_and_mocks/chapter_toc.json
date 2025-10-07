@@ -1,0 +1,245 @@
+[
+  {
+    "id": 126,
+    "title": "6 Test doubles and mocks",
+    "level": 0,
+    "page": 169,
+    "parent_id": null,
+    "children_ids": [
+      127,
+      133,
+      138,
+      144,
+      145
+    ],
+    "start_page": 169,
+    "end_page": 199,
+    "page_count": 31
+  },
+  {
+    "id": 127,
+    "title": "6.1 Dummies, fakes, stubs, spies, and mocks",
+    "level": 1,
+    "page": 171,
+    "parent_id": 126,
+    "children_ids": [
+      128,
+      129,
+      130,
+      131,
+      132
+    ],
+    "start_page": 171,
+    "end_page": 172,
+    "page_count": 2
+  },
+  {
+    "id": 128,
+    "title": "6.1.1 Dummy objects",
+    "level": 2,
+    "page": 171,
+    "parent_id": 127,
+    "children_ids": [],
+    "start_page": 171,
+    "end_page": 171,
+    "page_count": 1
+  },
+  {
+    "id": 129,
+    "title": "6.1.2 Fake objects",
+    "level": 2,
+    "page": 172,
+    "parent_id": 127,
+    "children_ids": [],
+    "start_page": 172,
+    "end_page": 172,
+    "page_count": 1
+  },
+  {
+    "id": 130,
+    "title": "6.1.3 Stubs",
+    "level": 2,
+    "page": 172,
+    "parent_id": 127,
+    "children_ids": [],
+    "start_page": 172,
+    "end_page": 172,
+    "page_count": 1
+  },
+  {
+    "id": 131,
+    "title": "6.1.4 Mocks",
+    "level": 2,
+    "page": 172,
+    "parent_id": 127,
+    "children_ids": [],
+    "start_page": 172,
+    "end_page": 172,
+    "page_count": 1
+  },
+  {
+    "id": 132,
+    "title": "6.1.5 Spies",
+    "level": 2,
+    "page": 172,
+    "parent_id": 127,
+    "children_ids": [],
+    "start_page": 172,
+    "end_page": 172,
+    "page_count": 1
+  },
+  {
+    "id": 133,
+    "title": "6.2 An introduction to mocking frameworks",
+    "level": 1,
+    "page": 173,
+    "parent_id": 126,
+    "children_ids": [
+      134,
+      135,
+      136,
+      137
+    ],
+    "start_page": 173,
+    "end_page": 185,
+    "page_count": 13
+  },
+  {
+    "id": 134,
+    "title": "6.2.1 Stubbing dependencies",
+    "level": 2,
+    "page": 173,
+    "parent_id": 133,
+    "children_ids": [],
+    "start_page": 173,
+    "end_page": 177,
+    "page_count": 5
+  },
+  {
+    "id": 135,
+    "title": "6.2.2 Mocks and expectations",
+    "level": 2,
+    "page": 178,
+    "parent_id": 133,
+    "children_ids": [],
+    "start_page": 178,
+    "end_page": 180,
+    "page_count": 3
+  },
+  {
+    "id": 136,
+    "title": "6.2.3 Capturing arguments",
+    "level": 2,
+    "page": 181,
+    "parent_id": 133,
+    "children_ids": [],
+    "start_page": 181,
+    "end_page": 184,
+    "page_count": 4
+  },
+  {
+    "id": 137,
+    "title": "6.2.4 Simulating exceptions",
+    "level": 2,
+    "page": 185,
+    "parent_id": 133,
+    "children_ids": [],
+    "start_page": 185,
+    "end_page": 185,
+    "page_count": 1
+  },
+  {
+    "id": 138,
+    "title": "6.3 Mocks in the real world",
+    "level": 1,
+    "page": 186,
+    "parent_id": 126,
+    "children_ids": [
+      139,
+      140,
+      141,
+      142,
+      143
+    ],
+    "start_page": 186,
+    "end_page": 196,
+    "page_count": 11
+  },
+  {
+    "id": 139,
+    "title": "6.3.1 The disadvantages of mocking",
+    "level": 2,
+    "page": 187,
+    "parent_id": 138,
+    "children_ids": [],
+    "start_page": 187,
+    "end_page": 187,
+    "page_count": 1
+  },
+  {
+    "id": 140,
+    "title": "6.3.2 What to mock and what not to mock",
+    "level": 2,
+    "page": 188,
+    "parent_id": 138,
+    "children_ids": [],
+    "start_page": 188,
+    "end_page": 191,
+    "page_count": 4
+  },
+  {
+    "id": 141,
+    "title": "6.3.3 Date and time wrappers",
+    "level": 2,
+    "page": 192,
+    "parent_id": 138,
+    "children_ids": [],
+    "start_page": 192,
+    "end_page": 193,
+    "page_count": 2
+  },
+  {
+    "id": 142,
+    "title": "6.3.4 Mocking types you do not own",
+    "level": 2,
+    "page": 194,
+    "parent_id": 138,
+    "children_ids": [],
+    "start_page": 194,
+    "end_page": 195,
+    "page_count": 2
+  },
+  {
+    "id": 143,
+    "title": "6.3.5 What do others say about mocking?",
+    "level": 2,
+    "page": 196,
+    "parent_id": 138,
+    "children_ids": [],
+    "start_page": 196,
+    "end_page": 196,
+    "page_count": 1
+  },
+  {
+    "id": 144,
+    "title": "Exercises",
+    "level": 1,
+    "page": 197,
+    "parent_id": 126,
+    "children_ids": [],
+    "start_page": 197,
+    "end_page": 197,
+    "page_count": 1
+  },
+  {
+    "id": 145,
+    "title": "Summary",
+    "level": 1,
+    "page": 198,
+    "parent_id": 126,
+    "children_ids": [],
+    "start_page": 198,
+    "end_page": 199,
+    "page_count": 2
+  }
+]

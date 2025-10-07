@@ -1,0 +1,295 @@
+[
+  {
+    "id": 83,
+    "title": "4 Interaction testing using mock objects",
+    "level": 1,
+    "page": 111,
+    "parent_id": 66,
+    "children_ids": [
+      84,
+      85,
+      86,
+      87,
+      88,
+      92,
+      95,
+      98,
+      103,
+      106
+    ],
+    "start_page": 111,
+    "end_page": 131,
+    "page_count": 21
+  },
+  {
+    "id": 84,
+    "title": "4.1 Interaction testing, mocks, and stubs",
+    "level": 2,
+    "page": 112,
+    "parent_id": 83,
+    "children_ids": [],
+    "start_page": 112,
+    "end_page": 112,
+    "page_count": 1
+  },
+  {
+    "id": 85,
+    "title": "4.2 Depending on a logger",
+    "level": 2,
+    "page": 113,
+    "parent_id": 83,
+    "children_ids": [],
+    "start_page": 113,
+    "end_page": 114,
+    "page_count": 2
+  },
+  {
+    "id": 86,
+    "title": "4.3 Standard style: Introduce parameter refactoring",
+    "level": 2,
+    "page": 115,
+    "parent_id": 83,
+    "children_ids": [],
+    "start_page": 115,
+    "end_page": 115,
+    "page_count": 1
+  },
+  {
+    "id": 87,
+    "title": "4.4 The importance of differentiating between mocks and stubs",
+    "level": 2,
+    "page": 116,
+    "parent_id": 83,
+    "children_ids": [],
+    "start_page": 116,
+    "end_page": 116,
+    "page_count": 1
+  },
+  {
+    "id": 88,
+    "title": "4.5 Modular-style mocks",
+    "level": 2,
+    "page": 117,
+    "parent_id": 83,
+    "children_ids": [
+      89,
+      90,
+      91
+    ],
+    "start_page": 117,
+    "end_page": 119,
+    "page_count": 3
+  },
+  {
+    "id": 89,
+    "title": "4.5.1 Example of production code",
+    "level": 3,
+    "page": 118,
+    "parent_id": 88,
+    "children_ids": [],
+    "start_page": 118,
+    "end_page": 118,
+    "page_count": 1
+  },
+  {
+    "id": 90,
+    "title": "4.5.2 Refactoring the production code in a modular injection style",
+    "level": 3,
+    "page": 119,
+    "parent_id": 88,
+    "children_ids": [],
+    "start_page": 119,
+    "end_page": 119,
+    "page_count": 1
+  },
+  {
+    "id": 91,
+    "title": "4.5.3 A test example with modular-style injection",
+    "level": 3,
+    "page": 120,
+    "parent_id": 88,
+    "children_ids": [],
+    "start_page": 120,
+    "end_page": 120,
+    "page_count": 1
+  },
+  {
+    "id": 92,
+    "title": "4.6 Mocks in a functional style",
+    "level": 2,
+    "page": 120,
+    "parent_id": 83,
+    "children_ids": [
+      93,
+      94
+    ],
+    "start_page": 120,
+    "end_page": 121,
+    "page_count": 2
+  },
+  {
+    "id": 93,
+    "title": "4.6.1 Working with a currying style",
+    "level": 3,
+    "page": 120,
+    "parent_id": 92,
+    "children_ids": [],
+    "start_page": 120,
+    "end_page": 120,
+    "page_count": 1
+  },
+  {
+    "id": 94,
+    "title": "4.6.2 Working with higher-order functions and not currying",
+    "level": 3,
+    "page": 121,
+    "parent_id": 92,
+    "children_ids": [],
+    "start_page": 121,
+    "end_page": 121,
+    "page_count": 1
+  },
+  {
+    "id": 95,
+    "title": "4.7 Mocks in an object-oriented style",
+    "level": 2,
+    "page": 122,
+    "parent_id": 83,
+    "children_ids": [
+      96,
+      97
+    ],
+    "start_page": 122,
+    "end_page": 125,
+    "page_count": 4
+  },
+  {
+    "id": 96,
+    "title": "4.7.1 Refactoring production code for injection",
+    "level": 3,
+    "page": 122,
+    "parent_id": 95,
+    "children_ids": [],
+    "start_page": 122,
+    "end_page": 123,
+    "page_count": 2
+  },
+  {
+    "id": 97,
+    "title": "4.7.2 Refactoring production code with interface injection",
+    "level": 3,
+    "page": 124,
+    "parent_id": 95,
+    "children_ids": [],
+    "start_page": 124,
+    "end_page": 125,
+    "page_count": 2
+  },
+  {
+    "id": 98,
+    "title": "4.8 Dealing with complicated interfaces",
+    "level": 2,
+    "page": 126,
+    "parent_id": 83,
+    "children_ids": [
+      99,
+      100,
+      101,
+      102
+    ],
+    "start_page": 126,
+    "end_page": 128,
+    "page_count": 3
+  },
+  {
+    "id": 99,
+    "title": "4.8.1 Example of a complicated interface",
+    "level": 3,
+    "page": 126,
+    "parent_id": 98,
+    "children_ids": [],
+    "start_page": 126,
+    "end_page": 126,
+    "page_count": 1
+  },
+  {
+    "id": 100,
+    "title": "4.8.2 Writing tests with complicated interfaces",
+    "level": 3,
+    "page": 127,
+    "parent_id": 98,
+    "children_ids": [],
+    "start_page": 127,
+    "end_page": 127,
+    "page_count": 1
+  },
+  {
+    "id": 101,
+    "title": "4.8.3 Downsides of using complicated interfaces directly",
+    "level": 3,
+    "page": 128,
+    "parent_id": 98,
+    "children_ids": [],
+    "start_page": 128,
+    "end_page": 128,
+    "page_count": 1
+  },
+  {
+    "id": 102,
+    "title": "4.8.4 The interface segregation principle",
+    "level": 3,
+    "page": 129,
+    "parent_id": 98,
+    "children_ids": [],
+    "start_page": 129,
+    "end_page": 129,
+    "page_count": 1
+  },
+  {
+    "id": 103,
+    "title": "4.9 Partial mocks",
+    "level": 2,
+    "page": 129,
+    "parent_id": 83,
+    "children_ids": [
+      104,
+      105
+    ],
+    "start_page": 129,
+    "end_page": 130,
+    "page_count": 2
+  },
+  {
+    "id": 104,
+    "title": "4.9.1 A functional example of a partial mock",
+    "level": 3,
+    "page": 129,
+    "parent_id": 103,
+    "children_ids": [],
+    "start_page": 129,
+    "end_page": 129,
+    "page_count": 1
+  },
+  {
+    "id": 105,
+    "title": "4.9.2 An object-oriented partial mock example",
+    "level": 3,
+    "page": 130,
+    "parent_id": 103,
+    "children_ids": [],
+    "start_page": 130,
+    "end_page": 130,
+    "page_count": 1
+  },
+  {
+    "id": 106,
+    "title": "Summary",
+    "level": 2,
+    "page": 131,
+    "parent_id": 83,
+    "children_ids": [],
+    "start_page": 131,
+    "end_page": 131,
+    "page_count": 1
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "id": 105,
+    "title": "11. Advancing with Test-Driven Development (TDD)",
+    "level": 1,
+    "page": 225,
+    "parent_id": 104,
+    "children_ids": [
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114
+    ],
+    "start_page": 225,
+    "end_page": 247,
+    "page_count": 23
+  },
+  {
+    "id": 106,
+    "title": "The Primary Benefit of TDD",
+    "level": 2,
+    "page": 226,
+    "parent_id": 105,
+    "children_ids": [],
+    "start_page": 226,
+    "end_page": 226,
+    "page_count": 1
+  },
+  {
+    "id": 107,
+    "title": "Starting Simple",
+    "level": 2,
+    "page": 226,
+    "parent_id": 105,
+    "children_ids": [],
+    "start_page": 226,
+    "end_page": 226,
+    "page_count": 1
+  },
+  {
+    "id": 108,
+    "title": "Increment 1: Deferring Complexity",
+    "level": 2,
+    "page": 227,
+    "parent_id": 105,
+    "children_ids": [],
+    "start_page": 227,
+    "end_page": 234,
+    "page_count": 8
+  },
+  {
+    "id": 109,
+    "title": "Increment 2: Generalizing the Implementation",
+    "level": 2,
+    "page": 235,
+    "parent_id": 105,
+    "children_ids": [],
+    "start_page": 235,
+    "end_page": 237,
+    "page_count": 3
+  },
+  {
+    "id": 110,
+    "title": "Increment 3: Factoring Out Redundancies",
+    "level": 2,
+    "page": 238,
+    "parent_id": 105,
+    "children_ids": [],
+    "start_page": 238,
+    "end_page": 239,
+    "page_count": 2
+  },
+  {
+    "id": 111,
+    "title": "Increment 4: Introducing a Test Double",
+    "level": 2,
+    "page": 240,
+    "parent_id": 105,
+    "children_ids": [],
+    "start_page": 240,
+    "end_page": 244,
+    "page_count": 5
+  },
+  {
+    "id": 112,
+    "title": "Test-Driven Development vs. Test-After Development",
+    "level": 2,
+    "page": 245,
+    "parent_id": 105,
+    "children_ids": [],
+    "start_page": 245,
+    "end_page": 245,
+    "page_count": 1
+  },
+  {
+    "id": 113,
+    "title": "The Rhythm of TDD",
+    "level": 2,
+    "page": 246,
+    "parent_id": 105,
+    "children_ids": [],
+    "start_page": 246,
+    "end_page": 246,
+    "page_count": 1
+  },
+  {
+    "id": 114,
+    "title": "Summary",
+    "level": 2,
+    "page": 247,
+    "parent_id": 105,
+    "children_ids": [],
+    "start_page": 247,
+    "end_page": 247,
+    "page_count": 1
+  }
+]

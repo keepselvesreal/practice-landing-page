@@ -1,0 +1,79 @@
+[
+  {
+    "id": 22,
+    "title": "Chapter 3: An Agile Approach",
+    "level": 1,
+    "page": 52,
+    "parent_id": 7,
+    "children_ids": [
+      23,
+      24,
+      25,
+      26
+    ],
+    "start_page": 52,
+    "end_page": 63,
+    "page_count": 12
+  },
+  {
+    "id": 23,
+    "title": "An Agile Approach to Projects",
+    "level": 2,
+    "page": 54,
+    "parent_id": 22,
+    "children_ids": [],
+    "start_page": 54,
+    "end_page": 57,
+    "page_count": 4
+  },
+  {
+    "id": 24,
+    "title": "An Agile Approach to Planning",
+    "level": 2,
+    "page": 58,
+    "parent_id": 22,
+    "children_ids": [],
+    "start_page": 58,
+    "end_page": 61,
+    "page_count": 4
+  },
+  {
+    "id": 25,
+    "title": "Summary",
+    "level": 2,
+    "page": 62,
+    "parent_id": 22,
+    "children_ids": [],
+    "start_page": 62,
+    "end_page": 62,
+    "page_count": 1
+  },
+  {
+    "id": 26,
+    "title": "Discussion Questions",
+    "level": 2,
+    "page": 63,
+    "parent_id": 22,
+    "children_ids": [],
+    "start_page": 63,
+    "end_page": 63,
+    "page_count": 1
+  },
+  {
+    "id": 27,
+    "title": "Part II: Estimating Size",
+    "level": 0,
+    "page": 64,
+    "parent_id": null,
+    "children_ids": [
+      28,
+      33,
+      39,
+      47,
+      55
+    ],
+    "start_page": 64,
+    "end_page": 107,
+    "page_count": 44
+  }
+]

@@ -1,0 +1,244 @@
+[
+  {
+    "id": 197,
+    "title": "10 Test code quality",
+    "level": 0,
+    "page": 286,
+    "parent_id": null,
+    "children_ids": [
+      198,
+      209,
+      215,
+      216
+    ],
+    "start_page": 286,
+    "end_page": 303,
+    "page_count": 18
+  },
+  {
+    "id": 198,
+    "title": "10.1 Principles of maintainable test code",
+    "level": 1,
+    "page": 287,
+    "parent_id": 197,
+    "children_ids": [
+      199,
+      200,
+      201,
+      202,
+      203,
+      204,
+      205,
+      206,
+      207,
+      208
+    ],
+    "start_page": 287,
+    "end_page": 294,
+    "page_count": 8
+  },
+  {
+    "id": 199,
+    "title": "10.1.1 Tests should be fast",
+    "level": 2,
+    "page": 287,
+    "parent_id": 198,
+    "children_ids": [],
+    "start_page": 287,
+    "end_page": 287,
+    "page_count": 1
+  },
+  {
+    "id": 200,
+    "title": "10.1.2 Tests should be cohesive, independent, and isolated",
+    "level": 2,
+    "page": 287,
+    "parent_id": 198,
+    "children_ids": [],
+    "start_page": 287,
+    "end_page": 287,
+    "page_count": 1
+  },
+  {
+    "id": 201,
+    "title": "10.1.3 Tests should have a reason to exist",
+    "level": 2,
+    "page": 288,
+    "parent_id": 198,
+    "children_ids": [],
+    "start_page": 288,
+    "end_page": 288,
+    "page_count": 1
+  },
+  {
+    "id": 202,
+    "title": "10.1.4 Tests should be repeatable and not flaky",
+    "level": 2,
+    "page": 288,
+    "parent_id": 198,
+    "children_ids": [],
+    "start_page": 288,
+    "end_page": 288,
+    "page_count": 1
+  },
+  {
+    "id": 203,
+    "title": "10.1.5 Tests should have strong assertions",
+    "level": 2,
+    "page": 289,
+    "parent_id": 198,
+    "children_ids": [],
+    "start_page": 289,
+    "end_page": 289,
+    "page_count": 1
+  },
+  {
+    "id": 204,
+    "title": "10.1.6 Tests should break if the behavior changes",
+    "level": 2,
+    "page": 289,
+    "parent_id": 198,
+    "children_ids": [],
+    "start_page": 289,
+    "end_page": 289,
+    "page_count": 1
+  },
+  {
+    "id": 205,
+    "title": "10.1.7 Tests should have a single and clear reason to fail",
+    "level": 2,
+    "page": 290,
+    "parent_id": 198,
+    "children_ids": [],
+    "start_page": 290,
+    "end_page": 290,
+    "page_count": 1
+  },
+  {
+    "id": 206,
+    "title": "10.1.8 Tests should be easy to write",
+    "level": 2,
+    "page": 290,
+    "parent_id": 198,
+    "children_ids": [],
+    "start_page": 290,
+    "end_page": 290,
+    "page_count": 1
+  },
+  {
+    "id": 207,
+    "title": "10.1.9 Tests should be easy to read",
+    "level": 2,
+    "page": 290,
+    "parent_id": 198,
+    "children_ids": [],
+    "start_page": 290,
+    "end_page": 293,
+    "page_count": 4
+  },
+  {
+    "id": 208,
+    "title": "10.1.10 Tests should be easy to change and evolve",
+    "level": 2,
+    "page": 294,
+    "parent_id": 198,
+    "children_ids": [],
+    "start_page": 294,
+    "end_page": 294,
+    "page_count": 1
+  },
+  {
+    "id": 209,
+    "title": "10.2 Test smells",
+    "level": 1,
+    "page": 295,
+    "parent_id": 197,
+    "children_ids": [
+      210,
+      211,
+      212,
+      213,
+      214
+    ],
+    "start_page": 295,
+    "end_page": 299,
+    "page_count": 5
+  },
+  {
+    "id": 210,
+    "title": "10.2.1 Excessive duplication",
+    "level": 2,
+    "page": 295,
+    "parent_id": 209,
+    "children_ids": [],
+    "start_page": 295,
+    "end_page": 295,
+    "page_count": 1
+  },
+  {
+    "id": 211,
+    "title": "10.2.2 Unclear assertions",
+    "level": 2,
+    "page": 296,
+    "parent_id": 209,
+    "children_ids": [],
+    "start_page": 296,
+    "end_page": 296,
+    "page_count": 1
+  },
+  {
+    "id": 212,
+    "title": "10.2.3 Bad handling of complex or external resources",
+    "level": 2,
+    "page": 296,
+    "parent_id": 209,
+    "children_ids": [],
+    "start_page": 296,
+    "end_page": 296,
+    "page_count": 1
+  },
+  {
+    "id": 213,
+    "title": "10.2.4 Fixtures that are too general",
+    "level": 2,
+    "page": 297,
+    "parent_id": 209,
+    "children_ids": [],
+    "start_page": 297,
+    "end_page": 297,
+    "page_count": 1
+  },
+  {
+    "id": 214,
+    "title": "10.2.5 Sensitive assertions",
+    "level": 2,
+    "page": 298,
+    "parent_id": 209,
+    "children_ids": [],
+    "start_page": 298,
+    "end_page": 299,
+    "page_count": 2
+  },
+  {
+    "id": 215,
+    "title": "Exercises",
+    "level": 1,
+    "page": 300,
+    "parent_id": 197,
+    "children_ids": [],
+    "start_page": 300,
+    "end_page": 302,
+    "page_count": 3
+  },
+  {
+    "id": 216,
+    "title": "Summary",
+    "level": 1,
+    "page": 303,
+    "parent_id": 197,
+    "children_ids": [],
+    "start_page": 303,
+    "end_page": 303,
+    "page_count": 1
+  }
+]

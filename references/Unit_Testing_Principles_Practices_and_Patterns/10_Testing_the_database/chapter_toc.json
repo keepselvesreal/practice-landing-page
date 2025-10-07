@@ -1,0 +1,296 @@
+[
+  {
+    "id": 191,
+    "title": "10 Testing the database",
+    "level": 1,
+    "page": 251,
+    "parent_id": 149,
+    "children_ids": [
+      192,
+      197,
+      200,
+      204,
+      209,
+      212,
+      213
+    ],
+    "start_page": 251,
+    "end_page": 278,
+    "page_count": 28
+  },
+  {
+    "id": 192,
+    "title": "10.1 Prerequisites for testing the database",
+    "level": 2,
+    "page": 252,
+    "parent_id": 191,
+    "children_ids": [
+      193,
+      194,
+      195,
+      196
+    ],
+    "start_page": 252,
+    "end_page": 255,
+    "page_count": 4
+  },
+  {
+    "id": 193,
+    "title": "10.1.1 Keeping the database in the source control system",
+    "level": 3,
+    "page": 252,
+    "parent_id": 192,
+    "children_ids": [],
+    "start_page": 252,
+    "end_page": 252,
+    "page_count": 1
+  },
+  {
+    "id": 194,
+    "title": "10.1.2 Reference data is part of the database schema",
+    "level": 3,
+    "page": 253,
+    "parent_id": 192,
+    "children_ids": [],
+    "start_page": 253,
+    "end_page": 253,
+    "page_count": 1
+  },
+  {
+    "id": 195,
+    "title": "10.1.3 Separate instance for every developer",
+    "level": 3,
+    "page": 254,
+    "parent_id": 192,
+    "children_ids": [],
+    "start_page": 254,
+    "end_page": 254,
+    "page_count": 1
+  },
+  {
+    "id": 196,
+    "title": "10.1.4 State-based vs. migration-based database delivery",
+    "level": 3,
+    "page": 254,
+    "parent_id": 192,
+    "children_ids": [],
+    "start_page": 254,
+    "end_page": 255,
+    "page_count": 2
+  },
+  {
+    "id": 197,
+    "title": "10.2 Database transaction management",
+    "level": 2,
+    "page": 256,
+    "parent_id": 191,
+    "children_ids": [
+      198,
+      199
+    ],
+    "start_page": 256,
+    "end_page": 264,
+    "page_count": 9
+  },
+  {
+    "id": 198,
+    "title": "10.2.1 Managing database transactions in production code",
+    "level": 3,
+    "page": 257,
+    "parent_id": 197,
+    "children_ids": [],
+    "start_page": 257,
+    "end_page": 263,
+    "page_count": 7
+  },
+  {
+    "id": 199,
+    "title": "10.2.2 Managing database transactions in integration tests",
+    "level": 3,
+    "page": 264,
+    "parent_id": 197,
+    "children_ids": [],
+    "start_page": 264,
+    "end_page": 264,
+    "page_count": 1
+  },
+  {
+    "id": 200,
+    "title": "10.3 Test data life cycle",
+    "level": 2,
+    "page": 265,
+    "parent_id": 191,
+    "children_ids": [
+      201,
+      202,
+      203
+    ],
+    "start_page": 265,
+    "end_page": 267,
+    "page_count": 3
+  },
+  {
+    "id": 201,
+    "title": "10.3.1 Parallel vs. sequential test execution",
+    "level": 3,
+    "page": 265,
+    "parent_id": 200,
+    "children_ids": [],
+    "start_page": 265,
+    "end_page": 265,
+    "page_count": 1
+  },
+  {
+    "id": 202,
+    "title": "10.3.2 Clearing data between test runs",
+    "level": 3,
+    "page": 266,
+    "parent_id": 200,
+    "children_ids": [],
+    "start_page": 266,
+    "end_page": 267,
+    "page_count": 2
+  },
+  {
+    "id": 203,
+    "title": "10.3.3 Avoid in-memory databases",
+    "level": 3,
+    "page": 268,
+    "parent_id": 200,
+    "children_ids": [],
+    "start_page": 268,
+    "end_page": 268,
+    "page_count": 1
+  },
+  {
+    "id": 204,
+    "title": "10.4 Reusing code in test sections",
+    "level": 2,
+    "page": 268,
+    "parent_id": 191,
+    "children_ids": [
+      205,
+      206,
+      207,
+      208
+    ],
+    "start_page": 268,
+    "end_page": 273,
+    "page_count": 6
+  },
+  {
+    "id": 205,
+    "title": "10.4.1 Reusing code in arrange sections",
+    "level": 3,
+    "page": 268,
+    "parent_id": 204,
+    "children_ids": [],
+    "start_page": 268,
+    "end_page": 270,
+    "page_count": 3
+  },
+  {
+    "id": 206,
+    "title": "10.4.2 Reusing code in act sections",
+    "level": 3,
+    "page": 271,
+    "parent_id": 204,
+    "children_ids": [],
+    "start_page": 271,
+    "end_page": 271,
+    "page_count": 1
+  },
+  {
+    "id": 207,
+    "title": "10.4.3 Reusing code in assert sections",
+    "level": 3,
+    "page": 272,
+    "parent_id": 204,
+    "children_ids": [],
+    "start_page": 272,
+    "end_page": 272,
+    "page_count": 1
+  },
+  {
+    "id": 208,
+    "title": "10.4.4 Does the test create too many database transactions?",
+    "level": 3,
+    "page": 273,
+    "parent_id": 204,
+    "children_ids": [],
+    "start_page": 273,
+    "end_page": 273,
+    "page_count": 1
+  },
+  {
+    "id": 209,
+    "title": "10.5 Common database testing questions",
+    "level": 2,
+    "page": 274,
+    "parent_id": 191,
+    "children_ids": [
+      210,
+      211
+    ],
+    "start_page": 274,
+    "end_page": 275,
+    "page_count": 2
+  },
+  {
+    "id": 210,
+    "title": "10.5.1 Should you test reads?",
+    "level": 3,
+    "page": 274,
+    "parent_id": 209,
+    "children_ids": [],
+    "start_page": 274,
+    "end_page": 274,
+    "page_count": 1
+  },
+  {
+    "id": 211,
+    "title": "10.5.2 Should you test repositories?",
+    "level": 3,
+    "page": 275,
+    "parent_id": 209,
+    "children_ids": [],
+    "start_page": 275,
+    "end_page": 275,
+    "page_count": 1
+  },
+  {
+    "id": 212,
+    "title": "10.6 Conclusion",
+    "level": 2,
+    "page": 276,
+    "parent_id": 191,
+    "children_ids": [],
+    "start_page": 276,
+    "end_page": 276,
+    "page_count": 1
+  },
+  {
+    "id": 213,
+    "title": "Summary",
+    "level": 2,
+    "page": 277,
+    "parent_id": 191,
+    "children_ids": [],
+    "start_page": 277,
+    "end_page": 278,
+    "page_count": 2
+  },
+  {
+    "id": 214,
+    "title": "Part 4—Unit testing anti-patterns",
+    "level": 0,
+    "page": 279,
+    "parent_id": null,
+    "children_ids": [
+      215
+    ],
+    "start_page": 279,
+    "end_page": 296,
+    "page_count": 18
+  }
+]

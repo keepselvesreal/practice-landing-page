@@ -1,0 +1,122 @@
+[
+  {
+    "id": 159,
+    "title": "Chapter 23: Test Diagnostics",
+    "level": 1,
+    "page": 292,
+    "parent_id": 132,
+    "children_ids": [
+      160,
+      161,
+      162,
+      163,
+      164,
+      165,
+      166,
+      167,
+      168
+    ],
+    "start_page": 292,
+    "end_page": 297,
+    "page_count": 6
+  },
+  {
+    "id": 160,
+    "title": "Design to Fail",
+    "level": 2,
+    "page": 292,
+    "parent_id": 159,
+    "children_ids": [],
+    "start_page": 292,
+    "end_page": 292,
+    "page_count": 1
+  },
+  {
+    "id": 161,
+    "title": "Small, Focused, Well-Named Tests",
+    "level": 2,
+    "page": 293,
+    "parent_id": 159,
+    "children_ids": [],
+    "start_page": 293,
+    "end_page": 293,
+    "page_count": 1
+  },
+  {
+    "id": 162,
+    "title": "Explanatory Assertion Messages",
+    "level": 2,
+    "page": 293,
+    "parent_id": 159,
+    "children_ids": [],
+    "start_page": 293,
+    "end_page": 293,
+    "page_count": 1
+  },
+  {
+    "id": 163,
+    "title": "Highlight Detail with Matchers",
+    "level": 2,
+    "page": 293,
+    "parent_id": 159,
+    "children_ids": [],
+    "start_page": 293,
+    "end_page": 293,
+    "page_count": 1
+  },
+  {
+    "id": 164,
+    "title": "Self-Describing Value",
+    "level": 2,
+    "page": 294,
+    "parent_id": 159,
+    "children_ids": [],
+    "start_page": 294,
+    "end_page": 294,
+    "page_count": 1
+  },
+  {
+    "id": 165,
+    "title": "Obviously Canned Value",
+    "level": 2,
+    "page": 295,
+    "parent_id": 159,
+    "children_ids": [],
+    "start_page": 295,
+    "end_page": 295,
+    "page_count": 1
+  },
+  {
+    "id": 166,
+    "title": "Tracer Object",
+    "level": 2,
+    "page": 295,
+    "parent_id": 159,
+    "children_ids": [],
+    "start_page": 295,
+    "end_page": 295,
+    "page_count": 1
+  },
+  {
+    "id": 167,
+    "title": "Explicitly Assert That Expectations Were Satisfied",
+    "level": 2,
+    "page": 296,
+    "parent_id": 159,
+    "children_ids": [],
+    "start_page": 296,
+    "end_page": 296,
+    "page_count": 1
+  },
+  {
+    "id": 168,
+    "title": "Diagnostics Are a First-Class Feature",
+    "level": 2,
+    "page": 296,
+    "parent_id": 159,
+    "children_ids": [],
+    "start_page": 296,
+    "end_page": 297,
+    "page_count": 2
+  }
+]

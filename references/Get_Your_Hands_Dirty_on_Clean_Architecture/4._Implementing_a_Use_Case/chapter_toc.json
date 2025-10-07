@@ -1,0 +1,134 @@
+[
+  {
+    "id": 27,
+    "title": "4. Implementing a Use Case",
+    "level": 0,
+    "page": 32,
+    "parent_id": null,
+    "children_ids": [
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37
+    ],
+    "start_page": 32,
+    "end_page": 44,
+    "page_count": 13
+  },
+  {
+    "id": 28,
+    "title": "Implementing the Domain Model",
+    "level": 1,
+    "page": 32,
+    "parent_id": 27,
+    "children_ids": [],
+    "start_page": 32,
+    "end_page": 33,
+    "page_count": 2
+  },
+  {
+    "id": 29,
+    "title": "A Use Case in a Nutshell",
+    "level": 1,
+    "page": 34,
+    "parent_id": 27,
+    "children_ids": [],
+    "start_page": 34,
+    "end_page": 34,
+    "page_count": 1
+  },
+  {
+    "id": 30,
+    "title": "Validating Input",
+    "level": 1,
+    "page": 35,
+    "parent_id": 27,
+    "children_ids": [],
+    "start_page": 35,
+    "end_page": 37,
+    "page_count": 3
+  },
+  {
+    "id": 31,
+    "title": "The Power of Constructors",
+    "level": 1,
+    "page": 38,
+    "parent_id": 27,
+    "children_ids": [],
+    "start_page": 38,
+    "end_page": 38,
+    "page_count": 1
+  },
+  {
+    "id": 32,
+    "title": "Different Input Models for Different Use Cases",
+    "level": 1,
+    "page": 39,
+    "parent_id": 27,
+    "children_ids": [],
+    "start_page": 39,
+    "end_page": 39,
+    "page_count": 1
+  },
+  {
+    "id": 33,
+    "title": "Validating Business Rules",
+    "level": 1,
+    "page": 40,
+    "parent_id": 27,
+    "children_ids": [],
+    "start_page": 40,
+    "end_page": 41,
+    "page_count": 2
+  },
+  {
+    "id": 34,
+    "title": "Rich vs. Anemic Domain Model",
+    "level": 1,
+    "page": 42,
+    "parent_id": 27,
+    "children_ids": [],
+    "start_page": 42,
+    "end_page": 42,
+    "page_count": 1
+  },
+  {
+    "id": 35,
+    "title": "Different Output Models for Different Use Cases",
+    "level": 1,
+    "page": 42,
+    "parent_id": 27,
+    "children_ids": [],
+    "start_page": 42,
+    "end_page": 42,
+    "page_count": 1
+  },
+  {
+    "id": 36,
+    "title": "What About Read-Only Use Cases?",
+    "level": 1,
+    "page": 43,
+    "parent_id": 27,
+    "children_ids": [],
+    "start_page": 43,
+    "end_page": 43,
+    "page_count": 1
+  },
+  {
+    "id": 37,
+    "title": "How Does This Help Me Build Maintainable Software?",
+    "level": 1,
+    "page": 44,
+    "parent_id": 27,
+    "children_ids": [],
+    "start_page": 44,
+    "end_page": 44,
+    "page_count": 1
+  }
+]

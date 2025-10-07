@@ -1,0 +1,368 @@
+[
+  {
+    "id": 150,
+    "title": "8 Why integration testing?",
+    "level": 1,
+    "page": 207,
+    "parent_id": 149,
+    "children_ids": [
+      151,
+      155,
+      159,
+      164,
+      168,
+      173,
+      178,
+      179
+    ],
+    "start_page": 207,
+    "end_page": 237,
+    "page_count": 31
+  },
+  {
+    "id": 151,
+    "title": "8.1 What is an integration test?",
+    "level": 2,
+    "page": 208,
+    "parent_id": 150,
+    "children_ids": [
+      152,
+      153,
+      154
+    ],
+    "start_page": 208,
+    "end_page": 211,
+    "page_count": 4
+  },
+  {
+    "id": 152,
+    "title": "8.1.1 The role of integration tests",
+    "level": 3,
+    "page": 208,
+    "parent_id": 151,
+    "children_ids": [],
+    "start_page": 208,
+    "end_page": 208,
+    "page_count": 1
+  },
+  {
+    "id": 153,
+    "title": "8.1.2 The Test Pyramid revisited",
+    "level": 3,
+    "page": 209,
+    "parent_id": 151,
+    "children_ids": [],
+    "start_page": 209,
+    "end_page": 209,
+    "page_count": 1
+  },
+  {
+    "id": 154,
+    "title": "8.1.3 Integration testing vs. failing fast",
+    "level": 3,
+    "page": 210,
+    "parent_id": 151,
+    "children_ids": [],
+    "start_page": 210,
+    "end_page": 211,
+    "page_count": 2
+  },
+  {
+    "id": 155,
+    "title": "8.2 Which out-of-process dependencies to test directly",
+    "level": 2,
+    "page": 212,
+    "parent_id": 150,
+    "children_ids": [
+      156,
+      157,
+      158
+    ],
+    "start_page": 212,
+    "end_page": 214,
+    "page_count": 3
+  },
+  {
+    "id": 156,
+    "title": "8.2.1 The two types of out-of-process dependencies",
+    "level": 3,
+    "page": 212,
+    "parent_id": 155,
+    "children_ids": [],
+    "start_page": 212,
+    "end_page": 212,
+    "page_count": 1
+  },
+  {
+    "id": 157,
+    "title": "8.2.2 Working with both managed and unmanaged dependencies",
+    "level": 3,
+    "page": 213,
+    "parent_id": 155,
+    "children_ids": [],
+    "start_page": 213,
+    "end_page": 213,
+    "page_count": 1
+  },
+  {
+    "id": 158,
+    "title": "8.2.3 What if you can’t use a real database in integration tests?",
+    "level": 3,
+    "page": 214,
+    "parent_id": 155,
+    "children_ids": [],
+    "start_page": 214,
+    "end_page": 214,
+    "page_count": 1
+  },
+  {
+    "id": 159,
+    "title": "8.3 Integration testing: An example",
+    "level": 2,
+    "page": 215,
+    "parent_id": 150,
+    "children_ids": [
+      160,
+      161,
+      162,
+      163
+    ],
+    "start_page": 215,
+    "end_page": 218,
+    "page_count": 4
+  },
+  {
+    "id": 160,
+    "title": "8.3.1 What scenarios to test?",
+    "level": 3,
+    "page": 216,
+    "parent_id": 159,
+    "children_ids": [],
+    "start_page": 216,
+    "end_page": 216,
+    "page_count": 1
+  },
+  {
+    "id": 161,
+    "title": "8.3.2 Categorizing the database and the message bus",
+    "level": 3,
+    "page": 217,
+    "parent_id": 159,
+    "children_ids": [],
+    "start_page": 217,
+    "end_page": 217,
+    "page_count": 1
+  },
+  {
+    "id": 162,
+    "title": "8.3.3 What about end-to-end testing?",
+    "level": 3,
+    "page": 217,
+    "parent_id": 159,
+    "children_ids": [],
+    "start_page": 217,
+    "end_page": 217,
+    "page_count": 1
+  },
+  {
+    "id": 163,
+    "title": "8.3.4 Integration testing: The first try",
+    "level": 3,
+    "page": 218,
+    "parent_id": 159,
+    "children_ids": [],
+    "start_page": 218,
+    "end_page": 218,
+    "page_count": 1
+  },
+  {
+    "id": 164,
+    "title": "8.4 Using interfaces to abstract dependencies",
+    "level": 2,
+    "page": 219,
+    "parent_id": 150,
+    "children_ids": [
+      165,
+      166,
+      167
+    ],
+    "start_page": 219,
+    "end_page": 221,
+    "page_count": 3
+  },
+  {
+    "id": 165,
+    "title": "8.4.1 Interfaces and loose coupling",
+    "level": 3,
+    "page": 220,
+    "parent_id": 164,
+    "children_ids": [],
+    "start_page": 220,
+    "end_page": 220,
+    "page_count": 1
+  },
+  {
+    "id": 166,
+    "title": "8.4.2 Why use interfaces for out-of-process dependencies?",
+    "level": 3,
+    "page": 221,
+    "parent_id": 164,
+    "children_ids": [],
+    "start_page": 221,
+    "end_page": 221,
+    "page_count": 1
+  },
+  {
+    "id": 167,
+    "title": "8.4.3 Using interfaces for in-process dependencies",
+    "level": 3,
+    "page": 221,
+    "parent_id": 164,
+    "children_ids": [],
+    "start_page": 221,
+    "end_page": 221,
+    "page_count": 1
+  },
+  {
+    "id": 168,
+    "title": "8.5 Integration testing best practices",
+    "level": 2,
+    "page": 222,
+    "parent_id": 150,
+    "children_ids": [
+      169,
+      170,
+      171,
+      172
+    ],
+    "start_page": 222,
+    "end_page": 226,
+    "page_count": 5
+  },
+  {
+    "id": 169,
+    "title": "8.5.1 Making domain model boundaries explicit",
+    "level": 3,
+    "page": 222,
+    "parent_id": 168,
+    "children_ids": [],
+    "start_page": 222,
+    "end_page": 222,
+    "page_count": 1
+  },
+  {
+    "id": 170,
+    "title": "8.5.2 Reducing the number of layers",
+    "level": 3,
+    "page": 222,
+    "parent_id": 168,
+    "children_ids": [],
+    "start_page": 222,
+    "end_page": 223,
+    "page_count": 2
+  },
+  {
+    "id": 171,
+    "title": "8.5.3 Eliminating circular dependencies",
+    "level": 3,
+    "page": 224,
+    "parent_id": 168,
+    "children_ids": [],
+    "start_page": 224,
+    "end_page": 225,
+    "page_count": 2
+  },
+  {
+    "id": 172,
+    "title": "8.5.4 Using multiple act sections in a test",
+    "level": 3,
+    "page": 226,
+    "parent_id": 168,
+    "children_ids": [],
+    "start_page": 226,
+    "end_page": 226,
+    "page_count": 1
+  },
+  {
+    "id": 173,
+    "title": "8.6 How to test logging functionality",
+    "level": 2,
+    "page": 227,
+    "parent_id": 150,
+    "children_ids": [
+      174,
+      175,
+      176,
+      177
+    ],
+    "start_page": 227,
+    "end_page": 234,
+    "page_count": 8
+  },
+  {
+    "id": 174,
+    "title": "8.6.1 Should you test logging?",
+    "level": 3,
+    "page": 227,
+    "parent_id": 173,
+    "children_ids": [],
+    "start_page": 227,
+    "end_page": 228,
+    "page_count": 2
+  },
+  {
+    "id": 175,
+    "title": "8.6.2 How should you test logging?",
+    "level": 3,
+    "page": 229,
+    "parent_id": 173,
+    "children_ids": [],
+    "start_page": 229,
+    "end_page": 233,
+    "page_count": 5
+  },
+  {
+    "id": 176,
+    "title": "8.6.3 How much logging is enough?",
+    "level": 3,
+    "page": 234,
+    "parent_id": 173,
+    "children_ids": [],
+    "start_page": 234,
+    "end_page": 234,
+    "page_count": 1
+  },
+  {
+    "id": 177,
+    "title": "8.6.4 How do you pass around logger instances?",
+    "level": 3,
+    "page": 234,
+    "parent_id": 173,
+    "children_ids": [],
+    "start_page": 234,
+    "end_page": 234,
+    "page_count": 1
+  },
+  {
+    "id": 178,
+    "title": "8.7 Conclusion",
+    "level": 2,
+    "page": 235,
+    "parent_id": 150,
+    "children_ids": [],
+    "start_page": 235,
+    "end_page": 235,
+    "page_count": 1
+  },
+  {
+    "id": 179,
+    "title": "Summary",
+    "level": 2,
+    "page": 235,
+    "parent_id": 150,
+    "children_ids": [],
+    "start_page": 235,
+    "end_page": 237,
+    "page_count": 3
+  }
+]

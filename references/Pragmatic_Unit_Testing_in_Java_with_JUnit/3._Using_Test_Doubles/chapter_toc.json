@@ -1,0 +1,146 @@
+[
+  {
+    "id": 33,
+    "title": "3. Using Test Doubles",
+    "level": 1,
+    "page": 74,
+    "parent_id": 13,
+    "children_ids": [
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44
+    ],
+    "start_page": 74,
+    "end_page": 90,
+    "page_count": 17
+  },
+  {
+    "id": 34,
+    "title": "A Testing Challenge",
+    "level": 2,
+    "page": 74,
+    "parent_id": 33,
+    "children_ids": [],
+    "start_page": 74,
+    "end_page": 75,
+    "page_count": 2
+  },
+  {
+    "id": 35,
+    "title": "Replacing Troublesome Behavior with Stubs",
+    "level": 2,
+    "page": 76,
+    "parent_id": 33,
+    "children_ids": [],
+    "start_page": 76,
+    "end_page": 78,
+    "page_count": 3
+  },
+  {
+    "id": 36,
+    "title": "Changing Your Design to Support Testing",
+    "level": 2,
+    "page": 79,
+    "parent_id": 33,
+    "children_ids": [],
+    "start_page": 79,
+    "end_page": 79,
+    "page_count": 1
+  },
+  {
+    "id": 37,
+    "title": "Adding Smarts to Your Stub: Verifying Parameters",
+    "level": 2,
+    "page": 79,
+    "parent_id": 33,
+    "children_ids": [],
+    "start_page": 79,
+    "end_page": 79,
+    "page_count": 1
+  },
+  {
+    "id": 38,
+    "title": "Simplifying Testing Using a Mock Tool",
+    "level": 2,
+    "page": 80,
+    "parent_id": 33,
+    "children_ids": [],
+    "start_page": 80,
+    "end_page": 82,
+    "page_count": 3
+  },
+  {
+    "id": 39,
+    "title": "Injecting Mocks with Mockito",
+    "level": 2,
+    "page": 83,
+    "parent_id": 33,
+    "children_ids": [],
+    "start_page": 83,
+    "end_page": 83,
+    "page_count": 1
+  },
+  {
+    "id": 40,
+    "title": "Verifying a Method Was Called…or Not",
+    "level": 2,
+    "page": 84,
+    "parent_id": 33,
+    "children_ids": [],
+    "start_page": 84,
+    "end_page": 85,
+    "page_count": 2
+  },
+  {
+    "id": 41,
+    "title": "Testing Exception Handling",
+    "level": 2,
+    "page": 86,
+    "parent_id": 33,
+    "children_ids": [],
+    "start_page": 86,
+    "end_page": 86,
+    "page_count": 1
+  },
+  {
+    "id": 42,
+    "title": "Fast Tests",
+    "level": 2,
+    "page": 87,
+    "parent_id": 33,
+    "children_ids": [],
+    "start_page": 87,
+    "end_page": 87,
+    "page_count": 1
+  },
+  {
+    "id": 43,
+    "title": "A Mélange of Important Test Double Tips",
+    "level": 2,
+    "page": 88,
+    "parent_id": 33,
+    "children_ids": [],
+    "start_page": 88,
+    "end_page": 88,
+    "page_count": 1
+  },
+  {
+    "id": 44,
+    "title": "Summary",
+    "level": 2,
+    "page": 89,
+    "parent_id": 33,
+    "children_ids": [],
+    "start_page": 89,
+    "end_page": 90,
+    "page_count": 2
+  }
+]

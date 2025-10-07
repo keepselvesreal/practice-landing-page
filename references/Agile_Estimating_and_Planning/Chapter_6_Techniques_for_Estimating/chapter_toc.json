@@ -1,0 +1,98 @@
+[
+  {
+    "id": 39,
+    "title": "Chapter 6: Techniques for Estimating",
+    "level": 1,
+    "page": 80,
+    "parent_id": 27,
+    "children_ids": [
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "start_page": 80,
+    "end_page": 91,
+    "page_count": 12
+  },
+  {
+    "id": 40,
+    "title": "Estimates Are Shared",
+    "level": 2,
+    "page": 82,
+    "parent_id": 39,
+    "children_ids": [],
+    "start_page": 82,
+    "end_page": 82,
+    "page_count": 1
+  },
+  {
+    "id": 41,
+    "title": "The Estimation Scale",
+    "level": 2,
+    "page": 83,
+    "parent_id": 39,
+    "children_ids": [],
+    "start_page": 83,
+    "end_page": 84,
+    "page_count": 2
+  },
+  {
+    "id": 42,
+    "title": "Deriving an Estimate",
+    "level": 2,
+    "page": 85,
+    "parent_id": 39,
+    "children_ids": [],
+    "start_page": 85,
+    "end_page": 86,
+    "page_count": 2
+  },
+  {
+    "id": 43,
+    "title": "Planning Poker",
+    "level": 2,
+    "page": 87,
+    "parent_id": 39,
+    "children_ids": [],
+    "start_page": 87,
+    "end_page": 89,
+    "page_count": 3
+  },
+  {
+    "id": 44,
+    "title": "Why Planning Poker Works",
+    "level": 2,
+    "page": 90,
+    "parent_id": 39,
+    "children_ids": [],
+    "start_page": 90,
+    "end_page": 90,
+    "page_count": 1
+  },
+  {
+    "id": 45,
+    "title": "Summary",
+    "level": 2,
+    "page": 91,
+    "parent_id": 39,
+    "children_ids": [],
+    "start_page": 91,
+    "end_page": 91,
+    "page_count": 1
+  },
+  {
+    "id": 46,
+    "title": "Discussion Questions",
+    "level": 2,
+    "page": 91,
+    "parent_id": 39,
+    "children_ids": [],
+    "start_page": 91,
+    "end_page": 91,
+    "page_count": 1
+  }
+]

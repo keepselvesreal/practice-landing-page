@@ -1,0 +1,86 @@
+[
+  {
+    "id": 68,
+    "title": "Chapter 10: Financial Prioritization",
+    "level": 1,
+    "page": 122,
+    "parent_id": 61,
+    "children_ids": [
+      69,
+      70,
+      71,
+      72,
+      73,
+      74
+    ],
+    "start_page": 122,
+    "end_page": 141,
+    "page_count": 20
+  },
+  {
+    "id": 69,
+    "title": "Sources of Return",
+    "level": 2,
+    "page": 124,
+    "parent_id": 68,
+    "children_ids": [],
+    "start_page": 124,
+    "end_page": 126,
+    "page_count": 3
+  },
+  {
+    "id": 70,
+    "title": "An Example: WebPayroll",
+    "level": 2,
+    "page": 127,
+    "parent_id": 68,
+    "children_ids": [],
+    "start_page": 127,
+    "end_page": 132,
+    "page_count": 6
+  },
+  {
+    "id": 71,
+    "title": "Financial Measures",
+    "level": 2,
+    "page": 133,
+    "parent_id": 68,
+    "children_ids": [],
+    "start_page": 133,
+    "end_page": 138,
+    "page_count": 6
+  },
+  {
+    "id": 72,
+    "title": "Comparing Returns",
+    "level": 2,
+    "page": 139,
+    "parent_id": 68,
+    "children_ids": [],
+    "start_page": 139,
+    "end_page": 139,
+    "page_count": 1
+  },
+  {
+    "id": 73,
+    "title": "Summary",
+    "level": 2,
+    "page": 140,
+    "parent_id": 68,
+    "children_ids": [],
+    "start_page": 140,
+    "end_page": 140,
+    "page_count": 1
+  },
+  {
+    "id": 74,
+    "title": "Discussion Questions",
+    "level": 2,
+    "page": 140,
+    "parent_id": 68,
+    "children_ids": [],
+    "start_page": 140,
+    "end_page": 141,
+    "page_count": 2
+  }
+]

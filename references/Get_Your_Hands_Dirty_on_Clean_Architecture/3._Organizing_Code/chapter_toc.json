@@ -1,0 +1,74 @@
+[
+  {
+    "id": 21,
+    "title": "3. Organizing Code",
+    "level": 0,
+    "page": 25,
+    "parent_id": null,
+    "children_ids": [
+      22,
+      23,
+      24,
+      25,
+      26
+    ],
+    "start_page": 25,
+    "end_page": 31,
+    "page_count": 7
+  },
+  {
+    "id": 22,
+    "title": "Organizing By Layer",
+    "level": 1,
+    "page": 25,
+    "parent_id": 21,
+    "children_ids": [],
+    "start_page": 25,
+    "end_page": 25,
+    "page_count": 1
+  },
+  {
+    "id": 23,
+    "title": "Organizing By Feature",
+    "level": 1,
+    "page": 26,
+    "parent_id": 21,
+    "children_ids": [],
+    "start_page": 26,
+    "end_page": 26,
+    "page_count": 1
+  },
+  {
+    "id": 24,
+    "title": "An Architecturally Expressive Package Structure",
+    "level": 1,
+    "page": 27,
+    "parent_id": 21,
+    "children_ids": [],
+    "start_page": 27,
+    "end_page": 28,
+    "page_count": 2
+  },
+  {
+    "id": 25,
+    "title": "The Role of Dependency Injection",
+    "level": 1,
+    "page": 29,
+    "parent_id": 21,
+    "children_ids": [],
+    "start_page": 29,
+    "end_page": 30,
+    "page_count": 2
+  },
+  {
+    "id": 26,
+    "title": "How Does This Help Me Build Maintainable Software?",
+    "level": 1,
+    "page": 31,
+    "parent_id": 21,
+    "children_ids": [],
+    "start_page": 31,
+    "end_page": 31,
+    "page_count": 1
+  }
+]

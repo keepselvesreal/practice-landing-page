@@ -1,0 +1,197 @@
+[
+  {
+    "id": 122,
+    "title": "7 Interfaces: using constrained generic types",
+    "level": 1,
+    "page": 208,
+    "parent_id": 56,
+    "children_ids": [
+      123,
+      129,
+      133,
+      137
+    ],
+    "start_page": 208,
+    "end_page": 233,
+    "page_count": 26
+  },
+  {
+    "id": 123,
+    "title": "7.1 Generic comparisons with Eq and Ord",
+    "level": 2,
+    "page": 209,
+    "parent_id": 122,
+    "children_ids": [
+      124,
+      125,
+      126,
+      127,
+      128
+    ],
+    "start_page": 209,
+    "end_page": 219,
+    "page_count": 11
+  },
+  {
+    "id": 124,
+    "title": "7.1.1 Testing for equality with Eq",
+    "level": 3,
+    "page": 209,
+    "parent_id": 123,
+    "children_ids": [],
+    "start_page": 209,
+    "end_page": 210,
+    "page_count": 2
+  },
+  {
+    "id": 125,
+    "title": "7.1.2 Defining the Eq constraint using interfaces and implementations",
+    "level": 3,
+    "page": 211,
+    "parent_id": 123,
+    "children_ids": [],
+    "start_page": 211,
+    "end_page": 214,
+    "page_count": 4
+  },
+  {
+    "id": 126,
+    "title": "7.1.3 Default method definitions",
+    "level": 3,
+    "page": 215,
+    "parent_id": 123,
+    "children_ids": [],
+    "start_page": 215,
+    "end_page": 215,
+    "page_count": 1
+  },
+  {
+    "id": 127,
+    "title": "7.1.4 Constrained implementations",
+    "level": 3,
+    "page": 215,
+    "parent_id": 123,
+    "children_ids": [],
+    "start_page": 215,
+    "end_page": 216,
+    "page_count": 2
+  },
+  {
+    "id": 128,
+    "title": "7.1.5 Constrained interfaces: defining orderings with Ord",
+    "level": 3,
+    "page": 217,
+    "parent_id": 123,
+    "children_ids": [],
+    "start_page": 217,
+    "end_page": 219,
+    "page_count": 3
+  },
+  {
+    "id": 129,
+    "title": "7.2 Interfaces defined in the Prelude",
+    "level": 2,
+    "page": 220,
+    "parent_id": 122,
+    "children_ids": [
+      130,
+      131,
+      132
+    ],
+    "start_page": 220,
+    "end_page": 224,
+    "page_count": 5
+  },
+  {
+    "id": 130,
+    "title": "7.2.1 Converting to String with Show",
+    "level": 3,
+    "page": 220,
+    "parent_id": 129,
+    "children_ids": [],
+    "start_page": 220,
+    "end_page": 220,
+    "page_count": 1
+  },
+  {
+    "id": 131,
+    "title": "7.2.2 Defining numeric types",
+    "level": 3,
+    "page": 221,
+    "parent_id": 129,
+    "children_ids": [],
+    "start_page": 221,
+    "end_page": 223,
+    "page_count": 3
+  },
+  {
+    "id": 132,
+    "title": "7.2.3 Converting between types with Cast",
+    "level": 3,
+    "page": 224,
+    "parent_id": 129,
+    "children_ids": [],
+    "start_page": 224,
+    "end_page": 224,
+    "page_count": 1
+  },
+  {
+    "id": 133,
+    "title": "7.3 Interfaces parameterized by Type -> Type",
+    "level": 2,
+    "page": 225,
+    "parent_id": 122,
+    "children_ids": [
+      134,
+      135,
+      136
+    ],
+    "start_page": 225,
+    "end_page": 232,
+    "page_count": 8
+  },
+  {
+    "id": 134,
+    "title": "7.3.1 Applying a function across a structure with Functor",
+    "level": 3,
+    "page": 226,
+    "parent_id": 133,
+    "children_ids": [],
+    "start_page": 226,
+    "end_page": 226,
+    "page_count": 1
+  },
+  {
+    "id": 135,
+    "title": "7.3.2 Reducing a structure using Foldable",
+    "level": 3,
+    "page": 227,
+    "parent_id": 133,
+    "children_ids": [],
+    "start_page": 227,
+    "end_page": 230,
+    "page_count": 4
+  },
+  {
+    "id": 136,
+    "title": "7.3.3 Generic do notation using Monad and Applicative",
+    "level": 3,
+    "page": 231,
+    "parent_id": 133,
+    "children_ids": [],
+    "start_page": 231,
+    "end_page": 232,
+    "page_count": 2
+  },
+  {
+    "id": 137,
+    "title": "7.4 Summary",
+    "level": 2,
+    "page": 233,
+    "parent_id": 122,
+    "children_ids": [],
+    "start_page": 233,
+    "end_page": 233,
+    "page_count": 1
+  }
+]

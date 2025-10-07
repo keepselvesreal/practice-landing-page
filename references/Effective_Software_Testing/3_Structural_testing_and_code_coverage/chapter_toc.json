@@ -1,0 +1,317 @@
+[
+  {
+    "id": 70,
+    "title": "3 Structural testing and code coverage",
+    "level": 0,
+    "page": 91,
+    "parent_id": null,
+    "children_ids": [
+      71,
+      72,
+      73,
+      78,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      93,
+      94,
+      95
+    ],
+    "start_page": 91,
+    "end_page": 124,
+    "page_count": 34
+  },
+  {
+    "id": 71,
+    "title": "3.1 Code coverage, the right way",
+    "level": 1,
+    "page": 92,
+    "parent_id": 70,
+    "children_ids": [],
+    "start_page": 92,
+    "end_page": 95,
+    "page_count": 4
+  },
+  {
+    "id": 72,
+    "title": "3.2 Structural testing in a nutshell",
+    "level": 1,
+    "page": 96,
+    "parent_id": 70,
+    "children_ids": [],
+    "start_page": 96,
+    "end_page": 96,
+    "page_count": 1
+  },
+  {
+    "id": 73,
+    "title": "3.3 Code coverage criteria",
+    "level": 1,
+    "page": 97,
+    "parent_id": 70,
+    "children_ids": [
+      74,
+      75,
+      76,
+      77
+    ],
+    "start_page": 97,
+    "end_page": 99,
+    "page_count": 3
+  },
+  {
+    "id": 74,
+    "title": "3.3.1 Line coverage",
+    "level": 2,
+    "page": 97,
+    "parent_id": 73,
+    "children_ids": [],
+    "start_page": 97,
+    "end_page": 97,
+    "page_count": 1
+  },
+  {
+    "id": 75,
+    "title": "3.3.2 Branch coverage",
+    "level": 2,
+    "page": 97,
+    "parent_id": 73,
+    "children_ids": [],
+    "start_page": 97,
+    "end_page": 97,
+    "page_count": 1
+  },
+  {
+    "id": 76,
+    "title": "3.3.3 Condition + branch coverage",
+    "level": 2,
+    "page": 98,
+    "parent_id": 73,
+    "children_ids": [],
+    "start_page": 98,
+    "end_page": 98,
+    "page_count": 1
+  },
+  {
+    "id": 77,
+    "title": "3.3.4 Path coverage",
+    "level": 2,
+    "page": 99,
+    "parent_id": 73,
+    "children_ids": [],
+    "start_page": 99,
+    "end_page": 99,
+    "page_count": 1
+  },
+  {
+    "id": 78,
+    "title": "3.4 Complex conditions and the MC/DC coverage criterion",
+    "level": 1,
+    "page": 100,
+    "parent_id": 70,
+    "children_ids": [
+      79,
+      80
+    ],
+    "start_page": 100,
+    "end_page": 102,
+    "page_count": 3
+  },
+  {
+    "id": 79,
+    "title": "3.4.1 An abstract example",
+    "level": 2,
+    "page": 100,
+    "parent_id": 78,
+    "children_ids": [],
+    "start_page": 100,
+    "end_page": 100,
+    "page_count": 1
+  },
+  {
+    "id": 80,
+    "title": "3.4.2 Creating a test suite that achieves MC/DC",
+    "level": 2,
+    "page": 101,
+    "parent_id": 78,
+    "children_ids": [],
+    "start_page": 101,
+    "end_page": 102,
+    "page_count": 2
+  },
+  {
+    "id": 81,
+    "title": "3.5 Handling loops and similar constructs",
+    "level": 1,
+    "page": 103,
+    "parent_id": 70,
+    "children_ids": [],
+    "start_page": 103,
+    "end_page": 103,
+    "page_count": 1
+  },
+  {
+    "id": 82,
+    "title": "3.6 Criteria subsumption, and choosing a criterion",
+    "level": 1,
+    "page": 103,
+    "parent_id": 70,
+    "children_ids": [],
+    "start_page": 103,
+    "end_page": 104,
+    "page_count": 2
+  },
+  {
+    "id": 83,
+    "title": "3.7 Specification-based and structural testing: A running example",
+    "level": 1,
+    "page": 105,
+    "parent_id": 70,
+    "children_ids": [],
+    "start_page": 105,
+    "end_page": 109,
+    "page_count": 5
+  },
+  {
+    "id": 84,
+    "title": "3.8 Boundary testing and structural testing",
+    "level": 1,
+    "page": 110,
+    "parent_id": 70,
+    "children_ids": [],
+    "start_page": 110,
+    "end_page": 110,
+    "page_count": 1
+  },
+  {
+    "id": 85,
+    "title": "3.9 Structural testing alone often is not enough",
+    "level": 1,
+    "page": 110,
+    "parent_id": 70,
+    "children_ids": [],
+    "start_page": 110,
+    "end_page": 111,
+    "page_count": 2
+  },
+  {
+    "id": 86,
+    "title": "3.10 Structural testing in the real world",
+    "level": 1,
+    "page": 112,
+    "parent_id": 70,
+    "children_ids": [
+      87,
+      88,
+      89,
+      90,
+      91,
+      92
+    ],
+    "start_page": 112,
+    "end_page": 117,
+    "page_count": 6
+  },
+  {
+    "id": 87,
+    "title": "3.10.1 Why do some people hate code coverage?",
+    "level": 2,
+    "page": 112,
+    "parent_id": 86,
+    "children_ids": [],
+    "start_page": 112,
+    "end_page": 113,
+    "page_count": 2
+  },
+  {
+    "id": 88,
+    "title": "3.10.2 What does it mean to achieve 100% coverage?",
+    "level": 2,
+    "page": 114,
+    "parent_id": 86,
+    "children_ids": [],
+    "start_page": 114,
+    "end_page": 115,
+    "page_count": 2
+  },
+  {
+    "id": 89,
+    "title": "3.10.3 What coverage criterion to use",
+    "level": 2,
+    "page": 116,
+    "parent_id": 86,
+    "children_ids": [],
+    "start_page": 116,
+    "end_page": 116,
+    "page_count": 1
+  },
+  {
+    "id": 90,
+    "title": "3.10.4 MC/DC when expressions are too complex and cannot be simplified",
+    "level": 2,
+    "page": 116,
+    "parent_id": 86,
+    "children_ids": [],
+    "start_page": 116,
+    "end_page": 116,
+    "page_count": 1
+  },
+  {
+    "id": 91,
+    "title": "3.10.5 Other coverage criteria",
+    "level": 2,
+    "page": 117,
+    "parent_id": 86,
+    "children_ids": [],
+    "start_page": 117,
+    "end_page": 117,
+    "page_count": 1
+  },
+  {
+    "id": 92,
+    "title": "3.10.6 What should not be covered?",
+    "level": 2,
+    "page": 118,
+    "parent_id": 86,
+    "children_ids": [],
+    "start_page": 118,
+    "end_page": 118,
+    "page_count": 1
+  },
+  {
+    "id": 93,
+    "title": "3.11 Mutation testing",
+    "level": 1,
+    "page": 118,
+    "parent_id": 70,
+    "children_ids": [],
+    "start_page": 118,
+    "end_page": 120,
+    "page_count": 3
+  },
+  {
+    "id": 94,
+    "title": "Exercises",
+    "level": 1,
+    "page": 121,
+    "parent_id": 70,
+    "children_ids": [],
+    "start_page": 121,
+    "end_page": 123,
+    "page_count": 3
+  },
+  {
+    "id": 95,
+    "title": "Summary",
+    "level": 1,
+    "page": 124,
+    "parent_id": 70,
+    "children_ids": [],
+    "start_page": 124,
+    "end_page": 124,
+    "page_count": 1
+  }
+]

@@ -1,0 +1,103 @@
+[
+  {
+    "id": 125,
+    "title": "Chapter 19: Handling Failure",
+    "level": 1,
+    "page": 240,
+    "parent_id": 71,
+    "children_ids": [
+      126,
+      127,
+      128,
+      129,
+      130,
+      131
+    ],
+    "start_page": 240,
+    "end_page": 251,
+    "page_count": 12
+  },
+  {
+    "id": 126,
+    "title": "What If It Doesn't Work?",
+    "level": 2,
+    "page": 240,
+    "parent_id": 125,
+    "children_ids": [],
+    "start_page": 240,
+    "end_page": 241,
+    "page_count": 2
+  },
+  {
+    "id": 127,
+    "title": "Detecting the Failure",
+    "level": 2,
+    "page": 242,
+    "parent_id": 125,
+    "children_ids": [],
+    "start_page": 242,
+    "end_page": 242,
+    "page_count": 1
+  },
+  {
+    "id": 128,
+    "title": "Displaying the Failure",
+    "level": 2,
+    "page": 243,
+    "parent_id": 125,
+    "children_ids": [],
+    "start_page": 243,
+    "end_page": 243,
+    "page_count": 1
+  },
+  {
+    "id": 129,
+    "title": "Disconnecting the Sniper",
+    "level": 2,
+    "page": 244,
+    "parent_id": 125,
+    "children_ids": [],
+    "start_page": 244,
+    "end_page": 245,
+    "page_count": 2
+  },
+  {
+    "id": 130,
+    "title": "Recording the Failure",
+    "level": 2,
+    "page": 246,
+    "parent_id": 125,
+    "children_ids": [],
+    "start_page": 246,
+    "end_page": 249,
+    "page_count": 4
+  },
+  {
+    "id": 131,
+    "title": "Observations",
+    "level": 2,
+    "page": 250,
+    "parent_id": 125,
+    "children_ids": [],
+    "start_page": 250,
+    "end_page": 251,
+    "page_count": 2
+  },
+  {
+    "id": 132,
+    "title": "Part IV: Sustainable Test-Driven Development",
+    "level": 0,
+    "page": 252,
+    "parent_id": null,
+    "children_ids": [
+      133,
+      144,
+      151,
+      159,
+      169
+    ],
+    "start_page": 252,
+    "end_page": 311,
+    "page_count": 60
+  }
+]

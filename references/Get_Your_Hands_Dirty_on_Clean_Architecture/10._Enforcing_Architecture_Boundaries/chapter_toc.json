@@ -1,0 +1,74 @@
+[
+  {
+    "id": 73,
+    "title": "10. Enforcing Architecture Boundaries",
+    "level": 0,
+    "page": 91,
+    "parent_id": null,
+    "children_ids": [
+      74,
+      75,
+      76,
+      77,
+      78
+    ],
+    "start_page": 91,
+    "end_page": 98,
+    "page_count": 8
+  },
+  {
+    "id": 74,
+    "title": "Boundaries and Dependencies",
+    "level": 1,
+    "page": 91,
+    "parent_id": 73,
+    "children_ids": [],
+    "start_page": 91,
+    "end_page": 91,
+    "page_count": 1
+  },
+  {
+    "id": 75,
+    "title": "Visibility Modifiers",
+    "level": 1,
+    "page": 92,
+    "parent_id": 73,
+    "children_ids": [],
+    "start_page": 92,
+    "end_page": 93,
+    "page_count": 2
+  },
+  {
+    "id": 76,
+    "title": "Post-Compile Checks",
+    "level": 1,
+    "page": 94,
+    "parent_id": 73,
+    "children_ids": [],
+    "start_page": 94,
+    "end_page": 94,
+    "page_count": 1
+  },
+  {
+    "id": 77,
+    "title": "Build Artifacts",
+    "level": 1,
+    "page": 95,
+    "parent_id": 73,
+    "children_ids": [],
+    "start_page": 95,
+    "end_page": 97,
+    "page_count": 3
+  },
+  {
+    "id": 78,
+    "title": "How Does This Help Me Build Maintainable Software?",
+    "level": 1,
+    "page": 98,
+    "parent_id": 73,
+    "children_ids": [],
+    "start_page": 98,
+    "end_page": 98,
+    "page_count": 1
+  }
+]

@@ -1,0 +1,295 @@
+[
+  {
+    "id": 34,
+    "title": "Chapter 3: Dispelling Common \nMyths about TDD",
+    "level": 0,
+    "page": 54,
+    "parent_id": null,
+    "children_ids": [
+      35,
+      38,
+      41,
+      44,
+      47,
+      51,
+      54,
+      55,
+      56
+    ],
+    "start_page": 54,
+    "end_page": 65,
+    "page_count": 12
+  },
+  {
+    "id": 35,
+    "title": "Writing tests slows me down",
+    "level": 1,
+    "page": 54,
+    "parent_id": 34,
+    "children_ids": [
+      36,
+      37
+    ],
+    "start_page": 54,
+    "end_page": 56,
+    "page_count": 3
+  },
+  {
+    "id": 36,
+    "title": "Understanding the benefits of slowing down",
+    "level": 2,
+    "page": 55,
+    "parent_id": 35,
+    "children_ids": [],
+    "start_page": 55,
+    "end_page": 55,
+    "page_count": 1
+  },
+  {
+    "id": 37,
+    "title": "Overcoming objections to tests slowing us down",
+    "level": 2,
+    "page": 56,
+    "parent_id": 35,
+    "children_ids": [],
+    "start_page": 56,
+    "end_page": 56,
+    "page_count": 1
+  },
+  {
+    "id": 38,
+    "title": "Tests cannot prevent every bug",
+    "level": 1,
+    "page": 57,
+    "parent_id": 34,
+    "children_ids": [
+      39,
+      40
+    ],
+    "start_page": 57,
+    "end_page": 57,
+    "page_count": 1
+  },
+  {
+    "id": 39,
+    "title": "Understanding why people say tests cannot catch every bug",
+    "level": 2,
+    "page": 57,
+    "parent_id": 38,
+    "children_ids": [],
+    "start_page": 57,
+    "end_page": 57,
+    "page_count": 1
+  },
+  {
+    "id": 40,
+    "title": "Overcoming objections to not catching every bug",
+    "level": 2,
+    "page": 58,
+    "parent_id": 38,
+    "children_ids": [],
+    "start_page": 58,
+    "end_page": 58,
+    "page_count": 1
+  },
+  {
+    "id": 41,
+    "title": "How do you know the tests are right?",
+    "level": 1,
+    "page": 58,
+    "parent_id": 34,
+    "children_ids": [
+      42,
+      43
+    ],
+    "start_page": 58,
+    "end_page": 58,
+    "page_count": 1
+  },
+  {
+    "id": 42,
+    "title": "Understanding the concerns behind writing broken tests",
+    "level": 2,
+    "page": 58,
+    "parent_id": 41,
+    "children_ids": [],
+    "start_page": 58,
+    "end_page": 58,
+    "page_count": 1
+  },
+  {
+    "id": 43,
+    "title": "Providing reassurance that we test our tests",
+    "level": 2,
+    "page": 59,
+    "parent_id": 41,
+    "children_ids": [],
+    "start_page": 59,
+    "end_page": 59,
+    "page_count": 1
+  },
+  {
+    "id": 44,
+    "title": "TDD guarantees good code",
+    "level": 1,
+    "page": 59,
+    "parent_id": 34,
+    "children_ids": [
+      45,
+      46
+    ],
+    "start_page": 59,
+    "end_page": 59,
+    "page_count": 1
+  },
+  {
+    "id": 45,
+    "title": "Understanding problem-inflated expectations",
+    "level": 2,
+    "page": 59,
+    "parent_id": 44,
+    "children_ids": [],
+    "start_page": 59,
+    "end_page": 59,
+    "page_count": 1
+  },
+  {
+    "id": 46,
+    "title": "Managing your expectations of TDD",
+    "level": 2,
+    "page": 60,
+    "parent_id": 44,
+    "children_ids": [],
+    "start_page": 60,
+    "end_page": 60,
+    "page_count": 1
+  },
+  {
+    "id": 47,
+    "title": "Our code is too complex to test",
+    "level": 1,
+    "page": 60,
+    "parent_id": 34,
+    "children_ids": [
+      48,
+      49,
+      50
+    ],
+    "start_page": 60,
+    "end_page": 61,
+    "page_count": 2
+  },
+  {
+    "id": 48,
+    "title": "Understanding the causes of untestable code",
+    "level": 2,
+    "page": 60,
+    "parent_id": 47,
+    "children_ids": [],
+    "start_page": 60,
+    "end_page": 60,
+    "page_count": 1
+  },
+  {
+    "id": 49,
+    "title": "Reframing the relationship between good design and simple tests",
+    "level": 2,
+    "page": 61,
+    "parent_id": 47,
+    "children_ids": [],
+    "start_page": 61,
+    "end_page": 61,
+    "page_count": 1
+  },
+  {
+    "id": 50,
+    "title": "Managing legacy code without tests",
+    "level": 2,
+    "page": 62,
+    "parent_id": 47,
+    "children_ids": [],
+    "start_page": 62,
+    "end_page": 62,
+    "page_count": 1
+  },
+  {
+    "id": 51,
+    "title": "I don’t know what to test until I write the code",
+    "level": 1,
+    "page": 62,
+    "parent_id": 34,
+    "children_ids": [
+      52,
+      53
+    ],
+    "start_page": 62,
+    "end_page": 63,
+    "page_count": 2
+  },
+  {
+    "id": 52,
+    "title": "Understanding the difficulty of starting with testing",
+    "level": 2,
+    "page": 63,
+    "parent_id": 51,
+    "children_ids": [],
+    "start_page": 63,
+    "end_page": 63,
+    "page_count": 1
+  },
+  {
+    "id": 53,
+    "title": "Overcoming the need to write production code first",
+    "level": 2,
+    "page": 63,
+    "parent_id": 51,
+    "children_ids": [],
+    "start_page": 63,
+    "end_page": 63,
+    "page_count": 1
+  },
+  {
+    "id": 54,
+    "title": "Summary",
+    "level": 1,
+    "page": 64,
+    "parent_id": 34,
+    "children_ids": [],
+    "start_page": 64,
+    "end_page": 64,
+    "page_count": 1
+  },
+  {
+    "id": 55,
+    "title": "Questions and answers",
+    "level": 1,
+    "page": 64,
+    "parent_id": 34,
+    "children_ids": [],
+    "start_page": 64,
+    "end_page": 64,
+    "page_count": 1
+  },
+  {
+    "id": 56,
+    "title": "Further reading",
+    "level": 1,
+    "page": 64,
+    "parent_id": 34,
+    "children_ids": [],
+    "start_page": 64,
+    "end_page": 65,
+    "page_count": 2
+  },
+  {
+    "id": 57,
+    "title": "Part 2: \nTDD Techniques",
+    "level": 0,
+    "page": 66,
+    "parent_id": null,
+    "children_ids": [],
+    "start_page": 66,
+    "end_page": 67,
+    "page_count": 2
+  }
+]

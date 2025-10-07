@@ -1,0 +1,110 @@
+[
+  {
+    "id": 99,
+    "title": "Chapter 14: Iteration Planning",
+    "level": 1,
+    "page": 176,
+    "parent_id": 92,
+    "children_ids": [
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107
+    ],
+    "start_page": 176,
+    "end_page": 197,
+    "page_count": 22
+  },
+  {
+    "id": 100,
+    "title": "Tasks Are Not Allocated During Iteration Planning",
+    "level": 2,
+    "page": 178,
+    "parent_id": 99,
+    "children_ids": [],
+    "start_page": 178,
+    "end_page": 178,
+    "page_count": 1
+  },
+  {
+    "id": 101,
+    "title": "How Iteration and Release Planning Differ",
+    "level": 2,
+    "page": 179,
+    "parent_id": 99,
+    "children_ids": [],
+    "start_page": 179,
+    "end_page": 179,
+    "page_count": 1
+  },
+  {
+    "id": 102,
+    "title": "Velocity-Driven Iteration Planning",
+    "level": 2,
+    "page": 180,
+    "parent_id": 99,
+    "children_ids": [],
+    "start_page": 180,
+    "end_page": 188,
+    "page_count": 9
+  },
+  {
+    "id": 103,
+    "title": "Commitment-Driven Iteration Planning",
+    "level": 2,
+    "page": 189,
+    "parent_id": 99,
+    "children_ids": [],
+    "start_page": 189,
+    "end_page": 192,
+    "page_count": 4
+  },
+  {
+    "id": 104,
+    "title": "My Recommendation",
+    "level": 2,
+    "page": 193,
+    "parent_id": 99,
+    "children_ids": [],
+    "start_page": 193,
+    "end_page": 193,
+    "page_count": 1
+  },
+  {
+    "id": 105,
+    "title": "Relating Task Estimates to Story Points",
+    "level": 2,
+    "page": 194,
+    "parent_id": 99,
+    "children_ids": [],
+    "start_page": 194,
+    "end_page": 195,
+    "page_count": 2
+  },
+  {
+    "id": 106,
+    "title": "Summary",
+    "level": 2,
+    "page": 196,
+    "parent_id": 99,
+    "children_ids": [],
+    "start_page": 196,
+    "end_page": 196,
+    "page_count": 1
+  },
+  {
+    "id": 107,
+    "title": "Discussion Questions",
+    "level": 2,
+    "page": 197,
+    "parent_id": 99,
+    "children_ids": [],
+    "start_page": 197,
+    "end_page": 197,
+    "page_count": 1
+  }
+]

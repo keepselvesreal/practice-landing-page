@@ -1,0 +1,419 @@
+[
+  {
+    "id": 164,
+    "title": "Chapter€8.€Points of Controversy",
+    "level": 1,
+    "page": 152,
+    "parent_id": 119,
+    "children_ids": [
+      165,
+      166,
+      169,
+      170,
+      174,
+      181,
+      182,
+      188,
+      192,
+      193,
+      194
+    ],
+    "start_page": 152,
+    "end_page": 185,
+    "page_count": 34
+  },
+  {
+    "id": 165,
+    "title": "8.1.€Access Modifiers",
+    "level": 2,
+    "page": 152,
+    "parent_id": 164,
+    "children_ids": [],
+    "start_page": 152,
+    "end_page": 152,
+    "page_count": 1
+  },
+  {
+    "id": 166,
+    "title": "8.2.€Random Values in Tests",
+    "level": 2,
+    "page": 152,
+    "parent_id": 164,
+    "children_ids": [
+      167,
+      168
+    ],
+    "start_page": 152,
+    "end_page": 155,
+    "page_count": 4
+  },
+  {
+    "id": 167,
+    "title": "8.2.1.€Random Object Properties",
+    "level": 3,
+    "page": 152,
+    "parent_id": 166,
+    "children_ids": [],
+    "start_page": 152,
+    "end_page": 154,
+    "page_count": 3
+  },
+  {
+    "id": 168,
+    "title": "8.2.2.€The Gotchas",
+    "level": 3,
+    "page": 155,
+    "parent_id": 166,
+    "children_ids": [],
+    "start_page": 155,
+    "end_page": 155,
+    "page_count": 1
+  },
+  {
+    "id": 169,
+    "title": "8.3.€Is Set-up the Right Thing for You?",
+    "level": 2,
+    "page": 156,
+    "parent_id": 164,
+    "children_ids": [],
+    "start_page": 156,
+    "end_page": 157,
+    "page_count": 2
+  },
+  {
+    "id": 170,
+    "title": "8.4.€How Many Assertions per Test Method?",
+    "level": 2,
+    "page": 158,
+    "parent_id": 164,
+    "children_ids": [
+      171,
+      172,
+      173
+    ],
+    "start_page": 158,
+    "end_page": 161,
+    "page_count": 4
+  },
+  {
+    "id": 171,
+    "title": "8.4.1.€Code Example",
+    "level": 3,
+    "page": 158,
+    "parent_id": 170,
+    "children_ids": [],
+    "start_page": 158,
+    "end_page": 159,
+    "page_count": 2
+  },
+  {
+    "id": 172,
+    "title": "8.4.2.€Pros and Cons",
+    "level": 3,
+    "page": 160,
+    "parent_id": 170,
+    "children_ids": [],
+    "start_page": 160,
+    "end_page": 160,
+    "page_count": 1
+  },
+  {
+    "id": 173,
+    "title": "8.4.3.€Conclusions",
+    "level": 3,
+    "page": 161,
+    "parent_id": 170,
+    "children_ids": [],
+    "start_page": 161,
+    "end_page": 161,
+    "page_count": 1
+  },
+  {
+    "id": 174,
+    "title": "8.5.€Private Methods Testing",
+    "level": 2,
+    "page": 162,
+    "parent_id": 164,
+    "children_ids": [
+      175,
+      176,
+      177,
+      180
+    ],
+    "start_page": 162,
+    "end_page": 166,
+    "page_count": 5
+  },
+  {
+    "id": 175,
+    "title": "8.5.1.€Verification vs. Design - Revisited",
+    "level": 3,
+    "page": 163,
+    "parent_id": 174,
+    "children_ids": [],
+    "start_page": 163,
+    "end_page": 163,
+    "page_count": 1
+  },
+  {
+    "id": 176,
+    "title": "8.5.2.€Options We Have",
+    "level": 3,
+    "page": 163,
+    "parent_id": 174,
+    "children_ids": [],
+    "start_page": 163,
+    "end_page": 163,
+    "page_count": 1
+  },
+  {
+    "id": 177,
+    "title": "8.5.3.€Private Methods Testing - Techniques",
+    "level": 3,
+    "page": 164,
+    "parent_id": 174,
+    "children_ids": [
+      178,
+      179
+    ],
+    "start_page": 164,
+    "end_page": 165,
+    "page_count": 2
+  },
+  {
+    "id": 178,
+    "title": "Reflection",
+    "level": 4,
+    "page": 164,
+    "parent_id": 177,
+    "children_ids": [],
+    "start_page": 164,
+    "end_page": 165,
+    "page_count": 2
+  },
+  {
+    "id": 179,
+    "title": "Access Modifiers",
+    "level": 4,
+    "page": 166,
+    "parent_id": 177,
+    "children_ids": [],
+    "start_page": 166,
+    "end_page": 166,
+    "page_count": 1
+  },
+  {
+    "id": 180,
+    "title": "8.5.4.€Conclusions",
+    "level": 3,
+    "page": 166,
+    "parent_id": 174,
+    "children_ids": [],
+    "start_page": 166,
+    "end_page": 166,
+    "page_count": 1
+  },
+  {
+    "id": 181,
+    "title": "8.6.€Lambdas",
+    "level": 2,
+    "page": 167,
+    "parent_id": 164,
+    "children_ids": [],
+    "start_page": 167,
+    "end_page": 167,
+    "page_count": 1
+  },
+  {
+    "id": 182,
+    "title": "8.7.€New Operator",
+    "level": 2,
+    "page": 168,
+    "parent_id": 164,
+    "children_ids": [
+      183,
+      184,
+      185,
+      186,
+      187
+    ],
+    "start_page": 168,
+    "end_page": 177,
+    "page_count": 10
+  },
+  {
+    "id": 183,
+    "title": "8.7.1.€PowerMock to the Rescue",
+    "level": 3,
+    "page": 169,
+    "parent_id": 182,
+    "children_ids": [],
+    "start_page": 169,
+    "end_page": 170,
+    "page_count": 2
+  },
+  {
+    "id": 184,
+    "title": "8.7.2.€Redesign and Inject",
+    "level": 3,
+    "page": 171,
+    "parent_id": 182,
+    "children_ids": [],
+    "start_page": 171,
+    "end_page": 172,
+    "page_count": 2
+  },
+  {
+    "id": 185,
+    "title": "8.7.3.€Refactor and Subclass",
+    "level": 3,
+    "page": 173,
+    "parent_id": 182,
+    "children_ids": [],
+    "start_page": 173,
+    "end_page": 174,
+    "page_count": 2
+  },
+  {
+    "id": 186,
+    "title": "8.7.4.€Partial Mocking",
+    "level": 3,
+    "page": 175,
+    "parent_id": 182,
+    "children_ids": [],
+    "start_page": 175,
+    "end_page": 176,
+    "page_count": 2
+  },
+  {
+    "id": 187,
+    "title": "8.7.5.€Conclusions",
+    "level": 3,
+    "page": 177,
+    "parent_id": 182,
+    "children_ids": [],
+    "start_page": 177,
+    "end_page": 177,
+    "page_count": 1
+  },
+  {
+    "id": 188,
+    "title": "8.8.€Capturing Arguments to Collaborators",
+    "level": 2,
+    "page": 178,
+    "parent_id": 164,
+    "children_ids": [
+      189,
+      190,
+      191
+    ],
+    "start_page": 178,
+    "end_page": 182,
+    "page_count": 5
+  },
+  {
+    "id": 189,
+    "title": "8.8.1.€Identical Objects",
+    "level": 3,
+    "page": 179,
+    "parent_id": 188,
+    "children_ids": [],
+    "start_page": 179,
+    "end_page": 180,
+    "page_count": 2
+  },
+  {
+    "id": 190,
+    "title": "8.8.2.€ArgumentCaptor",
+    "level": 3,
+    "page": 181,
+    "parent_id": 188,
+    "children_ids": [],
+    "start_page": 181,
+    "end_page": 181,
+    "page_count": 1
+  },
+  {
+    "id": 191,
+    "title": "8.8.3.€Hamcrest Matchers",
+    "level": 3,
+    "page": 182,
+    "parent_id": 188,
+    "children_ids": [],
+    "start_page": 182,
+    "end_page": 182,
+    "page_count": 1
+  },
+  {
+    "id": 192,
+    "title": "8.9.€Files & Databases",
+    "level": 2,
+    "page": 183,
+    "parent_id": 164,
+    "children_ids": [],
+    "start_page": 183,
+    "end_page": 183,
+    "page_count": 1
+  },
+  {
+    "id": 193,
+    "title": "8.10.€Conclusions",
+    "level": 2,
+    "page": 183,
+    "parent_id": 164,
+    "children_ids": [],
+    "start_page": 183,
+    "end_page": 184,
+    "page_count": 2
+  },
+  {
+    "id": 194,
+    "title": "8.11.€Exercises",
+    "level": 2,
+    "page": 185,
+    "parent_id": 164,
+    "children_ids": [
+      195,
+      196
+    ],
+    "start_page": 185,
+    "end_page": 185,
+    "page_count": 1
+  },
+  {
+    "id": 195,
+    "title": "8.11.1.€Property Based Testing",
+    "level": 3,
+    "page": 185,
+    "parent_id": 194,
+    "children_ids": [],
+    "start_page": 185,
+    "end_page": 185,
+    "page_count": 1
+  },
+  {
+    "id": 196,
+    "title": "8.11.2.€Testing Legacy Code",
+    "level": 3,
+    "page": 185,
+    "parent_id": 194,
+    "children_ids": [],
+    "start_page": 185,
+    "end_page": 185,
+    "page_count": 1
+  },
+  {
+    "id": 197,
+    "title": "Part€IV.€Listen and Organize",
+    "level": 0,
+    "page": 186,
+    "parent_id": null,
+    "children_ids": [
+      198,
+      213
+    ],
+    "start_page": 186,
+    "end_page": 220,
+    "page_count": 35
+  }
+]

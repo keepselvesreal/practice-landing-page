@@ -1,0 +1,246 @@
+[
+  {
+    "id": 86,
+    "title": "5 Mocks and test fragility",
+    "level": 1,
+    "page": 114,
+    "parent_id": 65,
+    "children_ids": [
+      87,
+      93,
+      98,
+      102,
+      105
+    ],
+    "start_page": 114,
+    "end_page": 140,
+    "page_count": 27
+  },
+  {
+    "id": 87,
+    "title": "5.1 Differentiating mocks from stubs",
+    "level": 2,
+    "page": 115,
+    "parent_id": 86,
+    "children_ids": [
+      88,
+      89,
+      90,
+      91,
+      92
+    ],
+    "start_page": 115,
+    "end_page": 120,
+    "page_count": 6
+  },
+  {
+    "id": 88,
+    "title": "5.1.1 The types of test doubles",
+    "level": 3,
+    "page": 115,
+    "parent_id": 87,
+    "children_ids": [],
+    "start_page": 115,
+    "end_page": 115,
+    "page_count": 1
+  },
+  {
+    "id": 89,
+    "title": "5.1.2 Mock (the tool) vs. mock (the test double)",
+    "level": 3,
+    "page": 116,
+    "parent_id": 87,
+    "children_ids": [],
+    "start_page": 116,
+    "end_page": 117,
+    "page_count": 2
+  },
+  {
+    "id": 90,
+    "title": "5.1.3 Don’t assert interactions with stubs",
+    "level": 3,
+    "page": 118,
+    "parent_id": 87,
+    "children_ids": [],
+    "start_page": 118,
+    "end_page": 118,
+    "page_count": 1
+  },
+  {
+    "id": 91,
+    "title": "5.1.4 Using mocks and stubs together",
+    "level": 3,
+    "page": 119,
+    "parent_id": 87,
+    "children_ids": [],
+    "start_page": 119,
+    "end_page": 119,
+    "page_count": 1
+  },
+  {
+    "id": 92,
+    "title": "5.1.5 How mocks and stubs relate to commands and queries",
+    "level": 3,
+    "page": 119,
+    "parent_id": 87,
+    "children_ids": [],
+    "start_page": 119,
+    "end_page": 120,
+    "page_count": 2
+  },
+  {
+    "id": 93,
+    "title": "5.2 Observable behavior vs. implementation details",
+    "level": 2,
+    "page": 121,
+    "parent_id": 86,
+    "children_ids": [
+      94,
+      95,
+      96,
+      97
+    ],
+    "start_page": 121,
+    "end_page": 127,
+    "page_count": 7
+  },
+  {
+    "id": 94,
+    "title": "5.2.1 Observable behavior is not the same as a public API",
+    "level": 3,
+    "page": 121,
+    "parent_id": 93,
+    "children_ids": [],
+    "start_page": 121,
+    "end_page": 121,
+    "page_count": 1
+  },
+  {
+    "id": 95,
+    "title": "5.2.2 Leaking implementation details: An example with an operation",
+    "level": 3,
+    "page": 122,
+    "parent_id": 93,
+    "children_ids": [],
+    "start_page": 122,
+    "end_page": 124,
+    "page_count": 3
+  },
+  {
+    "id": 96,
+    "title": "5.2.3 Well-designed API and encapsulation",
+    "level": 3,
+    "page": 125,
+    "parent_id": 93,
+    "children_ids": [],
+    "start_page": 125,
+    "end_page": 125,
+    "page_count": 1
+  },
+  {
+    "id": 97,
+    "title": "5.2.4 Leaking implementation details: An example with state",
+    "level": 3,
+    "page": 126,
+    "parent_id": 93,
+    "children_ids": [],
+    "start_page": 126,
+    "end_page": 127,
+    "page_count": 2
+  },
+  {
+    "id": 98,
+    "title": "5.3 The relationship between mocks and test fragility",
+    "level": 2,
+    "page": 128,
+    "parent_id": 86,
+    "children_ids": [
+      99,
+      100,
+      101
+    ],
+    "start_page": 128,
+    "end_page": 135,
+    "page_count": 8
+  },
+  {
+    "id": 99,
+    "title": "5.3.1 Defining hexagonal architecture",
+    "level": 3,
+    "page": 128,
+    "parent_id": 98,
+    "children_ids": [],
+    "start_page": 128,
+    "end_page": 131,
+    "page_count": 4
+  },
+  {
+    "id": 100,
+    "title": "5.3.2 Intra-system vs. inter-system communications",
+    "level": 3,
+    "page": 132,
+    "parent_id": 98,
+    "children_ids": [],
+    "start_page": 132,
+    "end_page": 132,
+    "page_count": 1
+  },
+  {
+    "id": 101,
+    "title": "5.3.3 Intra-system vs. inter-system communications: An example",
+    "level": 3,
+    "page": 133,
+    "parent_id": 98,
+    "children_ids": [],
+    "start_page": 133,
+    "end_page": 135,
+    "page_count": 3
+  },
+  {
+    "id": 102,
+    "title": "5.4 The classical vs. London schools of unit testing, revisited",
+    "level": 2,
+    "page": 136,
+    "parent_id": 86,
+    "children_ids": [
+      103,
+      104
+    ],
+    "start_page": 136,
+    "end_page": 137,
+    "page_count": 2
+  },
+  {
+    "id": 103,
+    "title": "5.4.1 Not all out-of-process dependencies should be mocked out",
+    "level": 3,
+    "page": 137,
+    "parent_id": 102,
+    "children_ids": [],
+    "start_page": 137,
+    "end_page": 137,
+    "page_count": 1
+  },
+  {
+    "id": 104,
+    "title": "5.4.2 Using mocks to verify behavior",
+    "level": 3,
+    "page": 138,
+    "parent_id": 102,
+    "children_ids": [],
+    "start_page": 138,
+    "end_page": 138,
+    "page_count": 1
+  },
+  {
+    "id": 105,
+    "title": "Summary",
+    "level": 2,
+    "page": 138,
+    "parent_id": 86,
+    "children_ids": [],
+    "start_page": 138,
+    "end_page": 140,
+    "page_count": 3
+  }
+]

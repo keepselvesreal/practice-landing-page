@@ -1,0 +1,50 @@
+[
+  {
+    "id": 127,
+    "title": "Chapter 24: Context and Domain Language",
+    "level": 1,
+    "page": 228,
+    "parent_id": 102,
+    "children_ids": [
+      128,
+      129,
+      130
+    ],
+    "start_page": 228,
+    "end_page": 231,
+    "page_count": 4
+  },
+  {
+    "id": 128,
+    "title": "Ubiquitous Language",
+    "level": 2,
+    "page": 228,
+    "parent_id": 127,
+    "children_ids": [],
+    "start_page": 228,
+    "end_page": 229,
+    "page_count": 2
+  },
+  {
+    "id": 129,
+    "title": "Two Domains",
+    "level": 2,
+    "page": 230,
+    "parent_id": 127,
+    "children_ids": [],
+    "start_page": 230,
+    "end_page": 230,
+    "page_count": 1
+  },
+  {
+    "id": 130,
+    "title": "Summary",
+    "level": 2,
+    "page": 231,
+    "parent_id": 127,
+    "children_ids": [],
+    "start_page": 231,
+    "end_page": 231,
+    "page_count": 1
+  }
+]

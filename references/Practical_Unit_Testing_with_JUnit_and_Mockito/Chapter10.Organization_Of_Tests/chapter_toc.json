@@ -1,0 +1,298 @@
+[
+  {
+    "id": 213,
+    "title": "Chapter€10.€Organization Of Tests",
+    "level": 1,
+    "page": 199,
+    "parent_id": 197,
+    "children_ids": [
+      214,
+      215,
+      221,
+      222,
+      225,
+      228,
+      232,
+      233
+    ],
+    "start_page": 199,
+    "end_page": 220,
+    "page_count": 22
+  },
+  {
+    "id": 214,
+    "title": "10.1.€Package for Test Classes",
+    "level": 2,
+    "page": 199,
+    "parent_id": 213,
+    "children_ids": [],
+    "start_page": 199,
+    "end_page": 199,
+    "page_count": 1
+  },
+  {
+    "id": 215,
+    "title": "10.2.€Name Your Tests Consistently",
+    "level": 2,
+    "page": 200,
+    "parent_id": 213,
+    "children_ids": [
+      216,
+      219,
+      220
+    ],
+    "start_page": 200,
+    "end_page": 203,
+    "page_count": 4
+  },
+  {
+    "id": 216,
+    "title": "10.2.1.€Test Class Names",
+    "level": 3,
+    "page": 200,
+    "parent_id": 215,
+    "children_ids": [
+      217,
+      218
+    ],
+    "start_page": 200,
+    "end_page": 201,
+    "page_count": 2
+  },
+  {
+    "id": 217,
+    "title": "Splitting Up Long Test Classes",
+    "level": 4,
+    "page": 201,
+    "parent_id": 216,
+    "children_ids": [],
+    "start_page": 201,
+    "end_page": 201,
+    "page_count": 1
+  },
+  {
+    "id": 218,
+    "title": "Test Class Per Feature",
+    "level": 4,
+    "page": 201,
+    "parent_id": 216,
+    "children_ids": [],
+    "start_page": 201,
+    "end_page": 201,
+    "page_count": 1
+  },
+  {
+    "id": 219,
+    "title": "10.2.2.€Test Method Names",
+    "level": 3,
+    "page": 202,
+    "parent_id": 215,
+    "children_ids": [],
+    "start_page": 202,
+    "end_page": 202,
+    "page_count": 1
+  },
+  {
+    "id": 220,
+    "title": "10.2.3.€Naming of Test-Double Variables",
+    "level": 3,
+    "page": 203,
+    "parent_id": 215,
+    "children_ids": [],
+    "start_page": 203,
+    "end_page": 203,
+    "page_count": 1
+  },
+  {
+    "id": 221,
+    "title": "10.3.€Comments in Tests",
+    "level": 2,
+    "page": 204,
+    "parent_id": 213,
+    "children_ids": [],
+    "start_page": 204,
+    "end_page": 204,
+    "page_count": 1
+  },
+  {
+    "id": 222,
+    "title": "10.4.€BDD: ‘Given’, ‘When’, ‘Then’",
+    "level": 2,
+    "page": 205,
+    "parent_id": 213,
+    "children_ids": [
+      223,
+      224
+    ],
+    "start_page": 205,
+    "end_page": 207,
+    "page_count": 3
+  },
+  {
+    "id": 223,
+    "title": "10.4.1.€Testing BDD-Style",
+    "level": 3,
+    "page": 206,
+    "parent_id": 222,
+    "children_ids": [],
+    "start_page": 206,
+    "end_page": 206,
+    "page_count": 1
+  },
+  {
+    "id": 224,
+    "title": "10.4.2.€Mockito BDD-Style",
+    "level": 3,
+    "page": 207,
+    "parent_id": 222,
+    "children_ids": [],
+    "start_page": 207,
+    "end_page": 207,
+    "page_count": 1
+  },
+  {
+    "id": 225,
+    "title": "10.5.€Reducing Mockito Boilerplate Code",
+    "level": 2,
+    "page": 208,
+    "parent_id": 213,
+    "children_ids": [
+      226,
+      227
+    ],
+    "start_page": 208,
+    "end_page": 210,
+    "page_count": 3
+  },
+  {
+    "id": 226,
+    "title": "10.5.1.€One-Liner Stubs",
+    "level": 3,
+    "page": 209,
+    "parent_id": 225,
+    "children_ids": [],
+    "start_page": 209,
+    "end_page": 209,
+    "page_count": 1
+  },
+  {
+    "id": 227,
+    "title": "10.5.2.€Mockito Annotations",
+    "level": 3,
+    "page": 210,
+    "parent_id": 225,
+    "children_ids": [],
+    "start_page": 210,
+    "end_page": 210,
+    "page_count": 1
+  },
+  {
+    "id": 228,
+    "title": "10.6.€Creating Complex Objects",
+    "level": 2,
+    "page": 211,
+    "parent_id": 213,
+    "children_ids": [
+      229,
+      230,
+      231
+    ],
+    "start_page": 211,
+    "end_page": 217,
+    "page_count": 7
+  },
+  {
+    "id": 229,
+    "title": "10.6.1.€Mummy Knows Best",
+    "level": 3,
+    "page": 214,
+    "parent_id": 228,
+    "children_ids": [],
+    "start_page": 214,
+    "end_page": 214,
+    "page_count": 1
+  },
+  {
+    "id": 230,
+    "title": "10.6.2.€Test Data Builder",
+    "level": 3,
+    "page": 214,
+    "parent_id": 228,
+    "children_ids": [],
+    "start_page": 214,
+    "end_page": 217,
+    "page_count": 4
+  },
+  {
+    "id": 231,
+    "title": "10.6.3.€Conclusions",
+    "level": 3,
+    "page": 218,
+    "parent_id": 228,
+    "children_ids": [],
+    "start_page": 218,
+    "end_page": 218,
+    "page_count": 1
+  },
+  {
+    "id": 232,
+    "title": "10.7.€Conclusions",
+    "level": 2,
+    "page": 218,
+    "parent_id": 213,
+    "children_ids": [],
+    "start_page": 218,
+    "end_page": 218,
+    "page_count": 1
+  },
+  {
+    "id": 233,
+    "title": "10.8.€Exercises",
+    "level": 2,
+    "page": 219,
+    "parent_id": 213,
+    "children_ids": [
+      234,
+      235
+    ],
+    "start_page": 219,
+    "end_page": 220,
+    "page_count": 2
+  },
+  {
+    "id": 234,
+    "title": "10.8.1.€Test Fixture Setting",
+    "level": 3,
+    "page": 219,
+    "parent_id": 233,
+    "children_ids": [],
+    "start_page": 219,
+    "end_page": 219,
+    "page_count": 1
+  },
+  {
+    "id": 235,
+    "title": "10.8.2.€Test Data Builder",
+    "level": 3,
+    "page": 219,
+    "parent_id": 233,
+    "children_ids": [],
+    "start_page": 219,
+    "end_page": 220,
+    "page_count": 2
+  },
+  {
+    "id": 236,
+    "title": "Part€V.€Make Them Better",
+    "level": 0,
+    "page": 221,
+    "parent_id": null,
+    "children_ids": [
+      237,
+      256
+    ],
+    "start_page": 221,
+    "end_page": 271,
+    "page_count": 51
+  }
+]

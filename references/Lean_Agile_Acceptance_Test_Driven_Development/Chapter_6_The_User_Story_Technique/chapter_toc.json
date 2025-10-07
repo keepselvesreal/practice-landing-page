@@ -1,0 +1,50 @@
+[
+  {
+    "id": 29,
+    "title": "Chapter 6: The User Story Technique",
+    "level": 1,
+    "page": 70,
+    "parent_id": 2,
+    "children_ids": [
+      30,
+      31,
+      32
+    ],
+    "start_page": 70,
+    "end_page": 79,
+    "page_count": 10
+  },
+  {
+    "id": 30,
+    "title": "Stories",
+    "level": 2,
+    "page": 70,
+    "parent_id": 29,
+    "children_ids": [],
+    "start_page": 70,
+    "end_page": 77,
+    "page_count": 8
+  },
+  {
+    "id": 31,
+    "title": "INVEST Criteria",
+    "level": 2,
+    "page": 78,
+    "parent_id": 29,
+    "children_ids": [],
+    "start_page": 78,
+    "end_page": 78,
+    "page_count": 1
+  },
+  {
+    "id": 32,
+    "title": "Summary",
+    "level": 2,
+    "page": 79,
+    "parent_id": 29,
+    "children_ids": [],
+    "start_page": 79,
+    "end_page": 79,
+    "page_count": 1
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "id": 138,
+    "title": "Chapter 19: Monitoring the Release Plan",
+    "level": 1,
+    "page": 246,
+    "parent_id": 137,
+    "children_ids": [
+      139,
+      140,
+      141,
+      142,
+      143
+    ],
+    "start_page": 246,
+    "end_page": 257,
+    "page_count": 12
+  },
+  {
+    "id": 139,
+    "title": "Tracking the Release",
+    "level": 2,
+    "page": 247,
+    "parent_id": 138,
+    "children_ids": [],
+    "start_page": 247,
+    "end_page": 249,
+    "page_count": 3
+  },
+  {
+    "id": 140,
+    "title": "Release Burndown Charts",
+    "level": 2,
+    "page": 250,
+    "parent_id": 138,
+    "children_ids": [],
+    "start_page": 250,
+    "end_page": 254,
+    "page_count": 5
+  },
+  {
+    "id": 141,
+    "title": "A Parking-Lot Chart",
+    "level": 2,
+    "page": 255,
+    "parent_id": 138,
+    "children_ids": [],
+    "start_page": 255,
+    "end_page": 255,
+    "page_count": 1
+  },
+  {
+    "id": 142,
+    "title": "Summary",
+    "level": 2,
+    "page": 256,
+    "parent_id": 138,
+    "children_ids": [],
+    "start_page": 256,
+    "end_page": 256,
+    "page_count": 1
+  },
+  {
+    "id": 143,
+    "title": "Discussion Questions",
+    "level": 2,
+    "page": 257,
+    "parent_id": 138,
+    "children_ids": [],
+    "start_page": 257,
+    "end_page": 257,
+    "page_count": 1
+  }
+]

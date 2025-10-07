@@ -1,0 +1,74 @@
+[
+  {
+    "id": 62,
+    "title": "Chapter 9: Prioritizing Themes",
+    "level": 1,
+    "page": 110,
+    "parent_id": 61,
+    "children_ids": [
+      63,
+      64,
+      65,
+      66,
+      67
+    ],
+    "start_page": 110,
+    "end_page": 121,
+    "page_count": 12
+  },
+  {
+    "id": 63,
+    "title": "Factors in Prioritization",
+    "level": 2,
+    "page": 111,
+    "parent_id": 62,
+    "children_ids": [],
+    "start_page": 111,
+    "end_page": 116,
+    "page_count": 6
+  },
+  {
+    "id": 64,
+    "title": "Combining the Four Factors",
+    "level": 2,
+    "page": 117,
+    "parent_id": 62,
+    "children_ids": [],
+    "start_page": 117,
+    "end_page": 117,
+    "page_count": 1
+  },
+  {
+    "id": 65,
+    "title": "Some Examples",
+    "level": 2,
+    "page": 117,
+    "parent_id": 62,
+    "children_ids": [],
+    "start_page": 117,
+    "end_page": 118,
+    "page_count": 2
+  },
+  {
+    "id": 66,
+    "title": "Summary",
+    "level": 2,
+    "page": 119,
+    "parent_id": 62,
+    "children_ids": [],
+    "start_page": 119,
+    "end_page": 119,
+    "page_count": 1
+  },
+  {
+    "id": 67,
+    "title": "Discussion Questions",
+    "level": 2,
+    "page": 120,
+    "parent_id": 62,
+    "children_ids": [],
+    "start_page": 120,
+    "end_page": 121,
+    "page_count": 2
+  }
+]

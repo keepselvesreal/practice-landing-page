@@ -1,0 +1,90 @@
+[
+  {
+    "id": 55,
+    "title": "Chapter 8: Choosing between Story Points and Ideal Days",
+    "level": 1,
+    "page": 100,
+    "parent_id": 27,
+    "children_ids": [
+      56,
+      57,
+      58,
+      59,
+      60
+    ],
+    "start_page": 100,
+    "end_page": 107,
+    "page_count": 8
+  },
+  {
+    "id": 56,
+    "title": "Considerations Favoring Story Points",
+    "level": 2,
+    "page": 100,
+    "parent_id": 55,
+    "children_ids": [],
+    "start_page": 100,
+    "end_page": 102,
+    "page_count": 3
+  },
+  {
+    "id": 57,
+    "title": "Considerations Favoring Ideal Days",
+    "level": 2,
+    "page": 103,
+    "parent_id": 55,
+    "children_ids": [],
+    "start_page": 103,
+    "end_page": 103,
+    "page_count": 1
+  },
+  {
+    "id": 58,
+    "title": "Recommendation",
+    "level": 2,
+    "page": 104,
+    "parent_id": 55,
+    "children_ids": [],
+    "start_page": 104,
+    "end_page": 104,
+    "page_count": 1
+  },
+  {
+    "id": 59,
+    "title": "Summary",
+    "level": 2,
+    "page": 105,
+    "parent_id": 55,
+    "children_ids": [],
+    "start_page": 105,
+    "end_page": 105,
+    "page_count": 1
+  },
+  {
+    "id": 60,
+    "title": "Discussion Questions",
+    "level": 2,
+    "page": 106,
+    "parent_id": 55,
+    "children_ids": [],
+    "start_page": 106,
+    "end_page": 107,
+    "page_count": 2
+  },
+  {
+    "id": 61,
+    "title": "Part III: Planning for Value",
+    "level": 0,
+    "page": 108,
+    "parent_id": null,
+    "children_ids": [
+      62,
+      68,
+      75,
+      80
+    ],
+    "start_page": 108,
+    "end_page": 161,
+    "page_count": 54
+  }
+]

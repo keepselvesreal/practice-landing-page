@@ -1,0 +1,247 @@
+[
+  {
+    "id": 107,
+    "title": "5 Isolation frameworks",
+    "level": 1,
+    "page": 132,
+    "parent_id": 66,
+    "children_ids": [
+      108,
+      110,
+      113,
+      114,
+      117,
+      120,
+      126
+    ],
+    "start_page": 132,
+    "end_page": 148,
+    "page_count": 17
+  },
+  {
+    "id": 108,
+    "title": "5.1 Defining isolation frameworks",
+    "level": 2,
+    "page": 133,
+    "parent_id": 107,
+    "children_ids": [
+      109
+    ],
+    "start_page": 133,
+    "end_page": 133,
+    "page_count": 1
+  },
+  {
+    "id": 109,
+    "title": "5.1.1 Choosing a flavor: Loose vs. typed",
+    "level": 3,
+    "page": 133,
+    "parent_id": 108,
+    "children_ids": [],
+    "start_page": 133,
+    "end_page": 133,
+    "page_count": 1
+  },
+  {
+    "id": 110,
+    "title": "5.2 Faking modules dynamically",
+    "level": 2,
+    "page": 134,
+    "parent_id": 107,
+    "children_ids": [
+      111,
+      112
+    ],
+    "start_page": 134,
+    "end_page": 136,
+    "page_count": 3
+  },
+  {
+    "id": 111,
+    "title": "5.2.1 Some things to notice about Jest’s API",
+    "level": 3,
+    "page": 136,
+    "parent_id": 110,
+    "children_ids": [],
+    "start_page": 136,
+    "end_page": 136,
+    "page_count": 1
+  },
+  {
+    "id": 112,
+    "title": "5.2.2 Consider abstracting away direct dependencies",
+    "level": 3,
+    "page": 137,
+    "parent_id": 110,
+    "children_ids": [],
+    "start_page": 137,
+    "end_page": 137,
+    "page_count": 1
+  },
+  {
+    "id": 113,
+    "title": "5.3 Functional dynamic mocks and stubs",
+    "level": 2,
+    "page": 137,
+    "parent_id": 107,
+    "children_ids": [],
+    "start_page": 137,
+    "end_page": 137,
+    "page_count": 1
+  },
+  {
+    "id": 114,
+    "title": "5.4 Object-oriented dynamic mocks and stubs",
+    "level": 2,
+    "page": 138,
+    "parent_id": 107,
+    "children_ids": [
+      115,
+      116
+    ],
+    "start_page": 138,
+    "end_page": 141,
+    "page_count": 4
+  },
+  {
+    "id": 115,
+    "title": "5.4.1 Using a loosely typed framework",
+    "level": 3,
+    "page": 138,
+    "parent_id": 114,
+    "children_ids": [],
+    "start_page": 138,
+    "end_page": 139,
+    "page_count": 2
+  },
+  {
+    "id": 116,
+    "title": "5.4.2 Switching to a type-friendly framework",
+    "level": 3,
+    "page": 140,
+    "parent_id": 114,
+    "children_ids": [],
+    "start_page": 140,
+    "end_page": 141,
+    "page_count": 2
+  },
+  {
+    "id": 117,
+    "title": "5.5 Stubbing behavior dynamically",
+    "level": 2,
+    "page": 142,
+    "parent_id": 107,
+    "children_ids": [
+      118,
+      119
+    ],
+    "start_page": 142,
+    "end_page": 144,
+    "page_count": 3
+  },
+  {
+    "id": 118,
+    "title": "5.5.1 An object-oriented example with a mock and a stub",
+    "level": 3,
+    "page": 142,
+    "parent_id": 117,
+    "children_ids": [],
+    "start_page": 142,
+    "end_page": 143,
+    "page_count": 2
+  },
+  {
+    "id": 119,
+    "title": "5.5.2 Stubs and mocks with substitute.js",
+    "level": 3,
+    "page": 144,
+    "parent_id": 117,
+    "children_ids": [],
+    "start_page": 144,
+    "end_page": 144,
+    "page_count": 1
+  },
+  {
+    "id": 120,
+    "title": "5.6 Advantages and traps of isolation frameworks",
+    "level": 2,
+    "page": 145,
+    "parent_id": 107,
+    "children_ids": [
+      121,
+      122,
+      123,
+      124,
+      125
+    ],
+    "start_page": 145,
+    "end_page": 146,
+    "page_count": 2
+  },
+  {
+    "id": 121,
+    "title": "5.6.1 You don’t need mock objects most of the time",
+    "level": 3,
+    "page": 146,
+    "parent_id": 120,
+    "children_ids": [],
+    "start_page": 146,
+    "end_page": 146,
+    "page_count": 1
+  },
+  {
+    "id": 122,
+    "title": "5.6.2 Unreadable test code",
+    "level": 3,
+    "page": 146,
+    "parent_id": 120,
+    "children_ids": [],
+    "start_page": 146,
+    "end_page": 146,
+    "page_count": 1
+  },
+  {
+    "id": 123,
+    "title": "5.6.3 Verifying the wrong things",
+    "level": 3,
+    "page": 146,
+    "parent_id": 120,
+    "children_ids": [],
+    "start_page": 146,
+    "end_page": 146,
+    "page_count": 1
+  },
+  {
+    "id": 124,
+    "title": "5.6.4 Having more than one mock per test",
+    "level": 3,
+    "page": 147,
+    "parent_id": 120,
+    "children_ids": [],
+    "start_page": 147,
+    "end_page": 147,
+    "page_count": 1
+  },
+  {
+    "id": 125,
+    "title": "5.6.5 Overspecifying the tests",
+    "level": 3,
+    "page": 147,
+    "parent_id": 120,
+    "children_ids": [],
+    "start_page": 147,
+    "end_page": 147,
+    "page_count": 1
+  },
+  {
+    "id": 126,
+    "title": "Summary",
+    "level": 2,
+    "page": 147,
+    "parent_id": 107,
+    "children_ids": [],
+    "start_page": 147,
+    "end_page": 148,
+    "page_count": 2
+  }
+]

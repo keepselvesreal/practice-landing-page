@@ -1,0 +1,81 @@
+[
+  {
+    "id": 67,
+    "title": "Chapter 12: Development Review",
+    "level": 1,
+    "page": 138,
+    "parent_id": 2,
+    "children_ids": [
+      68,
+      69,
+      70,
+      71
+    ],
+    "start_page": 138,
+    "end_page": 145,
+    "page_count": 8
+  },
+  {
+    "id": 68,
+    "title": "The Rest of the Story",
+    "level": 2,
+    "page": 138,
+    "parent_id": 67,
+    "children_ids": [],
+    "start_page": 138,
+    "end_page": 142,
+    "page_count": 5
+  },
+  {
+    "id": 69,
+    "title": "Deployment Plans",
+    "level": 2,
+    "page": 143,
+    "parent_id": 67,
+    "children_ids": [],
+    "start_page": 143,
+    "end_page": 143,
+    "page_count": 1
+  },
+  {
+    "id": 70,
+    "title": "From Charter to Deliverable",
+    "level": 2,
+    "page": 143,
+    "parent_id": 67,
+    "children_ids": [],
+    "start_page": 143,
+    "end_page": 143,
+    "page_count": 1
+  },
+  {
+    "id": 71,
+    "title": "Summary",
+    "level": 2,
+    "page": 144,
+    "parent_id": 67,
+    "children_ids": [],
+    "start_page": 144,
+    "end_page": 145,
+    "page_count": 2
+  },
+  {
+    "id": 72,
+    "title": "Part II: Details",
+    "level": 0,
+    "page": 146,
+    "parent_id": null,
+    "children_ids": [
+      73,
+      77,
+      81,
+      86,
+      89,
+      94,
+      97
+    ],
+    "start_page": 146,
+    "end_page": 197,
+    "page_count": 52
+  }
+]

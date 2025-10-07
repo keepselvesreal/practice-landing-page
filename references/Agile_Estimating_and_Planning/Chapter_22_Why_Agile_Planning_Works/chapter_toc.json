@@ -1,0 +1,159 @@
+[
+  {
+    "id": 158,
+    "title": "Chapter 22: Why Agile Planning Works",
+    "level": 1,
+    "page": 280,
+    "parent_id": 157,
+    "children_ids": [
+      159,
+      160,
+      161,
+      162,
+      163,
+      164,
+      165,
+      166,
+      167,
+      168,
+      169
+    ],
+    "start_page": 280,
+    "end_page": 289,
+    "page_count": 10
+  },
+  {
+    "id": 159,
+    "title": "Replanning Occurs Frequently",
+    "level": 2,
+    "page": 280,
+    "parent_id": 158,
+    "children_ids": [],
+    "start_page": 280,
+    "end_page": 280,
+    "page_count": 1
+  },
+  {
+    "id": 160,
+    "title": "Estimates of Size and Duration Are Separated",
+    "level": 2,
+    "page": 281,
+    "parent_id": 158,
+    "children_ids": [],
+    "start_page": 281,
+    "end_page": 281,
+    "page_count": 1
+  },
+  {
+    "id": 161,
+    "title": "Plans Are Made at Different Levels",
+    "level": 2,
+    "page": 282,
+    "parent_id": 158,
+    "children_ids": [],
+    "start_page": 282,
+    "end_page": 282,
+    "page_count": 1
+  },
+  {
+    "id": 162,
+    "title": "Plans Are Based on Features, Not Tasks",
+    "level": 2,
+    "page": 283,
+    "parent_id": 158,
+    "children_ids": [],
+    "start_page": 283,
+    "end_page": 283,
+    "page_count": 1
+  },
+  {
+    "id": 163,
+    "title": "Small Stories Keep Work Flowing",
+    "level": 2,
+    "page": 283,
+    "parent_id": 158,
+    "children_ids": [],
+    "start_page": 283,
+    "end_page": 283,
+    "page_count": 1
+  },
+  {
+    "id": 164,
+    "title": "Work in Process Is Eliminated Every Iteration",
+    "level": 2,
+    "page": 283,
+    "parent_id": 158,
+    "children_ids": [],
+    "start_page": 283,
+    "end_page": 283,
+    "page_count": 1
+  },
+  {
+    "id": 165,
+    "title": "Tracking Is at the Team Level",
+    "level": 2,
+    "page": 284,
+    "parent_id": 158,
+    "children_ids": [],
+    "start_page": 284,
+    "end_page": 284,
+    "page_count": 1
+  },
+  {
+    "id": 166,
+    "title": "Uncertainty Is Acknowledged and Planned For",
+    "level": 2,
+    "page": 284,
+    "parent_id": 158,
+    "children_ids": [],
+    "start_page": 284,
+    "end_page": 284,
+    "page_count": 1
+  },
+  {
+    "id": 167,
+    "title": "A Dozen Guidelines for Agile Estimating and Planning",
+    "level": 2,
+    "page": 285,
+    "parent_id": 158,
+    "children_ids": [],
+    "start_page": 285,
+    "end_page": 286,
+    "page_count": 2
+  },
+  {
+    "id": 168,
+    "title": "Summary",
+    "level": 2,
+    "page": 287,
+    "parent_id": 158,
+    "children_ids": [],
+    "start_page": 287,
+    "end_page": 287,
+    "page_count": 1
+  },
+  {
+    "id": 169,
+    "title": "Discussion Questions",
+    "level": 2,
+    "page": 288,
+    "parent_id": 158,
+    "children_ids": [],
+    "start_page": 288,
+    "end_page": 289,
+    "page_count": 2
+  },
+  {
+    "id": 170,
+    "title": "Part VII: A Case Study",
+    "level": 0,
+    "page": 290,
+    "parent_id": null,
+    "children_ids": [
+      171
+    ],
+    "start_page": 290,
+    "end_page": 343,
+    "page_count": 54
+  }
+]

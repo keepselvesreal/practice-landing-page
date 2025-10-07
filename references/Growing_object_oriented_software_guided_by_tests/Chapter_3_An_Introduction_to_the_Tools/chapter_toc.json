@@ -1,0 +1,79 @@
+[
+  {
+    "id": 24,
+    "title": "Chapter 3: An Introduction to the Tools",
+    "level": 1,
+    "page": 46,
+    "parent_id": 6,
+    "children_ids": [
+      25,
+      26,
+      27,
+      28
+    ],
+    "start_page": 46,
+    "end_page": 53,
+    "page_count": 8
+  },
+  {
+    "id": 25,
+    "title": "Stop Me If You've Heard This One Before",
+    "level": 2,
+    "page": 46,
+    "parent_id": 24,
+    "children_ids": [],
+    "start_page": 46,
+    "end_page": 46,
+    "page_count": 1
+  },
+  {
+    "id": 26,
+    "title": "A Minimal Introduction to JUnit 4",
+    "level": 2,
+    "page": 46,
+    "parent_id": 24,
+    "children_ids": [],
+    "start_page": 46,
+    "end_page": 48,
+    "page_count": 3
+  },
+  {
+    "id": 27,
+    "title": "Hamcrest Matchers and assertThat()",
+    "level": 2,
+    "page": 49,
+    "parent_id": 24,
+    "children_ids": [],
+    "start_page": 49,
+    "end_page": 49,
+    "page_count": 1
+  },
+  {
+    "id": 28,
+    "title": "jMock2: Mock Objects",
+    "level": 2,
+    "page": 50,
+    "parent_id": 24,
+    "children_ids": [],
+    "start_page": 50,
+    "end_page": 53,
+    "page_count": 4
+  },
+  {
+    "id": 29,
+    "title": "Part II: The Process of Test-Driven Development",
+    "level": 0,
+    "page": 54,
+    "parent_id": null,
+    "children_ids": [
+      30,
+      36,
+      47,
+      57,
+      67
+    ],
+    "start_page": 54,
+    "end_page": 97,
+    "page_count": 44
+  }
+]

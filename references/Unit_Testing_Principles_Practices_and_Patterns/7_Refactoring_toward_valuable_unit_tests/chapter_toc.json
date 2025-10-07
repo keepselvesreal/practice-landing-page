@@ -1,0 +1,249 @@
+[
+  {
+    "id": 130,
+    "title": "7 Refactoring toward valuable unit tests",
+    "level": 1,
+    "page": 173,
+    "parent_id": 65,
+    "children_ids": [
+      131,
+      134,
+      140,
+      144,
+      147,
+      148
+    ],
+    "start_page": 173,
+    "end_page": 204,
+    "page_count": 32
+  },
+  {
+    "id": 131,
+    "title": "7.1 Identifying the code to refactor",
+    "level": 2,
+    "page": 174,
+    "parent_id": 130,
+    "children_ids": [
+      132,
+      133
+    ],
+    "start_page": 174,
+    "end_page": 179,
+    "page_count": 6
+  },
+  {
+    "id": 132,
+    "title": "7.1.1 The four types of code",
+    "level": 3,
+    "page": 174,
+    "parent_id": 131,
+    "children_ids": [],
+    "start_page": 174,
+    "end_page": 176,
+    "page_count": 3
+  },
+  {
+    "id": 133,
+    "title": "7.1.2 Using the Humble Object pattern to split overcomplicated code",
+    "level": 3,
+    "page": 177,
+    "parent_id": 131,
+    "children_ids": [],
+    "start_page": 177,
+    "end_page": 179,
+    "page_count": 3
+  },
+  {
+    "id": 134,
+    "title": "7.2 Refactoring toward valuable unit tests",
+    "level": 2,
+    "page": 180,
+    "parent_id": 130,
+    "children_ids": [
+      135,
+      136,
+      137,
+      138,
+      139
+    ],
+    "start_page": 180,
+    "end_page": 188,
+    "page_count": 9
+  },
+  {
+    "id": 135,
+    "title": "7.2.1 Introducing a customer management system",
+    "level": 3,
+    "page": 180,
+    "parent_id": 134,
+    "children_ids": [],
+    "start_page": 180,
+    "end_page": 181,
+    "page_count": 2
+  },
+  {
+    "id": 136,
+    "title": "7.2.2 Take 1: Making implicit dependencies explicit",
+    "level": 3,
+    "page": 182,
+    "parent_id": 134,
+    "children_ids": [],
+    "start_page": 182,
+    "end_page": 182,
+    "page_count": 1
+  },
+  {
+    "id": 137,
+    "title": "7.2.3 Take 2: Introducing an application services layer",
+    "level": 3,
+    "page": 182,
+    "parent_id": 134,
+    "children_ids": [],
+    "start_page": 182,
+    "end_page": 184,
+    "page_count": 3
+  },
+  {
+    "id": 138,
+    "title": "7.2.4 Take 3: Removing complexity from the application service",
+    "level": 3,
+    "page": 185,
+    "parent_id": 134,
+    "children_ids": [],
+    "start_page": 185,
+    "end_page": 185,
+    "page_count": 1
+  },
+  {
+    "id": 139,
+    "title": "7.2.5 Take 4: Introducing a new Company class",
+    "level": 3,
+    "page": 186,
+    "parent_id": 134,
+    "children_ids": [],
+    "start_page": 186,
+    "end_page": 188,
+    "page_count": 3
+  },
+  {
+    "id": 140,
+    "title": "7.3 Analysis of optimal unit test coverage",
+    "level": 2,
+    "page": 189,
+    "parent_id": 130,
+    "children_ids": [
+      141,
+      142,
+      143
+    ],
+    "start_page": 189,
+    "end_page": 190,
+    "page_count": 2
+  },
+  {
+    "id": 141,
+    "title": "7.3.1 Testing the domain layer and utility code",
+    "level": 3,
+    "page": 189,
+    "parent_id": 140,
+    "children_ids": [],
+    "start_page": 189,
+    "end_page": 189,
+    "page_count": 1
+  },
+  {
+    "id": 142,
+    "title": "7.3.2 Testing the code from the other three quadrants",
+    "level": 3,
+    "page": 190,
+    "parent_id": 140,
+    "children_ids": [],
+    "start_page": 190,
+    "end_page": 190,
+    "page_count": 1
+  },
+  {
+    "id": 143,
+    "title": "7.3.3 Should you test preconditions?",
+    "level": 3,
+    "page": 191,
+    "parent_id": 140,
+    "children_ids": [],
+    "start_page": 191,
+    "end_page": 191,
+    "page_count": 1
+  },
+  {
+    "id": 144,
+    "title": "7.4 Handling conditional logic in controllers",
+    "level": 2,
+    "page": 191,
+    "parent_id": 130,
+    "children_ids": [
+      145,
+      146
+    ],
+    "start_page": 191,
+    "end_page": 199,
+    "page_count": 9
+  },
+  {
+    "id": 145,
+    "title": "7.4.1 Using the CanExecute/Execute pattern",
+    "level": 3,
+    "page": 194,
+    "parent_id": 144,
+    "children_ids": [],
+    "start_page": 194,
+    "end_page": 196,
+    "page_count": 3
+  },
+  {
+    "id": 146,
+    "title": "7.4.2 Using domain events to track changes in the domain model",
+    "level": 3,
+    "page": 197,
+    "parent_id": 144,
+    "children_ids": [],
+    "start_page": 197,
+    "end_page": 199,
+    "page_count": 3
+  },
+  {
+    "id": 147,
+    "title": "7.5 Conclusion",
+    "level": 2,
+    "page": 200,
+    "parent_id": 130,
+    "children_ids": [],
+    "start_page": 200,
+    "end_page": 201,
+    "page_count": 2
+  },
+  {
+    "id": 148,
+    "title": "Summary",
+    "level": 2,
+    "page": 202,
+    "parent_id": 130,
+    "children_ids": [],
+    "start_page": 202,
+    "end_page": 204,
+    "page_count": 3
+  },
+  {
+    "id": 149,
+    "title": "Part 3—Integration testing",
+    "level": 0,
+    "page": 205,
+    "parent_id": null,
+    "children_ids": [
+      150,
+      180,
+      191
+    ],
+    "start_page": 205,
+    "end_page": 278,
+    "page_count": 74
+  }
+]

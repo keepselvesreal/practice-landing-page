@@ -1,0 +1,112 @@
+[
+  {
+    "id": 238,
+    "title": "12 Working with legacy code",
+    "level": 1,
+    "page": 259,
+    "parent_id": 181,
+    "children_ids": [
+      239,
+      240,
+      243,
+      246
+    ],
+    "start_page": 259,
+    "end_page": 265,
+    "page_count": 7
+  },
+  {
+    "id": 239,
+    "title": "12.1 Where do you start adding tests?",
+    "level": 2,
+    "page": 260,
+    "parent_id": 238,
+    "children_ids": [],
+    "start_page": 260,
+    "end_page": 261,
+    "page_count": 2
+  },
+  {
+    "id": 240,
+    "title": "12.2 Choosing a selection strategy",
+    "level": 2,
+    "page": 262,
+    "parent_id": 238,
+    "children_ids": [
+      241,
+      242
+    ],
+    "start_page": 262,
+    "end_page": 262,
+    "page_count": 1
+  },
+  {
+    "id": 241,
+    "title": "12.2.1 Pros and cons of the easy-first strategy",
+    "level": 3,
+    "page": 262,
+    "parent_id": 240,
+    "children_ids": [],
+    "start_page": 262,
+    "end_page": 262,
+    "page_count": 1
+  },
+  {
+    "id": 242,
+    "title": "12.2.2 Pros and cons of the hard-first strategy",
+    "level": 3,
+    "page": 262,
+    "parent_id": 240,
+    "children_ids": [],
+    "start_page": 262,
+    "end_page": 262,
+    "page_count": 1
+  },
+  {
+    "id": 243,
+    "title": "12.3 Writing integration tests before refactoring",
+    "level": 2,
+    "page": 263,
+    "parent_id": 238,
+    "children_ids": [
+      244,
+      245
+    ],
+    "start_page": 263,
+    "end_page": 263,
+    "page_count": 1
+  },
+  {
+    "id": 244,
+    "title": "12.3.1 Read Michael Feathers’ book on legacy code",
+    "level": 3,
+    "page": 264,
+    "parent_id": 243,
+    "children_ids": [],
+    "start_page": 264,
+    "end_page": 264,
+    "page_count": 1
+  },
+  {
+    "id": 245,
+    "title": "12.3.2 Use CodeScene to investigate your production code",
+    "level": 3,
+    "page": 264,
+    "parent_id": 243,
+    "children_ids": [],
+    "start_page": 264,
+    "end_page": 264,
+    "page_count": 1
+  },
+  {
+    "id": 246,
+    "title": "Summary",
+    "level": 2,
+    "page": 264,
+    "parent_id": 238,
+    "children_ids": [],
+    "start_page": 264,
+    "end_page": 265,
+    "page_count": 2
+  }
+]

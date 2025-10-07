@@ -1,0 +1,98 @@
+[
+  {
+    "id": 47,
+    "title": "Chapter 7: Re-Estimating",
+    "level": 1,
+    "page": 92,
+    "parent_id": 27,
+    "children_ids": [
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54
+    ],
+    "start_page": 92,
+    "end_page": 99,
+    "page_count": 8
+  },
+  {
+    "id": 48,
+    "title": "Introducing the SwimStats Website",
+    "level": 2,
+    "page": 92,
+    "parent_id": 47,
+    "children_ids": [],
+    "start_page": 92,
+    "end_page": 92,
+    "page_count": 1
+  },
+  {
+    "id": 49,
+    "title": "When Not to Re-Estimate",
+    "level": 2,
+    "page": 93,
+    "parent_id": 47,
+    "children_ids": [],
+    "start_page": 93,
+    "end_page": 94,
+    "page_count": 2
+  },
+  {
+    "id": 50,
+    "title": "When to Re-Estimate",
+    "level": 2,
+    "page": 95,
+    "parent_id": 47,
+    "children_ids": [],
+    "start_page": 95,
+    "end_page": 96,
+    "page_count": 2
+  },
+  {
+    "id": 51,
+    "title": "Re-Estimating Partially Completed Stories",
+    "level": 2,
+    "page": 97,
+    "parent_id": 47,
+    "children_ids": [],
+    "start_page": 97,
+    "end_page": 97,
+    "page_count": 1
+  },
+  {
+    "id": 52,
+    "title": "The Purpose of Re-Estimating",
+    "level": 2,
+    "page": 98,
+    "parent_id": 47,
+    "children_ids": [],
+    "start_page": 98,
+    "end_page": 98,
+    "page_count": 1
+  },
+  {
+    "id": 53,
+    "title": "Summary",
+    "level": 2,
+    "page": 98,
+    "parent_id": 47,
+    "children_ids": [],
+    "start_page": 98,
+    "end_page": 98,
+    "page_count": 1
+  },
+  {
+    "id": 54,
+    "title": "Discussion Questions",
+    "level": 2,
+    "page": 98,
+    "parent_id": 47,
+    "children_ids": [],
+    "start_page": 98,
+    "end_page": 99,
+    "page_count": 2
+  }
+]

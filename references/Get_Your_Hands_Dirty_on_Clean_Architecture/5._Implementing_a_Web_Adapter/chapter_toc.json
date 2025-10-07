@@ -1,0 +1,62 @@
+[
+  {
+    "id": 38,
+    "title": "5. Implementing a Web Adapter",
+    "level": 0,
+    "page": 45,
+    "parent_id": null,
+    "children_ids": [
+      39,
+      40,
+      41,
+      42
+    ],
+    "start_page": 45,
+    "end_page": 51,
+    "page_count": 7
+  },
+  {
+    "id": 39,
+    "title": "Dependency Inversion",
+    "level": 1,
+    "page": 45,
+    "parent_id": 38,
+    "children_ids": [],
+    "start_page": 45,
+    "end_page": 46,
+    "page_count": 2
+  },
+  {
+    "id": 40,
+    "title": "Responsibilities of a Web Adapter",
+    "level": 1,
+    "page": 47,
+    "parent_id": 38,
+    "children_ids": [],
+    "start_page": 47,
+    "end_page": 47,
+    "page_count": 1
+  },
+  {
+    "id": 41,
+    "title": "Slicing Controllers",
+    "level": 1,
+    "page": 48,
+    "parent_id": 38,
+    "children_ids": [],
+    "start_page": 48,
+    "end_page": 50,
+    "page_count": 3
+  },
+  {
+    "id": 42,
+    "title": "How Does This Help Me Build Maintainable Software?",
+    "level": 1,
+    "page": 51,
+    "parent_id": 38,
+    "children_ids": [],
+    "start_page": 51,
+    "end_page": 51,
+    "page_count": 1
+  }
+]

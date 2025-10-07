@@ -1,0 +1,197 @@
+[
+  {
+    "id": 67,
+    "title": "3 Breaking dependencies with stubs",
+    "level": 1,
+    "page": 89,
+    "parent_id": 66,
+    "children_ids": [
+      68,
+      69,
+      70,
+      73,
+      76,
+      77,
+      78,
+      82
+    ],
+    "start_page": 89,
+    "end_page": 110,
+    "page_count": 22
+  },
+  {
+    "id": 68,
+    "title": "3.1 Types of dependencies",
+    "level": 2,
+    "page": 90,
+    "parent_id": 67,
+    "children_ids": [],
+    "start_page": 90,
+    "end_page": 91,
+    "page_count": 2
+  },
+  {
+    "id": 69,
+    "title": "3.2 Reasons to use stubs",
+    "level": 2,
+    "page": 92,
+    "parent_id": 67,
+    "children_ids": [],
+    "start_page": 92,
+    "end_page": 93,
+    "page_count": 2
+  },
+  {
+    "id": 70,
+    "title": "3.3 Generally accepted design approaches to stubbing",
+    "level": 2,
+    "page": 94,
+    "parent_id": 67,
+    "children_ids": [
+      71,
+      72
+    ],
+    "start_page": 94,
+    "end_page": 96,
+    "page_count": 3
+  },
+  {
+    "id": 71,
+    "title": "3.3.1 Stubbing out time with parameter injection",
+    "level": 3,
+    "page": 94,
+    "parent_id": 70,
+    "children_ids": [],
+    "start_page": 94,
+    "end_page": 95,
+    "page_count": 2
+  },
+  {
+    "id": 72,
+    "title": "3.3.2 Dependencies, injections, and control",
+    "level": 3,
+    "page": 96,
+    "parent_id": 70,
+    "children_ids": [],
+    "start_page": 96,
+    "end_page": 96,
+    "page_count": 1
+  },
+  {
+    "id": 73,
+    "title": "3.4 Functional injection techniques",
+    "level": 2,
+    "page": 97,
+    "parent_id": 67,
+    "children_ids": [
+      74,
+      75
+    ],
+    "start_page": 97,
+    "end_page": 97,
+    "page_count": 1
+  },
+  {
+    "id": 74,
+    "title": "3.4.1 Injecting a function",
+    "level": 3,
+    "page": 97,
+    "parent_id": 73,
+    "children_ids": [],
+    "start_page": 97,
+    "end_page": 97,
+    "page_count": 1
+  },
+  {
+    "id": 75,
+    "title": "3.4.2 Dependency injection via partial application",
+    "level": 3,
+    "page": 98,
+    "parent_id": 73,
+    "children_ids": [],
+    "start_page": 98,
+    "end_page": 98,
+    "page_count": 1
+  },
+  {
+    "id": 76,
+    "title": "3.5 Modular injection techniques",
+    "level": 2,
+    "page": 98,
+    "parent_id": 67,
+    "children_ids": [],
+    "start_page": 98,
+    "end_page": 100,
+    "page_count": 3
+  },
+  {
+    "id": 77,
+    "title": "3.6 Moving toward objects with constructor functions",
+    "level": 2,
+    "page": 101,
+    "parent_id": 67,
+    "children_ids": [],
+    "start_page": 101,
+    "end_page": 101,
+    "page_count": 1
+  },
+  {
+    "id": 78,
+    "title": "3.7 Object-oriented injection techniques",
+    "level": 2,
+    "page": 102,
+    "parent_id": 67,
+    "children_ids": [
+      79,
+      80,
+      81
+    ],
+    "start_page": 102,
+    "end_page": 108,
+    "page_count": 7
+  },
+  {
+    "id": 79,
+    "title": "3.7.1 Constructor injection",
+    "level": 3,
+    "page": 102,
+    "parent_id": 78,
+    "children_ids": [],
+    "start_page": 102,
+    "end_page": 103,
+    "page_count": 2
+  },
+  {
+    "id": 80,
+    "title": "3.7.2 Injecting an object instead of a function",
+    "level": 3,
+    "page": 104,
+    "parent_id": 78,
+    "children_ids": [],
+    "start_page": 104,
+    "end_page": 106,
+    "page_count": 3
+  },
+  {
+    "id": 81,
+    "title": "3.7.3 Extracting a common interface",
+    "level": 3,
+    "page": 107,
+    "parent_id": 78,
+    "children_ids": [],
+    "start_page": 107,
+    "end_page": 108,
+    "page_count": 2
+  },
+  {
+    "id": 82,
+    "title": "Summary",
+    "level": 2,
+    "page": 109,
+    "parent_id": 67,
+    "children_ids": [],
+    "start_page": 109,
+    "end_page": 110,
+    "page_count": 2
+  }
+]

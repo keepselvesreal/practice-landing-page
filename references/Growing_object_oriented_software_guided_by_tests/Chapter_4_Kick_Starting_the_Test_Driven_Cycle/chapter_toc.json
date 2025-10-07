@@ -1,0 +1,74 @@
+[
+  {
+    "id": 30,
+    "title": "Chapter 4: Kick-Starting the Test-Driven Cycle",
+    "level": 1,
+    "page": 56,
+    "parent_id": 29,
+    "children_ids": [
+      31,
+      32,
+      33,
+      34,
+      35
+    ],
+    "start_page": 56,
+    "end_page": 63,
+    "page_count": 8
+  },
+  {
+    "id": 31,
+    "title": "Introduction",
+    "level": 2,
+    "page": 56,
+    "parent_id": 30,
+    "children_ids": [],
+    "start_page": 56,
+    "end_page": 56,
+    "page_count": 1
+  },
+  {
+    "id": 32,
+    "title": "First, Test a Walking Skeleton",
+    "level": 2,
+    "page": 57,
+    "parent_id": 30,
+    "children_ids": [],
+    "start_page": 57,
+    "end_page": 57,
+    "page_count": 1
+  },
+  {
+    "id": 33,
+    "title": "Deciding the Shape of the Walking Skeleton",
+    "level": 2,
+    "page": 58,
+    "parent_id": 30,
+    "children_ids": [],
+    "start_page": 58,
+    "end_page": 59,
+    "page_count": 2
+  },
+  {
+    "id": 34,
+    "title": "Build Sources of Feedback",
+    "level": 2,
+    "page": 60,
+    "parent_id": 30,
+    "children_ids": [],
+    "start_page": 60,
+    "end_page": 60,
+    "page_count": 1
+  },
+  {
+    "id": 35,
+    "title": "Expose Uncertainty Early",
+    "level": 2,
+    "page": 61,
+    "parent_id": 30,
+    "children_ids": [],
+    "start_page": 61,
+    "end_page": 63,
+    "page_count": 3
+  }
+]
