@@ -66,6 +66,10 @@
             <label for="product_price">가격:</label>
             <input type="number" id="product_price" step="0.01" required>
         </div>
+        <div>
+            <label for="affiliate_code">어필리에이트 코드 (선택사항):</label>
+            <input type="text" id="affiliate_code" placeholder="예: INFLUENCER123">
+        </div>
         <button type="submit" id="submit_order">주문하기</button>
     </form>
 
@@ -75,11 +79,17 @@
     document.getElementById('orderForm').addEventListener('submit', async (e) => {
         e.preventDefault();
 
+        const affiliateCodeValue = document.getElementById('affiliate_code').value;
         const data = {
             customer_email: document.getElementById('customer_email').value,
             customer_address: document.getElementById('customer_address').value,
             product_price: parseFloat(document.getElementById('product_price').value)
         };
+
+        // 어필리에이트 코드가 입력된 경우에만 추가
+        if (affiliateCodeValue) {
+            data.affiliate_code = affiliateCodeValue;
+        }
 
         try {
             const response = await fetch('/api/orders', {
