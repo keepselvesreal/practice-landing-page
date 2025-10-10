@@ -2,8 +2,10 @@
 FastAPI Application Entry Point
 Chapter 9: Application Assembly
 """
+from pathlib import Path
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import HTMLResponse
 
 from .settings import get_settings
 from .dependencies import (
@@ -45,14 +47,15 @@ def create_app() -> FastAPI:
     # 라우터 등록
     app.include_router(order_controller.router)
 
-    @app.get("/")
-    def root():
-        """헬스 체크"""
-        return {
-            "app": settings.app_name,
-            "status": "running",
-            "version": "0.1.0"
-        }
+    @app.get("/", response_class=HTMLResponse)
+    def landing_page():
+        """
+        랜딩 페이지 서빙
+
+        Walking Skeleton: 사용자가 실제로 보는 화면
+        """
+        template_path = Path(__file__).parent.parent.parent.parent / "templates" / "landing.html"
+        return HTMLResponse(content=template_path.read_text())
 
     @app.get("/health")
     def health():

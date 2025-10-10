@@ -3,9 +3,13 @@ Pytest Configuration
 """
 import pytest
 import os
+import threading
+import time
 from pathlib import Path
 from dotenv import load_dotenv
 from fastapi.testclient import TestClient
+from selenium import webdriver
+import uvicorn
 
 from cosmetics_landing.config.main import create_app
 
@@ -46,6 +50,68 @@ def order_with_affiliate():
     }
 
 
+@pytest.fixture(scope="session")
+def live_server():
+    """
+    실제 서버를 백그라운드에서 실행하는 픽스처
+
+    Selenium 테스트용 라이브 서버
+    포트 충돌 방지를 위해 사용 가능한 포트 자동 탐색
+    """
+    import socket
+
+    # 사용 가능한 포트 찾기
+    def find_free_port():
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.bind(('', 0))
+            s.listen(1)
+            port = s.getsockname()[1]
+        return port
+
+    port = find_free_port()
+
+    # 서버를 별도 스레드에서 실행
+    server_thread = threading.Thread(
+        target=uvicorn.run,
+        args=(create_app(),),
+        kwargs={
+            "host": "127.0.0.1",
+            "port": port,
+            "log_level": "error"
+        },
+        daemon=True
+    )
+    server_thread.start()
+
+    # 서버 시작 대기
+    time.sleep(3)
+
+    yield f"http://localhost:{port}"
+
+    # 종료는 daemon 스레드이므로 자동으로 처리됨
+
+
+@pytest.fixture
+def selenium_driver():
+    """
+    Selenium WebDriver 설정
+
+    Headless Chrome 브라우저 사용
+    """
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--disable-gpu')
+
+    driver = webdriver.Chrome(options=options)
+    driver.implicitly_wait(10)  # 암묵적 대기 시간
+
+    yield driver
+
+    driver.quit()
+
+
 # pytest marker 설정
 def pytest_configure(config):
     """pytest 설정"""
@@ -54,4 +120,7 @@ def pytest_configure(config):
     )
     config.addinivalue_line(
         "markers", "integration: mark test as integration test (real external services)"
+    )
+    config.addinivalue_line(
+        "markers", "e2e: mark test as end-to-end test (UI + API)"
     )

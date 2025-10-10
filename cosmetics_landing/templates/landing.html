@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>화장품 주문 - Walking Skeleton</title>
+    <style>
+        .hidden { display: none; }
+        .success-message {
+            color: green;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid green;
+            border-radius: 4px;
+        }
+        .error-message {
+            color: red;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid red;
+            border-radius: 4px;
+        }
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        div {
+            margin: 10px 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">화장품 주문</h1>
+
+    <form id="orderForm">
+        <div>
+            <label for="customer_email">이메일:</label>
+            <input type="email" id="customer_email" required>
+        </div>
+        <div>
+            <label for="customer_address">주소:</label>
+            <input type="text" id="customer_address" required>
+        </div>
+        <div>
+            <label for="product_price">가격:</label>
+            <input type="number" id="product_price" step="0.01" required>
+        </div>
+        <button type="submit" id="submit_order">주문하기</button>
+    </form>
+
+    <div id="message" class="hidden"></div>
+
+    <script>
+    document.getElementById('orderForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const data = {
+            customer_email: document.getElementById('customer_email').value,
+            customer_address: document.getElementById('customer_address').value,
+            product_price: parseFloat(document.getElementById('product_price').value)
+        };
+
+        try {
+            const response = await fetch('/api/orders', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+            const messageEl = document.getElementById('message');
+
+            if (response.ok) {
+                messageEl.textContent = '주문이 완료되었습니다';
+                messageEl.className = 'success-message';
+                document.getElementById('orderForm').reset();
+            } else {
+                messageEl.textContent = result.detail || '주문 실패';
+                messageEl.className = 'error-message';
+            }
+        } catch (error) {
+            const messageEl = document.getElementById('message');
+            messageEl.textContent = '네트워크 오류';
+            messageEl.className = 'error-message';
+        }
+    });
+    </script>
+</body>
+</html>
