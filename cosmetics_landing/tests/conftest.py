@@ -25,7 +25,16 @@ def client():
 
     E2E 테스트용 애플리케이션 인스턴스
     """
+    from cosmetics_landing.config.dependencies import get_affiliate_persistence_adapter
+    from cosmetics_landing.domain.affiliate import Affiliate
+
     app = create_app()
+
+    # E2E 테스트용 어필리에이트 미리 생성
+    affiliate_adapter = get_affiliate_persistence_adapter()
+    affiliate_adapter.save(Affiliate.create_new("INFLUENCER123"))
+    affiliate_adapter.save(Affiliate.create_new("PARTNER999"))
+
     return TestClient(app)
 
 

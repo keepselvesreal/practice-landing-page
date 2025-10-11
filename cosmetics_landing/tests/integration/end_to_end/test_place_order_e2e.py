@@ -124,13 +124,13 @@ class TestHealthEndpoints:
     """헬스 체크 엔드포인트 테스트"""
 
     def test_root_endpoint(self, client):
-        """루트 엔드포인트가 응답한다"""
+        """루트 엔드포인트가 응답한다 (랜딩 페이지)"""
         response = client.get("/")
 
         assert response.status_code == status.HTTP_200_OK
-        data = response.json()
-        assert "status" in data
-        assert data["status"] == "running"
+        # HTML 응답 확인
+        assert "text/html" in response.headers["content-type"]
+        assert len(response.text) > 0
 
     def test_health_endpoint(self, client):
         """헬스 체크 엔드포인트가 응답한다"""

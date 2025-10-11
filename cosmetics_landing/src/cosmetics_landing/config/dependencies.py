@@ -10,12 +10,14 @@ from functools import lru_cache
 from ..application.service.place_order_service import PlaceOrderService
 from ..application.service.track_affiliate_service import TrackAffiliateService
 from ..application.service.get_affiliate_stats_service import GetAffiliateStatsService
+from ..application.service.send_inquiry_service import SendInquiryService
 
 # Adapters
 from ..adapter.out.persistence.in_memory_order_adapter import InMemoryOrderAdapter
 from ..adapter.out.persistence.in_memory_affiliate_adapter import InMemoryAffiliateAdapter
 from ..adapter.out.payment.fake_payment_adapter import FakePaymentAdapter
 from ..adapter.out.geocoding.fake_address_validator import FakeAddressValidator
+from ..adapter.out.email.fake_email_adapter import FakeEmailAdapter
 
 
 # =============================================================================
@@ -66,6 +68,17 @@ def get_address_validator() -> FakeAddressValidator:
     return FakeAddressValidator()
 
 
+@lru_cache()
+def get_email_sender() -> FakeEmailAdapter:
+    """
+    Email Sender Bean
+
+    Walking Skeleton: Fake 구현
+    추후 GmailSmtpAdapter로 교체 가능
+    """
+    return FakeEmailAdapter(always_succeed=True)
+
+
 # =============================================================================
 # Use Case Beans
 # =============================================================================
@@ -81,7 +94,9 @@ def get_place_order_service() -> PlaceOrderService:
     return PlaceOrderService(
         save_order_port=get_order_persistence_adapter(),
         process_payment_port=get_payment_adapter(),
-        validate_address_port=get_address_validator()
+        validate_address_port=get_address_validator(),
+        load_affiliate_port=get_affiliate_persistence_adapter(),
+        save_affiliate_port=get_affiliate_persistence_adapter()
     )
 
 
@@ -99,6 +114,14 @@ def get_affiliate_stats_service() -> GetAffiliateStatsService:
     """Get Affiliate Stats Service Bean (Query)"""
     return GetAffiliateStatsService(
         load_affiliate_port=get_affiliate_persistence_adapter()
+    )
+
+
+@lru_cache()
+def get_send_inquiry_service() -> SendInquiryService:
+    """Send Inquiry Service Bean"""
+    return SendInquiryService(
+        email_sender_port=get_email_sender()
     )
 
 
@@ -123,3 +146,8 @@ def override_track_affiliate_use_case():
 def override_affiliate_stats_query():
     """FastAPI Depends용 GetAffiliateStatsQuery 제공"""
     return get_affiliate_stats_service()
+
+
+def override_send_inquiry_use_case():
+    """FastAPI Depends용 SendInquiryUseCase 제공"""
+    return get_send_inquiry_service()
