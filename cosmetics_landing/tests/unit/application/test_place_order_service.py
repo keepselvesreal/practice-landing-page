@@ -239,3 +239,100 @@ class TestPlaceOrderService:
         # Then: 두 번째 save 호출의 주문이 paid 상태인지 확인
         second_call_order = save_order.save.call_args_list[1][0][0]
         assert second_call_order.is_paid()
+
+
+class TestPlaceOrderServiceWithAffiliate:
+    """PlaceOrderService 어필리에이트 통합 테스트"""
+
+    def test_place_order_records_affiliate_sale(self):
+        """
+        어필리에이트 코드가 있는 주문은 판매를 기록한다
+
+        GOOS 7장: 협력 프로토콜 명시적 검증
+        """
+        # Given
+        from cosmetics_landing.domain.affiliate import Affiliate
+
+        affiliate = Affiliate.create_new("INFLUENCER123")
+
+        load_affiliate = Mock()
+        load_affiliate.load_by_code.return_value = affiliate
+
+        save_affiliate = Mock()
+
+        save_order = Mock()
+        save_order.save.return_value = OrderId(value=1)
+
+        process_payment = Mock()
+        process_payment.process_payment.return_value = PaymentResult(
+            success=True, transaction_id="txn_123", error_message=None
+        )
+
+        validate_address = Mock()
+        validate_address.is_valid.return_value = True
+
+        service = PlaceOrderService(
+            save_order_port=save_order,
+            process_payment_port=process_payment,
+            validate_address_port=validate_address,
+            load_affiliate_port=load_affiliate,
+            save_affiliate_port=save_affiliate
+        )
+
+        command = PlaceOrderCommand(
+            customer_email="test@example.com",
+            customer_address="123 Main St",
+            product_price=Decimal("100.00"),
+            affiliate_code="INFLUENCER123"
+        )
+
+        # When
+        service.place_order(command)
+
+        # Then: 협력 프로토콜 명시적 검증
+        load_affiliate.load_by_code.assert_called_once_with("INFLUENCER123")
+        save_affiliate.save.assert_called_once()
+
+        # 저장된 어필리에이트 상태 검증
+        saved_affiliate = save_affiliate.save.call_args[0][0]
+        assert saved_affiliate.total_sales == 1
+        assert saved_affiliate.total_commission.amount == Decimal("20.00")  # 100 * 20%
+
+    def test_place_order_without_affiliate_code(self):
+        """어필리에이트 코드 없는 주문은 추적하지 않는다"""
+        # Given
+        load_affiliate = Mock()
+        save_affiliate = Mock()
+
+        save_order = Mock()
+        save_order.save.return_value = OrderId(value=1)
+
+        process_payment = Mock()
+        process_payment.process_payment.return_value = PaymentResult(
+            success=True, transaction_id="txn_123", error_message=None
+        )
+
+        validate_address = Mock()
+        validate_address.is_valid.return_value = True
+
+        service = PlaceOrderService(
+            save_order_port=save_order,
+            process_payment_port=process_payment,
+            validate_address_port=validate_address,
+            load_affiliate_port=load_affiliate,
+            save_affiliate_port=save_affiliate
+        )
+
+        command = PlaceOrderCommand(
+            customer_email="test@example.com",
+            customer_address="123 Main St",
+            product_price=Decimal("50.00"),
+            affiliate_code=None  # 코드 없음
+        )
+
+        # When
+        service.place_order(command)
+
+        # Then: 어필리에이트 포트 호출 안 됨
+        load_affiliate.load_by_code.assert_not_called()
+        save_affiliate.save.assert_not_called()

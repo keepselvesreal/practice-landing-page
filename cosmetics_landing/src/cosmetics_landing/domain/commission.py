@@ -28,10 +28,12 @@ class Commission:
             order_amount: 주문 금액
 
         Returns:
-            계산된 수수료
+            계산된 수수료 (소수점 둘째 자리까지 반올림)
         """
         commission_amount = order_amount.amount * self.rate
-        return Money.of(commission_amount)
+        # 소수점 둘째 자리까지 반올림 (ROUND_HALF_UP)
+        rounded_amount = commission_amount.quantize(Decimal('0.01'))
+        return Money.of(rounded_amount)
 
     def __str__(self):
         return f"{self.rate * 100:.0f}%"

@@ -34,9 +34,19 @@ class Settings(BaseSettings):
     smtp_password: str = ""
     support_email: str = "support@cosmetics.com"
 
+    # AI API Keys (선택사항)
+    anthropic_api_key: str = ""
+    openai_api_key: str = ""
+    gemini_api_key: str = ""
+
+    # PayPal Sandbox (선택사항)
+    paypal_sandbox_client_id: str = ""
+    paypal_sandbox_client_secret: str = ""
+
     model_config = {
         "env_file": ".env",
-        "env_file_encoding": "utf-8"
+        "env_file_encoding": "utf-8",
+        "extra": "allow"  # .env의 추가 필드 허용
     }
 
 

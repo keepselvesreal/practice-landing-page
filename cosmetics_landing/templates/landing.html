@@ -100,7 +100,7 @@
         <form id="inquiryForm">
             <div>
                 <label for="inquiry_email">이메일:</label>
-                <input type="email" id="inquiry_email" required>
+                <input type="text" id="inquiry_email" required>
             </div>
             <div>
                 <label for="inquiry_message">문의 내용:</label>
@@ -152,12 +152,29 @@
         }
     });
 
+    // 이메일 검증 함수
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
     // 고객 문의 폼 처리
     document.getElementById('inquiryForm').addEventListener('submit', async (e) => {
         e.preventDefault();
 
+        const emailInput = document.getElementById('inquiry_email').value;
+        const messageEl = document.getElementById('inquiryMessage');
+
+        // 클라이언트 사이드 이메일 검증
+        if (!isValidEmail(emailInput)) {
+            messageEl.textContent = '유효한 이메일 주소를 입력해주세요.';
+            messageEl.className = 'inquiry-error';
+            messageEl.style.display = 'block';  // hidden 클래스 대신 display 사용
+            return;
+        }
+
         const data = {
-            customer_email: document.getElementById('inquiry_email').value,
+            customer_email: emailInput,
             message: document.getElementById('inquiry_message').value
         };
 
@@ -169,20 +186,21 @@
             });
 
             const result = await response.json();
-            const messageEl = document.getElementById('inquiryMessage');
 
             if (response.ok) {
                 messageEl.textContent = '문의가 접수되었습니다. 빠른 시일 내에 답변드리겠습니다.';
                 messageEl.className = 'inquiry-success';
+                messageEl.style.display = 'block';
                 document.getElementById('inquiryForm').reset();
             } else {
                 messageEl.textContent = result.detail || '문의 전송 실패';
                 messageEl.className = 'inquiry-error';
+                messageEl.style.display = 'block';
             }
         } catch (error) {
-            const messageEl = document.getElementById('inquiryMessage');
             messageEl.textContent = '네트워크 오류가 발생했습니다.';
             messageEl.className = 'inquiry-error';
+            messageEl.style.display = 'block';
         }
     });
     </script>

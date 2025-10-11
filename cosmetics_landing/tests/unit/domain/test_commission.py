@@ -27,8 +27,8 @@ class TestCommission:
 
         result = commission.calculate(product_price)
 
-        # 29.99 * 0.20 = 5.998
-        assert result.amount == Decimal("5.998")
+        # 29.99 * 0.20 = 5.998 → 6.00으로 반올림
+        assert result.amount == Decimal("6.00")
 
     def test_rejects_invalid_commission_rate(self):
         """잘못된 수수료율 거부 (0~1 범위 밖)"""
@@ -46,6 +46,16 @@ class TestCommission:
         result = commission.calculate(order_amount)
 
         assert result.amount == Decimal("15.00")
+
+    def test_commission_rounds_to_two_decimals(self):
+        """수수료는 소수점 둘째 자리까지 반올림한다"""
+        commission = Commission()
+        order_amount = Money.of(Decimal("33.33"))
+
+        result = commission.calculate(order_amount)
+
+        # 33.33 * 0.2 = 6.666 → 6.67로 반올림
+        assert result.amount == Decimal("6.67")
 
     def test_commission_is_immutable(self):
         """Commission은 불변 객체"""

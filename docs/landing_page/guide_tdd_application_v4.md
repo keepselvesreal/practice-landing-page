@@ -1,32 +1,148 @@
 ---
-created_at: 2025-10-10 21:30:00
+created_at: 2025-10-11
 links:
-   - ./index.md
-   - ./concept_tdd.md
-   - ./concept_tdd_part2.md
-   - ./eval_tdd_application_v1.md
+  in:
+    - ./index.md                    # 인덱스가 이 가이드를 참조
+    - ./eval_tdd_application_v1.md  # 평가 문서가 이 가이드를 참조
+  out:
+    - ./concept_tdd.md              # TDD 기본 개념
+    - ./concept_tdd_part2.md        # Learning Test, Contract Test 패턴
+    - ./concept_tdd_best_practices.md  # TDD 모범 사례
 ---
 
-# 4. TDD 적용 가이드 (v3)
+# TDD 적용 가이드 (v4)
 
-**TDD 프로세스**:
+---
+
+## 압축 내용
+
+**Outside-in TDD로 UI→Domain→DB 전체를 관통하는 Walking Skeleton을 먼저 구축하고, Learning Test로 외부 API 계약을 학습한 뒤, Contract Test로 Fake↔Real 일치를 보장하면서 각 Epic을 인수 테스트부터 시작해 계층별로 구현한다.**
+
+---
+
+## 핵심 내용
+
+### TDD 프로세스
+
+**Red-Green-Refactor 사이클**:
 1. **Red**: 실패하는 테스트 작성
 2. **Green**: 최소 구현으로 테스트 통과
 3. **Refactor**: 코드 개선
 
-**Outside-in 접근** (GOOS 방식):
-- UI 테스트부터 시작 → 도메인으로 내려감
-- 사용자 관점에서 시작 → 기술 구현으로 진행
+**참고**: [concept_tdd.md - TDD 기본 개념](./concept_tdd.md)
 
 ---
 
-## 4.0 테스트 인프라 설정 (Phase 0)
+### Outside-in 접근 (GOOS 방식)
+
+**사용자 관점에서 기술 구현으로 진행**:
+
+```
+인수 테스트(E2E) 작성
+  ↓
+UI/API 계층 스텁 구현
+  ↓
+애플리케이션 계층 테스트 작성
+  ↓
+도메인 계층 테스트 작성
+  ↓
+어댑터 계층 테스트 작성
+  ↓
+인수 테스트 통과
+```
+
+**핵심 원칙**:
+- **UI 테스트부터 시작** → 도메인으로 내려감
+- **사용자 시나리오 우선** → 기술 구현은 나중
+- **전체 흐름 검증** → 각 계층은 부분 검증
+
+**참고**: [concept_tdd.md - Outside-in TDD](./concept_tdd.md#outside-in-tdd)
+
+---
+
+### Walking Skeleton 구축
+
+**목표**: 브라우저부터 데이터베이스까지 전체 흐름을 관통하는 최소 기능 구현
+
+**GOOS 원칙** (Chapter 10-11):
+- Walking Skeleton은 "UI → API → Domain → DB" 전체를 의미
+- 가장 얇은 기능 조각 (thinnest slice)을 End-to-End로 구현
+- 외부에서 내부로 (Outside-in) 진행
+
+**구성 요소**:
+1. **UI Layer**: HTML 폼 + JavaScript
+2. **API Layer**: FastAPI 엔드포인트 스텁
+3. **E2E 테스트**: 브라우저 → API 전체 흐름 검증
+4. **비즈니스 로직**: 아직 없음 (다음 단계에서 추가)
+
+---
+
+### Learning Test 패턴
+
+**목적**: 외부 API(PayPal, Google Geocoding)의 실제 동작과 응답 구조 학습
+
+**핵심 가치**:
+- 외부 API 계약(request/response) 구조 학습
+- 에러 처리 방식 이해
+- Real Adapter 구현 근거 마련
+- `@pytest.mark.learning` 마커로 분류
+
+**참고**: [concept_tdd_part2.md - Learning Test 패턴](./concept_tdd_part2.md#learning-test-패턴)
+
+---
+
+### Contract Test 패턴
+
+**목적**: Fake 어댑터가 Real 어댑터와 동일한 계약을 준수하는지 검증
+
+**핵심 가치**:
+- Fake↔Real 동일 계약 보장
+- 포트 인터페이스 구현 검증
+- 타입 안전성 확보
+
+**참고**: [concept_tdd_part2.md - Contract Test 패턴](./concept_tdd_part2.md#contract-test-패턴)
+
+---
+
+### 계층별 테스트 전략
+
+| 계층 | 테스트 타입 | 마커 | Mock 사용 | 검증 대상 |
+|------|------------|------|-----------|-----------|
+| **Domain** | 단위 테스트 | - | ❌ 없음 | 비즈니스 규칙 |
+| **Application** | 단위 테스트 | - | ✅ 포트 Mock | Use Case 로직 |
+| **Adapter (Learning)** | Learning Test | `@pytest.mark.learning` | ❌ 실제 API | API 계약 학습 |
+| **Adapter (Contract)** | Contract Test | - | ❌ 없음 | Fake↔Real 계약 일치 |
+| **Adapter (Integration)** | 통합 테스트 | `@pytest.mark.integration` | ❌ Sandbox/Fake | 외부 연동 |
+| **End-to-End** | E2E 테스트 | `@pytest.mark.e2e` | ❌ 실제 환경 | 전체 흐름 |
+
+**테스트 실행 명령어**:
+
+```bash
+# 전체 테스트 실행
+uv run pytest
+
+# 마커별 실행
+uv run pytest -m learning      # Learning Test만
+uv run pytest -m integration   # Integration Test만
+uv run pytest -m e2e           # E2E Test만
+
+# 빠른 단위 테스트만 실행 (외부 의존성 제외)
+uv run pytest -m "not (learning or integration or e2e)"
+```
+
+**참고**: [concept_tdd_best_practices.md - 계층별 테스트 전략](./concept_tdd_best_practices.md#계층별-테스트-전략)
+
+---
+
+## 상세 내용
+
+### 테스트 인프라 설정 (Phase 0)
 
 **목표**: 전체 테스트 실행 환경과 공통 픽스처 구성
 
 **출처**: 실제 구현에서 도출된 테스트 인프라 패턴
 
-### Step 1: conftest.py 구성
+#### Step 1: conftest.py 구성
 
 ```python
 # tests/conftest.py
@@ -44,6 +160,8 @@ from selenium import webdriver
 import uvicorn
 
 from cosmetics_landing.config.main import create_app
+from cosmetics_landing.domain.affiliate import Affiliate
+from cosmetics_landing.adapter.out.persistence.in_memory_affiliate_adapter import InMemoryAffiliateAdapter
 
 # .env 파일 로드
 env_path = Path(__file__).parent.parent.parent / ".env"
@@ -56,8 +174,15 @@ def client():
     FastAPI 테스트 클라이언트
 
     E2E 테스트용 애플리케이션 인스턴스
+    어필리에이트 데이터 사전 생성 포함
     """
     app = create_app()
+
+    # E2E 테스트용 어필리에이트 미리 생성
+    affiliate_adapter = InMemoryAffiliateAdapter()
+    affiliate_adapter.save(Affiliate.create_new("INFLUENCER123"))
+    affiliate_adapter.save(Affiliate.create_new("PARTNER999"))
+
     return TestClient(app)
 
 
@@ -144,6 +269,17 @@ def selenium_driver():
     driver.quit()
 
 
+@pytest.fixture
+def fake_smtp_server():
+    """테스트용 Fake SMTP 서버"""
+    from tests.fakes.fake_smtp_server import FakeSMTPServer
+
+    server = FakeSMTPServer(host="localhost", port=2525)
+    server.start()
+    yield server
+    server.stop()
+
+
 # pytest marker 설정
 def pytest_configure(config):
     """pytest 마커 설정"""
@@ -162,28 +298,12 @@ def pytest_configure(config):
 - ✅ **live_server 픽스처**: 포트 자동 탐색으로 충돌 방지
 - ✅ **테스트 마커**: `learning`, `integration`, `e2e` 마커로 테스트 분류
 - ✅ **공통 픽스처**: 테스트 데이터 재사용
-
-### Step 2: 테스트 실행 명령어
-
-```bash
-# 전체 테스트 실행
-uv run pytest
-
-# 마커별 실행
-uv run pytest -m learning      # Learning Test만
-uv run pytest -m integration   # Integration Test만
-uv run pytest -m e2e           # E2E Test만
-
-# 빠른 단위 테스트만 실행 (Learning, Integration, E2E 제외)
-uv run pytest -m "not (learning or integration or e2e)"
-
-# 특정 파일 실행
-uv run pytest tests/unit/domain/test_order.py -v
-```
+- ✅ **어필리에이트 사전 생성**: E2E 테스트용 데이터 미리 준비
+- ✅ **fake_smtp_server**: 이메일 전송 테스트용 Fake SMTP 서버
 
 ---
 
-## 4.1 Walking Skeleton 구축 (Epic 1)
+### Epic 1: Walking Skeleton 구축
 
 **목표**: 브라우저부터 데이터베이스까지 전체 흐름을 관통하는 최소 기능 구현
 
@@ -196,13 +316,13 @@ uv run pytest tests/unit/domain/test_order.py -v
 
 ---
 
-### 4.1.1 Phase 1: UI Walking Skeleton
+#### Phase 1: UI Walking Skeleton
 
 **목표**: 사용자가 브라우저에서 주문 폼을 제출하고 성공 메시지를 받는 end-to-end 흐름 구축
 
 **출처**: GOOS Chapter 10-11 (p.63-88)
 
-#### Step 1: 인수 테스트 작성 (UI 레벨)
+##### Step 1: 인수 테스트 작성 (UI 레벨)
 
 **GOOS 원칙**: Outside-in 개발 - 사용자 시나리오부터 시작
 
@@ -294,7 +414,7 @@ class TestOrderFormUI:
 - ✅ **실패 시작**: 이 테스트는 아직 실패 (구현 전)
 - ✅ **@pytest.mark.e2e**: 마커로 E2E 테스트 분류
 
-#### Step 2: UI 컴포넌트 구현 (TDD)
+##### Step 2: UI 컴포넌트 구현 (TDD)
 
 **목표**: 인수 테스트를 통과시키기 위한 최소 UI 구현
 
@@ -328,6 +448,10 @@ class TestOrderFormUI:
             <label for="product_price">가격:</label>
             <input type="number" id="product_price" step="0.01" required>
         </div>
+        <div>
+            <label for="affiliate_code">어필리에이트 코드 (선택):</label>
+            <input type="text" id="affiliate_code">
+        </div>
         <button type="submit" id="submit_order">주문하기</button>
     </form>
 
@@ -340,7 +464,8 @@ class TestOrderFormUI:
         const data = {
             customer_email: document.getElementById('customer_email').value,
             customer_address: document.getElementById('customer_address').value,
-            product_price: parseFloat(document.getElementById('product_price').value)
+            product_price: parseFloat(document.getElementById('customer_price').value),
+            affiliate_code: document.getElementById('affiliate_code').value || null
         };
 
         try {
@@ -377,7 +502,7 @@ class TestOrderFormUI:
 2. ✅ **Green**: HTML 폼 추가로 테스트 통과
 3. 🔄 **Refactor**: 스타일 개선 (다음 단계)
 
-#### Step 3: API 엔드포인트 스텁 구현
+##### Step 3: API 엔드포인트 스텁 구현
 
 **목표**: UI 테스트를 통과시키기 위한 최소 API 구현
 
@@ -394,6 +519,7 @@ class OrderRequest(BaseModel):
     customer_email: str
     customer_address: str
     product_price: float
+    affiliate_code: str | None = None
 
 
 def create_app() -> FastAPI:
@@ -441,7 +567,7 @@ def create_app() -> FastAPI:
 - ✅ **Walking Skeleton 완성**: UI부터 API까지 최소 기능 구현
 - ❌ **비즈니스 로직 없음**: 하드코딩된 응답만 반환 (의도적)
 
-#### Step 4: 테스트 실행 및 검증
+##### Step 4: 테스트 실행 및 검증
 
 **테스트 실행**:
 ```bash
@@ -470,7 +596,7 @@ uv run uvicorn cosmetics_landing.config.main:app --reload
 
 ---
 
-### 4.1.2 Phase 2: Learning Test를 통한 외부 API 계약 학습
+#### Phase 2: Learning Test를 통한 외부 API 계약 학습
 
 **목표**: 외부 API(PayPal, Google Geocoding)의 실제 동작과 응답 구조 학습
 
@@ -478,7 +604,7 @@ uv run uvicorn cosmetics_landing.config.main:app --reload
 
 **개념**: [concept_tdd_part2.md - Learning Test 패턴](./concept_tdd_part2.md#learning-test-패턴) 참조
 
-#### Step 1: PayPal Sandbox API 계약 학습
+##### Step 1: PayPal Sandbox API 계약 학습
 
 ```python
 # tests/learning/test_paypal_contract.py
@@ -572,18 +698,113 @@ class TestPayPalPaymentCreation:
 - ✅ **실제 API 호출**: Sandbox 환경에서 실제 동작 확인
 - ✅ **문서화**: API 응답 구조와 에러 패턴 명시
 
-#### Step 2: Google Geocoding API 계약 학습
+##### Step 2: Google Geocoding API 계약 학습
 
 *(유사한 패턴으로 작성, 생략)*
+
+##### Step 3: Google Places Adapter 통합 테스트
+
+**목표**: 실제 Google Places API와의 통합 검증
+
+```python
+# tests/integration/adapter/test_google_places_adapter.py
+"""
+Google Places Adapter Integration Test
+"""
+import pytest
+import os
+
+from cosmetics_landing.adapter.out.address_validation.google_places_adapter import GooglePlacesAdapter
+from cosmetics_landing.application.port.out.address_validator import ValidateAddressPort
+
+
+@pytest.fixture
+def google_api_key():
+    """Google API 키 픽스처"""
+    api_key = os.getenv("GOOGLE_PLACES_API_KEY")
+    if not api_key:
+        pytest.skip("Google Places API key not configured")
+    return api_key
+
+
+@pytest.mark.integration
+class TestGooglePlacesAdapterIntegration:
+    """Google Places 어댑터 통합 테스트"""
+
+    def test_validates_real_address_successfully(self, google_api_key):
+        """실제 주소 검증 성공"""
+        # Given
+        adapter = GooglePlacesAdapter(api_key=google_api_key)
+        valid_address = "서울특별시 강남구 테헤란로 427"
+
+        # When
+        result = adapter.is_valid(valid_address)
+
+        # Then
+        assert result is True
+
+    def test_validates_with_rooftop_accuracy(self, google_api_key):
+        """ROOFTOP 정확도 모드로 검증"""
+        # Given
+        adapter = GooglePlacesAdapter(
+            api_key=google_api_key,
+            accuracy_mode="ROOFTOP"
+        )
+        precise_address = "서울특별시 강남구 테헤란로 427"
+
+        # When
+        result = adapter.is_valid(precise_address)
+
+        # Then
+        assert result is True
+
+    def test_validates_korean_address(self, google_api_key):
+        """한글 주소 검증"""
+        # Given
+        adapter = GooglePlacesAdapter(api_key=google_api_key)
+        korean_address = "서울 강남구 역삼동 123"
+
+        # When
+        result = adapter.is_valid(korean_address)
+
+        # Then
+        assert result is True
+
+    def test_handles_invalid_api_key_gracefully(self):
+        """잘못된 API 키 처리"""
+        # Given
+        adapter = GooglePlacesAdapter(api_key="INVALID_KEY")
+        address = "123 Main St"
+
+        # When/Then: 예외 발생 대신 False 반환
+        result = adapter.is_valid(address)
+        assert result is False
+
+    def test_handles_network_failure_gracefully(self, google_api_key, monkeypatch):
+        """네트워크 실패 처리"""
+        # Given
+        adapter = GooglePlacesAdapter(api_key=google_api_key)
+
+        # When: 네트워크 오류 시뮬레이션
+        def mock_api_call(*args, **kwargs):
+            raise ConnectionError("Network error")
+
+        monkeypatch.setattr(adapter, "_call_api", mock_api_call)
+
+        # Then: 예외 발생 대신 False 반환
+        result = adapter.is_valid("123 Main St")
+        assert result is False
+```
 
 **검증 체크리스트**:
 - ✅ PayPal API 응답 구조 파악 (payment.id, payment.state, payment.links)
 - ✅ Google API 응답 구조 파악 (status, results, formatted_address, geometry)
+- ✅ Google Places 통합 검증 (ROOFTOP 정확도, 한글 주소, 에러 처리)
 - ✅ 에러 케이스 학습 (잘못된 credentials, 네트워크 오류, 잘못된 입력)
 
 ---
 
-### 4.1.3 Phase 3: Fake 어댑터 Contract Test
+#### Phase 3: Fake 어댑터 Contract Test
 
 **목표**: Fake 어댑터가 Real 어댑터와 동일한 계약을 준수하는지 검증
 
@@ -591,7 +812,7 @@ class TestPayPalPaymentCreation:
 
 **개념**: [concept_tdd_part2.md - Contract Test 패턴](./concept_tdd_part2.md#contract-test-패턴) 참조
 
-#### Step 1: Fake Payment Adapter Contract Test
+##### Step 1: Fake Payment Adapter Contract Test
 
 ```python
 # tests/unit/adapter/test_fake_payment_contract.py
@@ -658,7 +879,7 @@ class TestFakePaymentAdapterBehavior:
 
 ---
 
-### 4.1.4 Phase 4: API End-to-End 테스트 작성 (확장)
+#### Phase 4: API End-to-End 테스트 작성 (확장)
 
 **목표**: API 레벨에서 주문 생성 흐름 검증 + 입력 검증 강화
 
@@ -761,7 +982,7 @@ class TestHealthEndpoints:
 
 ---
 
-### 4.1.5 Phase 5: 도메인 계층 TDD (확장)
+#### Phase 5: 도메인 계층 TDD (확장)
 
 **목표**: Money 값 객체 + Order 엔티티 테스트
 
@@ -845,7 +1066,7 @@ class TestOrder:
 
 ---
 
-### 4.1.6 Phase 6: 애플리케이션 계층 TDD (헬퍼 패턴)
+#### Phase 6: 애플리케이션 계층 TDD (헬퍼 패턴)
 
 **목표**: PlaceOrderService 테스트 + 테스트 헬퍼 패턴 적용
 
@@ -944,7 +1165,7 @@ class TestPlaceOrderService:
 
 ---
 
-### 4.1.7 Phase 7: 어댑터 계층 통합 테스트 (포트 준수 검증)
+#### Phase 7: 어댑터 계층 통합 테스트 (포트 준수 검증)
 
 **목표**: 실제 어댑터가 포트 인터페이스를 준수하는지 명시적으로 검증
 
@@ -1018,7 +1239,181 @@ class TestPayPalAdapterPortCompliance:
 
 ---
 
-## 4.2 Epic 2: 어필리에이트 기능 TDD
+#### Phase 8: SQLAlchemy Order Adapter 통합 테스트
+
+**목표**: 데이터베이스 영속성 계층 검증
+
+**테스트 파일**: `test_sqlalchemy_order_adapter.py`
+
+**핵심 테스트**:
+- CRUD 작업 (저장, 조회, 업데이트)
+- 어필리에이트 코드 조회
+- 도메인 ↔ ORM 매핑 검증
+- Value Object 보존 (Money, OrderId)
+
+```python
+# tests/integration/adapter/test_sqlalchemy_order_adapter.py
+"""
+SQLAlchemy Order Adapter Integration Test
+데이터베이스 영속성 계층 검증
+"""
+import pytest
+from decimal import Decimal
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+
+from cosmetics_landing.adapter.out.persistence.sqlalchemy_order_adapter import SQLAlchemyOrderAdapter
+from cosmetics_landing.adapter.out.persistence.sqlalchemy_models import Base
+from cosmetics_landing.domain.order import Order, Money
+
+
+@pytest.fixture(scope="function")
+def db_session():
+    """테스트용 In-Memory DB 세션"""
+    # In-Memory SQLite 사용
+    engine = create_engine("sqlite:///:memory:")
+    Base.metadata.create_all(engine)
+
+    Session = sessionmaker(bind=engine)
+    session = Session()
+
+    yield session
+
+    session.close()
+
+
+@pytest.fixture
+def order_adapter(db_session):
+    """SQLAlchemy Order Adapter 픽스처"""
+    return SQLAlchemyOrderAdapter(session=db_session)
+
+
+class TestSQLAlchemyOrderAdapterCRUD:
+    """CRUD 작업 테스트"""
+
+    def test_saves_order_successfully(self, order_adapter):
+        """주문을 데이터베이스에 저장한다"""
+        # Given
+        order = Order.create_new(
+            customer_email="test@example.com",
+            customer_address="123 Main St",
+            product_price=Money.of(Decimal("29.99"))
+        )
+
+        # When
+        order_id = order_adapter.save(order)
+
+        # Then
+        assert order_id is not None
+        assert order_id.value > 0
+
+    def test_loads_saved_order(self, order_adapter):
+        """저장된 주문을 조회한다"""
+        # Given: 주문 저장
+        order = Order.create_new(
+            customer_email="test@example.com",
+            customer_address="123 Main St",
+            product_price=Money.of(Decimal("29.99"))
+        )
+        order_id = order_adapter.save(order)
+
+        # When: 조회
+        loaded_order = order_adapter.load(order_id)
+
+        # Then: 동일한 값 검증
+        assert loaded_order.customer_email == "test@example.com"
+        assert loaded_order.customer_address == "123 Main St"
+        assert loaded_order.product_price.amount == Decimal("29.99")
+
+    def test_updates_order_status(self, order_adapter):
+        """주문 상태를 업데이트한다"""
+        # Given: 주문 저장
+        order = Order.create_new(
+            customer_email="test@example.com",
+            customer_address="123 Main St",
+            product_price=Money.of(Decimal("29.99"))
+        )
+        order_id = order_adapter.save(order)
+
+        # When: 결제 완료로 변경
+        paid_order = order.mark_as_paid()
+        order_adapter.save(paid_order)
+
+        # Then: 변경된 상태 확인
+        loaded_order = order_adapter.load(order_id)
+        assert loaded_order.payment_status == "completed"
+
+
+class TestSQLAlchemyOrderAdapterAffiliateTracking:
+    """어필리에이트 코드 조회 테스트"""
+
+    def test_loads_order_by_affiliate_code(self, order_adapter):
+        """어필리에이트 코드로 주문을 조회한다"""
+        # Given: 어필리에이트 주문 저장
+        order = Order.create_new(
+            customer_email="test@example.com",
+            customer_address="123 Main St",
+            product_price=Money.of(Decimal("100.00")),
+            affiliate_code="INFLUENCER123"
+        )
+        order_adapter.save(order)
+
+        # When: 어필리에이트 코드로 조회
+        orders = order_adapter.load_by_affiliate_code("INFLUENCER123")
+
+        # Then
+        assert len(orders) == 1
+        assert orders[0].affiliate_code == "INFLUENCER123"
+
+
+class TestSQLAlchemyOrderAdapterValueObjectMapping:
+    """Value Object 매핑 검증"""
+
+    def test_preserves_money_value_object(self, order_adapter):
+        """Money 값 객체가 보존된다"""
+        # Given
+        original_money = Money.of(Decimal("29.99"))
+        order = Order.create_new(
+            customer_email="test@example.com",
+            customer_address="123 Main St",
+            product_price=original_money
+        )
+
+        # When: 저장 후 조회
+        order_id = order_adapter.save(order)
+        loaded_order = order_adapter.load(order_id)
+
+        # Then: Money 타입 보존
+        assert isinstance(loaded_order.product_price, Money)
+        assert loaded_order.product_price.amount == Decimal("29.99")
+
+    def test_preserves_order_id_value_object(self, order_adapter):
+        """OrderId 값 객체가 보존된다"""
+        # Given
+        order = Order.create_new(
+            customer_email="test@example.com",
+            customer_address="123 Main St",
+            product_price=Money.of(Decimal("29.99"))
+        )
+
+        # When: 저장
+        order_id = order_adapter.save(order)
+
+        # Then: OrderId 타입 보존
+        from cosmetics_landing.domain.order import OrderId
+        assert isinstance(order_id, OrderId)
+        assert order_id.value > 0
+```
+
+**핵심 포인트**:
+- ✅ **In-Memory DB**: SQLite In-Memory로 빠른 테스트
+- ✅ **CRUD 검증**: 저장, 조회, 업데이트 전체 흐름
+- ✅ **어필리에이트 조회**: 코드별 주문 조회 기능
+- ✅ **Value Object 보존**: Money, OrderId 타입 보존 검증
+
+---
+
+### Epic 2: 어필리에이트 기능 TDD
 
 **목표**: 어필리에이트 추적 및 커미션 계산 기능 구현
 
@@ -1026,7 +1421,7 @@ class TestPayPalAdapterPortCompliance:
 
 ---
 
-### 4.2.1 Phase 1: 어필리에이트 인수 테스트 작성
+#### Phase 1: 어필리에이트 인수 테스트 작성
 
 **목표**: 사용자 관점에서 어필리에이트 전체 여정 검증
 
@@ -1117,7 +1512,7 @@ class TestAffiliateTrackingE2E:
 
 ---
 
-### 4.2.2 Phase 2: 도메인 계층 TDD
+#### Phase 2: 도메인 계층 TDD
 
 **목표**: Affiliate 엔티티 + Commission 값 객체 구현
 
@@ -1210,7 +1605,7 @@ class TestCommission:
 
 ---
 
-### 4.2.3 Phase 3: 애플리케이션 계층 TDD (명시적 협력 검증)
+#### Phase 3: 애플리케이션 계층 TDD (명시적 협력 검증)
 
 **목표**: PlaceOrderService에 어필리에이트 추적 로직 추가
 
@@ -1223,11 +1618,12 @@ Place Order Service - 어필리에이트 통합 테스트
 Chapter 4: Use Case Composition
 """
 import pytest
-from unittest.mock import Mock, call
+from unittest.mock import Mock
 from decimal import Decimal
 
 from cosmetics_landing.application.service.place_order_service import PlaceOrderService
 from cosmetics_landing.application.port.in_.place_order_use_case import PlaceOrderCommand
+from cosmetics_landing.application.port.out.payment_gateway import PaymentResult
 from cosmetics_landing.domain.affiliate import Affiliate
 from cosmetics_landing.domain.order import OrderId, Money
 
@@ -1309,7 +1705,24 @@ class TestPlaceOrderWithAffiliate:
         load_affiliate = Mock()
         save_affiliate = Mock()
 
-        # ... 다른 Mock 설정 생략
+        save_order = Mock()
+        save_order.save.return_value = OrderId(1)
+
+        process_payment = Mock()
+        process_payment.process_payment.return_value = PaymentResult(
+            success=True, transaction_id="txn_123", error_message=None
+        )
+
+        validate_address = Mock()
+        validate_address.is_valid.return_value = True
+
+        service = PlaceOrderService(
+            save_order_port=save_order,
+            process_payment_port=process_payment,
+            validate_address_port=validate_address,
+            load_affiliate_port=load_affiliate,
+            save_affiliate_port=save_affiliate
+        )
 
         command = PlaceOrderCommand(
             customer_email="test@example.com",
@@ -1331,9 +1744,11 @@ class TestPlaceOrderWithAffiliate:
 - ✅ **커스텀 매처**: `assert_affiliate_has_sales()` 헬퍼로 의도 명확화
 - ✅ **실패 메시지**: 단언 실패 시 명확한 메시지 제공 (GOOS 23장)
 
+**참고**: [concept_tdd_best_practices.md - Mock 사용 원칙](./concept_tdd_best_practices.md#mock-사용-원칙-goos-7-8장)
+
 ---
 
-### 4.2.4 설계 피드백: 다중 Mock 의존성 검토
+#### 설계 피드백: 다중 Mock 의존성 검토
 
 **현재 테스트의 문제점** (GOOS 20장):
 - `PlaceOrderService` 테스트가 **5개 Mock**에 의존 → 설계 냄새 신호
@@ -1427,7 +1842,7 @@ class PlaceOrderService:
 
 ---
 
-## 4.3 Epic 3: 고객 문의 기능 TDD
+### Epic 3: 고객 문의 기능 TDD
 
 **목표**: 랜딩 페이지에서 고객 문의를 받아 이메일로 전송
 
@@ -1435,11 +1850,15 @@ class PlaceOrderService:
 
 ---
 
-### 4.3.1 Phase 1: 고객 문의 인수 테스트 작성
+#### Phase 1: 고객 문의 인수 테스트 작성
 
 **목표**: 사용자 관점에서 문의 전체 여정 검증
 
 **출처**: GOOS Chapter 4-5 - 기능 수준 인수 테스트
+
+**2가지 접근**: UI E2E (Selenium) + API E2E (TestClient) 분리
+
+##### 접근 1: UI E2E 테스트 (Selenium)
 
 ```python
 # tests/integration/end_to_end/test_customer_inquiry_e2e.py
@@ -1455,7 +1874,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 @pytest.mark.e2e
 class TestCustomerInquiryE2E:
-    """고객 문의 E2E 테스트"""
+    """고객 문의 UI E2E 테스트"""
 
     def test_customer_can_send_inquiry_from_landing_page(
         self, selenium_driver, live_server, fake_smtp_server
@@ -1508,14 +1927,72 @@ class TestCustomerInquiryE2E:
         assert "유효한 이메일" in error_msg.text
 ```
 
+##### 접근 2: API E2E 테스트 (TestClient)
+
+```python
+# tests/integration/end_to_end/test_customer_inquiry_api.py
+"""
+Epic 3 API 인수 테스트: 고객 문의 API 흐름
+API 레벨에서 독립적으로 검증
+"""
+import pytest
+from fastapi import status
+
+
+@pytest.mark.e2e
+class TestCustomerInquiryAPI:
+    """고객 문의 API E2E 테스트"""
+
+    def test_customer_can_submit_inquiry_via_api(self, client, fake_smtp_server):
+        """
+        API 인수 테스트: 고객이 API를 통해 문의를 전송할 수 있다
+
+        Given: 유효한 문의 데이터
+        When: 문의 전송 API 호출
+        Then: 성공 응답 + 이메일 전송됨
+        """
+        # Given
+        inquiry_data = {
+            "customer_email": "customer@example.com",
+            "message": "When will my order arrive?"
+        }
+
+        # When
+        response = client.post("/api/inquiries", json=inquiry_data)
+
+        # Then: API 성공 응답
+        assert response.status_code == status.HTTP_201_CREATED
+        assert response.json()["status"] == "success"
+
+        # And: 이메일 전송 확인
+        received_emails = fake_smtp_server.get_received_emails()
+        assert len(received_emails) == 1
+        assert received_emails[0]["from"] == "customer@example.com"
+
+    def test_rejects_invalid_email(self, client):
+        """잘못된 이메일은 거부된다"""
+        # Given
+        invalid_data = {
+            "customer_email": "invalid-email",
+            "message": "Test message"
+        }
+
+        # When
+        response = client.post("/api/inquiries", json=invalid_data)
+
+        # Then
+        assert response.status_code == status.HTTP_422_UNPROCESSABLE_ENTITY
+```
+
 **핵심 포인트**:
-- ✅ **Outside-in 흐름**: 인수 테스트로 시작 (GOOS 일관성)
+- ✅ **UI + API 분리**: UI 테스트는 브라우저, API 테스트는 TestClient
+- ✅ **독립적 검증**: 각 계층을 독립적으로 테스트 가능
 - ✅ **Fake SMTP 사용**: 통제 가능한 테스트 환경 (GOOS 8장)
 - ✅ **입력 검증**: 이메일 형식 검증 포함
 
 ---
 
-### 4.3.2 Phase 2: 애플리케이션 계층 TDD (자기 설명적 진단)
+#### Phase 2: 애플리케이션 계층 TDD (자기 설명적 진단)
 
 **목표**: SendInquiryService 구현
 
@@ -1630,9 +2107,11 @@ class TestSendInquiryService:
 - ✅ **커스텀 헬퍼**: `assert_inquiry_sent_successfully()`, `assert_email_sent_with()`
 - ✅ **실패 메시지**: 단언 실패 시 명확한 메시지 제공
 
+**참고**: [concept_tdd_best_practices.md - 자기 설명적 테스트](./concept_tdd_best_practices.md#자기-설명적-테스트-goos-23-24장)
+
 ---
 
-### 4.3.3 Phase 3: 어댑터 계층 통합 테스트 (Fake SMTP 전략)
+#### Phase 3: 어댑터 계층 통합 테스트 (Fake SMTP 전략)
 
 **목표**: Gmail SMTP 어댑터 테스트
 
@@ -1652,21 +2131,6 @@ from cosmetics_landing.domain.email import Email
 
 
 # 전략 1: Fake SMTP 서버 사용 (로컬 개발)
-@pytest.fixture
-def fake_smtp_server():
-    """
-    테스트용 Fake SMTP 서버
-
-    aiosmtpd 등 라이브러리 활용
-    """
-    from tests.fakes.fake_smtp_server import FakeSMTPServer
-
-    server = FakeSMTPServer(host="localhost", port=2525)
-    server.start()
-    yield server
-    server.stop()
-
-
 class TestGmailAdapterWithFakeSMTP:
     """Fake SMTP를 사용한 빠른 피드백 테스트"""
 
@@ -1754,7 +2218,12 @@ class TestGmailAdapterSMTPContract:
                 password="invalid"
             )
 
-            email = Email(...)
+            email = Email(
+                from_address="customer@example.com",
+                to_address="support@cosmetics.com",
+                subject="Test",
+                body="Test"
+            )
 
             # When: 예외를 잡아서 False 반환해야 함
             result = adapter.send(email)
@@ -1789,122 +2258,21 @@ class TestGmailAdapterRealIntegration:
 
 ---
 
-## 4.4 TDD 모범 사례 정리
+## 참고 문서
 
-### 4.4.1 테스트 명명 및 구조 일관성 (GOOS 21장)
+### TDD 개념
+- [concept_tdd.md](./concept_tdd.md): TDD 기본 개념, Outside-in 접근
+- [concept_tdd_part2.md](./concept_tdd_part2.md): Learning Test, Contract Test 패턴
 
-**TestDox 스타일 명명**:
+### TDD 모범 사례
+- [concept_tdd_best_practices.md](./concept_tdd_best_practices.md): 테스트 명명, 자기 설명적 테스트, Mock 사용 원칙, 계층별 전략
 
-```python
-# ❌ 기술 중심 이름
-def test_commission_calculates_20_percent():
-    pass
-
-# ✅ 행동 중심 이름 (TestDox)
-def test_affiliate_earns_20_percent_commission_on_sale():
-    """어필리에이트는 판매 금액의 20% 커미션을 받는다"""
-    pass
-```
-
-**Given/When/Then 일관성**:
-
-```python
-def test_place_order_validates_address():
-    """주문 생성 시 주소를 검증한다"""
-    # Given: 테스트 전제 조건
-    invalid_address = "Invalid Address"
-    service = build_place_order_service(
-        validate_address=always_reject_address()
-    )
-
-    # When: 테스트 실행
-    command = PlaceOrderCommand(..., customer_address=invalid_address)
-
-    # Then: 예상 결과 검증
-    with pytest.raises(ValueError, match="Invalid address"):
-        service.place_order(command)
-```
-
-**빌더 활용 강화**:
-
-```python
-# Epic 2, 3 예제에서도 빌더 사용
-def test_affiliate_records_sale():
-    # ❌ 원시 값 하드코딩
-    commission = Money.of(Decimal("5.00"))
-
-    # ✅ 빌더 활용
-    commission = MoneyBuilder.commission_for(sale_amount=Decimal("25.00"))
-```
+### 평가 문서
+- [eval_tdd_application_v1.md](./eval_tdd_application_v1.md): TDD 적용 평가
 
 ---
 
-### 4.4.2 Test Data Builder 패턴 + 서비스 헬퍼
-
-```python
-# tests/unit/application/test_place_order_service.py
-class TestPlaceOrderService:
-    def create_service(
-        self,
-        save_order=None,
-        process_payment=None,
-        validate_address=None
-    ):
-        """테스트용 서비스 생성 헬퍼"""
-        return PlaceOrderService(
-            save_order_port=save_order or Mock(),
-            process_payment_port=process_payment or Mock(),
-            validate_address_port=validate_address or Mock()
-        )
-```
-
----
-
-### 4.4.3 계층별 테스트 전략 (마커 포함)
-
-| 계층 | 테스트 타입 | 마커 | Mock 사용 | 검증 대상 |
-|------|------------|------|-----------|-----------|
-| **Domain** | 단위 테스트 | - | ❌ 없음 | 비즈니스 규칙 |
-| **Application** | 단위 테스트 | - | ✅ 포트 Mock | Use Case 로직 |
-| **Adapter (Learning)** | Learning Test | `@pytest.mark.learning` | ❌ 실제 API | API 계약 학습 |
-| **Adapter (Contract)** | Contract Test | - | ❌ 없음 | Fake↔Real 계약 일치 |
-| **Adapter (Integration)** | 통합 테스트 | `@pytest.mark.integration` | ❌ Sandbox/Fake | 외부 연동 |
-| **End-to-End** | E2E 테스트 | `@pytest.mark.e2e` | ❌ 실제 환경 | 전체 흐름 |
-
-**테스트 실행 명령어**:
-
-```bash
-pytest -m learning      # Learning Test만 실행
-pytest -m integration   # Integration Test만 실행
-pytest -m e2e           # E2E Test만 실행
-pytest -m "not (learning or integration)"  # 빠른 단위 테스트만
-```
-
----
-
-## 4.5 핵심 요약
-
-### Epic별 TDD 적용 패턴
-
-**Epic 1 (Walking Skeleton)**:
-1. UI 인수 테스트 → UI 구현
-2. Learning Test (PayPal, Google API)
-3. Fake 어댑터 Contract Test
-4. API E2E 테스트
-5. 도메인 → 애플리케이션 → 어댑터 계층 순차 구현
-
-**Epic 2 (어필리에이트)**:
-1. **인수 테스트**: 클릭 → 주문 → 커미션 기록 전체 여정
-2. 도메인 계층: Affiliate, Commission 단위 테스트
-3. 애플리케이션 계층: 명시적 협력 검증
-4. 설계 피드백: 5개 Mock → 역할 분리로 개선
-
-**Epic 3 (고객 문의)**:
-1. **인수 테스트**: 문의 폼 → 이메일 전송 전체 여정
-2. 애플리케이션 계층: 자기 설명적 진단
-3. 어댑터 계층: Fake SMTP + 계약 테스트 전략
-
-### GOOS 원칙 준수 체크리스트
+## GOOS 원칙 준수 체크리스트
 
 - ✅ **Outside-in**: 모든 Epic이 인수 테스트로 시작
 - ✅ **Learning Test**: 외부 API 계약 학습 후 구현
