@@ -23,7 +23,7 @@ notes: "랜딩페이지 프로젝트 문서 인덱스"
 - [Epic Overview](./epic-overview.md) (v2) - 전체 Epic 조율 및 실행 계획 (Outside-In TDD)
 
 ### 🏗️ 아키텍처 문서
-- [시스템 아키텍처](./architecture/system_architecture.md) (v1) - 헥사고날 아키텍처 설계
+- [시스템 아키텍처](./architecture/system_architecture.md) (v2) - 헥사고날 아키텍처 설계
 
 ### 📝 변경 이력
 
@@ -32,3 +32,6 @@ notes: "랜딩페이지 프로젝트 문서 인덱스"
 
 **Epic Overview**
 - [Outside-In TDD 방식으로 Epic 구성 재조정 (2025-10-17)](./inbox/epic-overview--25-10-17.md)
+
+**시스템 아키텍처**
+- [Google Cloud 플랫폼으로 변경 (2025-10-28)](./inbox/system_architecture--25-10-28-2219.md)

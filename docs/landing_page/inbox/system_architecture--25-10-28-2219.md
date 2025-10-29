@@ -1,14 +1,16 @@
 ---
-created_at: 2025-10-28 22:19:00
-version: 2
-status: Active
+created_at: 2025-10-16 14:30:00
+version: 1
+status: Superseded
+address: "landing_page/architecture"
 links:
-  in: [
-    ../index.md,
-    ../inbox/system_architecture--25-10-28-2219.md,
+  in: []
+  out: [
+    ../architecture/system_architecture.md,
+    ../prd/cosmetics_landing_mvp.md,
   ]
-  out: []
-notes: "Google Cloud 플랫폼으로 변경 (Cloud Run, Firebase Hosting, SQLite + Cloud Storage 백업)"
+tags: [architecture, hexagonal, mvp, k-beauty, philippines]
+notes: "필리핀 K-뷰티 랜딩페이지 MVP 시스템 아키텍처 문서 (Railway, Cloudflare Pages 버전)"
 ---
 
 ## 1. 압축 내용
@@ -30,13 +32,12 @@ notes: "Google Cloud 플랫폼으로 변경 (Cloud Run, Firebase Hosting, SQLite
 - **Affiliate Tracking**: 어필리에이트 클릭 추적 및 판매 기록
 - **Notification Service**: 주문 확인, 배송 시작, 재판매 알림 이메일 발송
 
-✨(추가) **기술 스택**
+**기술 스택**
 - Backend: Python 3.11+, FastAPI, SQLAlchemy
 - Frontend: 정적 HTML/CSS/JavaScript
-- Database: SQLite (개발/MVP), PostgreSQL (확장 시)
-- 호스팅: Cloud Run (백엔드), Firebase Hosting (프론트엔드)
+- Database: SQLite (원자적 연산으로 동시성 제어)
+- 호스팅: Railway (백엔드), Cloudflare Pages (프론트엔드)
 - 외부 API: PayPal REST API, SMTP (Gmail)
-- 백업: Google Cloud Storage (SQLite 자동 백업)
 
 ---
 
@@ -55,7 +56,6 @@ notes: "Google Cloud 플랫폼으로 변경 (Cloud Run, Firebase Hosting, SQLite
 
 #### 전체 다이어그램
 
-✨(수정)
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                    External Systems                          │
@@ -680,17 +680,6 @@ APScheduler (5분마다)
       → UPDATE inventory SET reserved_quantity = reserved_quantity - ?
 ```
 
-✨(추가) **SQLite 동시성 제어:**
-- WAL (Write-Ahead Logging) 모드 활성화
-- IMMEDIATE 트랜잭션 사용
-- Busy timeout: 5초 설정
-- 소규모 트래픽(~10 req/s)에 충분
-
-✨(추가) **향후 확장 (PostgreSQL 전환 시점):**
-- 동시 주문 >20개/초
-- 복잡한 분석 쿼리 필요
-- 다중 인스턴스 필요 시
-
 **트랜잭션 경계:**
 - DB 트랜잭션: 재고 차감 + 주문 저장 (원자성)
 - 보상 트랜잭션: PayPal 실패 시 재고 복구
@@ -724,12 +713,12 @@ def verify_admin(credentials: HTTPBasicCredentials = Depends(security)):
 ```
 
 **데이터 보호:**
-- **전송 계층**: HTTPS/TLS (Cloud Run + Firebase Hosting 자동 SSL)
+- **전송 계층**: HTTPS/TLS (Railway + Cloudflare 자동 SSL)
 - **저장 데이터**: 평문 저장 (MVP 단순화)
   - 이메일: 평문 (발송 필요)
   - 전화번호: 평문 (배송 연락)
   - 주소: 평문 (배송지)
-- **환경 변수**: Google Secret Manager (암호화 저장)
+- **환경 변수**: Railway Secrets (암호화 저장)
 - **향후 확장**: AES-256 암호화 (개인정보), bcrypt 해싱 (비밀번호)
 
 **API 보안:**
@@ -754,11 +743,11 @@ def verify_admin(credentials: HTTPBasicCredentials = Depends(security)):
 
 #### 확장성/성능 전략
 
-✨(추가) **Cloud Run 자동 확장:**
-- 최소 인스턴스: 0 (트래픽 없으면 비용 $0)
-- 최대 인스턴스: 10
-- 동시성: 인스턴스당 80 요청
-- Cold Start: 1-3초 (개발 단계 허용)
+**수평 확장:**
+- ✅ FastAPI 완전 Stateless
+- ✅ Railway Auto-scaling (트래픽 증가 시)
+- ✅ Health Check 엔드포인트 (`GET /health`)
+- ✅ Round-robin 로드 밸런싱
 
 **캐싱 전략 (향후):**
 | 데이터 | 캐싱 방식 | TTL | 이유 |
@@ -768,16 +757,17 @@ def verify_admin(credentials: HTTPBasicCredentials = Depends(security)):
 | 재고 수량 | ❌ 캐싱 안 함 | - | 실시간 정확성 필수 |
 | 주문 정보 | ❌ 캐싱 안 함 | - | 실시간 정확성 필수 |
 
-✨(수정) **성능 목표 (SQLite 기준):**
+**성능 목표:**
 | 엔드포인트 | 목표 | 측정 방법 |
 |-----------|------|----------|
-| `GET /products/{id}` | <100ms | DB 조회 |
+| `GET /products/{id}` | <100ms | DB 조회만 |
 | `POST /orders` | <500ms | DB + PayPal API |
 | `POST /webhooks/paypal` | <300ms | DB + 이메일 비동기 |
+| Admin API | <500ms | DB + 비즈니스 로직 |
 
 **동시 접속자 처리:**
-- MVP: 10 req/s (SQLite + Cloud Run 기본)
-- 확장 후: 100 req/s (PostgreSQL + 다중 인스턴스)
+- MVP: 10 req/s (Railway 기본 스펙)
+- 확장 후: 100 req/s (Scale-up 또는 Horizontal Scaling)
 
 **DB 쿼리 최적화:**
 - **인덱스**: `idx_status_created_at`, `idx_email`, `idx_affiliate_code`
@@ -786,9 +776,9 @@ def verify_admin(credentials: HTTPBasicCredentials = Depends(security)):
 - **Connection Pool**: pool_size=5, max_overflow=10
 
 **네트워크 최적화:**
-- **CDN**: Firebase Hosting (전 세계 엣지 서버)
+- **CDN**: Cloudflare Pages (전 세계 엣지 서버)
 - **Gzip 압축**: JSON 응답 70% 감소
-- **HTTP/2**: Cloud Run + Firebase 자동 지원
+- **HTTP/2**: Railway/Cloudflare 자동 지원
 - **이미지 최적화**: srcset, lazy loading
 
 **비동기 처리 (향후):**
@@ -801,106 +791,82 @@ def verify_admin(credentials: HTTPBasicCredentials = Depends(security)):
 
 #### 인프라 구성
 
-✨(수정) **전체 아키텍처:**
+**전체 아키텍처:**
 ```
 Internet
     │
-    ├── Firebase Hosting (CDN)
+    ├── Cloudflare Pages (CDN)
     │   └── Static Files (HTML/CSS/JS)
     │
-    └── Google Cloud Platform
-        ├── Cloud Run (서버리스)
-        │   ├── FastAPI Backend
+    └── Railway Platform
+        ├── FastAPI Backend
         │   ├── Order Management
         │   ├── Payment Integration
         │   ├── Affiliate Tracking
         │   └── Notification Service
-        ├── Cloud Storage
-        │   └── SQLite 백업 (자동 백업)
-        └── Secret Manager
-            └── 환경 변수 (PayPal, SMTP)
+        └── SQLite DB (Volume 영속화)
 
 External APIs:
     ├── PayPal API
     └── Gmail SMTP
 ```
 
-✨(수정) **네트워크 구성:**
-- 프론트엔드: `https://kbeauty.ph` (Firebase Hosting)
-- 백엔드 API: `https://api.kbeauty.ph` (Cloud Run)
-- SSL/TLS: 자동 인증서 (Firebase + Cloud Run)
-- DNS: Firebase Hosting 자동 설정
+**네트워크 구성:**
+- 프론트엔드: `https://kbeauty.ph` (Cloudflare Pages)
+- 백엔드 API: `https://api.kbeauty.ph` (Railway)
+- SSL/TLS: 자동 Let's Encrypt 인증서
+- DNS: Cloudflare DNS
 
 ---
 
 #### 환경 구성
 
-✨(수정)
 | 환경 | 용도 | 배포 방식 | URL | 특이사항 |
 |------|------|-----------|-----|----------|
 | Development | 로컬 개발 | 수동 실행 | `localhost:8000` | SQLite 로컬, PayPal Sandbox |
-| Production | 실서비스 | Git push (main) → Cloud Run | `api.kbeauty.ph` | SQLite + Cloud Storage 백업, PayPal Live |
+| Staging | 테스트 | Git push (dev branch) | `staging-api.kbeauty.ph` | DB 복사본, PayPal Sandbox |
+| Production | 실서비스 | Git push (main branch) | `api.kbeauty.ph` | Railway 배포, PayPal Live |
 
-✨(수정) **환경 변수 관리:**
+**환경 변수 관리:**
 - Development: `.env` 파일 (gitignore)
-- Production: Google Secret Manager
+- Staging/Production: Railway Secrets (암호화)
 
 ---
 
 #### 배포 전략
 
-✨(수정) **Cloud Run 자동 배포:**
+**Railway 자동 배포:**
+```yaml
+# railway.toml
+[build]
+builder = "NIXPACKS"
+buildCommand = "pip install -r requirements.txt"
 
-**Dockerfile:**
-```dockerfile
-FROM python:3.11-slim
+[deploy]
+startCommand = "alembic upgrade head && uvicorn main:app --host 0.0.0.0 --port $PORT"
+healthcheckPath = "/health"
+restartPolicyType = "ON_FAILURE"
 
-WORKDIR /app
+[environments.production]
+branch = "main"
 
-# 의존성 설치
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-# 애플리케이션 코드 복사
-COPY . .
-
-# DB 마이그레이션
-RUN alembic upgrade head
-
-# Cloud Run PORT 환경변수 사용
-CMD uvicorn main:app --host 0.0.0.0 --port $PORT
+[environments.staging]
+branch = "dev"
 ```
 
-✨(추가) **배포 프로세스:**
-```
+**배포 프로세스:**
 1. 로컬 테스트 (`pytest tests/`)
 2. Git push (main 브랜치)
-3. Cloud Build 자동 트리거 → 이미지 빌드
-4. Cloud Run 자동 배포 (Zero Downtime)
-5. Health Check (`curl https://api.kbeauty.ph/health`)
-```
+3. Railway 자동 빌드 → 헬스체크 → 새 인스턴스 시작 → 이전 종료
+4. 배포 확인 (`curl https://api.kbeauty.ph/health`)
 
-✨(추가) **Firebase Hosting 배포:**
-```bash
-# firebase.json 설정
-{
-  "hosting": {
-    "public": "dist",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
-  }
-}
-
-# 배포 명령어
-firebase deploy --only hosting
-```
-
-✨(수정) **롤백 계획:**
-- Cloud Run: 이전 리비전으로 트래픽 전환 (콘솔 클릭)
-- Firebase: `firebase hosting:rollback`
-- 롤백 시간: <2분
+**롤백 계획:**
+- Git Revert + push (자동 재배포)
+- Railway Dashboard 수동 롤백
+- 롤백 시간: <5분 (Zero Downtime)
 
 **다운타임 최소화:**
-- Cloud Run Zero Downtime Deployment (새 리비전 준비 → 트래픽 전환)
+- Rolling Deployment (새 인스턴스 준비 → 트래픽 전환)
 - Health Check (`/health` 200 OK 확인)
 - Graceful Shutdown (SIGTERM 처리)
 
@@ -908,60 +874,38 @@ firebase deploy --only hosting
 
 #### 모니터링 및 로깅
 
-✨(수정) **Google Cloud Monitoring:**
-- Cloud Run 메트릭: 요청 수, 응답 시간, 에러율
-- 인스턴스 수, Cold Start 빈도
-- 알림: 에러율 >1%, 응답 시간 >1s
+**Railway 모니터링:**
+- CPU/메모리/네트워크 사용률
+- 요청 수, 응답 시간 (p50, p95, p99)
+- 알림: CPU >80%, 메모리 >90%, 배포 실패
 
-✨(수정) **Cloud Logging:**
-- 구조화된 로깅 (JSON)
-- 로그 레벨: INFO (운영)
-- 슬로우 쿼리: >100ms
+**애플리케이션 로깅:**
+- 구조화된 로깅 (JSON 형식)
+- 로그 레벨: DEBUG (개발), INFO (운영)
+- 슬로우 쿼리 로깅 (>100ms)
 
-✨(추가) **비용 모니터링:**
-- Budget Alert: $10/월 초과 시 알림
-- 예상 비용: $0-5/월 (무료 크레딧 범위)
+**에러 추적 (Sentry):**
+- 에러율 >1% → Slack 알림
+- 응답 시간 >1s → 이메일 알림
+- 새로운 에러 유형 → Slack 알림
 
 ---
 
 #### 백업 및 복구
 
-✨(수정) **백업 대상:**
-- SQLite DB (매일 02:00 자동 → Cloud Storage)
-- 환경 변수 (Secret Manager - 자동 버전 관리)
+**백업 대상:**
+- SQLite DB (매일 02:00 자동)
+- 환경 변수 (Railway Export)
 - 코드베이스 (Git Repository)
 
-✨(추가) **자동 백업 설정:**
-```python
-# Cloud Scheduler + Cloud Functions
-def backup_sqlite():
-    """매일 SQLite DB를 Cloud Storage에 백업"""
-    storage_client = storage.Client()
-    bucket = storage_client.bucket('kbeauty-backups')
+**복구 절차:**
+1. Railway 새 프로젝트 생성
+2. 환경 변수 복원
+3. DB 백업 파일 복원
+4. 배포 (`git push railway main`)
 
-    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-    blob = bucket.blob(f'sqlite/database_{timestamp}.db')
-    blob.upload_from_filename('/app/data/database.db')
-
-    # 30일 이상 백업 자동 삭제
-    lifecycle_rule = {
-        'action': {'type': 'Delete'},
-        'condition': {'age': 30}
-    }
-    bucket.lifecycle_rules = [lifecycle_rule]
-    bucket.patch()
-```
-
-✨(수정) **복구 절차:**
-```
-1. Cloud Storage에서 최신 SQLite 파일 다운로드
-2. Cloud Run 재배포 시 백업 파일 포함
-3. Health Check 확인
-→ 복구 시간: <10분
-```
-
-✨(수정) **목표:**
-- RTO (Recovery Time Objective): <10분
+**목표:**
+- RTO (Recovery Time Objective): <30분
 - RPO (Recovery Point Objective): <24시간
 
 ---
