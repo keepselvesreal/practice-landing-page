@@ -1,1 +1,0 @@
-# Knowledge Sherpa Explorer 패키지

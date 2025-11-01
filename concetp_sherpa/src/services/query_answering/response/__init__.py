@@ -1,1 +1,0 @@
-# Query Answering Service V2 - Response 모듈
