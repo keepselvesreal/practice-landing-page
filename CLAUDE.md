@@ -7,8 +7,6 @@
 # Coding
 
 # Documentation
-- @docs 안에 문서가 만들어지면, 이 문서를 @docs/landing_page/index.md의 목차 섹션에 적절한 항목 추가 후 해당 항목 누르면 만들어진 문서로 이동되게 해줘
-- @docs/landing_page/index.md 파일이 없으면 파일 생성. 파일 필드 구성은 version, note, created_date
 
 # Notes
 - All Python dependencies should be managed through `uv`
