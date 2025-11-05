@@ -1,4 +1,4 @@
-# Chapter 19: Handling Failure (pp.215-226)
+# Chapter 19: Handling Failure (pp.215-229)
 
 ---
 **Page 215**
@@ -550,5 +550,73 @@ to it in Chapter 20.
 Chapter 19
 Handling Failure
 226
+
+
+---
+**Page 227**
+
+Part IV
+Sustainable Test-Driven
+Development
+This part discusses the qualities we look for in test code that
+keep the development “habitable.” We want to make sure the
+tests pull their weight by making them expressive, so that we
+can tell what’s important when we read them and when they
+fail, and by making sure they don’t become a maintenance drag
+themselves. We need to apply as much care and attention to the
+tests as we do to the production code, although the coding styles
+may differ. Difﬁculty in testing might imply that we need to
+change our test code, but often it’s a hint that our design ideas
+are wrong and that we ought to change the production code.
+We’ve written up these guidelines as separate chapters, but
+that has more to do with our need for a linear structure that
+will ﬁt into a book. In practice, these qualities are all related to
+and support each other. Test-driven development combines
+testing, speciﬁcation, and design into one holistic activity.1
+1. For us, a sign of this interrelatedness was the difﬁculty we had in breaking up the
+material into coherent chapters.
+
+
+---
+**Page 228**
+
+This page intentionally left blank 
+
+
+---
+**Page 229**
+
+Chapter 20
+Listening to the Tests
+You can see a lot just by observing.
+—Yogi Berra
+Introduction
+Sometimes we ﬁnd it difﬁcult to write a test for some functionality we want to
+add to our code. In our experience, this usually means that our design can be
+improved—perhaps the class is too tightly coupled to its environment or does
+not have clear responsibilities. When this happens, we ﬁrst check whether it’s an
+opportunity to improve our code, before working around the design by making
+the test more complicated or using more sophisticated tools. We’ve found
+that the qualities that make an object easy to test also make our code responsive
+to change.
+The trick is to let our tests drive our design (that’s why it’s called test-driven
+development). TDD is about testing code, verifying its externally visible qualities
+such as functionality and performance. TDD is also about feedback on the code’s
+internal qualities: the coupling and cohesion of its classes, dependencies that are
+explicit or hidden, and effective information hiding—the qualities that keep the
+code maintainable.
+With practice, we’ve become more sensitive to the rough edges in our tests, so
+we can use them for rapid feedback about the design. Now when we ﬁnd a feature
+that’s difﬁcult to test, we don’t just ask ourselves how to test it, but also why is
+it difﬁcult to test.
+In this chapter, we look at some common “test smells” that we’ve encountered
+and discuss what they might imply about the design of the code. There are two
+categories of test smell to consider. One is where the test itself is not well
+written—it may be unclear or brittle. Meszaros [Meszaros07] covers several such
+patterns in his “Test Smells” chapter. This chapter is concerned with the other
+category, where a test is highlighting that the target code is the problem. Meszaros
+has one pattern for this, called “Hard-to-Test Code.” We’ve picked out some
+common cases that we’ve seen that are relevant to our approach to TDD.
+229
 
 

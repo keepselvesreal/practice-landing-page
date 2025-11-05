@@ -1,4 +1,4 @@
-# Chapter 9: Commissioning an Auction Sniper (pp.75-82)
+# Chapter 9: Commissioning an Auction Sniper (pp.75-83)
 
 ---
 **Page 75**
@@ -251,5 +251,44 @@ This Isn’t Real
 **Page 82**
 
 This page intentionally left blank 
+
+
+---
+**Page 83**
+
+Chapter 10
+The Walking Skeleton
+In which we set up our development environment and write our ﬁrst
+end-to-end test. We make some infrastructure choices that allow us to
+get started, and construct a build. We’re surprised, yet again, at how
+much effort this takes.
+Get the Skeleton out of the Closet
+So now we’ve got an idea of what to build, can we get on with it and write our
+ﬁrst unit test?
+Not yet.
+Our ﬁrst task is to create the “walking skeleton” we described in “First, Test
+a Walking Skeleton” (page 32). Again, the point of the walking skeleton is to
+help us understand the requirements well enough to propose and validate a broad-
+brush system structure. We can always change our minds later, when we learn
+more, but it’s important to start with something that maps out the landscape of
+our solution. Also, it’s very important to be able to assess the approach we’ve
+chosen and to test our decisions so we can make changes with conﬁdence later.
+For most projects, developing the walking skeleton takes a surprising amount
+of effort. First, because deciding what to do will ﬂush out all sorts of questions
+about the application and its place in the world. Second, because the automation
+of building, packaging, and deploying into a production-like environment (once
+we know what that means) will ﬂush out all sorts of technical and organizational
+questions.
+Iteration Zero
+In most Agile projects, there’s a ﬁrst stage where the team is doing initial analysis,
+setting up its physical and technical environments, and otherwise getting started.
+The team isn’t adding much visible functionality since almost all the work is infra-
+structure, so it might not make sense to count this as a conventional iteration for
+scheduling purposes. A common practice is to call this step iteration zero: “iteration”
+because the team still needs to time-box its activities and “zero” because it’s before
+functional development starts in iteration one. One important task for iteration zero
+is to use the walking skeleton to test-drive the initial architecture.
+Of course, we start our walking skeleton by writing a test.
+83
 
 

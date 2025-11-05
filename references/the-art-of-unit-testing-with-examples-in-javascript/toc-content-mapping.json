@@ -1,0 +1,838 @@
+{
+  "1.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-1/1-0-introduction-auto-generated.md"
+  },
+  "1.1": {
+    "title": "The first step",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-1/1-1-the-first-step.md"
+  },
+  "1.2": {
+    "title": "Defining unit testing, step by step",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-1/1-2-defining-unit-testing-step-by-step.md"
+  },
+  "1.3": {
+    "title": "Entry points and exit points",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-1/1-3-entry-points-and-exit-points.md"
+  },
+  "1.4": {
+    "title": "Exit point types",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-1/1-4-exit-point-types.md"
+  },
+  "1.5": {
+    "title": "Different exit points, different techniques",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-1/1-5-different-exit-points-different-techniques.md"
+  },
+  "1.6": {
+    "title": "A test from scratch",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-1/1-6-a-test-from-scratch.md"
+  },
+  "1.7.1": {
+    "title": "What is a good unit test?",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-1/1-7-1-what-is-a-good-unit-test.md"
+  },
+  "1.7.2": {
+    "title": "A unit test checklist",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-1/1-7-2-a-unit-test-checklist.md"
+  },
+  "1.8": {
+    "title": "Integration tests",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-1/1-8-integration-tests.md"
+  },
+  "1.9": {
+    "title": "Finalizing our definition",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-1/1-9-finalizing-our-definition.md"
+  },
+  "1.10.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-1/1-10-0-introduction-auto-generated.md"
+  },
+  "1.10.1": {
+    "title": "TDD: Not a substitute for good unit tests",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-1/1-10-1-tdd-not-a-substitute-for-good-unit-tests.md"
+  },
+  "1.10.2": {
+    "title": "Three core skills needed for successful TDD",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-1/1-10-2-three-core-skills-needed-for-successful-tdd.md"
+  },
+  "1.11": {
+    "title": "Summary",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-1/1-11-summary.md"
+  },
+  "2.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-2/2-0-introduction-auto-generated.md"
+  },
+  "2.1.1": {
+    "title": "Preparing our environment",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-2/2-1-1-preparing-our-environment.md"
+  },
+  "2.1.2": {
+    "title": "Preparing our working folder",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-2/2-1-2-preparing-our-working-folder.md"
+  },
+  "2.1.3": {
+    "title": "Installing Jest",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-2/2-1-3-installing-jest.md"
+  },
+  "2.1.4": {
+    "title": "Creating a test file",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-2/2-1-4-creating-a-test-file.md"
+  },
+  "2.1.5": {
+    "title": "Executing Jest",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-2/2-1-5-executing-jest.md"
+  },
+  "2.2": {
+    "title": "The library, the assert, the runner, and the reporter",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-2/2-2-the-library-the-assert-the-runner-and-the-reporter.md"
+  },
+  "2.3.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-2/2-3-0-introduction-auto-generated.md"
+  },
+  "2.3.1": {
+    "title": "The xUnit frameworks",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-2/2-3-1-the-xunit-frameworks.md"
+  },
+  "2.3.2": {
+    "title": "xUnit, TAP, and Jest structures",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-2/2-3-2-xunit-tap-and-jest-structures.md"
+  },
+  "2.4": {
+    "title": "Introducing the Password Verifier project",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-2/2-4-introducing-the-password-verifier-project.md"
+  },
+  "2.5.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-2/2-5-0-introduction-auto-generated.md"
+  },
+  "2.5.1": {
+    "title": "The Arrange-Act-Assert pattern",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-2/2-5-1-the-arrange-act-assert-pattern.md"
+  },
+  "2.5.2": {
+    "title": "Testing the test",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-2/2-5-2-testing-the-test.md"
+  },
+  "2.5.3": {
+    "title": "USE naming",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-2/2-5-3-use-naming.md"
+  },
+  "2.5.4": {
+    "title": "String comparisons and maintainability",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-2/2-5-4-string-comparisons-and-maintainability.md"
+  },
+  "2.5.5": {
+    "title": "Using describe()",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-2/2-5-5-using-describe.md"
+  },
+  "2.5.6": {
+    "title": "Structure implying context",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-2/2-5-6-structure-implying-context.md"
+  },
+  "2.5.7": {
+    "title": "The it() function",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-2/2-5-7-the-it-function.md"
+  },
+  "2.5.8": {
+    "title": "Two Jest flavors",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-2/2-5-8-two-jest-flavors.md"
+  },
+  "2.5.9": {
+    "title": "Refactoring the production code",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-2/2-5-9-refactoring-the-production-code.md"
+  },
+  "2.6.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-2/2-6-0-introduction-auto-generated.md"
+  },
+  "2.6.1": {
+    "title": "beforeEach() and scroll fatigue",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-2/2-6-1-beforeeach-and-scroll-fatigue.md"
+  },
+  "2.7.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-2/2-7-0-introduction-auto-generated.md"
+  },
+  "2.7.1": {
+    "title": "Replacing beforeEach() completely with factory methods",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-2/2-7-1-replacing-beforeeach-completely-with-factory-methods.md"
+  },
+  "2.8": {
+    "title": "Going full circle to test()",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-2/2-8-going-full-circle-to-test.md"
+  },
+  "2.9": {
+    "title": "Refactoring to parameterized tests",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-2/2-9-refactoring-to-parameterized-tests.md"
+  },
+  "2.10": {
+    "title": "Checking for expected thrown errors",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-2/2-10-checking-for-expected-thrown-errors.md"
+  },
+  "2.11": {
+    "title": "Setting test categories",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-2/2-11-setting-test-categories.md"
+  },
+  "2.12": {
+    "title": "Summary",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-2/2-12-summary.md"
+  },
+  "3.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-3/3-0-introduction-auto-generated.md"
+  },
+  "3.1": {
+    "title": "Types of dependencies",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-3/3-1-types-of-dependencies.md"
+  },
+  "3.2": {
+    "title": "Reasons to use stubs",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-3/3-2-reasons-to-use-stubs.md"
+  },
+  "3.3.1": {
+    "title": "Stubbing out time with parameter injection",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-3/3-3-1-stubbing-out-time-with-parameter-injection.md"
+  },
+  "3.3.2": {
+    "title": "Dependencies, injections, and control",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-3/3-3-2-dependencies-injections-and-control.md"
+  },
+  "3.4.1": {
+    "title": "Injecting a function",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-3/3-4-1-injecting-a-function.md"
+  },
+  "3.4.2": {
+    "title": "Dependency injection via partial application",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-3/3-4-2-dependency-injection-via-partial-application.md"
+  },
+  "3.5": {
+    "title": "Modular injection techniques",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-3/3-5-modular-injection-techniques.md"
+  },
+  "3.6": {
+    "title": "Moving toward objects with constructor functions",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-3/3-6-moving-toward-objects-with-constructor-functions.md"
+  },
+  "3.7.1": {
+    "title": "Constructor injection",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-3/3-7-1-constructor-injection.md"
+  },
+  "3.7.2": {
+    "title": "Injecting an object instead of a function",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-3/3-7-2-injecting-an-object-instead-of-a-function.md"
+  },
+  "3.7.3": {
+    "title": "Extracting a common interface",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-3/3-7-3-extracting-a-common-interface.md"
+  },
+  "3.8": {
+    "title": "Summary",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-3/3-8-summary.md"
+  },
+  "4.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-4/4-0-introduction-auto-generated.md"
+  },
+  "4.1": {
+    "title": "Interaction testing, mocks, and stubs",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-4/4-1-interaction-testing-mocks-and-stubs.md"
+  },
+  "4.2": {
+    "title": "Depending on a logger",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-4/4-2-depending-on-a-logger.md"
+  },
+  "4.3": {
+    "title": "Standard style: Introduce parameter refactoring",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-4/4-3-standard-style-introduce-parameter-refactoring.md"
+  },
+  "4.4": {
+    "title": "The importance of differentiating between mocks and stubs",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-4/4-4-the-importance-of-differentiating-between-mocks-and-stubs.md"
+  },
+  "4.5.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-4/4-5-0-introduction-auto-generated.md"
+  },
+  "4.5.1": {
+    "title": "Example of production code",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-4/4-5-1-example-of-production-code.md"
+  },
+  "4.5.2": {
+    "title": "Refactoring the production code in a modular injection style",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-4/4-5-2-refactoring-the-production-code-in-a-modular-injection-style.md"
+  },
+  "4.5.3": {
+    "title": "A test example with modular-style injection",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-4/4-5-3-a-test-example-with-modular-style-injection.md"
+  },
+  "4.6.1": {
+    "title": "Working with a currying style",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-4/4-6-1-working-with-a-currying-style.md"
+  },
+  "4.6.2": {
+    "title": "Working with higher-order functions and not currying",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-4/4-6-2-working-with-higher-order-functions-and-not-currying.md"
+  },
+  "4.7.1": {
+    "title": "Refactoring production code for injection",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-4/4-7-1-refactoring-production-code-for-injection.md"
+  },
+  "4.7.2": {
+    "title": "Refactoring production code with interface injection",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-4/4-7-2-refactoring-production-code-with-interface-injection.md"
+  },
+  "4.8.1": {
+    "title": "Example of a complicated interface",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-4/4-8-1-example-of-a-complicated-interface.md"
+  },
+  "4.8.2": {
+    "title": "Writing tests with complicated interfaces",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-4/4-8-2-writing-tests-with-complicated-interfaces.md"
+  },
+  "4.8.3": {
+    "title": "Downsides of using complicated interfaces directly",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-4/4-8-3-downsides-of-using-complicated-interfaces-directly.md"
+  },
+  "4.8.4": {
+    "title": "The interface segregation principle",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-4/4-8-4-the-interface-segregation-principle.md"
+  },
+  "4.9.1": {
+    "title": "A functional example of a partial mock",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-4/4-9-1-a-functional-example-of-a-partial-mock.md"
+  },
+  "4.9.2": {
+    "title": "An object-oriented partial mock example",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-4/4-9-2-an-object-oriented-partial-mock-example.md"
+  },
+  "4.10": {
+    "title": "Summary",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-4/4-10-summary.md"
+  },
+  "5.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-5/5-0-introduction-auto-generated.md"
+  },
+  "5.1.1": {
+    "title": "Choosing a flavor: Loose vs. typed",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-5/5-1-1-choosing-a-flavor-loose-vs-typed.md"
+  },
+  "5.2.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-5/5-2-0-introduction-auto-generated.md"
+  },
+  "5.2.1": {
+    "title": "Some things to notice about Jest’s API",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-5/5-2-1-some-things-to-notice-about-jests-api.md"
+  },
+  "5.2.2": {
+    "title": "Consider abstracting away direct dependencies",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-5/5-2-2-consider-abstracting-away-direct-dependencies.md"
+  },
+  "5.3": {
+    "title": "Functional dynamic mocks and stubs",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-5/5-3-functional-dynamic-mocks-and-stubs.md"
+  },
+  "5.4.1": {
+    "title": "Using a loosely typed framework",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-5/5-4-1-using-a-loosely-typed-framework.md"
+  },
+  "5.4.2": {
+    "title": "Switching to a type-friendly framework",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-5/5-4-2-switching-to-a-type-friendly-framework.md"
+  },
+  "5.5.1": {
+    "title": "An object-oriented example with a mock and a stub",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-5/5-5-1-an-object-oriented-example-with-a-mock-and-a-stub.md"
+  },
+  "5.5.2": {
+    "title": "Stubs and mocks with substitute.js",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-5/5-5-2-stubs-and-mocks-with-substitutejs.md"
+  },
+  "5.6.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-5/5-6-0-introduction-auto-generated.md"
+  },
+  "5.6.1": {
+    "title": "You don’t need mock objects most of the time",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-5/5-6-1-you-dont-need-mock-objects-most-of-the-time.md"
+  },
+  "5.6.2": {
+    "title": "Unreadable test code",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-5/5-6-2-unreadable-test-code.md"
+  },
+  "5.6.3": {
+    "title": "Verifying the wrong things",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-5/5-6-3-verifying-the-wrong-things.md"
+  },
+  "5.6.4": {
+    "title": "Having more than one mock per test",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-5/5-6-4-having-more-than-one-mock-per-test.md"
+  },
+  "5.6.5": {
+    "title": "Overspecifying the tests",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-5/5-6-5-overspecifying-the-tests.md"
+  },
+  "5.7": {
+    "title": "Summary",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-5/5-7-summary.md"
+  },
+  "6.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-6/6-0-introduction-auto-generated.md"
+  },
+  "6.1.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-6/6-1-0-introduction-auto-generated.md"
+  },
+  "6.1.1": {
+    "title": "An initial attempt with an integration test",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-6/6-1-1-an-initial-attempt-with-an-integration-test.md"
+  },
+  "6.1.2": {
+    "title": "Waiting for the act",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-6/6-1-2-waiting-for-the-act.md"
+  },
+  "6.1.3": {
+    "title": "Integration testing of async/await",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-6/6-1-3-integration-testing-of-asyncawait.md"
+  },
+  "6.1.4": {
+    "title": "Challenges with integration tests",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-6/6-1-4-challenges-with-integration-tests.md"
+  },
+  "6.2.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-6/6-2-0-introduction-auto-generated.md"
+  },
+  "6.2.1": {
+    "title": "Extracting an entry point",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-6/6-2-1-extracting-an-entry-point.md"
+  },
+  "6.2.2": {
+    "title": "The Extract Adapter pattern",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-6/6-2-2-the-extract-adapter-pattern.md"
+  },
+  "6.3.1": {
+    "title": "Stubbing timers out with monkey-patching",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-6/6-3-1-stubbing-timers-out-with-monkey-patching.md"
+  },
+  "6.3.2": {
+    "title": "Faking setTimeout with Jest",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-6/6-3-2-faking-settimeout-with-jest.md"
+  },
+  "6.4.1": {
+    "title": "Dealing with event emitters",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-6/6-4-1-dealing-with-event-emitters.md"
+  },
+  "6.4.2": {
+    "title": "Dealing with click events",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-6/6-4-2-dealing-with-click-events.md"
+  },
+  "6.5": {
+    "title": "Bringing in the DOM testing library",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-6/6-5-bringing-in-the-dom-testing-library.md"
+  },
+  "6.6": {
+    "title": "Summary",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-6/6-6-summary.md"
+  },
+  "7.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-7/7-0-introduction-auto-generated.md"
+  },
+  "7.1": {
+    "title": "How to know you trust a test",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-7/7-1-how-to-know-you-trust-a-test.md"
+  },
+  "7.2.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-7/7-2-0-introduction-auto-generated.md"
+  },
+  "7.2.1": {
+    "title": "A real bug has been uncovered in the production code",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-7/7-2-1-a-real-bug-has-been-uncovered-in-the-production-code.md"
+  },
+  "7.2.2": {
+    "title": "A buggy test gives a false failure",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-7/7-2-2-a-buggy-test-gives-a-false-failure.md"
+  },
+  "7.2.3": {
+    "title": "The test is out of date due to a change in functionality",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-7/7-2-3-the-test-is-out-of-date-due-to-a-change-in-functionality.md"
+  },
+  "7.2.4": {
+    "title": "The test conflicts with another test",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-7/7-2-4-the-test-conflicts-with-another-test.md"
+  },
+  "7.2.5": {
+    "title": "The test is flaky",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-7/7-2-5-the-test-is-flaky.md"
+  },
+  "7.3.1": {
+    "title": "Logic in asserts: Creating dynamic expected values",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-7/7-3-1-logic-in-asserts-creating-dynamic-expected-values.md"
+  },
+  "7.3.2": {
+    "title": "Other forms of logic",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-7/7-3-2-other-forms-of-logic.md"
+  },
+  "7.3.3": {
+    "title": "Even more logic",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-7/7-3-3-even-more-logic.md"
+  },
+  "7.4.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-7/7-4-0-introduction-auto-generated.md"
+  },
+  "7.4.1": {
+    "title": "Tests that don’t assert anything",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-7/7-4-1-tests-that-dont-assert-anything.md"
+  },
+  "7.4.2": {
+    "title": "Not understanding the tests",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-7/7-4-2-not-understanding-the-tests.md"
+  },
+  "7.4.3": {
+    "title": "Mixing unit tests and flaky integration tests",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-7/7-4-3-mixing-unit-tests-and-flaky-integration-tests.md"
+  },
+  "7.4.4": {
+    "title": "Testing multiple exit points",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-7/7-4-4-testing-multiple-exit-points.md"
+  },
+  "7.4.5": {
+    "title": "Tests that keep changing",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-7/7-4-5-tests-that-keep-changing.md"
+  },
+  "7.5.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-7/7-5-0-introduction-auto-generated.md"
+  },
+  "7.5.1": {
+    "title": "What can you do once you’ve found a flaky test?",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-7/7-5-1-what-can-you-do-once-youve-found-a-flaky-test.md"
+  },
+  "7.5.2": {
+    "title": "Preventing flakiness in higher-level tests",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-7/7-5-2-preventing-flakiness-in-higher-level-tests.md"
+  },
+  "7.6": {
+    "title": "Summary",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-7/7-6-summary.md"
+  },
+  "8.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-8/8-0-introduction-auto-generated.md"
+  },
+  "8.1.1": {
+    "title": "The test is not relevant or conflicts with another test",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-8/8-1-1-the-test-is-not-relevant-or-conflicts-with-another-test.md"
+  },
+  "8.1.2": {
+    "title": "Changes in the production code’s API",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-8/8-1-2-changes-in-the-production-codes-api.md"
+  },
+  "8.1.3": {
+    "title": "Changes in other tests",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-8/8-1-3-changes-in-other-tests.md"
+  },
+  "8.2.1": {
+    "title": "Avoid testing private or protected methods",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-8/8-2-1-avoid-testing-private-or-protected-methods.md"
+  },
+  "8.2.2": {
+    "title": "Keep tests DRY",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-8/8-2-2-keep-tests-dry.md"
+  },
+  "8.2.3": {
+    "title": "Avoid setup methods",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-8/8-2-3-avoid-setup-methods.md"
+  },
+  "8.2.4": {
+    "title": "Use parameterized tests to remove duplication",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-8/8-2-4-use-parameterized-tests-to-remove-duplication.md"
+  },
+  "8.3.1": {
+    "title": "Internal behavior overspecification with mocks",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-8/8-3-1-internal-behavior-overspecification-with-mocks.md"
+  },
+  "8.3.2": {
+    "title": "Exact outputs and ordering overspecification",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-8/8-3-2-exact-outputs-and-ordering-overspecification.md"
+  },
+  "8.4": {
+    "title": "Summary",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-8/8-4-summary.md"
+  },
+  "9.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-9/9-0-introduction-auto-generated.md"
+  },
+  "9.1": {
+    "title": "Naming unit tests",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-9/9-1-naming-unit-tests.md"
+  },
+  "9.2": {
+    "title": "Magic values and naming variables",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-9/9-2-magic-values-and-naming-variables.md"
+  },
+  "9.3": {
+    "title": "Separating asserts from actions",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-9/9-3-separating-asserts-from-actions.md"
+  },
+  "9.4": {
+    "title": "Setting up and tearing down",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-9/9-4-setting-up-and-tearing-down.md"
+  },
+  "9.5": {
+    "title": "Summary",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-9/9-5-summary.md"
+  },
+  "10.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-10/10-0-introduction-auto-generated.md"
+  },
+  "10.1.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-10/10-1-0-introduction-auto-generated.md"
+  },
+  "10.1.1": {
+    "title": "Criteria for judging a test",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-10/10-1-1-criteria-for-judging-a-test.md"
+  },
+  "10.1.2": {
+    "title": "Unit tests and component tests",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-10/10-1-2-unit-tests-and-component-tests.md"
+  },
+  "10.1.3": {
+    "title": "Integration tests",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-10/10-1-3-integration-tests.md"
+  },
+  "10.1.4": {
+    "title": "API tests",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-10/10-1-4-api-tests.md"
+  },
+  "10.1.5": {
+    "title": "E2E/UI isolated tests",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-10/10-1-5-e2eui-isolated-tests.md"
+  },
+  "10.1.6": {
+    "title": "E2E/UI system tests",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-10/10-1-6-e2eui-system-tests.md"
+  },
+  "10.2.1": {
+    "title": "The end-to-end-only antipattern",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-10/10-2-1-the-end-to-end-only-antipattern.md"
+  },
+  "10.2.2": {
+    "title": "The low-level-only test antipattern",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-10/10-2-2-the-low-level-only-test-antipattern.md"
+  },
+  "10.2.3": {
+    "title": "Disconnected low-level and high-level tests",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-10/10-2-3-disconnected-low-level-and-high-level-tests.md"
+  },
+  "10.3.1": {
+    "title": "How to write a test recipe",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-10/10-3-1-how-to-write-a-test-recipe.md"
+  },
+  "10.3.2": {
+    "title": "When do I write and use a test recipe?",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-10/10-3-2-when-do-i-write-and-use-a-test-recipe.md"
+  },
+  "10.3.3": {
+    "title": "Rules for a test recipe",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-10/10-3-3-rules-for-a-test-recipe.md"
+  },
+  "10.4.1": {
+    "title": "Delivery vs. discovery pipelines",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-10/10-4-1-delivery-vs-discovery-pipelines.md"
+  },
+  "10.4.2": {
+    "title": "Test layer parallelization",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-10/10-4-2-test-layer-parallelization.md"
+  },
+  "10.5": {
+    "title": "Summary",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-10/10-5-summary.md"
+  },
+  "11.1.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-11/11-1-0-introduction-auto-generated.md"
+  },
+  "11.1.1": {
+    "title": "Be prepared for the tough questions",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-11/11-1-1-be-prepared-for-the-tough-questions.md"
+  },
+  "11.1.2": {
+    "title": "Convince insiders: Champions and blockers",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-11/11-1-2-convince-insiders-champions-and-blockers.md"
+  },
+  "11.1.3": {
+    "title": "Identify possible starting points",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-11/11-1-3-identify-possible-starting-points.md"
+  },
+  "11.2.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-11/11-2-0-introduction-auto-generated.md"
+  },
+  "11.2.1": {
+    "title": "Guerrilla implementation (bottom-up)",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-11/11-2-1-guerrilla-implementation-bottom-up.md"
+  },
+  "11.2.2": {
+    "title": "Convincing management (top-down)",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-11/11-2-2-convincing-management-top-down.md"
+  },
+  "11.2.3": {
+    "title": "Experiments as door openers",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-11/11-2-3-experiments-as-door-openers.md"
+  },
+  "11.2.4": {
+    "title": "Get an outside champion",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-11/11-2-4-get-an-outside-champion.md"
+  },
+  "11.2.5": {
+    "title": "Make progress visible",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-11/11-2-5-make-progress-visible.md"
+  },
+  "11.2.6": {
+    "title": "Aim for specific goals, metrics, and KPIs",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-11/11-2-6-aim-for-specific-goals-metrics-and-kpis.md"
+  },
+  "11.2.7": {
+    "title": "Realize that there will be hurdles",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-11/11-2-7-realize-that-there-will-be-hurdles.md"
+  },
+  "11.3.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-11/11-3-0-introduction-auto-generated.md"
+  },
+  "11.3.1": {
+    "title": "Lack of a driving force",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-11/11-3-1-lack-of-a-driving-force.md"
+  },
+  "11.3.2": {
+    "title": "Lack of political support",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-11/11-3-2-lack-of-political-support.md"
+  },
+  "11.3.3": {
+    "title": "Ad hoc implementations and first impressions",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-11/11-3-3-ad-hoc-implementations-and-first-impressions.md"
+  },
+  "11.3.4": {
+    "title": "Lack of team support",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-11/11-3-4-lack-of-team-support.md"
+  },
+  "11.4": {
+    "title": "Influence factors",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-11/11-4-influence-factors.md"
+  },
+  "11.5.1": {
+    "title": "How much time will unit testing add to the current process?",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-11/11-5-1-how-much-time-will-unit-testing-add-to-the-current-process.md"
+  },
+  "11.5.2": {
+    "title": "Will my QA job be at risk because of unit testing?",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-11/11-5-2-will-my-qa-job-be-at-risk-because-of-unit-testing.md"
+  },
+  "11.5.3": {
+    "title": "Is there proof that unit testing helps?",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-11/11-5-3-is-there-proof-that-unit-testing-helps.md"
+  },
+  "11.5.4": {
+    "title": "Why is the QA department still finding bugs?",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-11/11-5-4-why-is-the-qa-department-still-finding-bugs.md"
+  },
+  "11.5.5": {
+    "title": "We have lots of code without tests: Where do we start?",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-11/11-5-5-we-have-lots-of-code-without-tests-where-do-we-start.md"
+  },
+  "11.5.6": {
+    "title": "What if we develop a combination of software and hardware?",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-11/11-5-6-what-if-we-develop-a-combination-of-software-and-hardware.md"
+  },
+  "11.5.7": {
+    "title": "How can we know we don’t have bugs in our tests?",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-11/11-5-7-how-can-we-know-we-dont-have-bugs-in-our-tests.md"
+  },
+  "11.5.8": {
+    "title": "Why do I need tests if my debugger shows that my code works?",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-11/11-5-8-why-do-i-need-tests-if-my-debugger-shows-that-my-code-works.md"
+  },
+  "11.5.9": {
+    "title": "What about TDD?",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-11/11-5-9-what-about-tdd.md"
+  },
+  "11.6": {
+    "title": "Summary",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-11/11-6-summary.md"
+  },
+  "12.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-12/12-0-introduction-auto-generated.md"
+  },
+  "12.1": {
+    "title": "Where do you start adding tests?",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-12/12-1-where-do-you-start-adding-tests.md"
+  },
+  "12.2.1": {
+    "title": "Pros and cons of the easy-first strategy",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-12/12-2-1-pros-and-cons-of-the-easy-first-strategy.md"
+  },
+  "12.2.2": {
+    "title": "Pros and cons of the hard-first strategy",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-12/12-2-2-pros-and-cons-of-the-hard-first-strategy.md"
+  },
+  "12.3.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-12/12-3-0-introduction-auto-generated.md"
+  },
+  "12.3.1": {
+    "title": "Read Michael Feathers’ book on legacy code",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-12/12-3-1-read-michael-feathers-book-on-legacy-code.md"
+  },
+  "12.3.2": {
+    "title": "Use CodeScene to investigate your production code",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-12/12-3-2-use-codescene-to-investigate-your-production-code.md"
+  },
+  "12.4": {
+    "title": "Summary",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-12/12-4-summary.md"
+  },
+  "12.5": {
+    "title": "A.2.1 Monkey-patching a function the Jest way",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-12/12-5-a21-monkey-patching-a-function-the-jest-way.md"
+  },
+  "12.6": {
+    "title": "A.2.2 Jest spies",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-12/12-6-a22-jest-spies.md"
+  },
+  "12.7": {
+    "title": "A.2.3 spyOn with mockImplementation()",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-12/12-7-a23-spyon-with-mockimplementation.md"
+  },
+  "12.8": {
+    "title": "A.4.1 Stubbing a module with vanilla require.cache",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-12/12-8-a41-stubbing-a-module-with-vanilla-requirecache.md"
+  },
+  "12.9": {
+    "title": "A.4.2 Stubbing custom module data with Jest is complicated",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-12/12-9-a42-stubbing-custom-module-data-with-jest-is-complicated.md"
+  },
+  "12.10": {
+    "title": "A.4.3 Avoid Jest’s manual mocks",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-12/12-10-a43-avoid-jests-manual-mocks.md"
+  },
+  "12.11": {
+    "title": "A.4.4 Stubbing a module with Sinon.js",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-12/12-11-a44-stubbing-a-module-with-sinonjs.md"
+  },
+  "12.12": {
+    "title": "A.4.5 Stubbing a module with testdouble",
+    "path": "/home/nadle/para/resources/books/the-art-of-unit-testing-with-examples-in-javascript/chapter-12/12-12-a45-stubbing-a-module-with-testdouble.md"
+  }
+}

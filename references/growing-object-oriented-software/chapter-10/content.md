@@ -1,4 +1,4 @@
-# Chapter 10: The Walking Skeleton (pp.83-88)
+# Chapter 10: The Walking Skeleton (pp.83-89)
 
 ---
 **Page 83**
@@ -227,5 +227,41 @@ We’d better get on with it.
 Chapter 10
 The Walking Skeleton
 88
+
+
+---
+**Page 89**
+
+Chapter 11
+Passing the First Test
+In which we write test infrastructure to drive our non-existent applica-
+tion, so that we can make the ﬁrst test fail. We repeatedly fail the test
+and ﬁx symptoms, until we have a minimal working application that
+passes the ﬁrst test. We step through this very slowly to show how the
+process works.
+Building the Test Rig
+At the start of every test run, our test script starts up the Openﬁre server, creates
+accounts for the Sniper and the auction, and then runs the tests. Each test will
+start instances of the application and the fake auction, and then test their com-
+munication through the server. At ﬁrst, we’ll run everything on the same host.
+Later, as the infrastructure stabilizes, we can consider running different compo-
+nents on different machines, which will be a better match to the real deployment.
+This leaves us with two components to write for the test infrastructure:
+ApplicationRunner and FakeAuctionServer.
+Setting Up the Openﬁre Server
+At the time of writing, we were using version 3.6 of Openﬁre. For these end-to-
+end tests, we set up our local server with three user accounts and passwords:
+sniper
+sniper
+auction-item-54321
+auction
+auction-item-65432
+auction
+For desktop development, we usually started the server by hand and left it running.
+We set it up to not store ofﬂine messages, which meant there was no persistent
+state. In the System Manager, we edited the “System Name” property to be
+localhost, so the tests would run consistently. Finally, we set the resource policy
+to “Never kick,” which will not allow a new resource to log in if there’s a conﬂict.
+89
 
 

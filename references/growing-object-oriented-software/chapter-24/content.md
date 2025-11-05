@@ -1,4 +1,4 @@
-# Chapter 24: Test Flexibility (pp.273-286)
+# Chapter 24: Test Flexibility (pp.273-289)
 
 ---
 **Page 273**
@@ -580,5 +580,70 @@ Guinea Pig Objects
 **Page 286**
 
 This page intentionally left blank 
+
+
+---
+**Page 287**
+
+Part V
+Advanced Topics
+In this part, we cover some topics that regularly cause teams to
+struggle with test-driven development. What’s common to these
+topics is that they cross the boundary between feature-level and
+system-level design. For example, when we look at multi-
+threaded code, we need to test both the behavior that runs
+within a thread and the way different threads interact.
+Our experience is that such code is difﬁcult to test when we’re
+not clear about which aspect we’re addressing. Lumping every-
+thing together produces tests that are confusing, brittle, and
+sometimes misleading. When we take the time to listen to these
+“test smells,” they often lead us to a better design with a clearer
+separation of responsibilities.
+
+
+---
+**Page 288**
+
+This page intentionally left blank 
+
+
+---
+**Page 289**
+
+Chapter 25
+Testing Persistence
+It is always during a passing state of mind that we make lasting
+resolutions.
+—Marcel Proust
+Introduction
+As we saw in Chapter 8, when we deﬁne an abstraction in terms of a third-party
+API, we have to test that our abstraction behaves as we expect when integrated
+with that API, but cannot use our tests to get feedback about its design.
+A common example is an abstraction implemented using a persistence mecha-
+nism, such as Object/Relational Mapping (ORM). ORM hides a lot of sophisti-
+cated functionality behind a simple API. When we build an abstraction upon an
+ORM, we need to test that our implementation sends correct queries, has correctly
+conﬁgured the mappings between our objects and the relational schema, uses a
+dialect of SQL that is compatible with the database, performs updates and deletes
+that are compatible with the integrity constraints of the database, interacts
+correctly with the transaction manager, releases external resources in a timely
+manner, does not trip over any bugs in the database driver, and much more.
+When testing persistence code, we also have more to worry about with respect
+to the quality of our tests. There are components running in the background that
+the test must set up correctly. Those components have persistent state that could
+make tests interfere with each other. Our test code has to deal with all this extra
+complexity. We need to spend additional effort to ensure that our tests remain
+readable and to generate reasonable diagnostics that pinpoint why tests fail—to
+tell us in which component the failure occurred and why.
+This chapter describes some techniques for dealing with this complexity. The
+example code uses the standard Java Persistence API (JPA), but the techniques
+will work just as well with other persistence mechanisms, such as Java Data
+Objects (JDO), open source ORM technologies like Hibernate, or even when
+dumping objects to ﬁles using a data-mapping mechanism such as XStream1 or
+the standard Java API for XML Binding (JAXB).2
+1. http://xstream.codehaus.org
+2. Apologies for all the acronyms. The Java standardization process does not require
+standards to have memorable names.
+289
 
 

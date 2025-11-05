@@ -1,4 +1,4 @@
-# Chapter 15: Towards a Real User Interface (pp.149-174)
+# Chapter 15: Towards a Real User Interface (pp.149-175)
 
 ---
 **Page 149**
@@ -1113,5 +1113,43 @@ Observations
 **Page 174**
 
 This page intentionally left blank 
+
+
+---
+**Page 175**
+
+Chapter 16
+Sniping for Multiple Items
+In which we bid for multiple items, splitting the per-connection code
+from the per-auction code. We use the table model we just introduced
+to display the additional bids. We extend the user interface to allow
+users to add items dynamically. We’re pleased to ﬁnd that we don’t
+have to change the tests, just their implementation. We tease out a
+“user request listener” concept, which means we can test some features
+more directly. We leave the code in a bit of a mess.
+Testing for Multiple Items
+A Tale of Two Items
+The next task on our to-do list is to be able to snipe for multiple items at the
+same time. We already have much of the machinery we’ll need in place, since our
+user interface is based on a table, so some minor structural changes are all we
+need to make this work. Looking ahead in the list, we could combine this change
+with adding items through the user interface, but we don’t think we need to do
+that yet. Just focusing on this one task means we can clarify the distinction be-
+tween those features that belong to the Sniper’s connection to the auction house,
+and those that belong to an individual auction. So far we’ve speciﬁed the item
+on the command line, but we can extend that to pass multiple items in the
+argument list.
+As always, we start with a test. We want our new test to show that the appli-
+cation can bid for and win two different items, so we start by looking at the tests
+we already have. Our current test for a successful bid, in “First, a Failing Test”
+(page 152), assumes that the application has only one auction—it’s implicit in
+code such as:
+application.hasShownSniperIsBidding(1000, 1098);
+We prepare for multiple items by passing an auction into each of the
+ApplicationRunner calls, so the code now looks like:
+application.hasShownSniperIsBidding(auction, 1000, 1098);
+Within the ApplicationRunner, we remove the itemId ﬁeld and instead extract
+the item identiﬁer from the auction parameters.
+175
 
 

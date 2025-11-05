@@ -1,0 +1,742 @@
+{
+  "1.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-1/1-0-introduction-auto-generated.md"
+  },
+  "1.1": {
+    "title": "The current state of unit testing",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-1/1-1-the-current-state-of-unit-testing.md"
+  },
+  "1.2.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-1/1-2-0-introduction-auto-generated.md"
+  },
+  "1.2.1": {
+    "title": "What makes a good or bad test?",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-1/1-2-1-what-makes-a-good-or-bad-test.md"
+  },
+  "1.3.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-1/1-3-0-introduction-auto-generated.md"
+  },
+  "1.3.1": {
+    "title": "Understanding the code coverage metric",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-1/1-3-1-understanding-the-code-coverage-metric.md"
+  },
+  "1.3.2": {
+    "title": "Understanding the branch coverage metric",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-1/1-3-2-understanding-the-branch-coverage-metric.md"
+  },
+  "1.3.3": {
+    "title": "Problems with coverage metrics",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-1/1-3-3-problems-with-coverage-metrics.md"
+  },
+  "1.3.4": {
+    "title": "Aiming at a particular coverage number",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-1/1-3-4-aiming-at-a-particular-coverage-number.md"
+  },
+  "1.4.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-1/1-4-0-introduction-auto-generated.md"
+  },
+  "1.4.1": {
+    "title": "It’s integrated into the development cycle",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-1/1-4-1-its-integrated-into-the-development-cycle.md"
+  },
+  "1.4.2": {
+    "title": "It targets only the most important parts of your code base",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-1/1-4-2-it-targets-only-the-most-important-parts-of-your-code-base.md"
+  },
+  "1.4.3": {
+    "title": "It provides maximum value with minimum maintenance costs",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-1/1-4-3-it-provides-maximum-value-with-minimum-maintenance-costs.md"
+  },
+  "1.5": {
+    "title": "What you will learn in this book",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-1/1-5-what-you-will-learn-in-this-book.md"
+  },
+  "1.6": {
+    "title": "Summary",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-1/1-6-summary.md"
+  },
+  "2.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-2/2-0-introduction-auto-generated.md"
+  },
+  "2.1.1": {
+    "title": "The isolation issue: The London take",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-2/2-1-1-the-isolation-issue-the-london-take.md"
+  },
+  "2.1.2": {
+    "title": "The isolation issue: The classical take",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-2/2-1-2-the-isolation-issue-the-classical-take.md"
+  },
+  "2.2.1": {
+    "title": "How the classical and London schools handle dependencies",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-2/2-2-1-how-the-classical-and-london-schools-handle-dependencies.md"
+  },
+  "2.3.1": {
+    "title": "Unit testing one class at a time",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-2/2-3-1-unit-testing-one-class-at-a-time.md"
+  },
+  "2.3.2": {
+    "title": "Unit testing a large graph of interconnected classes",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-2/2-3-2-unit-testing-a-large-graph-of-interconnected-classes.md"
+  },
+  "2.3.3": {
+    "title": "Revealing the precise bug location",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-2/2-3-3-revealing-the-precise-bug-location.md"
+  },
+  "2.3.4": {
+    "title": "Other differences between the classical and London schools",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-2/2-3-4-other-differences-between-the-classical-and-london-schools.md"
+  },
+  "2.4.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-2/2-4-0-introduction-auto-generated.md"
+  },
+  "2.4.1": {
+    "title": "End-to-end tests are a subset of integration tests",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-2/2-4-1-end-to-end-tests-are-a-subset-of-integration-tests.md"
+  },
+  "2.5": {
+    "title": "Summary",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-2/2-5-summary.md"
+  },
+  "3.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-3/3-0-introduction-auto-generated.md"
+  },
+  "3.1.1": {
+    "title": "Using the AAA pattern",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-3/3-1-1-using-the-aaa-pattern.md"
+  },
+  "3.1.2": {
+    "title": "Avoid multiple arrange, act, and assert sections",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-3/3-1-2-avoid-multiple-arrange-act-and-assert-sections.md"
+  },
+  "3.1.3": {
+    "title": "Avoid if statements in tests",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-3/3-1-3-avoid-if-statements-in-tests.md"
+  },
+  "3.1.4": {
+    "title": "How large should each section be?",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-3/3-1-4-how-large-should-each-section-be.md"
+  },
+  "3.1.5": {
+    "title": "How many assertions should the assert section hold?",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-3/3-1-5-how-many-assertions-should-the-assert-section-hold.md"
+  },
+  "3.1.6": {
+    "title": "What about the teardown phase?",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-3/3-1-6-what-about-the-teardown-phase.md"
+  },
+  "3.1.7": {
+    "title": "Differentiating the system under test",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-3/3-1-7-differentiating-the-system-under-test.md"
+  },
+  "3.1.8": {
+    "title": "Dropping the arrange, act, and assert comments from tests",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-3/3-1-8-dropping-the-arrange-act-and-assert-comments-from-tests.md"
+  },
+  "3.2": {
+    "title": "Exploring the xUnit testing framework",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-3/3-2-exploring-the-xunit-testing-framework.md"
+  },
+  "3.3.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-3/3-3-0-introduction-auto-generated.md"
+  },
+  "3.3.1": {
+    "title": "High coupling between tests is an anti-pattern",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-3/3-3-1-high-coupling-between-tests-is-an-anti-pattern.md"
+  },
+  "3.3.2": {
+    "title": "The use of constructors in tests diminishes test readability",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-3/3-3-2-the-use-of-constructors-in-tests-diminishes-test-readability.md"
+  },
+  "3.3.3": {
+    "title": "A better way to reuse test fixtures",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-3/3-3-3-a-better-way-to-reuse-test-fixtures.md"
+  },
+  "3.4.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-3/3-4-0-introduction-auto-generated.md"
+  },
+  "3.4.1": {
+    "title": "Unit test naming guidelines",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-3/3-4-1-unit-test-naming-guidelines.md"
+  },
+  "3.4.2": {
+    "title": "Example: Renaming a test toward the guidelines",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-3/3-4-2-example-renaming-a-test-toward-the-guidelines.md"
+  },
+  "3.5.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-3/3-5-0-introduction-auto-generated.md"
+  },
+  "3.5.1": {
+    "title": "Generating data for parameterized tests",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-3/3-5-1-generating-data-for-parameterized-tests.md"
+  },
+  "3.6": {
+    "title": "Using an assertion library to further improve test readability",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-3/3-6-using-an-assertion-library-to-further-improve-test-readability.md"
+  },
+  "3.7": {
+    "title": "Summary",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-3/3-7-summary.md"
+  },
+  "4.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-4/4-0-introduction-auto-generated.md"
+  },
+  "4.1.1": {
+    "title": "The first pillar: Protection against regressions",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-4/4-1-1-the-first-pillar-protection-against-regressions.md"
+  },
+  "4.1.2": {
+    "title": "The second pillar: Resistance to refactoring",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-4/4-1-2-the-second-pillar-resistance-to-refactoring.md"
+  },
+  "4.1.3": {
+    "title": "What causes false positives?",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-4/4-1-3-what-causes-false-positives.md"
+  },
+  "4.1.4": {
+    "title": "Aim at the end result instead of implementation details",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-4/4-1-4-aim-at-the-end-result-instead-of-implementation-details.md"
+  },
+  "4.2.1": {
+    "title": "Maximizing test accuracy",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-4/4-2-1-maximizing-test-accuracy.md"
+  },
+  "4.2.2": {
+    "title": "The importance of false positives and false negatives: The dynamics",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-4/4-2-2-the-importance-of-false-positives-and-false-negatives-the-dynamics.md"
+  },
+  "4.3": {
+    "title": "The third and fourth pillars: Fast feedback and maintainability",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-4/4-3-the-third-and-fourth-pillars-fast-feedback-and-maintainability.md"
+  },
+  "4.4.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-4/4-4-0-introduction-auto-generated.md"
+  },
+  "4.4.1": {
+    "title": "Is it possible to create an ideal test?",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-4/4-4-1-is-it-possible-to-create-an-ideal-test.md"
+  },
+  "4.4.2": {
+    "title": "Extreme case #1: End-to-end tests",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-4/4-4-2-extreme-case-1-end-to-end-tests.md"
+  },
+  "4.4.3": {
+    "title": "Extreme case #2: Trivial tests",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-4/4-4-3-extreme-case-2-trivial-tests.md"
+  },
+  "4.4.4": {
+    "title": "Extreme case #3: Brittle tests",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-4/4-4-4-extreme-case-3-brittle-tests.md"
+  },
+  "4.4.5": {
+    "title": "In search of an ideal test: The results",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-4/4-4-5-in-search-of-an-ideal-test-the-results.md"
+  },
+  "4.5.1": {
+    "title": "Breaking down the Test Pyramid",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-4/4-5-1-breaking-down-the-test-pyramid.md"
+  },
+  "4.5.2": {
+    "title": "Choosing between black-box and white-box testing",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-4/4-5-2-choosing-between-black-box-and-white-box-testing.md"
+  },
+  "4.6": {
+    "title": "Summary",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-4/4-6-summary.md"
+  },
+  "5.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-5/5-0-introduction-auto-generated.md"
+  },
+  "5.1.1": {
+    "title": "The types of test doubles",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-5/5-1-1-the-types-of-test-doubles.md"
+  },
+  "5.1.2": {
+    "title": "Mock (the tool) vs. mock (the test double)",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-5/5-1-2-mock-the-tool-vs-mock-the-test-double.md"
+  },
+  "5.1.3": {
+    "title": "Don’t assert interactions with stubs",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-5/5-1-3-dont-assert-interactions-with-stubs.md"
+  },
+  "5.1.4": {
+    "title": "Using mocks and stubs together",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-5/5-1-4-using-mocks-and-stubs-together.md"
+  },
+  "5.1.5": {
+    "title": "How mocks and stubs relate to commands and queries",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-5/5-1-5-how-mocks-and-stubs-relate-to-commands-and-queries.md"
+  },
+  "5.2.1": {
+    "title": "Observable behavior is not the same as a public API",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-5/5-2-1-observable-behavior-is-not-the-same-as-a-public-api.md"
+  },
+  "5.2.2": {
+    "title": "Leaking implementation details: An example with an operation",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-5/5-2-2-leaking-implementation-details-an-example-with-an-operation.md"
+  },
+  "5.2.3": {
+    "title": "Well-designed API and encapsulation",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-5/5-2-3-well-designed-api-and-encapsulation.md"
+  },
+  "5.2.4": {
+    "title": "Leaking implementation details: An example with state",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-5/5-2-4-leaking-implementation-details-an-example-with-state.md"
+  },
+  "5.3.1": {
+    "title": "Defining hexagonal architecture",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-5/5-3-1-defining-hexagonal-architecture.md"
+  },
+  "5.3.2": {
+    "title": "Intra-system vs. inter-system communications",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-5/5-3-2-intra-system-vs-inter-system-communications.md"
+  },
+  "5.3.3": {
+    "title": "Intra-system vs. inter-system communications: An example",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-5/5-3-3-intra-system-vs-inter-system-communications-an-example.md"
+  },
+  "5.4.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-5/5-4-0-introduction-auto-generated.md"
+  },
+  "5.4.1": {
+    "title": "Not all out-of-process dependencies should be mocked out",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-5/5-4-1-not-all-out-of-process-dependencies-should-be-mocked-out.md"
+  },
+  "5.4.2": {
+    "title": "Using mocks to verify behavior",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-5/5-4-2-using-mocks-to-verify-behavior.md"
+  },
+  "5.5": {
+    "title": "Summary",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-5/5-5-summary.md"
+  },
+  "6.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-6/6-0-introduction-auto-generated.md"
+  },
+  "6.1.1": {
+    "title": "Defining the output-based style",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-6/6-1-1-defining-the-output-based-style.md"
+  },
+  "6.1.2": {
+    "title": "Defining the state-based style",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-6/6-1-2-defining-the-state-based-style.md"
+  },
+  "6.1.3": {
+    "title": "Defining the communication-based style",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-6/6-1-3-defining-the-communication-based-style.md"
+  },
+  "6.2.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-6/6-2-0-introduction-auto-generated.md"
+  },
+  "6.2.1": {
+    "title": "Comparing the styles using the metrics of protection against regressions and feedback speed",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-6/6-2-1-comparing-the-styles-using-the-metrics-of-protection-against-regressions-and-feedback-speed.md"
+  },
+  "6.2.2": {
+    "title": "Comparing the styles using the metric of resistance to refactoring",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-6/6-2-2-comparing-the-styles-using-the-metric-of-resistance-to-refactoring.md"
+  },
+  "6.2.3": {
+    "title": "Comparing the styles using the metric of maintainability",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-6/6-2-3-comparing-the-styles-using-the-metric-of-maintainability.md"
+  },
+  "6.2.4": {
+    "title": "Comparing the styles: The results",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-6/6-2-4-comparing-the-styles-the-results.md"
+  },
+  "6.3.1": {
+    "title": "What is functional programming?",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-6/6-3-1-what-is-functional-programming.md"
+  },
+  "6.3.2": {
+    "title": "What is functional architecture?",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-6/6-3-2-what-is-functional-architecture.md"
+  },
+  "6.3.3": {
+    "title": "Comparing functional and hexagonal architectures",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-6/6-3-3-comparing-functional-and-hexagonal-architectures.md"
+  },
+  "6.4.1": {
+    "title": "Introducing an audit system",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-6/6-4-1-introducing-an-audit-system.md"
+  },
+  "6.4.2": {
+    "title": "Using mocks to decouple tests from the filesystem",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-6/6-4-2-using-mocks-to-decouple-tests-from-the-filesystem.md"
+  },
+  "6.4.3": {
+    "title": "Refactoring toward functional architecture",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-6/6-4-3-refactoring-toward-functional-architecture.md"
+  },
+  "6.4.4": {
+    "title": "Looking forward to further developments",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-6/6-4-4-looking-forward-to-further-developments.md"
+  },
+  "6.5.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-6/6-5-0-introduction-auto-generated.md"
+  },
+  "6.5.1": {
+    "title": "Applicability of functional architecture",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-6/6-5-1-applicability-of-functional-architecture.md"
+  },
+  "6.5.2": {
+    "title": "Performance drawbacks",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-6/6-5-2-performance-drawbacks.md"
+  },
+  "6.5.3": {
+    "title": "Increase in the code base size",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-6/6-5-3-increase-in-the-code-base-size.md"
+  },
+  "6.6": {
+    "title": "Summary",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-6/6-6-summary.md"
+  },
+  "7.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-7/7-0-introduction-auto-generated.md"
+  },
+  "7.1.1": {
+    "title": "The four types of code",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-7/7-1-1-the-four-types-of-code.md"
+  },
+  "7.1.2": {
+    "title": "Using the Humble Object pattern to split overcomplicated code",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-7/7-1-2-using-the-humble-object-pattern-to-split-overcomplicated-code.md"
+  },
+  "7.2.1": {
+    "title": "Introducing a customer management system",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-7/7-2-1-introducing-a-customer-management-system.md"
+  },
+  "7.2.2": {
+    "title": "Take 1: Making implicit dependencies explicit",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-7/7-2-2-take-1-making-implicit-dependencies-explicit.md"
+  },
+  "7.2.3": {
+    "title": "Take 2: Introducing an application services layer",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-7/7-2-3-take-2-introducing-an-application-services-layer.md"
+  },
+  "7.2.4": {
+    "title": "Take 3: Removing complexity from the application service",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-7/7-2-4-take-3-removing-complexity-from-the-application-service.md"
+  },
+  "7.2.5": {
+    "title": "Take 4: Introducing a new Company class",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-7/7-2-5-take-4-introducing-a-new-company-class.md"
+  },
+  "7.3.1": {
+    "title": "Testing the domain layer and utility code",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-7/7-3-1-testing-the-domain-layer-and-utility-code.md"
+  },
+  "7.3.2": {
+    "title": "Testing the code from the other three quadrants",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-7/7-3-2-testing-the-code-from-the-other-three-quadrants.md"
+  },
+  "7.3.3": {
+    "title": "Should you test preconditions?",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-7/7-3-3-should-you-test-preconditions.md"
+  },
+  "7.4.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-7/7-4-0-introduction-auto-generated.md"
+  },
+  "7.4.1": {
+    "title": "Using the CanExecute/Execute pattern",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-7/7-4-1-using-the-canexecuteexecute-pattern.md"
+  },
+  "7.4.2": {
+    "title": "Using domain events to track changes in the domain model",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-7/7-4-2-using-domain-events-to-track-changes-in-the-domain-model.md"
+  },
+  "7.5": {
+    "title": "Conclusion",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-7/7-5-conclusion.md"
+  },
+  "7.6": {
+    "title": "Summary",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-7/7-6-summary.md"
+  },
+  "8.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-8/8-0-introduction-auto-generated.md"
+  },
+  "8.1.1": {
+    "title": "The role of integration tests",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-8/8-1-1-the-role-of-integration-tests.md"
+  },
+  "8.1.2": {
+    "title": "The Test Pyramid revisited",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-8/8-1-2-the-test-pyramid-revisited.md"
+  },
+  "8.1.3": {
+    "title": "Integration testing vs. failing fast",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-8/8-1-3-integration-testing-vs-failing-fast.md"
+  },
+  "8.2.1": {
+    "title": "The two types of out-of-process dependencies",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-8/8-2-1-the-two-types-of-out-of-process-dependencies.md"
+  },
+  "8.2.2": {
+    "title": "Working with both managed and unmanaged dependencies",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-8/8-2-2-working-with-both-managed-and-unmanaged-dependencies.md"
+  },
+  "8.2.3": {
+    "title": "What if you can’t use a real database in integration tests?",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-8/8-2-3-what-if-you-cant-use-a-real-database-in-integration-tests.md"
+  },
+  "8.3.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-8/8-3-0-introduction-auto-generated.md"
+  },
+  "8.3.1": {
+    "title": "What scenarios to test?",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-8/8-3-1-what-scenarios-to-test.md"
+  },
+  "8.3.2": {
+    "title": "Categorizing the database and the message bus",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-8/8-3-2-categorizing-the-database-and-the-message-bus.md"
+  },
+  "8.3.3": {
+    "title": "What about end-to-end testing?",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-8/8-3-3-what-about-end-to-end-testing.md"
+  },
+  "8.3.4": {
+    "title": "Integration testing: The first try",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-8/8-3-4-integration-testing-the-first-try.md"
+  },
+  "8.4.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-8/8-4-0-introduction-auto-generated.md"
+  },
+  "8.4.1": {
+    "title": "Interfaces and loose coupling",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-8/8-4-1-interfaces-and-loose-coupling.md"
+  },
+  "8.4.2": {
+    "title": "Why use interfaces for out-of-process dependencies?",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-8/8-4-2-why-use-interfaces-for-out-of-process-dependencies.md"
+  },
+  "8.4.3": {
+    "title": "Using interfaces for in-process dependencies",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-8/8-4-3-using-interfaces-for-in-process-dependencies.md"
+  },
+  "8.5.1": {
+    "title": "Making domain model boundaries explicit",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-8/8-5-1-making-domain-model-boundaries-explicit.md"
+  },
+  "8.5.2": {
+    "title": "Reducing the number of layers",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-8/8-5-2-reducing-the-number-of-layers.md"
+  },
+  "8.5.3": {
+    "title": "Eliminating circular dependencies",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-8/8-5-3-eliminating-circular-dependencies.md"
+  },
+  "8.5.4": {
+    "title": "Using multiple act sections in a test",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-8/8-5-4-using-multiple-act-sections-in-a-test.md"
+  },
+  "8.6.1": {
+    "title": "Should you test logging?",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-8/8-6-1-should-you-test-logging.md"
+  },
+  "8.6.2": {
+    "title": "How should you test logging?",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-8/8-6-2-how-should-you-test-logging.md"
+  },
+  "8.6.3": {
+    "title": "How much logging is enough?",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-8/8-6-3-how-much-logging-is-enough.md"
+  },
+  "8.6.4": {
+    "title": "How do you pass around logger instances?",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-8/8-6-4-how-do-you-pass-around-logger-instances.md"
+  },
+  "8.7": {
+    "title": "Conclusion",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-8/8-7-conclusion.md"
+  },
+  "8.8": {
+    "title": "Summary",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-8/8-8-summary.md"
+  },
+  "9.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-9/9-0-introduction-auto-generated.md"
+  },
+  "9.1.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-9/9-1-0-introduction-auto-generated.md"
+  },
+  "9.1.1": {
+    "title": "Verifying interactions at the system edges",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-9/9-1-1-verifying-interactions-at-the-system-edges.md"
+  },
+  "9.1.2": {
+    "title": "Replacing mocks with spies",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-9/9-1-2-replacing-mocks-with-spies.md"
+  },
+  "9.1.3": {
+    "title": "What about IDomainLogger?",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-9/9-1-3-what-about-idomainlogger.md"
+  },
+  "9.2.1": {
+    "title": "Mocks are for integration tests only",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-9/9-2-1-mocks-are-for-integration-tests-only.md"
+  },
+  "9.2.2": {
+    "title": "Not just one mock per test",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-9/9-2-2-not-just-one-mock-per-test.md"
+  },
+  "9.2.3": {
+    "title": "Verifying the number of calls",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-9/9-2-3-verifying-the-number-of-calls.md"
+  },
+  "9.2.4": {
+    "title": "Only mock types that you own",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-9/9-2-4-only-mock-types-that-you-own.md"
+  },
+  "9.3": {
+    "title": "Summary",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-9/9-3-summary.md"
+  },
+  "10.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-10/10-0-introduction-auto-generated.md"
+  },
+  "10.1.1": {
+    "title": "Keeping the database in the source control system",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-10/10-1-1-keeping-the-database-in-the-source-control-system.md"
+  },
+  "10.1.2": {
+    "title": "Reference data is part of the database schema",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-10/10-1-2-reference-data-is-part-of-the-database-schema.md"
+  },
+  "10.1.3": {
+    "title": "Separate instance for every developer",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-10/10-1-3-separate-instance-for-every-developer.md"
+  },
+  "10.1.4": {
+    "title": "State-based vs. migration-based database delivery",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-10/10-1-4-state-based-vs-migration-based-database-delivery.md"
+  },
+  "10.2.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-10/10-2-0-introduction-auto-generated.md"
+  },
+  "10.2.1": {
+    "title": "Managing database transactions in production code",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-10/10-2-1-managing-database-transactions-in-production-code.md"
+  },
+  "10.2.2": {
+    "title": "Managing database transactions in integration tests",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-10/10-2-2-managing-database-transactions-in-integration-tests.md"
+  },
+  "10.3.1": {
+    "title": "Parallel vs. sequential test execution",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-10/10-3-1-parallel-vs-sequential-test-execution.md"
+  },
+  "10.3.2": {
+    "title": "Clearing data between test runs",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-10/10-3-2-clearing-data-between-test-runs.md"
+  },
+  "10.3.3": {
+    "title": "Avoid in-memory databases",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-10/10-3-3-avoid-in-memory-databases.md"
+  },
+  "10.4.1": {
+    "title": "Reusing code in arrange sections",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-10/10-4-1-reusing-code-in-arrange-sections.md"
+  },
+  "10.4.2": {
+    "title": "Reusing code in act sections",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-10/10-4-2-reusing-code-in-act-sections.md"
+  },
+  "10.4.3": {
+    "title": "Reusing code in assert sections",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-10/10-4-3-reusing-code-in-assert-sections.md"
+  },
+  "10.4.4": {
+    "title": "Does the test create too many database transactions?",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-10/10-4-4-does-the-test-create-too-many-database-transactions.md"
+  },
+  "10.5.1": {
+    "title": "Should you test reads?",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-10/10-5-1-should-you-test-reads.md"
+  },
+  "10.5.2": {
+    "title": "Should you test repositories?",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-10/10-5-2-should-you-test-repositories.md"
+  },
+  "10.6": {
+    "title": "Conclusion",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-10/10-6-conclusion.md"
+  },
+  "10.7": {
+    "title": "Summary",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-10/10-7-summary.md"
+  },
+  "11.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-11/11-0-introduction-auto-generated.md"
+  },
+  "11.1.1": {
+    "title": "Private methods and test fragility",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-11/11-1-1-private-methods-and-test-fragility.md"
+  },
+  "11.1.2": {
+    "title": "Private methods and insufficient coverage",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-11/11-1-2-private-methods-and-insufficient-coverage.md"
+  },
+  "11.1.3": {
+    "title": "When testing private methods is acceptable",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-11/11-1-3-when-testing-private-methods-is-acceptable.md"
+  },
+  "11.2": {
+    "title": "Exposing private state",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-11/11-2-exposing-private-state.md"
+  },
+  "11.3": {
+    "title": "Leaking domain knowledge to tests",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-11/11-3-leaking-domain-knowledge-to-tests.md"
+  },
+  "11.4": {
+    "title": "Code pollution",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-11/11-4-code-pollution.md"
+  },
+  "11.5": {
+    "title": "Mocking concrete classes",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-11/11-5-mocking-concrete-classes.md"
+  },
+  "11.6.1": {
+    "title": "Time as an ambient context",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-11/11-6-1-time-as-an-ambient-context.md"
+  },
+  "11.6.2": {
+    "title": "Time as an explicit dependency",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-11/11-6-2-time-as-an-explicit-dependency.md"
+  },
+  "11.7": {
+    "title": "Conclusion",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-11/11-7-conclusion.md"
+  },
+  "11.8": {
+    "title": "Summary",
+    "path": "unit-testing-principles-practices-and-patterns/chapter-11/11-8-summary.md"
+  }
+}

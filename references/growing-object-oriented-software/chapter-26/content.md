@@ -1,4 +1,4 @@
-# Chapter 26: Unit Testing and Threads (pp.301-314)
+# Chapter 26: Unit Testing and Threads (pp.301-315)
 
 ---
 **Page 301**
@@ -636,5 +636,43 @@ testing in the next chapter.
 Chapter 26
 Unit Testing and Threads
 314
+
+
+---
+**Page 315**
+
+Chapter 27
+Testing Asynchronous Code
+I can spell banana but I never know when to stop.
+—Johnny Mercer (songwriter)
+Introduction
+Some tests must cope with asynchronous behavior—whether they’re end-to-end
+tests probing a system from the outside or, as we’ve just seen, unit tests exercising
+multithreaded code. These tests trigger some activity within the system to run
+concurrently with the test’s thread. The critical difference from “normal” tests,
+where there is no concurrency, is that control returns to the test before the tested
+activity is complete—returning from the call to the target code does not mean
+that it’s ready to be checked.
+For example, this test assumes that a Set has ﬁnished adding an element when
+the add() method returns. Asserting that set has a size of one veriﬁes that it did
+not store duplicate elements.
+@Test public void storesUniqueElements() {
+  Set set = new HashSet<String>();
+  set.add("bananana");
+  set.add("bananana");
+  assertThat(set.size(), equalTo(1));
+}
+By contrast, this system test is asynchronous. The holdingOfStock() method
+synchronously downloads a stock report by HTTP, but the send() method sends
+an asynchronous message to a server that updates its records of stocks held.
+@Test public void buyAndSellOfSameStockOnSameDayCancelsOutOurHolding() {
+  Date tradeDate = new Date();
+  send(aTradeEvent().ofType(BUY).onDate(tradeDate).forStock("A").withQuantity(10));
+  send(aTradeEvent().ofType(SELL).onDate(tradeDate).forStock("A").withQuantity(10));
+  assertThat(holdingOfStock("A", tradeDate), equalTo(0));
+}
+The transmission and processing of a trade message happens concurrently with
+the test, so the server might not have received or processed the messages yet
+315
 
 

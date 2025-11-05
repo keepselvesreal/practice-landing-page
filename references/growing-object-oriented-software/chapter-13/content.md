@@ -1,4 +1,4 @@
-# Chapter 13: The Sniper Makes a Bid (pp.123-138)
+# Chapter 13: The Sniper Makes a Bid (pp.123-139)
 
 ---
 **Page 123**
@@ -616,5 +616,27 @@ Emergent Design
 **Page 138**
 
 This page intentionally left blank 
+
+
+---
+**Page 139**
+
+Chapter 14
+The Sniper Wins the Auction
+In which we add another feature to our Sniper and let it win an auction.
+We introduce the concept of state to the Sniper which we test by listen-
+ing to its callbacks. We ﬁnd that even this early, one of our refactorings
+has paid off.
+First, a Failing Test
+We have a Sniper that can respond to price changes by bidding more, but it
+doesn’t yet know when it’s successful. Our next feature on the to-do list is to
+win an auction. This involves an extra state transition, as you can see in
+Figure 14.1:
+Figure 14.1
+A sniper bids, then wins
+To represent this, we add an end-to-end test based on sniperMakesAHigherBid-
+ButLoses() with a different conclusion—sniperWinsAnAuctionByBiddingHigher().
+Here’s the test, with the new features highlighted:
+139
 
 

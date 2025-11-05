@@ -1,4 +1,4 @@
-# Chapter 3: An Introduction to the Tools (pp.21-28)
+# Chapter 3: An Introduction to the Tools (pp.21-31)
 
 ---
 **Page 21**
@@ -322,5 +322,60 @@ jMock2: Mock Objects
 **Page 28**
 
 This page intentionally left blank 
+
+
+---
+**Page 29**
+
+Part II
+The Process of Test-Driven
+Development
+So far we’ve presented a high-level introduction to the concept
+of, and motivation for, incremental test-driven development. In
+the rest of the book, we’ll ﬁll in the practical details that actually
+make it work.
+In this part we introduce the concepts that deﬁne our ap-
+proach. These boil down to two core principles: continuous
+incremental development and expressive code.
+
+
+---
+**Page 30**
+
+This page intentionally left blank 
+
+
+---
+**Page 31**
+
+Chapter 4
+Kick-Starting the Test-Driven
+Cycle
+We should be taught not to wait for inspiration to start a thing. Action
+always generates inspiration. Inspiration seldom generates action.
+—Frank Tibolt
+Introduction
+The TDD process we described in Chapter 1 assumes that we can grow the system
+by just slotting the tests for new features into an existing infrastructure. But what
+about the very ﬁrst feature, before we have this infrastructure? As an acceptance
+test, it must run end-to-end to give us the feedback we need about the system’s
+external interfaces, which means we must have implemented a whole automated
+build, deploy, and test cycle. This is a lot of work to do before we can even see
+our ﬁrst test fail.
+Deploying and testing right from the start of a project forces the team to un-
+derstand how their system ﬁts into the world. It ﬂushes out the “unknown
+unknown” technical and organizational risks so they can be addressed while
+there’s still time. Attempting to deploy also helps the team understand who they
+need to liaise with, such as system administrators or external vendors, and start
+to build those relationships.
+Starting with “build, deploy, and test” on a nonexistent system sounds odd,
+but we think it’s essential. The risks of leaving it to later are just too high. We
+have seen projects canceled after months of development because they could not
+reliably deploy their system. We have seen systems discarded because new features
+required months of manual regression testing and even then the error rates were
+too high. As always, we view feedback as a fundamental tool, and we want to
+know as early as possible whether we’re moving in the right direction. Then,
+once we have our ﬁrst test in place, subsequent tests will be much quicker to write.
+31
 
 

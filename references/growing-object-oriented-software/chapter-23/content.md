@@ -1,4 +1,4 @@
-# Chapter 23: Test Diagnostics (pp.267-272)
+# Chapter 23: Test Diagnostics (pp.267-273)
 
 ---
 **Page 267**
@@ -212,5 +212,47 @@ Improve the diagnostics as part of the TDD cycle
 Chapter 23
 Test Diagnostics
 272
+
+
+---
+**Page 273**
+
+Chapter 24
+Test Flexibility
+Living plants are flexible and tender;
+the dead are brittle and dry.
+[…]
+The rigid and stiff will be broken.
+The soft and yielding will overcome.
+—Lao Tzu (c.604—531 B.C.)
+Introduction
+As the system and its associated test suite grows, maintaining the tests can become
+a burden if they have not been written carefully. We’ve described how we can
+reduce the ongoing cost of tests by making them easy to read and generating
+helpful diagnostics on failure. We also want to make sure that each test fails
+only when its relevant code is broken. Otherwise, we end up with brittle
+tests that slow down development and inhibit refactoring. Common causes of test
+brittleness include:
+•
+The tests are too tightly coupled to unrelated parts of the system or unrelated
+behavior of the object(s) they’re testing;
+•
+The tests overspecify the expected behavior of the target code, constraining
+it more than necessary; and,
+•
+There is duplication when multiple tests exercise the same production code
+behavior.
+Test brittleness is not just an attribute of how the tests are written; it’s also
+related to the design of the system. If an object is difﬁcult to decouple from its
+environment because it has many dependencies or its dependencies are hidden,
+its tests will fail when distant parts of the system change. It will be hard to judge
+the knock-on effects of altering the code. So, we can use test brittleness as a
+valuable source of feedback about design quality.
+There’s a virtuous relationship with test readability and resilience. A test that
+is focused, has clean set-up, and has minimal duplication is easier to name and is
+more obvious about its purpose. This chapter expands on some of the techniques
+we discussed in Chapter 21. Actually, the whole chapter can be collapsed into a
+single rule:
+273
 
 

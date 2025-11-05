@@ -1,4 +1,4 @@
-# Chapter 16: Sniping for Multiple Items (pp.175-190)
+# Chapter 16: Sniping for Multiple Items (pp.175-191)
 
 ---
 **Page 175**
@@ -699,5 +699,44 @@ Observations
 **Page 190**
 
 This page intentionally left blank 
+
+
+---
+**Page 191**
+
+Chapter 17
+Teasing Apart Main
+In which we slice up our application, shufﬂing behavior around to
+isolate the XMPP and user interface code from the sniping logic. We
+achieve this incrementally, changing one concept at a time without
+breaking the whole application. We ﬁnally put a stake through the
+heart of notToBeGCd.
+Finding a Role
+We’ve convinced ourselves that we need to do some surgery on Main, but what
+do we want our improved Main to do?
+For programs that are more than trivial, we like to think of our top-level class
+as a “matchmaker,” ﬁnding components and introducing them to each other.
+Once that job is done it drops into the background and waits for the application to
+ﬁnish. On a larger scale, this what the current generation of application containers
+do, except that the relationships are often encoded in XML.
+In its current form, Main acts as a matchmaker but it’s also implementing some
+of the components, which means it has too many responsibilities. One clue is to
+look at its imports:
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+import javax.swing.SwingUtilities;
+import org.jivesoftware.smack.Chat;
+import org.jivesoftware.smack.XMPPConnection;
+import org.jivesoftware.smack.XMPPException;
+import auctionsniper.ui.MainWindow;
+import auctionsniper.ui.SnipersTableModel;
+import auctionsniper.AuctionMessageTranslator;
+import auctionsniper.XMPPAuction;
+We’re importing code from three unrelated packages, plus the auctionsniper
+package itself. In fact, we have a package loop in that the top-level and
+UI packages depend on each other. Java, unlike some other languages, tolerates
+package loops, but they’re not something we should be pleased with.
+191
 
 

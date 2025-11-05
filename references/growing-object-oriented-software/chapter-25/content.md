@@ -1,4 +1,4 @@
-# Chapter 25: Testing Persistence (pp.289-300)
+# Chapter 25: Testing Persistence (pp.289-301)
 
 ---
 **Page 289**
@@ -558,5 +558,48 @@ mental feedback about integration at increasingly coarse levels of granularity.
 Chapter 25
 Testing Persistence
 300
+
+
+---
+**Page 301**
+
+Chapter 26
+Unit Testing and Threads
+It is decreed by a merciful Nature that the human brain cannot think
+of two things simultaneously.
+—Sir Arthur Conan Doyle
+Introduction
+There’s no getting away from it: concurrency complicates matters. It is a challenge
+when doing test-driven development. Unit tests cannot give you as much
+conﬁdence in system quality because concurrency and synchronization are system-
+wide concerns. When writing tests, you have to worry about getting the synchro-
+nization right within the system and between the test and the system. Test failures
+are harder to diagnose because exceptions may be swallowed by background
+threads or tests may just time out with no clear explanation.
+It’s hard to diagnose and correct synchronization problems in existing code,
+so it’s worth thinking about the system’s concurrency architecture ahead of
+time. You don’t need to design it in great detail, just decide on a broad-brush
+architecture and principles by which the system will cope with concurrency.
+This design is often prescribed by the frameworks or libraries that an
+application uses. For example:
+•
+Swing dispatches user events on its own thread. If an event handler runs
+for a long time, the user interface becomes unresponsive because Swing
+does not process user input while the event handler is running. Event call-
+backs must spawn “worker” threads to perform long-running tasks, and
+those worker threads must synchronize with the event dispatch thread to
+update the user interface.
+•
+A servlet container has a pool of threads that receive HTTP requests and
+pass them to servlets for processing. Many threads can be active in the same
+servlet instance at once.
+•
+Java EE containers manage all the threading in the application. The contain-
+er guarantees that only one thread will call into a component at a time.
+Components cannot start their own threads.
+•
+The Smack library used by the Auction Sniper application starts a daemon
+thread to receive XMPP messages. It will deliver messages on a single thread,
+301
 
 

@@ -1,4 +1,4 @@
-# Chapter 12: Getting Ready to Bid (pp.105-122)
+# Chapter 12: Getting Ready to Bid (pp.105-123)
 
 ---
 **Page 105**
@@ -766,5 +766,44 @@ Finish the Job
 **Page 122**
 
 This page intentionally left blank 
+
+
+---
+**Page 123**
+
+Chapter 13
+The Sniper Makes a Bid
+In which we extract an AuctionSniper class and tease out its dependen-
+cies. We plug our new class into the rest of the application, using an
+empty implementation of auction until we’re ready to start sending
+commands. We close the loop back to the auction house with an
+XMPPAuction class. We continue to carve new types out of the code.
+Introducing AuctionSniper
+A New Class, with Dependencies
+Our application accepts Price events from the auction, but cannot interpret them
+yet. We need code that will perform two actions when the currentPrice() method
+is called: send a higher bid to the auction and update the status in the user inter-
+face. We could extend Main, but that class is looking rather messy—it’s already
+doing too many things at once. It feels like this is a good time to introduce
+what we should call an “Auction Sniper,” the component at the heart of our
+application, so we create an AuctionSniper class. Some of its intended behavior
+is currently buried in Main, and a good start would be to extract it into our new
+class—although, as we’ll see in a moment, it will take a little effort.
+Given that an AuctionSniper should respond to Price events, we decide to
+make it implement AuctionEventListener rather than Main. The question is what
+to do about the user interface. If we consider moving this method:
+public void auctionClosed() {
+  SwingUtilities.invokeLater(new Runnable() {
+    public void run() {
+       ui.showStatus(MainWindow.STATUS_LOST);
+    }
+  });
+}
+does it really make sense for an AuctionSniper to know about the implementation
+details of the user interface, such as the use of the Swing thread? We’d be at risk
+of breaking the “single responsibility” principle again. Surely an AuctionSniper
+ought to be concerned with bidding policy and only notify status changes in
+its terms?
+123
 
 

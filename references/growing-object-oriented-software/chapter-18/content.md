@@ -1,4 +1,4 @@
-# Chapter 18: Filling In the Details (pp.205-214)
+# Chapter 18: Filling In the Details (pp.205-215)
 
 ---
 **Page 205**
@@ -376,5 +376,46 @@ Observations
 **Page 214**
 
 This page intentionally left blank 
+
+
+---
+**Page 215**
+
+Chapter 19
+Handling Failure
+In which we address the reality of programming in an imperfect world,
+and add failure reporting. We add a new auction event that reports
+failure. We attach a new event listener that will turn off the Sniper if
+it fails. We also write a message to a log and write a unit test that mocks
+a class, for which we’re very sorry.
+To avoid trying your patience any further, we close our example here.
+So far, we’ve been prepared to assume that everything just works. This might be
+reasonable if the application is not supposed to last—perhaps it’s acceptable if
+it just crashes and we restart it or, as in this case, we’ve been mainly concerned
+with demonstrating and exploring the domain. Now it’s time to start being explicit
+about how we deal with failures.
+What If It Doesn’t Work?
+Our product people are concerned that Southabee’s On-Line has a reputation
+for occasionally failing and sending incorrectly structured messages, so they want
+us to show that we can cope. It turns out that the system we talk to is actually
+an aggregator for multiple auction feeds, so the failure of an individual auction
+does not imply that the whole system is unsafe. Our policy will be that when we
+receive a message that we cannot interpret, we will mark that auction as Failed
+and ignore any further updates, since it means we can no longer be sure what’s
+happening. Once an auction has failed, we make no attempt to recover.1
+In practice, reporting a message failure means that we ﬂush the price and bid
+values, and show the status as Failed for the offending item. We also record the
+event somewhere so that we can deal with it later. We could make the display
+of the failure more obvious, for example by coloring the row, but we’ll keep this
+version simple and leave any extras as an exercise for the reader.
+The end-to-end test shows that a working Sniper receives a bad message, dis-
+plays and records the failure, and then ignores further updates from this auction:
+1. We admit that it’s unlikely that an auction site that regularly garbles its messages
+will survive for long, but it’s a simple example to work through. We also doubt that
+any serious bidder will be happy to let their bid lie hanging, not knowing whether
+they’ve bought something or lost to a rival. On the other hand, we’ve seen less plau-
+sible systems succeed in the world, propped up by an army of special handling, so
+perhaps you can let us get away with this one.
+215
 
 
