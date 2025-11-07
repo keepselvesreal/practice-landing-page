@@ -1,5 +1,26 @@
 """주문 관련 Pydantic 모델"""
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr, Field
+
+
+class OrderCreate(BaseModel):
+    """주문 생성 요청 모델"""
+
+    customer_name: str = Field(..., min_length=1)
+    customer_email: EmailStr
+    customer_phone: str = Field(..., min_length=1)
+    shipping_address: str = Field(..., min_length=1)
+    product_id: int = Field(..., gt=0)
+    quantity: int = Field(..., gt=0)
+    affiliate_code: str | None = None
+
+
+class OrderCreateResponse(BaseModel):
+    """주문 생성 응답 모델"""
+
+    order_number: str
+    paypal_order_id: str
+    approval_url: str
+    total_amount: int  # 센타보 단위
 
 
 class OrderResponse(BaseModel):
