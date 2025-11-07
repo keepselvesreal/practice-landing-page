@@ -13,9 +13,6 @@ def base_url() -> str:
 @pytest.fixture(scope="function")
 def test_client() -> Generator[TestClient, None, None]:
     """FastAPI TestClient fixture"""
-    # 나중에 backend.main:app이 생성되면 import
-    # from backend.main import app
-    # yield TestClient(app)
+    from backend.main import app
 
-    # 현재는 더미 반환
-    pass
+    yield TestClient(app)
