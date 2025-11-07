@@ -31,8 +31,8 @@ def test_customer_can_create_order_and_pay_with_paypal(page: Page):
     # 주문 수량 선택 (기본값 1)
     page.select_option("#quantity", "2")
 
-    # 총액 표시 확인 (575 * 2 + 100 = 1,350 페소)
-    expect(page.locator("#total_amount")).to_contain_text("1,350")
+    # 총액 표시 확인 (575 * 2 + 100 = 1,250 페소)
+    expect(page.locator("#total_amount")).to_contain_text("1,250")
 
     # "Order Now" 버튼 클릭
     page.click("#order_button")

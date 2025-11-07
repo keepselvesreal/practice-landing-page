@@ -1,6 +1,8 @@
 """FastAPI 메인 애플리케이션"""
+from pathlib import Path
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 from backend.api.orders import router as orders_router
 
@@ -19,11 +21,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# 라우터 등록
-app.include_router(orders_router)
-
 
 @app.get("/health")
 async def health_check() -> dict[str, str]:
     """헬스체크 엔드포인트"""
     return {"status": "ok"}
+
+
+# 라우터 등록
+app.include_router(orders_router)
+
+# 정적 파일 서빙 (frontend) - 가장 마지막에 마운트 (catch-all)
+frontend_path = Path(__file__).parent.parent / "frontend"
+app.mount("/", StaticFiles(directory=frontend_path, html=True), name="frontend")
