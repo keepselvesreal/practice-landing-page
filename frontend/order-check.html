@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주문 조회 - Scout Sunscreen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .search-form {
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            color: #555;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .order-result {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .order-result.show {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .result-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .result-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 18px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .result-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .result-value {
+            color: #333;
+            font-weight: 600;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-paid {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .error-message {
+            display: none;
+            background: #f8d7da;
+            color: #721c24;
+            padding: 12px 16px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #f5c6cb;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            color: #667eea;
+            margin: 20px 0;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        .home-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .home-link a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .home-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 주문 조회</h1>
+        <p class="subtitle">주문 번호를 입력하여 주문 상태를 확인하세요</p>
+
+        <div class="error-message" id="errorMessage"></div>
+
+        <div class="search-form">
+            <div class="input-group">
+                <label for="orderNumber">주문 번호</label>
+                <input
+                    type="text"
+                    id="orderNumber"
+                    placeholder="예: ORD-12345678"
+                    value="ORD-12345678"
+                >
+            </div>
+            <button id="searchButton" onclick="searchOrder()">주문 조회</button>
+        </div>
+
+        <div class="loading" id="loading">
+            <p>조회 중...</p>
+        </div>
+
+        <div class="order-result" id="orderResult">
+            <div class="result-section">
+                <h3>📋 주문 정보</h3>
+                <div class="result-row">
+                    <span class="result-label">주문 번호</span>
+                    <span class="result-value" id="displayOrderNumber"></span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">주문 상태</span>
+                    <span class="result-value" id="orderStatus"></span>
+                </div>
+            </div>
+
+            <div class="result-section">
+                <h3>👤 구매자 정보</h3>
+                <div class="result-row">
+                    <span class="result-label">이름</span>
+                    <span class="result-value" id="customerName"></span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">이메일</span>
+                    <span class="result-value" id="customerEmail"></span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">전화번호</span>
+                    <span class="result-value" id="customerPhone"></span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">배송지</span>
+                    <span class="result-value" id="shippingAddress"></span>
+                </div>
+            </div>
+
+            <div class="result-section">
+                <h3>💰 주문 내역</h3>
+                <div class="result-row">
+                    <span class="result-label">수량</span>
+                    <span class="result-value" id="quantity"></span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">상품 금액</span>
+                    <span class="result-value" id="productAmount"></span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">배송비</span>
+                    <span class="result-value" id="shippingFee"></span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">총 금액</span>
+                    <span class="result-value" id="totalAmount"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="home-link">
+            <a href="index.html">← 홈으로 돌아가기</a>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE_URL = 'http://localhost:8000';
+
+        async function searchOrder() {
+            const orderNumber = document.getElementById('orderNumber').value.trim();
+            const errorMessage = document.getElementById('errorMessage');
+            const loading = document.getElementById('loading');
+            const orderResult = document.getElementById('orderResult');
+            const searchButton = document.getElementById('searchButton');
+
+            // 초기화
+            errorMessage.classList.remove('show');
+            orderResult.classList.remove('show');
+            loading.classList.add('show');
+            searchButton.disabled = true;
+
+            if (!orderNumber) {
+                showError('주문 번호를 입력해주세요.');
+                loading.classList.remove('show');
+                searchButton.disabled = false;
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/orders/${orderNumber}`);
+
+                if (!response.ok) {
+                    if (response.status === 404) {
+                        throw new Error('주문을 찾을 수 없습니다. 주문 번호를 확인해주세요.');
+                    }
+                    throw new Error('서버 오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
+                }
+
+                const order = await response.json();
+                displayOrder(order);
+
+            } catch (error) {
+                showError(error.message);
+            } finally {
+                loading.classList.remove('show');
+                searchButton.disabled = false;
+            }
+        }
+
+        function displayOrder(order) {
+            // 주문 정보
+            document.getElementById('displayOrderNumber').textContent = order.order_number;
+
+            const statusBadge = getStatusBadge(order.order_status);
+            document.getElementById('orderStatus').innerHTML = statusBadge;
+
+            // 구매자 정보
+            document.getElementById('customerName').textContent = order.customer_name;
+            document.getElementById('customerEmail').textContent = order.customer_email;
+            document.getElementById('customerPhone').textContent = order.customer_phone;
+            document.getElementById('shippingAddress').textContent = order.shipping_address;
+
+            // 주문 내역
+            document.getElementById('quantity').textContent = `${order.quantity}개`;
+            document.getElementById('productAmount').textContent = formatPrice(order.unit_price * order.quantity);
+            document.getElementById('shippingFee').textContent = formatPrice(order.shipping_fee);
+            document.getElementById('totalAmount').textContent = formatPrice(order.total_amount);
+
+            document.getElementById('orderResult').classList.add('show');
+        }
+
+        function getStatusBadge(status) {
+            const statusMap = {
+                'PAYMENT_PENDING': { text: '결제 대기', class: 'status-pending' },
+                'PAID': { text: '결제 완료', class: 'status-paid' },
+                'CANCELLED': { text: '취소됨', class: 'status-cancelled' },
+            };
+
+            const statusInfo = statusMap[status] || { text: status, class: 'status-pending' };
+            return `<span class="status-badge ${statusInfo.class}">${statusInfo.text}</span>`;
+        }
+
+        function formatPrice(centavos) {
+            const pesos = centavos / 100;
+            return `₱${pesos.toFixed(2)}`;
+        }
+
+        function showError(message) {
+            const errorMessage = document.getElementById('errorMessage');
+            errorMessage.textContent = message;
+            errorMessage.classList.add('show');
+        }
+
+        // Enter 키로 검색
+        document.getElementById('orderNumber').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchOrder();
+            }
+        });
+    </script>
+</body>
+</html>
