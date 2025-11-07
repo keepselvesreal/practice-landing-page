@@ -39,6 +39,7 @@ markers = [
     "e2e: End-to-end tests",
     "slow: Slow tests",
     "smoke: Smoke tests",
+    "learning: Learning tests for external services/libraries",
 ]
 addopts = [
     "-v",
