@@ -1,5 +1,24 @@
 """E2E 테스트용 conftest
 
-현재는 FastAPI TestClient를 사용하므로 Playwright fixture 불필요
-test_client fixture는 tests/conftest.py에 정의됨
+Playwright를 사용한 UI 레벨 E2E 테스트 설정
 """
+import pytest
+from playwright.sync_api import Page, Browser
+
+
+@pytest.fixture(scope="session")
+def browser_context_args(browser_context_args):
+    """브라우저 컨텍스트 설정"""
+    return {
+        **browser_context_args,
+        "viewport": {"width": 1280, "height": 720},
+    }
+
+
+@pytest.fixture(scope="function")
+def page(page: Page):
+    """Playwright page fixture
+
+    pytest-playwright가 자동으로 제공하는 page fixture를 그대로 사용
+    """
+    yield page
