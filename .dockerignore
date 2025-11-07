@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+env/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+
+# Documentation
+docs/
+references/
+records/
+
+# Frontend (백엔드 이미지에는 불필요)
+frontend/
+
+# Tests (프로덕션 이미지에는 불필요)
+tests/
+
+# CI/CD
+.github/
+
+# Misc
+*.md
+!README.md
+.env
+.firebaserc
+firebase.json
