@@ -24,6 +24,6 @@ app.include_router(orders_router)
 
 
 @app.get("/health")
-async def health_check():
+async def health_check() -> dict[str, str]:
     """헬스체크 엔드포인트"""
     return {"status": "ok"}
