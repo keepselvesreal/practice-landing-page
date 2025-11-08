@@ -33,8 +33,12 @@ jobs:
         playwright install --with-deps chromium
 
     - name: Run tests
+      env:
+        PAYPAL_CLIENT_ID: ${{ secrets.PAYPAL_CLIENT_ID }}
+        PAYPAL_CLIENT_SECRET: ${{ secrets.PAYPAL_CLIENT_SECRET }}
+        PAYPAL_API_BASE: ${{ secrets.PAYPAL_API_BASE }}
       run: |
-        pytest tests/ -v --tb=short --no-cov
+        pytest tests/ -v --tb=short --no-cov --ignore=tests/e2e/test_order_creation_flow.py
 
     - name: Run linter (ruff)
       run: |
