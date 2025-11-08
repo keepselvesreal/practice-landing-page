@@ -80,3 +80,43 @@ def test_customer_sees_product_information_on_landing_page(page: Page):
     expect(page.locator("#shipping_address")).to_be_visible()
     expect(page.locator("#quantity")).to_be_visible()
     expect(page.locator("#order_button")).to_be_visible()
+
+
+@pytest.mark.e2e
+def test_customer_cannot_order_more_than_available_stock(page: Page):
+    """⭐ 고객이 재고보다 많은 수량을 주문하면 에러 메시지를 본다
+
+    1-a 단계 Acceptance Test: 재고 차감 검증
+    Given: 재고가 10개 있는 상품
+    When: 고객이 15개 주문 시도
+    Then: 재고 부족 에러 메시지 표시
+    """
+    # Given: 랜딩 페이지 방문
+    page.goto("http://localhost:8000")
+
+    # When: 고객 정보 입력
+    page.fill("#customer_name", "Maria Santos")
+    page.fill("#customer_email", "maria.santos@example.com")
+    page.fill("#customer_phone", "+63-917-123-4567")
+    page.fill("#shipping_address", "123 Rizal Avenue, Makati City, Metro Manila 1200")
+
+    # NOTE: 현재 UI에는 재고 10개 이상 선택 불가 (select option max=10)
+    # 따라서 JavaScript로 새로운 option 추가하고 선택
+    page.evaluate("""
+        const selectEl = document.querySelector('#quantity');
+        const option = document.createElement('option');
+        option.value = '15';
+        option.text = '15';
+        selectEl.add(option);
+        selectEl.value = '15';
+
+        // change 이벤트 트리거 (총액 계산 업데이트)
+        selectEl.dispatchEvent(new Event('change'));
+    """)
+
+    page.click("#order_button")
+
+    # Then: 에러 메시지 표시 (재고 부족)
+    error_message = page.locator("#error-message")
+    expect(error_message).to_be_visible(timeout=3000)
+    expect(error_message).to_contain_text("Insufficient stock")

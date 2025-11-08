@@ -86,9 +86,20 @@ def test_create_order_with_invalid_quantity_returns_422(test_client: TestClient)
 
 @pytest.mark.integration
 def test_create_order_with_insufficient_stock_returns_409(test_client: TestClient):
-    """재고가 부족할 때 409 Conflict를 반환한다
+    """재고가 부족할 때 409 Conflict를 반환한다"""
+    # Given: 재고보다 많은 수량 주문 (현재 재고 10개)
+    order_data = {
+        "customer_name": "Maria Santos",
+        "customer_email": "maria.santos@example.com",
+        "customer_phone": "+63-917-123-4567",
+        "shipping_address": "123 Rizal Avenue, Makati City",
+        "product_id": 1,
+        "quantity": 15,  # ⭐ 재고(10개)보다 많은 수량
+    }
 
-    TODO: 이 테스트는 DB 연결 후 실제 재고 확인이 가능해지면 통과할 것
-    지금은 Skip 또는 Mock으로 처리
-    """
-    pytest.skip("재고 관리 기능은 DB 연결 후 구현 예정")
+    # When: 주문 생성 API 호출
+    response = test_client.post("/api/orders", json=order_data)
+
+    # Then: 409 Conflict
+    assert response.status_code == 409
+    assert "Insufficient stock" in response.json()["detail"]

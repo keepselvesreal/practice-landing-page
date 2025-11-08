@@ -3,6 +3,7 @@ import secrets
 from fastapi import APIRouter, HTTPException, status
 
 from backend.models.order import OrderCreate, OrderCreateResponse, OrderResponse
+from backend.models.product import Product
 from backend.services.payment import PayPalAdapter
 from backend.services.payment.payment_service import PaymentServiceError
 
@@ -10,6 +11,20 @@ router = APIRouter(prefix="/api/orders", tags=["orders"])
 
 # PayPal Adapter 인스턴스
 paypal_adapter = PayPalAdapter()
+
+# Mock 상품 데이터 (재고 관리)
+MOCK_PRODUCTS = {
+    1: Product(
+        id=1,
+        name="조선미녀 맑은쌀 선크림 50ml",
+        price=57500,  # 575 페소 (센타보)
+        stock=10,  # ⭐ 초기 재고 10개
+        description="Korean rice sunscreen"
+    )
+}
+
+# 배송비 (센타보)
+SHIPPING_FEE = 10000  # 100 페소
 
 # Mock 데이터 저장소 (필리핀 고객 가정)
 MOCK_ORDERS = {
@@ -40,19 +55,29 @@ async def create_order(order_data: OrderCreate) -> OrderCreateResponse:
     Returns:
         OrderCreateResponse: 주문 번호, PayPal 정보
 
-    TODO:
-        - DB에 주문 저장
-        - 실제 PayPal Order 생성
-        - 재고 확인
+    Raises:
+        HTTPException: 상품 없음(404), 재고 부족(409), PayPal 오류(503)
     """
     # 주문 번호 생성 (ORD-XXXXXXXX)
     order_number = f"ORD-{secrets.token_hex(4).upper()}"
 
+    # ⭐ 상품 조회
+    product = MOCK_PRODUCTS.get(order_data.product_id)
+    if not product:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Product {order_data.product_id} not found"
+        )
+
+    # ⭐ 재고 확인
+    if product.stock < order_data.quantity:
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail=f"Insufficient stock. Available: {product.stock}, Requested: {order_data.quantity}"
+        )
+
     # 총액 계산
-    # TODO: DB에서 상품 가격 조회
-    PRODUCT_PRICE = 57500  # 575 페소 (센타보)
-    SHIPPING_FEE = 10000  # 100 페소 (센타보)
-    total_amount = (PRODUCT_PRICE * order_data.quantity) + SHIPPING_FEE
+    total_amount = (product.price * order_data.quantity) + SHIPPING_FEE
 
     # PayPal Order 생성 (실제 PayPal SDK)
     try:
@@ -62,6 +87,9 @@ async def create_order(order_data: OrderCreate) -> OrderCreateResponse:
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
             detail=f"Payment service error: {str(e)}"
         )
+
+    # 🟢 재고 차감 (주문 생성 시 즉시 차감)
+    product.stock -= order_data.quantity
 
     return OrderCreateResponse(
         order_number=order_number,
