@@ -26,8 +26,11 @@ jobs:
 
     - name: Install dependencies
       run: |
-        uv pip install --system -r pyproject.toml
-        uv pip install --system pytest pytest-cov httpx
+        uv pip install --system .[test,dev]
+
+    - name: Install Playwright browsers
+      run: |
+        playwright install --with-deps chromium
 
     - name: Run tests
       run: |
@@ -35,12 +38,10 @@ jobs:
 
     - name: Run linter (ruff)
       run: |
-        uv pip install --system ruff
         ruff check backend/
 
     - name: Run type checker (mypy)
       run: |
-        uv pip install --system mypy
         mypy backend/ --ignore-missing-imports
       continue-on-error: true  # 타입 체크 실패해도 계속 진행
 
