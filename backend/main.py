@@ -1,5 +1,10 @@
 """FastAPI 메인 애플리케이션"""
 from pathlib import Path
+from dotenv import load_dotenv
+
+# ⭐ 모든 import보다 먼저 환경변수 로드 (orders.py의 PayPalAdapter 초기화 전)
+load_dotenv()
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles

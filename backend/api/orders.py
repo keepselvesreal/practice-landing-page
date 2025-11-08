@@ -3,8 +3,13 @@ import secrets
 from fastapi import APIRouter, HTTPException, status
 
 from backend.models.order import OrderCreate, OrderCreateResponse, OrderResponse
+from backend.services.payment import PayPalAdapter
+from backend.services.payment.payment_service import PaymentServiceError
 
 router = APIRouter(prefix="/api/orders", tags=["orders"])
+
+# PayPal Adapter 인스턴스
+paypal_adapter = PayPalAdapter()
 
 # Mock 데이터 저장소 (필리핀 고객 가정)
 MOCK_ORDERS = {
@@ -49,15 +54,19 @@ async def create_order(order_data: OrderCreate) -> OrderCreateResponse:
     SHIPPING_FEE = 10000  # 100 페소 (센타보)
     total_amount = (PRODUCT_PRICE * order_data.quantity) + SHIPPING_FEE
 
-    # TODO: PayPal Order 생성 (실제 PayPal SDK 호출)
-    # 지금은 Mock 데이터 반환
-    paypal_order_id = f"PAYPAL-{secrets.token_hex(8).upper()}"
-    approval_url = f"https://www.sandbox.paypal.com/checkoutnow?token={paypal_order_id}"
+    # PayPal Order 생성 (실제 PayPal SDK)
+    try:
+        paypal_result = paypal_adapter.create_order(amount=total_amount, currency="PHP")
+    except PaymentServiceError as e:
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail=f"Payment service error: {str(e)}"
+        )
 
     return OrderCreateResponse(
         order_number=order_number,
-        paypal_order_id=paypal_order_id,
-        approval_url=approval_url,
+        paypal_order_id=paypal_result.order_id,
+        approval_url=paypal_result.approval_url,
         total_amount=total_amount,
     )
 
