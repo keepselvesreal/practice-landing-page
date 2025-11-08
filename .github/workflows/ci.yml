@@ -32,13 +32,40 @@ jobs:
       run: |
         playwright install --with-deps chromium
 
+    - name: Start backend server
+      env:
+        PAYPAL_CLIENT_ID: ${{ secrets.PAYPAL_CLIENT_ID }}
+        PAYPAL_CLIENT_SECRET: ${{ secrets.PAYPAL_CLIENT_SECRET }}
+        PAYPAL_API_BASE: ${{ secrets.PAYPAL_API_BASE }}
+      run: |
+        uvicorn backend.main:app --host 0.0.0.0 --port 8000 &
+        echo $! > server.pid
+
+        # 서버가 준비될 때까지 대기 (최대 30초)
+        for i in {1..30}; do
+          if curl -s http://localhost:8000/health > /dev/null; then
+            echo "✅ Server is ready!"
+            break
+          fi
+          echo "⏳ Waiting for server... ($i/30)"
+          sleep 1
+        done
+
     - name: Run tests
       env:
         PAYPAL_CLIENT_ID: ${{ secrets.PAYPAL_CLIENT_ID }}
         PAYPAL_CLIENT_SECRET: ${{ secrets.PAYPAL_CLIENT_SECRET }}
         PAYPAL_API_BASE: ${{ secrets.PAYPAL_API_BASE }}
       run: |
-        pytest tests/ -v --tb=short --no-cov --ignore=tests/e2e/test_order_creation_flow.py
+        pytest tests/ -v --tb=short --no-cov
+
+    - name: Stop backend server
+      if: always()
+      run: |
+        if [ -f server.pid ]; then
+          kill $(cat server.pid) || true
+          rm server.pid
+        fi
 
     - name: Run linter (ruff)
       run: |

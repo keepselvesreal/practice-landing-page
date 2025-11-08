@@ -4,13 +4,14 @@ PayPal SDK를 우리 애플리케이션 인터페이스로 감싸는 얇은 Adap
 Outside-In TDD [8.2]: "가능한 얇게 유지 (테스트하기 어려운 코드 최소화)"
 """
 import os
-from paypalserversdk.paypal_serversdk_client import PaypalServersdkClient
-from paypalserversdk.http.auth.o_auth_2 import ClientCredentialsAuthCredentials
+
 from paypalserversdk.configuration import Environment
+from paypalserversdk.http.auth.o_auth_2 import ClientCredentialsAuthCredentials
+from paypalserversdk.paypal_serversdk_client import PaypalServersdkClient
 
 from backend.services.payment.payment_service import (
-    PaymentService,
     CreateOrderResult,
+    PaymentService,
     PaymentServiceError,
 )
 

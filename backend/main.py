@@ -1,15 +1,16 @@
 """FastAPI 메인 애플리케이션"""
 from pathlib import Path
+
 from dotenv import load_dotenv
 
 # ⭐ 모든 import보다 먼저 환경변수 로드 (orders.py의 PayPalAdapter 초기화 전)
 load_dotenv()
 
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
+from fastapi import FastAPI  # noqa: E402
+from fastapi.middleware.cors import CORSMiddleware  # noqa: E402
+from fastapi.staticfiles import StaticFiles  # noqa: E402
 
-from backend.api.orders import router as orders_router
+from backend.api.orders import router as orders_router  # noqa: E402
 
 app = FastAPI(
     title="Scout Landing Page API",

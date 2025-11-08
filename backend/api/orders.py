@@ -1,5 +1,6 @@
 """주문 관련 API 라우터"""
 import secrets
+
 from fastapi import APIRouter, HTTPException, status
 
 from backend.models.order import OrderCreate, OrderCreateResponse, OrderResponse
@@ -45,7 +46,9 @@ MOCK_ORDERS = {
 }
 
 
-@router.post("", response_model=OrderCreateResponse, status_code=status.HTTP_201_CREATED)
+@router.post(
+    "", response_model=OrderCreateResponse, status_code=status.HTTP_201_CREATED
+)
 async def create_order(order_data: OrderCreate) -> OrderCreateResponse:
     """주문 생성 및 PayPal 결제 URL 반환
 
@@ -73,7 +76,10 @@ async def create_order(order_data: OrderCreate) -> OrderCreateResponse:
     if product.stock < order_data.quantity:
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT,
-            detail=f"Insufficient stock. Available: {product.stock}, Requested: {order_data.quantity}"
+            detail=(
+                f"Insufficient stock. Available: {product.stock}, "
+                f"Requested: {order_data.quantity}"
+            ),
         )
 
     # 총액 계산
