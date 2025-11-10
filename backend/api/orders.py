@@ -97,6 +97,22 @@ async def create_order(order_data: OrderCreate) -> OrderCreateResponse:
     # 🟢 재고 차감 (주문 생성 시 즉시 차감)
     product.stock -= order_data.quantity
 
+    # 주문 데이터 저장 (Webhook에서 조회용)
+    MOCK_ORDERS[order_number] = OrderResponse(
+        order_number=order_number,
+        customer_name=order_data.customer_name,
+        customer_email=order_data.customer_email,
+        customer_phone=order_data.customer_phone,
+        shipping_address=order_data.shipping_address,
+        product_id=order_data.product_id,
+        quantity=order_data.quantity,
+        unit_price=product.price,
+        shipping_fee=SHIPPING_FEE,
+        total_amount=total_amount,
+        order_status="PAYMENT_PENDING",  # 초기 상태
+        affiliate_code=order_data.affiliate_code,
+    )
+
     return OrderCreateResponse(
         order_number=order_number,
         paypal_order_id=paypal_result.order_id,
