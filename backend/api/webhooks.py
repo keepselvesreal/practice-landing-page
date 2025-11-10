@@ -1,8 +1,11 @@
 """PayPal Webhook 처리"""
+import json
 import logging
+import os
 from typing import Any, Dict
 
 from fastapi import APIRouter, HTTPException, Request, status
+from paypalrestsdk import WebhookEvent
 
 from backend.api.orders import MOCK_ORDERS, MOCK_PRODUCTS
 from backend.services.email import send_order_confirmation_email
@@ -25,10 +28,49 @@ async def handle_paypal_webhook(request: Request) -> Dict[str, Any]:
         처리 결과
 
     Raises:
-        HTTPException: 주문 없음(404), 처리 실패(500)
+        HTTPException: 주문 없음(404), 서명 검증 실패(401)
     """
-    # Webhook 이벤트 수신
-    webhook_body = await request.json()
+    # 1. 헤더 추출
+    headers = dict(request.headers)
+
+    # 2. Request body 읽기 (서명 검증에 필요)
+    body_bytes = await request.body()
+    body_str = body_bytes.decode("utf-8")
+
+    # 3. 서명 검증
+    try:
+        webhook_id = os.getenv("PAYPAL_WEBHOOK_ID")
+
+        is_valid = WebhookEvent.verify(
+            transmission_id=headers.get("paypal-transmission-id"),
+            timestamp=headers.get("paypal-transmission-time"),
+            webhook_id=webhook_id,
+            event_body=body_str,
+            cert_url=headers.get("paypal-cert-url"),
+            actual_sig=headers.get("paypal-transmission-sig"),
+            auth_algo=headers.get("paypal-auth-algo"),
+        )
+
+        if not is_valid:
+            logger.warning("Webhook 서명 검증 실패")
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="Invalid webhook signature"
+            )
+
+    except HTTPException:
+        # 위에서 발생시킨 401 예외는 그대로 전달
+        raise
+    except Exception as e:
+        # 서명 검증 중 예외 발생 (네트워크 오류, 인증서 문제 등)
+        logger.error(f"Webhook 서명 검증 오류: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Signature verification failed"
+        )
+
+    # 4. 검증 통과 후 JSON 파싱
+    webhook_body = json.loads(body_str)
 
     event_type = webhook_body.get("event_type")
     resource = webhook_body.get("resource", {})

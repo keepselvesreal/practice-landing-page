@@ -12,3 +12,6 @@ __pycache__/
 # Project Specific
 data/
 logs/
+
+# PayPal Simulator fixtures (실제 데이터 포함 가능)
+tests/fixtures/paypal_simulator_*.json

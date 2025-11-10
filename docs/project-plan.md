@@ -1,8 +1,9 @@
 # Scout Landing Page MVP - Project Plan
 
-**Version**: 4
+**Version**: 5
 **Created**: 2025-11-07
-**Note**: 모듈화 구조 + 새 요구사항 반영 (배송비, 어필리에이트, 암호화, Gmail SMTP, 다국어)
+**Updated**: 2025-11-10
+**Note**: PayPal Webhook 처리 및 서명 검증 문서 추가
 
 ---
 
@@ -39,6 +40,18 @@
 ### 성능 및 이메일
 - [16-performance](16-performance.md) - 성능 요구사항
 - [17-email-templates](17-email-templates.md) - 이메일 템플릿
+
+### 보안 및 Webhook
+- [18-webhook-signature-verification](18-webhook-signature-verification.md) - Webhook 서명 검증
+
+---
+
+## 주요 변경사항 (v5)
+
+### Webhook 관련 추가
+- ✅ **PayPal Webhook 처리**: 결제 완료/실패 이벤트 수신 및 처리
+- ✅ **Webhook 서명 검증 문서**: 보안 메커니즘 설명 및 구현 가이드
+- ✅ **로컬 개발 환경**: Mock 테스트 vs ngrok 옵션 정리
 
 ---
 

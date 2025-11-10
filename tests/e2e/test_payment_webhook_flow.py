@@ -105,8 +105,11 @@ def test_customer_receives_email_after_successful_payment(
     # Webhook 이벤트에 주문 번호 설정
     sample_paypal_webhook_completed["resource"]["custom_id"] = order_number
 
-    # When: 이메일 발송 Mock (webhooks.py에서 import한 위치를 패치)
-    with patch("backend.api.webhooks.send_order_confirmation_email") as mock_send_email:
+    # When: 서명 검증 및 이메일 발송 Mock
+    with patch("backend.api.webhooks.WebhookEvent.verify") as mock_verify, \
+         patch("backend.api.webhooks.send_order_confirmation_email") as mock_send_email:
+
+        mock_verify.return_value = True
         mock_send_email.return_value = True
 
         # PayPal Webhook 호출
@@ -181,12 +184,15 @@ def test_stock_restored_when_payment_fails(
     # Webhook 이벤트에 주문 번호 설정
     sample_paypal_webhook_denied["resource"]["custom_id"] = order_number
 
-    # When: PayPal Webhook 호출 (결제 실패)
-    webhook_response = test_client.post(
-        "/webhooks/paypal",
-        json=sample_paypal_webhook_denied,
-        headers={"Content-Type": "application/json"}
-    )
+    # When: 서명 검증 Mock + PayPal Webhook 호출 (결제 실패)
+    with patch("backend.api.webhooks.WebhookEvent.verify") as mock_verify:
+        mock_verify.return_value = True
+
+        webhook_response = test_client.post(
+            "/webhooks/paypal",
+            json=sample_paypal_webhook_denied,
+            headers={"Content-Type": "application/json"}
+        )
 
     # Then: Webhook 성공
     assert webhook_response.status_code == 200
@@ -237,7 +243,10 @@ def test_webhook_ignores_duplicate_events(
         }
     }
 
-    with patch("backend.api.webhooks.send_order_confirmation_email") as mock_send_email:
+    with patch("backend.api.webhooks.WebhookEvent.verify") as mock_verify, \
+         patch("backend.api.webhooks.send_order_confirmation_email") as mock_send_email:
+
+        mock_verify.return_value = True
         mock_send_email.return_value = True
 
         # 첫 번째 Webhook 호출
