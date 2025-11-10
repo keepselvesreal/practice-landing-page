@@ -20,7 +20,7 @@ def sample_order():
     return OrderResponse(
         order_number="ORD-20251110-ABC123",
         customer_name="홍길동",
-        customer_email=os.getenv("GMAIL_ADDRESS"),  # 테스트용으로 자기 자신에게 발송
+        customer_email=os.getenv("GMAIL_ADDRESS", "test@example.com"),  # 환경변수 없으면 기본값
         customer_phone="010-1234-5678",
         shipping_address="서울특별시 강남구 테헤란로 123",
         product_id=1,
