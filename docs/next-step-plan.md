@@ -40,12 +40,12 @@
   2. 관리자 배송 관리 API
     - PATCH /admin/shipments/{id} - 배송 상태 업데이트
     - POST /admin/shipments/{id}/tracking - 운송장 등록
-  3. 배송 완료 이메일
+  3. 발송 완료 이메일
     - DELIVERED 상태 전환 시 자동 발송
     - 운송장 번호 포함
   4. 테스트
     - 배송 상태 전환 플로우
-    - 배송 완료 이메일 발송
+    - 발송 완료 이메일 발송
 
   예상 작업 시간: 2-3시간
 

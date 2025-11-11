@@ -12,6 +12,7 @@ from fastapi.staticfiles import StaticFiles  # noqa: E402
 
 from backend.api.orders import router as orders_router  # noqa: E402
 from backend.api.webhooks import router as webhooks_router  # noqa: E402
+from backend.api.admin import router as admin_router  # noqa: E402
 
 app = FastAPI(
     title="Scout Landing Page API",
@@ -38,6 +39,7 @@ async def health_check() -> dict[str, str]:
 # 라우터 등록
 app.include_router(orders_router)
 app.include_router(webhooks_router)
+app.include_router(admin_router)
 
 # 정적 파일 서빙 (frontend) - 가장 마지막에 마운트 (catch-all)
 frontend_path = Path(__file__).parent.parent / "frontend"
