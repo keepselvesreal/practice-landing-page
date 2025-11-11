@@ -5,6 +5,9 @@ import pytest
 from typing import Generator
 from fastapi.testclient import TestClient
 from dotenv import load_dotenv
+from aiosmtpd.controller import Controller
+from aiosmtpd.handlers import Message
+import asyncio
 
 # .env 파일 로드
 env_path = Path(__file__).parent.parent / ".env"
@@ -119,3 +122,31 @@ def test_data(db_session):
         "order": order,
         "shipment": shipment
     }
+
+
+class MockSMTPHandler:
+    """Mock SMTP 핸들러 - 이메일 수신 저장"""
+
+    def __init__(self):
+        self.messages = []
+
+    async def handle_DATA(self, server, session, envelope):
+        """이메일 데이터 수신"""
+        self.messages.append({
+            "from": envelope.mail_from,
+            "to": envelope.rcpt_tos,
+            "data": envelope.content.decode('utf-8', errors='replace')
+        })
+        return '250 Message accepted for delivery'
+
+
+@pytest.fixture
+def smtp_mock():
+    """Mock SMTP 서버 (localhost:1025)"""
+    handler = MockSMTPHandler()
+    controller = Controller(handler, hostname="localhost", port=1025)
+    controller.start()
+
+    yield handler
+
+    controller.stop()
