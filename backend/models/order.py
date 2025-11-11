@@ -1,5 +1,6 @@
 """주문 관련 Pydantic 모델"""
 from pydantic import BaseModel, EmailStr, Field
+from datetime import datetime
 
 
 class OrderCreate(BaseModel):
@@ -23,6 +24,16 @@ class OrderCreateResponse(BaseModel):
     total_amount: int  # 센타보 단위
 
 
+class ShipmentResponse(BaseModel):
+    """배송 정보 응답 모델"""
+
+    shipping_status: str
+    tracking_number: str | None = None
+    courier: str | None = None
+    shipped_at: datetime | None = None
+    delivered_at: datetime | None = None
+
+
 class OrderResponse(BaseModel):
     """주문 조회 응답 모델"""
 
@@ -38,3 +49,4 @@ class OrderResponse(BaseModel):
     total_amount: int  # 센타보 단위
     order_status: str
     affiliate_code: str | None = None
+    shipment: ShipmentResponse | None = None  # 배송 정보 (없을 수 있음)

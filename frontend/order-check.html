@@ -172,6 +172,31 @@
             color: #0c5460;
         }
 
+        .status-preparing {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-shipped {
+            background: #cfe2ff;
+            color: #084298;
+        }
+
+        .status-delivered {
+            background: #d1e7dd;
+            color: #0f5132;
+        }
+
+        .info-message {
+            color: #666;
+            font-size: 14px;
+            margin-top: 10px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            text-align: center;
+        }
+
         .error-message {
             display: none;
             background: #f8d7da;
@@ -289,6 +314,65 @@
                     <span class="result-value" id="totalAmount"></span>
                 </div>
             </div>
+
+            <div class="result-section" id="shippingSection">
+                <h3>🚚 배송 정보</h3>
+
+                <!-- 케이스 1: 배송 준비 중 (PREPARING or NULL) -->
+                <div id="shippingPreparing">
+                    <div class="result-row">
+                        <span class="result-label">배송 상태</span>
+                        <span class="result-value">
+                            <span class="status-badge status-preparing">배송 준비 중</span>
+                        </span>
+                    </div>
+                    <p class="info-message">아직 발송되지 않았습니다.</p>
+                </div>
+
+                <!-- 케이스 2: 발송됨 (SHIPPED) -->
+                <div id="shippingShipped" style="display: none;">
+                    <div class="result-row">
+                        <span class="result-label">배송 상태</span>
+                        <span class="result-value">
+                            <span class="status-badge status-shipped">배송 중</span>
+                        </span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-label">택배사</span>
+                        <span class="result-value" id="courier"></span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-label">운송장 번호</span>
+                        <span class="result-value" id="trackingNumber"></span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-label">발송 일시</span>
+                        <span class="result-value" id="shippedAt"></span>
+                    </div>
+                </div>
+
+                <!-- 케이스 3: 배송 완료 (DELIVERED) -->
+                <div id="shippingDelivered" style="display: none;">
+                    <div class="result-row">
+                        <span class="result-label">배송 상태</span>
+                        <span class="result-value">
+                            <span class="status-badge status-delivered">배송 완료</span>
+                        </span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-label">택배사</span>
+                        <span class="result-value" id="courierDelivered"></span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-label">운송장 번호</span>
+                        <span class="result-value" id="trackingNumberDelivered"></span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-label">배송 완료 일시</span>
+                        <span class="result-value" id="deliveredAt"></span>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="home-link">
@@ -359,7 +443,53 @@
             document.getElementById('shippingFee').textContent = formatPrice(order.shipping_fee);
             document.getElementById('totalAmount').textContent = formatPrice(order.total_amount);
 
+            // 배송 정보 표시
+            displayShippingInfo(order.shipment);
+
             document.getElementById('orderResult').classList.add('show');
+        }
+
+        function displayShippingInfo(shipment) {
+            // 모든 배송 섹션 숨기기
+            document.getElementById('shippingPreparing').style.display = 'none';
+            document.getElementById('shippingShipped').style.display = 'none';
+            document.getElementById('shippingDelivered').style.display = 'none';
+
+            // shipment가 없거나 PREPARING 상태
+            if (!shipment || shipment.shipping_status === 'PREPARING') {
+                document.getElementById('shippingPreparing').style.display = 'block';
+                return;
+            }
+
+            // SHIPPED 상태
+            if (shipment.shipping_status === 'SHIPPED') {
+                document.getElementById('shippingShipped').style.display = 'block';
+                document.getElementById('courier').textContent = shipment.courier;
+                document.getElementById('trackingNumber').textContent = shipment.tracking_number;
+                document.getElementById('shippedAt').textContent = formatDateTime(shipment.shipped_at);
+                return;
+            }
+
+            // DELIVERED 상태
+            if (shipment.shipping_status === 'DELIVERED') {
+                document.getElementById('shippingDelivered').style.display = 'block';
+                document.getElementById('courierDelivered').textContent = shipment.courier;
+                document.getElementById('trackingNumberDelivered').textContent = shipment.tracking_number;
+                document.getElementById('deliveredAt').textContent = formatDateTime(shipment.delivered_at);
+                return;
+            }
+        }
+
+        function formatDateTime(isoString) {
+            if (!isoString) return '-';
+            const date = new Date(isoString);
+            return date.toLocaleString('ko-KR', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
         }
 
         function getStatusBadge(status) {

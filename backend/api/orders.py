@@ -1,12 +1,16 @@
 """주문 관련 API 라우터"""
 import secrets
 
-from fastapi import APIRouter, HTTPException, status
+from fastapi import APIRouter, HTTPException, status, Depends
+from sqlalchemy.orm import Session
 
-from backend.models.order import OrderCreate, OrderCreateResponse, OrderResponse
+from backend.models.order import OrderCreate, OrderCreateResponse, OrderResponse, ShipmentResponse
 from backend.models.product import Product
+from backend.models.db import OrderDB, ShipmentDB
 from backend.services.payment import PayPalAdapter
 from backend.services.payment.payment_service import PaymentServiceError
+from backend.db.base import get_db
+from backend.utils.encryption import decrypt
 
 router = APIRouter(prefix="/api/orders", tags=["orders"])
 
@@ -122,21 +126,56 @@ async def create_order(order_data: OrderCreate) -> OrderCreateResponse:
 
 
 @router.get("/{order_number}", response_model=OrderResponse)
-async def get_order(order_number: str) -> OrderResponse:
+async def get_order(order_number: str, db: Session = Depends(get_db)) -> OrderResponse:
     """주문 번호로 주문 조회
 
     Args:
         order_number: 주문 번호 (예: ORD-12345678)
+        db: DB 세션
 
     Returns:
-        OrderResponse: 주문 정보
+        OrderResponse: 주문 정보 (배송 정보 포함)
 
     Raises:
         HTTPException: 주문을 찾을 수 없는 경우 404
     """
-    if order_number not in MOCK_ORDERS:
+    # DB에서 주문 조회 (shipment LEFT JOIN)
+    order = db.query(OrderDB).filter(OrderDB.order_number == order_number).first()
+
+    if not order:
         raise HTTPException(
             status_code=404, detail=f"Order {order_number} not found"
         )
 
-    return MOCK_ORDERS[order_number]
+    # 고객 정보 복호화
+    decrypted_name = decrypt(order.customer_name)
+    decrypted_email = decrypt(order.customer_email)
+    decrypted_phone = decrypt(order.customer_phone)
+    decrypted_address = decrypt(order.shipping_address)
+
+    # Shipment 정보 변환
+    shipment_response = None
+    if order.shipment:
+        shipment_response = ShipmentResponse(
+            shipping_status=order.shipment.shipping_status,
+            tracking_number=order.shipment.tracking_number,
+            courier=order.shipment.courier,
+            shipped_at=order.shipment.shipped_at,
+            delivered_at=order.shipment.delivered_at
+        )
+
+    return OrderResponse(
+        order_number=order.order_number,
+        customer_name=decrypted_name,
+        customer_email=decrypted_email,
+        customer_phone=decrypted_phone,
+        shipping_address=decrypted_address,
+        product_id=order.product_id,
+        quantity=order.quantity,
+        unit_price=order.unit_price,
+        shipping_fee=order.shipping_fee,
+        total_amount=order.total_amount,
+        order_status=order.order_status,
+        affiliate_code=order.affiliate_code,
+        shipment=shipment_response
+    )
