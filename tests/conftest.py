@@ -22,20 +22,13 @@ def base_url() -> str:
 
 
 @pytest.fixture(scope="function")
-def test_client() -> Generator[TestClient, None, None]:
-    """FastAPI TestClient fixture"""
-    from backend.main import app
-
-    yield TestClient(app)
-
-
-@pytest.fixture(scope="function")
 def db_session():
     """테스트용 DB 세션 (각 테스트마다 초기화)"""
     from sqlalchemy import create_engine
     from sqlalchemy.orm import sessionmaker
     from backend.db.base import Base
     from backend.db.base import get_db
+    from backend.main import app
 
     TEST_DATABASE_URL = os.getenv("TEST_DATABASE_URL")
     if not TEST_DATABASE_URL:
@@ -49,24 +42,35 @@ def db_session():
 
     # 세션 생성
     SessionLocal = sessionmaker(bind=engine)
-    session = SessionLocal()
+    test_session = SessionLocal()
 
     # FastAPI app의 DB dependency 오버라이드
-    from backend.main import app
     def override_get_db():
         try:
-            yield session
+            yield test_session
         finally:
             pass
     app.dependency_overrides[get_db] = override_get_db
 
-    yield session
+    yield test_session
 
     # Teardown: 세션 종료 및 테이블 삭제
-    session.close()
+    test_session.close()
     Base.metadata.drop_all(bind=engine)
     engine.dispose()
     app.dependency_overrides.clear()
+
+
+@pytest.fixture(scope="function")
+def test_client(db_session) -> Generator[TestClient, None, None]:
+    """FastAPI TestClient fixture (테스트 DB 사용)
+
+    db_session을 먼저 생성해서 dependency override를 설정한 후 TestClient 생성
+    """
+    from backend.main import app
+
+    # db_session fixture가 이미 dependency override를 설정함
+    yield TestClient(app)
 
 
 @pytest.fixture

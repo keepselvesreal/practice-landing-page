@@ -85,15 +85,18 @@ def test_create_order_with_invalid_quantity_returns_422(test_client: TestClient)
 
 
 @pytest.mark.integration
-def test_create_order_with_insufficient_stock_returns_409(test_client: TestClient):
+def test_create_order_with_insufficient_stock_returns_409(test_client: TestClient, test_data):
     """재고가 부족할 때 409 Conflict를 반환한다"""
-    # Given: 재고보다 많은 수량 주문 (현재 재고 10개)
+    # Given: test_data의 product (재고 10개)
+    product = test_data["product"]
+
+    # 재고보다 많은 수량 주문
     order_data = {
         "customer_name": "Maria Santos",
         "customer_email": "maria.santos@example.com",
         "customer_phone": "+63-917-123-4567",
         "shipping_address": "123 Rizal Avenue, Makati City",
-        "product_id": 1,
+        "product_id": product.id,
         "quantity": 15,  # ⭐ 재고(10개)보다 많은 수량
     }
 

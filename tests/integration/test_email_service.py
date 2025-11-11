@@ -33,7 +33,7 @@ def sample_order():
     )
 
 
-def test_send_order_confirmation_email(sample_order):
+def test_send_order_confirmation_email(sample_order, smtp_mock):
     """주문 확인 이메일 발송 테스트
 
     Given: 주문 정보가 있을 때
@@ -49,6 +49,9 @@ def test_send_order_confirmation_email(sample_order):
 
     # Then: 발송 성공
     assert result is True, "이메일 발송이 실패했습니다"
+
+    # Mock SMTP가 이메일을 받았는지 확인
+    assert len(smtp_mock.messages) > 0, "Mock SMTP가 이메일을 받지 못했습니다"
 
     print(f"\n✓ 주문 확인 이메일 발송 성공")
     print(f"  수신자: {sample_order.customer_email}")

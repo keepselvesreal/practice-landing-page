@@ -6,11 +6,11 @@ from sqlalchemy.orm import Session
 
 from backend.models.order import OrderCreate, OrderCreateResponse, OrderResponse, ShipmentResponse
 from backend.models.product import Product
-from backend.models.db import OrderDB, ShipmentDB
+from backend.models.db import OrderDB, ShipmentDB, ProductDB
 from backend.services.payment import PayPalAdapter
 from backend.services.payment.payment_service import PaymentServiceError
 from backend.db.base import get_db
-from backend.utils.encryption import decrypt
+from backend.utils.encryption import decrypt, encrypt
 
 router = APIRouter(prefix="/api/orders", tags=["orders"])
 
@@ -53,11 +53,15 @@ MOCK_ORDERS = {
 @router.post(
     "", response_model=OrderCreateResponse, status_code=status.HTTP_201_CREATED
 )
-async def create_order(order_data: OrderCreate) -> OrderCreateResponse:
+async def create_order(
+    order_data: OrderCreate,
+    db: Session = Depends(get_db)
+) -> OrderCreateResponse:
     """주문 생성 및 PayPal 결제 URL 반환
 
     Args:
         order_data: 주문 정보
+        db: DB 세션
 
     Returns:
         OrderCreateResponse: 주문 번호, PayPal 정보
@@ -68,8 +72,8 @@ async def create_order(order_data: OrderCreate) -> OrderCreateResponse:
     # 주문 번호 생성 (ORD-XXXXXXXX)
     order_number = f"ORD-{secrets.token_hex(4).upper()}"
 
-    # ⭐ 상품 조회
-    product = MOCK_PRODUCTS.get(order_data.product_id)
+    # ⭐ DB에서 상품 조회
+    product = db.query(ProductDB).filter(ProductDB.id == order_data.product_id).first()
     if not product:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -101,21 +105,33 @@ async def create_order(order_data: OrderCreate) -> OrderCreateResponse:
     # 🟢 재고 차감 (주문 생성 시 즉시 차감)
     product.stock -= order_data.quantity
 
-    # 주문 데이터 저장 (Webhook에서 조회용)
-    MOCK_ORDERS[order_number] = OrderResponse(
+    # 주문 데이터를 DB에 저장 (고객 정보 암호화)
+    order_db = OrderDB(
         order_number=order_number,
-        customer_name=order_data.customer_name,
-        customer_email=order_data.customer_email,
-        customer_phone=order_data.customer_phone,
-        shipping_address=order_data.shipping_address,
+        customer_name=encrypt(order_data.customer_name),
+        customer_email=encrypt(order_data.customer_email),
+        customer_phone=encrypt(order_data.customer_phone),
+        shipping_address=encrypt(order_data.shipping_address),
         product_id=order_data.product_id,
         quantity=order_data.quantity,
         unit_price=product.price,
         shipping_fee=SHIPPING_FEE,
         total_amount=total_amount,
-        order_status="PAYMENT_PENDING",  # 초기 상태
         affiliate_code=order_data.affiliate_code,
+        paypal_order_id=paypal_result.order_id,
+        order_status="PAYMENT_PENDING",  # 초기 상태
     )
+    db.add(order_db)
+    db.flush()  # ID 생성을 위해 flush
+
+    # 배송 정보 생성
+    shipment_db = ShipmentDB(
+        order_id=order_db.id,
+        shipping_status="PREPARING",
+    )
+    db.add(shipment_db)
+
+    db.commit()
 
     return OrderCreateResponse(
         order_number=order_number,
