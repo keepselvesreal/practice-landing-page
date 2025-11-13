@@ -1,20 +1,48 @@
 # Python
 __pycache__/
+*.py[cod]
+*$py.class
+*.so
 
-# Virtual Environment
+# Virtual Environment (uv)
 .venv/
+venv/
 
 # Environment Variables
 .env
+.env.local
+.env.*.local
 
 # IDE
+.vscode/
+.idea/
+*.swp
+*.swo
 
-# Project Specific
-data/
-logs/
-
-# PayPal Simulator fixtures (실제 데이터 포함 가능)
-tests/fixtures/paypal_simulator_*.json
-
-# 코드 커버리지 파일 제외
+# Testing
+.pytest_cache/
 .coverage
+htmlcov/
+.tox/
+
+# Code Quality Tools
+.mypy_cache/
+.ruff_cache/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build
+dist/
+build/
+*.egg-info/

@@ -1,13 +1,14 @@
+# Git
+.git/
+.gitignore
+.gitattributes
+
 # Python
 __pycache__/
 *.py[cod]
 *$py.class
-*.so
-.Python
 .venv/
 venv/
-ENV/
-env/
 
 # Testing
 .pytest_cache/
@@ -15,32 +16,39 @@ env/
 htmlcov/
 .mypy_cache/
 .ruff_cache/
-
-# Git
-.git/
-.gitignore
+tests/
 
 # IDE
 .vscode/
 .idea/
+*.swp
+*.swo
 
 # Documentation
 docs/
-references/
-records/
-
-# Frontend (백엔드 이미지에는 불필요)
-frontend/
-
-# Tests (프로덕션 이미지에는 불필요)
-tests/
+*.md
+!README.md
 
 # CI/CD
 .github/
 
-# Misc
-*.md
-!README.md
+# Environment
 .env
+.env.*
+
+# Firebase
 .firebaserc
 firebase.json
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
