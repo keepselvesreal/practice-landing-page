@@ -44,6 +44,7 @@
 
   2.1 프로젝트 구조
 
+  ```
   practice-landing-page/
   ├── frontend/
   │   ├── index.html
@@ -66,6 +67,7 @@
   │   └── workflows/
   │       └── walking-skeleton.yml
   └── scripts/                 # (선택) 로컬 실행 스크립트
+  ```
 
   2.2 로컬 개발 환경
 
@@ -194,6 +196,7 @@
 
   3.2 워킹 스켈레톤용 DB 스키마
 
+  ```sql
   -- alembic/versions/001_initial_schema.py 내용
   CREATE TABLE orders (
       id SERIAL PRIMARY KEY,
@@ -214,11 +217,13 @@
       status VARCHAR(20) NOT NULL,  -- 'sent', 'failed'
       created_at TIMESTAMP DEFAULT NOW()
   );
+  ```
 
   3.3 스키마 적용 방법
 
-  Phase 1: 최초 설정 (수동)
+  **Phase 1: 최초 설정 (수동)**
 
+  ```bash
   # 1. Cloud SQL 인스턴스 생성
   gcloud sql instances create kbeauty-db ...
 
@@ -234,8 +239,9 @@
   # 4. 최초 마이그레이션 생성 및 적용
   alembic revision --autogenerate -m "initial schema"
   alembic upgrade head
+  ```
 
-  Phase 2: 이후 변경 (자동)
+  **Phase 2: 이후 변경 (자동)**
 
   - Alembic + GitHub Actions
   - 코드 배포 시 자동으로 마이그레이션 실행
@@ -244,6 +250,7 @@
 
   3.4.1 GitHub Actions 워크플로우 구조
 
+  ```yaml
   # .github/workflows/walking-skeleton.yml
   name: Walking Skeleton - Build, Deploy, Test
 
@@ -265,9 +272,11 @@
         7. Frontend Firebase 배포
         8. 배포 완료 대기
         9. E2E 테스트 실행 (배포된 URL)
+  ```
 
   3.4.2 배포 플로우
 
+  ```
   GitHub Push
     ↓
   GitHub Actions
@@ -277,12 +286,19 @@
   3. 마이그레이션 실행 (배포된 환경)
   4. Frontend 배포 (Firebase)
   5. E2E 테스트 (https://kbeauty-landing-page.web.app)
+  ```
 
   3.4.3 검증 항목 [4.2, p.32]
 
-  ✅ 빌드 가능한가? (Docker 이미지)✅ 배포 가능한가? (Cloud Run, Firebase)✅ Cloud SQL 연결되는가?✅
-   마이그레이션 동작하는가?✅ Firebase → Cloud Run 프록시 동작하는가?✅ Gmail SMTP 동작하는가?✅
-  Google Places API 동작하는가?✅ PayPal SDK 동작하는가?✅ 전체 플로우 동작하는가?
+  - ✅ 빌드 가능한가? (Docker 이미지)
+  - ✅ 배포 가능한가? (Cloud Run, Firebase)
+  - ✅ Cloud SQL 연결되는가?
+  - ✅ 마이그레이션 동작하는가?
+  - ✅ Firebase → Cloud Run 프록시 동작하는가?
+  - ✅ Gmail SMTP 동작하는가?
+  - ✅ Google Places API 동작하는가?
+  - ✅ PayPal SDK 동작하는가?
+  - ✅ 전체 플로우 동작하는가?
 
   3.5 작업 목록
 
