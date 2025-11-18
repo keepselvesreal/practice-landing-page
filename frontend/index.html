@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-Beauty Landing Page</title>
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Runtime Configuration Loader -->
+    <script>
+        // Load configuration from backend API
+        window.configPromise = (async function() {
+            try {
+                const apiBaseUrl = window.location.hostname === 'localhost'
+                    ? 'http://localhost:8000'
+                    : '';
+
+                const response = await fetch(`${apiBaseUrl}/api/config`);
+                if (!response.ok) {
+                    throw new Error(`Config load failed: ${response.status}`);
+                }
+
+                const config = await response.json();
+                window.ENV = {
+                    GOOGLE_PLACES_API_KEY: config.google_places_api_key,
+                    PAYPAL_CLIENT_ID: config.paypal_client_id
+                };
+
+                console.log('✓ Configuration loaded from API');
+
+                // Load external SDKs after config is ready
+                return Promise.all([
+                    loadGooglePlacesSDK(),
+                    loadPayPalSDK()
+                ]);
+
+            } catch (error) {
+                console.error('Failed to load configuration:', error);
+                throw error;
+            }
+        })();
+
+        function loadGooglePlacesSDK() {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = `https://maps.googleapis.com/maps/api/js?key=${window.ENV.GOOGLE_PLACES_API_KEY}&libraries=places`;
+                script.onload = () => {
+                    console.log('✓ Google Places SDK loaded');
+                    resolve();
+                };
+                script.onerror = reject;
+                document.head.appendChild(script);
+            });
+        }
+
+        function loadPayPalSDK() {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = `https://www.paypal.com/sdk/js?client-id=${window.ENV.PAYPAL_CLIENT_ID}&currency=USD`;
+                script.onload = () => {
+                    console.log('✓ PayPal SDK loaded');
+                    resolve();
+                };
+                script.onerror = reject;
+                document.head.appendChild(script);
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>K-Beauty 제품 주문</h1>
+            <p>최고급 한국 화장품을 만나보세요</p>
+        </header>
+
+        <main>
+            <form id="orderForm" class="order-form">
+                <div class="form-group">
+                    <label for="customerName">이름 *</label>
+                    <input
+                        type="text"
+                        id="customerName"
+                        name="customerName"
+                        required
+                        placeholder="Juan dela Cruz"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="email">이메일 *</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        placeholder="juan.delacruz@gmail.com"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">전화번호 *</label>
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        required
+                        placeholder="+63 917 123 4567"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="address">배송 주소 *</label>
+                    <input
+                        type="text"
+                        id="address"
+                        name="address"
+                        required
+                        placeholder="Makati City, Metro Manila, Philippines"
+                        autocomplete="off"
+                    >
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="paymentButton" class="btn-primary">
+                        결제하기
+                    </button>
+                </div>
+            </form>
+
+            <!-- PayPal 버튼 컨테이너 -->
+            <div id="paypal-button-container" style="display: none;"></div>
+
+            <!-- 로딩 인디케이터 -->
+            <div id="loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>처리 중...</p>
+            </div>
+
+            <!-- 에러 메시지 -->
+            <div id="errorMessage" class="error-message" style="display: none;"></div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 K-Beauty. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
