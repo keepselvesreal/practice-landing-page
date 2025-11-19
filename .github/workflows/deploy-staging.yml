@@ -43,30 +43,11 @@ jobs:
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v2
 
-      - name: Build and push backend image
+      - name: Build and deploy backend with Cloud Build
         run: |
           gcloud builds submit backend/ \
-            --tag gcr.io/${{ secrets.GCP_PROJECT_ID }}/kbeauty-backend-staging \
-            --suppress-logs
-
-      - name: Deploy backend to Cloud Run
-        run: |
-          gcloud run deploy kbeauty-api \
-            --image gcr.io/${{ secrets.GCP_PROJECT_ID }}/kbeauty-backend-staging \
-            --platform managed \
-            --region asia-northeast3 \
-            --allow-unauthenticated \
-            --port 8000 \
-            --add-cloudsql-instances kbeauty-landing-page:asia-northeast3:kbeauty-db \
-            --set-env-vars "DATABASE_URL=${{ secrets.DATABASE_URL }}" \
-            --set-env-vars "GMAIL_ADDRESS=${{ secrets.GMAIL_ADDRESS }}" \
-            --set-env-vars "GMAIL_APP_PASSWORD=${{ secrets.GMAIL_APP_PASSWORD }}" \
-            --set-env-vars "SMTP_HOST=${{ secrets.SMTP_HOST }}" \
-            --set-env-vars "SMTP_PORT=${{ secrets.SMTP_PORT }}" \
-            --set-env-vars "GOOGLE_PLACES_API_KEY=${{ secrets.GOOGLE_PLACES_API_KEY }}" \
-            --set-env-vars "PAYPAL_CLIENT_ID=${{ secrets.PAYPAL_CLIENT_ID }}" \
-            --set-env-vars "PAYPAL_CLIENT_SECRET=${{ secrets.PAYPAL_CLIENT_SECRET }}" \
-            --set-env-vars "PAYPAL_API_BASE=${{ secrets.PAYPAL_API_BASE }}"
+            --config=backend/cloudbuild.yaml \
+            --substitutions="_DATABASE_URL=${{ secrets.DATABASE_URL }},_GMAIL_ADDRESS=${{ secrets.GMAIL_ADDRESS }},_GMAIL_APP_PASSWORD=${{ secrets.GMAIL_APP_PASSWORD }},_SMTP_HOST=${{ secrets.SMTP_HOST }},_SMTP_PORT=${{ secrets.SMTP_PORT }},_GOOGLE_PLACES_API_KEY=${{ secrets.GOOGLE_PLACES_API_KEY }},_PAYPAL_CLIENT_ID=${{ secrets.PAYPAL_CLIENT_ID }},_PAYPAL_CLIENT_SECRET=${{ secrets.PAYPAL_CLIENT_SECRET }},_PAYPAL_API_BASE=${{ secrets.PAYPAL_API_BASE }}"
 
       # 옵션 2: AWS ECS/Fargate 배포 (예시)
       # - name: Configure AWS credentials
