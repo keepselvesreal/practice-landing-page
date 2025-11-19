@@ -38,6 +38,10 @@ steps:
       - '--set-env-vars=PAYPAL_API_BASE=${_PAYPAL_API_BASE}'
     id: 'deploy-cloud-run'
 
+# 로그를 Cloud Logging에만 저장 (Storage bucket 사용 안 함)
+options:
+  logging: CLOUD_LOGGING_ONLY
+
 # 빌드된 이미지
 images:
   - 'gcr.io/$PROJECT_ID/kbeauty-backend-staging'
