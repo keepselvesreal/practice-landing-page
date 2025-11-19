@@ -84,7 +84,7 @@ def postgres_container(test_env):
         '-e', 'POSTGRES_DB=kbeauty_test',
         '-e', 'POSTGRES_USER=test_user',
         '-e', 'POSTGRES_PASSWORD=test_pass',
-        '-p', '5433:5432',  # Use different port to avoid conflict
+        '-p', '5432:5432',  # Use default port (local postgres removed)
         'postgres:15'
     ], check=True)
 
@@ -94,7 +94,7 @@ def postgres_container(test_env):
 
     # Run migrations
     print("Running database migrations...")
-    os.environ['DATABASE_URL'] = 'postgresql://test_user:test_pass@localhost:5433/kbeauty_test'
+    os.environ['DATABASE_URL'] = 'postgresql://test_user:test_pass@localhost:5432/kbeauty_test'
     backend_path = os.path.join(os.path.dirname(__file__), '..', '..')
     subprocess.run(['uv', 'run', 'alembic', 'upgrade', 'head'], cwd=backend_path, check=True)
 
@@ -227,9 +227,12 @@ def cleanup_database(test_env, postgres_container):
 
     # Get database URL based on environment
     if test_env == 'local':
-        db_url = 'postgresql://test_user:test_pass@localhost:5433/kbeauty_test'
+        # Local: conftest.py starts postgres on port 5432
+        db_url = 'postgresql://test_user:test_pass@localhost:5432/kbeauty_test'
     elif test_env == 'docker':
-        db_url = 'postgresql://test_user:test_pass@localhost:5433/kbeauty_test'
+        # Docker: docker-compose uses POSTGRES_PORT env var
+        postgres_port = os.getenv('POSTGRES_PORT', '5432')
+        db_url = f'postgresql://test_user:test_pass@localhost:{postgres_port}/kbeauty_test'
     else:
         return
 
