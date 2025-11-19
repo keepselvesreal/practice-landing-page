@@ -20,7 +20,7 @@ steps:
     args:
       - 'run'
       - 'deploy'
-      - 'kbeauty-api'
+      - 'kbeauty-backend-staging'
       - '--image=gcr.io/$PROJECT_ID/kbeauty-backend-staging'
       - '--platform=managed'
       - '--region=asia-northeast3'
