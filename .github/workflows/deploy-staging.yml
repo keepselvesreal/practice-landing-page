@@ -12,11 +12,6 @@ jobs:
   deploy-staging:
     name: Deploy to Staging Environment
     runs-on: ubuntu-latest
-    outputs:
-      url: ${{ steps.set-url.outputs.url }}
-    environment:
-      name: staging
-      url: ${{ steps.deploy.outputs.details_url }}
 
     steps:
       - name: Checkout code
@@ -78,9 +73,8 @@ jobs:
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-          channelId: staging
+          target: staging
           projectId: ${{ secrets.FIREBASE_PROJECT_ID }}
-        id: deploy
 
       # 또는 다른 정적 호스팅 서비스
       # - name: Deploy to Netlify
@@ -94,10 +88,8 @@ jobs:
       #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
       - name: Output deployment URL
-        id: set-url
         run: |
-          echo "Staging URL: ${{ steps.deploy.outputs.details_url }}"
-          echo "url=${{ steps.deploy.outputs.details_url }}" >> $GITHUB_OUTPUT
+          echo "Staging URL: https://kbeauty-landing-page-staging.web.app"
 
   test-staging:
     name: Test Staging Environment
@@ -132,14 +124,14 @@ jobs:
           TEST_ENV=production uv run pytest tests/e2e/ -v --tb=short
         env:
           # Staging 환경 URL (production TEST_ENV 사용, URL만 staging)
-          BASE_URL: ${{ needs.deploy-staging.outputs.url }}
+          BASE_URL: https://kbeauty-landing-page-staging.web.app
 
       - name: Create test report
         if: always()
         run: |
           echo "## Staging Test Results" >> $GITHUB_STEP_SUMMARY
           echo "- Environment: Staging" >> $GITHUB_STEP_SUMMARY
-          echo "- URL: ${{ needs.deploy-staging.outputs.url }}" >> $GITHUB_STEP_SUMMARY
+          echo "- URL: https://kbeauty-landing-page-staging.web.app" >> $GITHUB_STEP_SUMMARY
           echo "- Status: ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
 
       - name: Notify on failure

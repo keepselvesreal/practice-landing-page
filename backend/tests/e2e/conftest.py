@@ -35,6 +35,12 @@ def test_env():
 @pytest.fixture(scope="session")
 def base_url(test_env):
     """Get base URL based on test environment."""
+    # Check if BASE_URL environment variable is set (for CI/CD)
+    env_base_url = os.getenv('BASE_URL')
+    if env_base_url:
+        return env_base_url
+
+    # Otherwise use default URLs
     urls = {
         'local': 'http://localhost:8080',
         'docker': 'http://localhost:8080',  # Test runs on host, accesses via port mapping
