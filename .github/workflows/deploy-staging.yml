@@ -78,7 +78,6 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           channelId: staging
           projectId: ${{ secrets.FIREBASE_PROJECT_ID }}
-          target: staging
         id: deploy
 
       # 또는 다른 정적 호스팅 서비스
