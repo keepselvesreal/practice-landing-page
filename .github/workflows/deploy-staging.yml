@@ -13,10 +13,10 @@ jobs:
     name: Deploy to Staging Environment
     runs-on: ubuntu-latest
     outputs:
-      url: ${{ steps.deploy.outputs.url }}
+      url: ${{ steps.deploy.outputs.details_url }}
     environment:
       name: staging
-      url: ${{ steps.deploy.outputs.url }}
+      url: ${{ steps.deploy.outputs.details_url }}
 
     steps:
       - name: Checkout code
@@ -95,7 +95,7 @@ jobs:
 
       - name: Output deployment URL
         run: |
-          echo "Staging URL: ${{ steps.deploy.outputs.url }}"
+          echo "Staging URL: ${{ steps.deploy.outputs.details_url }}"
 
   test-staging:
     name: Test Staging Environment
