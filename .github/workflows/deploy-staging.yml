@@ -13,7 +13,7 @@ jobs:
     name: Deploy to Staging Environment
     runs-on: ubuntu-latest
     outputs:
-      url: ${{ steps.deploy.outputs.details_url }}
+      url: ${{ steps.set-url.outputs.url }}
     environment:
       name: staging
       url: ${{ steps.deploy.outputs.details_url }}
@@ -94,8 +94,10 @@ jobs:
       #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
       - name: Output deployment URL
+        id: set-url
         run: |
           echo "Staging URL: ${{ steps.deploy.outputs.details_url }}"
+          echo "url=${{ steps.deploy.outputs.details_url }}" >> $GITHUB_OUTPUT
 
   test-staging:
     name: Test Staging Environment
