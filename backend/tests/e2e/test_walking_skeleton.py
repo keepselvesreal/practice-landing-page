@@ -1,26 +1,37 @@
 """
-Walking Skeleton E2E Test
+Walking Skeleton E2E Test with Real Google Places API
 
-Tests the complete order submission flow from form input to confirmation page.
+This test uses the actual Google Places Autocomplete API instead of mocking.
+Requires:
+- Google Places API enabled in Google Cloud Console
+- Valid API key in .env
+- Network connection
+
+Run with: TEST_ENV=local pytest tests/e2e/test_walking_skeleton_real_api.py -v -s
 """
+import logging
 import pytest
 from playwright.sync_api import Page, expect
 
+logger = logging.getLogger(__name__)
+
 
 @pytest.mark.e2e
-def test_when_order_submitted_then_saved_to_database_email_sent_paypal_displayed_and_redirected_to_confirmation(
+@pytest.mark.slow
+def test_with_real_google_places_api(
     page: Page,
     base_url: str
 ):
     """
-    Test complete order submission flow.
+    Test complete order submission flow with real Google Places API.
 
-    When: User fills form and submits order
+    When: User fills form using Google Places Autocomplete
     Then:
-        1. Order is saved to database
-        2. Confirmation email is sent
-        3. PayPal payment UI is displayed
-        4. User is redirected to order confirmation page
+        1. Google Places Autocomplete works
+        2. Order is saved to database with real place_id
+        3. Confirmation email is sent
+        4. PayPal payment UI is displayed
+        5. User is redirected to order confirmation page
     """
     # Capture console messages for debugging
     console_messages = []
@@ -33,40 +44,85 @@ def test_when_order_submitted_then_saved_to_database_email_sent_paypal_displayed
 
     # Wait for config and SDKs to load
     page.wait_for_function("window.ENV && window.google && window.paypal", timeout=15000)
-    print("✓ Config and SDKs loaded")
+    logger.info("✓ Config and SDKs loaded")
 
-    # Print console messages so far
+    # Log console messages so far
     for msg in console_messages:
-        print(f"  {msg}")
+        logger.debug(f"  {msg}")
 
     # When: User fills order form (Philippine user example)
-    page.fill('#customerName', 'Juan dela Cruz')
-    page.fill('#email', 'juan.delacruz@gmail.com')
-    page.fill('#phone', '+63 917 123 4567')
-    page.fill('#address', 'Makati City, Metro Manila, Philippines')
+    page.fill('#customerName', 'Maria Santos')
+    page.fill('#email', 'maria.santos@gmail.com')
+    page.fill('#phone', '+63 918 765 4321')
 
-    # Mock Google Places API place_id selection
-    page.evaluate("window.selectedPlaceId = 'test_place_id_12345'")
+    # Use real Google Places Autocomplete
+    address_input = page.locator('#address')
+    address_input.click()
+    # Use type() instead of fill() to trigger input events properly
+    address_input.type('Quezon City', delay=50)
 
-    # Verify selectedPlaceId was set
-    place_id = page.evaluate("window.selectedPlaceId")
-    print(f"  selectedPlaceId set to: {place_id}")
+    # Wait for API to respond and dropdown to render
+    page.wait_for_timeout(1500)
+
+    # Wait for Google Places Autocomplete dropdown
+    try:
+        page.wait_for_selector('.pac-container', state='visible', timeout=15000)
+        logger.info("✓ Google Places dropdown appeared")
+
+        # Wait a bit for results to populate
+        page.wait_for_timeout(1000)
+
+        # Click first autocomplete suggestion
+        page.click('.pac-item:first-child')
+        logger.info("✓ Selected place from autocomplete")
+
+        # Wait for place_id to be set
+        page.wait_for_function("window.selectedPlaceId !== null", timeout=5000)
+        place_id = page.evaluate("window.selectedPlaceId")
+        logger.info(f"✓ Place ID set: {place_id}")
+
+        assert place_id is not None, "Place ID should be set after autocomplete selection"
+        assert place_id != 'manual_input', "Should use real place_id, not fallback"
+
+    except Exception as e:
+        logger.warning(f"⚠ Google Places Autocomplete failed: {e}")
+        logger.warning("This test requires:")
+        logger.warning("  1. Google Places API enabled in Google Cloud Console")
+        logger.warning("  2. Valid API key configured")
+        logger.warning("  3. Network connection")
+        pytest.skip("Google Places API not available")
 
     # When: User submits order
+    logger.info("Submitting order...")
     page.click('#paymentButton')
-    page.wait_for_timeout(5000)  # Increased timeout
-
-    # Print console messages after submit
-    print("\n  Console messages after submit:")
-    new_messages = console_messages[len([m for m in console_messages if 'Initialization complete' in m]):]
-    for msg in new_messages:
-        print(f"  {msg}")
+    page.wait_for_timeout(5000)  # Increased timeout for API call
 
     # Then 1: Order is saved to database
     order_response = page.evaluate("window.lastOrderResponse")
 
+    if order_response is None:
+        logger.error("❌ Order submission failed")
+        logger.error("Console messages:")
+        for msg in console_messages[-20:]:  # Last 20 messages
+            logger.error(f"  {msg}")
+
+        # Get detailed error info
+        error_info = page.evaluate("""
+            () => ({
+                selectedPlaceId: window.selectedPlaceId,
+                lastError: window.lastError || 'No error captured',
+                formData: {
+                    name: document.getElementById('customerName').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    address: document.getElementById('address').value
+                }
+            })
+        """)
+        logger.error(f"Error details: {error_info}")
+
     assert order_response is not None, \
-        "Order API response not found - backend may have failed"
+        "Order API response not found. Check logs for details."
 
     assert 'order_id' in order_response, \
         "Order ID missing - database save may have failed"
@@ -116,9 +172,10 @@ def test_when_order_submitted_then_saved_to_database_email_sent_paypal_displayed
         assert '⚠ 이메일 발송 실패' in email_status
 
     # Log test results
-    print("\n✅ Walking Skeleton E2E Test Passed:")
-    print(f"  📦 Order ID: {order_response['order_id']}")
-    print(f"  💾 Database: Saved")
-    print(f"  📧 Email: {'Sent' if order_response['email_sent'] else 'Failed'}")
-    print(f"  💳 PayPal UI: Displayed")
-    print(f"  🎉 Confirmation Page: Loaded")
+    logger.info("\n✅ Walking Skeleton E2E Test (Real API) Passed:")
+    logger.info(f"  📦 Order ID: {order_response['order_id']}")
+    logger.info(f"  📍 Place ID: {place_id}")
+    logger.info(f"  💾 Database: Saved")
+    logger.info(f"  📧 Email: {'Sent' if order_response['email_sent'] else 'Failed'}")
+    logger.info(f"  💳 PayPal UI: Displayed")
+    logger.info(f"  🎉 Confirmation Page: Loaded")

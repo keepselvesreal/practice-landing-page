@@ -10,7 +10,7 @@ let selectedPlaceId = null;
 let autocomplete = null;
 let orderData = null;
 
-// Expose selectedPlaceId to window for E2E testing
+// Expose to window for E2E testing
 Object.defineProperty(window, 'selectedPlaceId', {
     get: () => selectedPlaceId,
     set: (value) => { selectedPlaceId = value; }
@@ -207,6 +207,8 @@ async function handleFormSubmit(event) {
         }
 
     } catch (error) {
+        console.error('Order submission error:', error);
+        window.lastError = error.message || error.toString();  // For E2E testing
         showError('주문 처리 중 오류가 발생했습니다. 다시 시도해주세요.');
     }
 }
@@ -279,3 +281,6 @@ if (document.readyState === 'loading') {
 } else {
     init();
 }
+
+// Expose redirectToConfirmation to window for E2E testing
+window.redirectToConfirmation = redirectToConfirmation;

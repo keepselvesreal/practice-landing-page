@@ -37,7 +37,7 @@ def base_url(test_env):
     """Get base URL based on test environment."""
     urls = {
         'local': 'http://localhost:8080',
-        'docker': 'http://frontend:80',
+        'docker': 'http://localhost:8080',  # Test runs on host, accesses via port mapping
         'production': 'https://kbeauty-landing-page.web.app'
     }
     return urls[test_env]
@@ -48,7 +48,7 @@ def api_url(test_env):
     """Get API URL based on test environment."""
     urls = {
         'local': 'http://localhost:8000',
-        'docker': 'http://backend:8000',
+        'docker': 'http://localhost:8000',  # Test runs on host, accesses via port mapping
         'production': 'https://kbeauty-landing-page.web.app/api'
     }
     return urls[test_env]
@@ -57,10 +57,10 @@ def api_url(test_env):
 @pytest.fixture(scope="session")
 def postgres_container(test_env):
     """
-    Start PostgreSQL container for local/docker environments.
-    Production uses Cloud SQL.
+    Start PostgreSQL container for local environment only.
+    Docker uses docker-compose, production uses Cloud SQL.
     """
-    if test_env == 'production':
+    if test_env in ['docker', 'production']:
         yield None
         return
 
@@ -214,15 +214,27 @@ def page(page: Page, base_url, frontend_server):
 
 @pytest.fixture(autouse=True)
 def cleanup_database(test_env, postgres_container):
-    """Clean up database before each test."""
+    """Clean up database after each test."""
     if test_env == 'production':
         # Don't cleanup production DB
         yield
         return
 
-    # Clear test data before each test
-    # This runs before each test function
     yield
 
-    # Cleanup after test (if needed)
-    # Could truncate tables here
+    # Cleanup after test - truncate tables
+    from sqlalchemy import create_engine, text
+
+    # Get database URL based on environment
+    if test_env == 'local':
+        db_url = 'postgresql://test_user:test_pass@localhost:5433/kbeauty_test'
+    elif test_env == 'docker':
+        db_url = 'postgresql://test_user:test_pass@localhost:5433/kbeauty_test'
+    else:
+        return
+
+    engine = create_engine(db_url)
+    with engine.connect() as conn:
+        conn.execute(text("TRUNCATE TABLE orders, email_logs RESTART IDENTITY CASCADE"))
+        conn.commit()
+    engine.dispose()
