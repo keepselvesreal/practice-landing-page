@@ -12,6 +12,9 @@ jobs:
   deploy-staging:
     name: Deploy to Staging Environment
     runs-on: ubuntu-latest
+    environment:
+      name: staging
+      url: https://kbeauty-landing-page-staging.web.app
 
     steps:
       - name: Checkout code
