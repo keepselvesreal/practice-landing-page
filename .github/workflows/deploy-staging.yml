@@ -12,6 +12,8 @@ jobs:
   deploy-staging:
     name: Deploy to Staging Environment
     runs-on: ubuntu-latest
+    outputs:
+      url: ${{ steps.deploy.outputs.url }}
     environment:
       name: staging
       url: ${{ steps.deploy.outputs.url }}
