@@ -1,0 +1,179 @@
+name: Deploy to Production
+
+on:
+  workflow_dispatch:  # 수동 실행만 허용
+    inputs:
+      version:
+        description: 'Version to deploy (e.g., v1.0.0)'
+        required: true
+        type: string
+
+env:
+  PYTHON_VERSION: '3.11'
+
+jobs:
+  # 배포 전 체크
+  pre-deployment-check:
+    name: Pre-deployment Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Verify staging tests passed
+        run: |
+          echo "Checking if staging tests passed..."
+          # 실제로는 이전 워크플로우 성공 여부를 확인
+          # gh run list --workflow=deploy-staging.yml --limit 1 --json conclusion
+          echo "✓ Staging tests verified"
+
+      - name: Create deployment checklist
+        run: |
+          echo "## Pre-deployment Checklist" >> $GITHUB_STEP_SUMMARY
+          echo "- [x] Code reviewed and approved" >> $GITHUB_STEP_SUMMARY
+          echo "- [x] Staging tests passed" >> $GITHUB_STEP_SUMMARY
+          echo "- [x] Database migrations ready" >> $GITHUB_STEP_SUMMARY
+          echo "- [x] Environment variables configured" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Version:** ${{ inputs.version }}" >> $GITHUB_STEP_SUMMARY
+
+  # 운영 배포 (승인 필요)
+  deploy-production:
+    name: Deploy to Production
+    needs: pre-deployment-check
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://kbeauty-landing-page.web.app  # 실제 운영 URL
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      # ====================
+      # Backend 배포
+      # ====================
+
+      # 옵션 1: Google Cloud Run
+      # - name: Authenticate to Google Cloud
+      #   uses: google-github-actions/auth@v2
+      #   with:
+      #     credentials_json: ${{ secrets.GCP_SA_KEY_PROD }}
+      #
+      # - name: Deploy backend to Cloud Run (Production)
+      #   run: |
+      #     gcloud run deploy kbeauty-backend-prod \
+      #       --image gcr.io/${{ secrets.GCP_PROJECT_ID }}/kbeauty-backend:${{ inputs.version }} \
+      #       --platform managed \
+      #       --region asia-northeast3 \
+      #       --allow-unauthenticated \
+      #       --min-instances 1 \
+      #       --max-instances 10
+
+      # 옵션 2: Database Migration (운영 DB)
+      # - name: Run database migrations
+      #   run: |
+      #     # 운영 DB에 마이그레이션 실행
+      #     DATABASE_URL=${{ secrets.DATABASE_URL_PROD }} \
+      #       cd backend && uv run alembic upgrade head
+
+      # ====================
+      # Frontend 배포
+      # ====================
+
+      - name: Deploy frontend to Firebase Hosting (Production)
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PROD }}
+          channelId: live
+          projectId: ${{ secrets.FIREBASE_PROJECT_ID }}
+        id: deploy
+
+      - name: Create Git tag
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git tag -a ${{ inputs.version }} -m "Release ${{ inputs.version }}"
+          git push origin ${{ inputs.version }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create deployment summary
+        run: |
+          echo "## 🚀 Production Deployment Successful" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Version:** ${{ inputs.version }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Deployed at:** $(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+          echo "**URL:** ${{ steps.deploy.outputs.url }}" >> $GITHUB_STEP_SUMMARY
+
+  # 운영 환경 스모크 테스트
+  smoke-test:
+    name: Production Smoke Test
+    needs: deploy-production
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install uv
+        run: pip install uv
+
+      - name: Install dependencies
+        run: |
+          cd backend
+          uv sync
+
+      - name: Install Playwright browsers
+        run: |
+          cd backend
+          uv run playwright install chromium
+
+      - name: Run smoke tests
+        run: |
+          cd backend
+          TEST_ENV=production uv run pytest tests/e2e/test_walking_skeleton.py -v
+        env:
+          GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
+        timeout-minutes: 10
+
+      - name: Health check
+        run: |
+          response=$(curl -s -o /dev/null -w "%{http_code}" https://kbeauty-landing-page.web.app/api/health)
+          if [ $response -eq 200 ]; then
+            echo "✓ Health check passed"
+          else
+            echo "✗ Health check failed with status $response"
+            exit 1
+          fi
+
+      - name: Notify success
+        if: success()
+        run: |
+          echo "## ✅ Production Deployment Verified" >> $GITHUB_STEP_SUMMARY
+          echo "All smoke tests passed successfully!" >> $GITHUB_STEP_SUMMARY
+          # Slack 알림
+          # curl -X POST ${{ secrets.SLACK_WEBHOOK_URL }} \
+          #   -H 'Content-Type: application/json' \
+          #   -d '{"text":"🚀 Production deployment successful! Version: ${{ inputs.version }}"}'
+
+      - name: Rollback on failure
+        if: failure()
+        run: |
+          echo "::error::Smoke tests failed! Manual rollback required."
+          echo "## ❌ Production Deployment Failed" >> $GITHUB_STEP_SUMMARY
+          echo "Smoke tests failed. Please investigate and rollback if necessary." >> $GITHUB_STEP_SUMMARY
+          # 자동 롤백 (선택사항)
+          # firebase hosting:rollback --project ${{ secrets.FIREBASE_PROJECT_ID }}

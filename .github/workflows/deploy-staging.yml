@@ -1,0 +1,158 @@
+name: Deploy to Staging
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:  # 수동 실행 가능
+
+env:
+  PYTHON_VERSION: '3.11'
+
+jobs:
+  deploy-staging:
+    name: Deploy to Staging Environment
+    runs-on: ubuntu-latest
+    environment:
+      name: staging
+      url: ${{ steps.deploy.outputs.url }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install uv
+        run: pip install uv
+
+      # ====================
+      # Backend 빌드 (Docker 이미지)
+      # ====================
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # 옵션 1: Google Cloud Run 배포 (예시)
+      # - name: Authenticate to Google Cloud
+      #   uses: google-github-actions/auth@v2
+      #   with:
+      #     credentials_json: ${{ secrets.GCP_SA_KEY }}
+      #
+      # - name: Set up Cloud SDK
+      #   uses: google-github-actions/setup-gcloud@v2
+      #
+      # - name: Build and push backend image
+      #   run: |
+      #     gcloud builds submit backend/ \
+      #       --tag gcr.io/${{ secrets.GCP_PROJECT_ID }}/kbeauty-backend-staging
+      #
+      # - name: Deploy backend to Cloud Run
+      #   run: |
+      #     gcloud run deploy kbeauty-backend-staging \
+      #       --image gcr.io/${{ secrets.GCP_PROJECT_ID }}/kbeauty-backend-staging \
+      #       --platform managed \
+      #       --region asia-northeast3 \
+      #       --allow-unauthenticated \
+      #       --set-env-vars "$(cat staging.env)"
+
+      # 옵션 2: AWS ECS/Fargate 배포 (예시)
+      # - name: Configure AWS credentials
+      #   uses: aws-actions/configure-aws-credentials@v4
+      #   with:
+      #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #     aws-region: ap-northeast-2
+
+      # 옵션 3: Heroku 배포 (예시)
+      # - name: Deploy backend to Heroku
+      #   uses: akhileshns/heroku-deploy@v3.13.15
+      #   with:
+      #     heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+      #     heroku_app_name: kbeauty-backend-staging
+      #     heroku_email: ${{ secrets.HEROKU_EMAIL }}
+      #     appdir: backend
+
+      # ====================
+      # Frontend 배포 (정적 파일)
+      # ====================
+
+      # Firebase Hosting 배포 (현재 프로젝트에 적합)
+      - name: Deploy frontend to Firebase Hosting (Staging)
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_STAGING }}
+          channelId: staging
+          projectId: ${{ secrets.FIREBASE_PROJECT_ID }}
+          target: staging
+        id: deploy
+
+      # 또는 다른 정적 호스팅 서비스
+      # - name: Deploy to Netlify
+      #   uses: nwtgck/actions-netlify@v3.0
+      #   with:
+      #     publish-dir: './frontend'
+      #     production-deploy: false
+      #     alias: staging
+      #   env:
+      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
+      - name: Output deployment URL
+        run: |
+          echo "Staging URL: ${{ steps.deploy.outputs.url }}"
+
+  test-staging:
+    name: Test Staging Environment
+    needs: deploy-staging
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install uv
+        run: pip install uv
+
+      - name: Install dependencies
+        run: |
+          cd backend
+          uv sync
+
+      - name: Install Playwright browsers
+        run: |
+          cd backend
+          uv run playwright install chromium
+
+      - name: Run E2E tests against staging
+        run: |
+          cd backend
+          TEST_ENV=production uv run pytest tests/e2e/ -v --tb=short
+        env:
+          # Staging 환경 URL (production TEST_ENV 사용, URL만 staging)
+          BASE_URL: ${{ needs.deploy-staging.outputs.url }}
+          GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
+
+      - name: Create test report
+        if: always()
+        run: |
+          echo "## Staging Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "- Environment: Staging" >> $GITHUB_STEP_SUMMARY
+          echo "- URL: ${{ needs.deploy-staging.outputs.url }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Status: ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "::error::Staging deployment tests failed"
+          # Slack/Discord 알림 추가 가능
+          # curl -X POST ${{ secrets.SLACK_WEBHOOK_URL }} \
+          #   -H 'Content-Type: application/json' \
+          #   -d '{"text":"Staging deployment failed!"}'

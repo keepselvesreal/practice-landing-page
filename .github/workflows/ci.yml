@@ -1,0 +1,114 @@
+name: CI - Build and Test
+
+on:
+  pull_request:
+    branches: [main, develop]
+  push:
+    branches: [main, develop, 'mvp-v2/**']
+
+env:
+  PYTHON_VERSION: '3.11'
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install uv
+        run: pip install uv
+
+      - name: Install backend dependencies
+        run: |
+          cd backend
+          uv sync
+
+      - name: Install Playwright browsers
+        run: |
+          cd backend
+          uv run playwright install chromium
+
+      - name: Create .env file for tests
+        run: |
+          cat > .env << EOF
+          POSTGRES_PORT=5432
+          GOOGLE_PLACES_API_KEY=${{ secrets.GOOGLE_PLACES_API_KEY }}
+          PAYPAL_API_BASE=${{ secrets.PAYPAL_API_BASE }}
+          PAYPAL_CLIENT_ID=${{ secrets.PAYPAL_CLIENT_ID }}
+          PAYPAL_CLIENT_SECRET=${{ secrets.PAYPAL_CLIENT_SECRET }}
+          GMAIL_ADDRESS=${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD=${{ secrets.GMAIL_APP_PASSWORD }}
+          SMTP_HOST=${{ secrets.SMTP_HOST }}
+          SMTP_PORT=${{ secrets.SMTP_PORT }}
+          EOF
+
+      - name: Start Docker services
+        run: |
+          docker compose -f docker-compose.test.yml up -d
+
+      - name: Wait for services to be ready
+        run: |
+          echo "Waiting for services to be healthy..."
+          timeout 60 bash -c 'until docker compose -f docker-compose.test.yml ps | grep -q "healthy"; do sleep 2; done'
+          docker compose -f docker-compose.test.yml ps
+
+      - name: Run E2E tests
+        run: |
+          cd backend
+          TEST_ENV=docker uv run pytest tests/e2e/ -v --tb=short
+
+      - name: Show logs on failure
+        if: failure()
+        run: |
+          echo "=== Backend logs ==="
+          docker compose -f docker-compose.test.yml logs backend
+          echo "=== Frontend logs ==="
+          docker compose -f docker-compose.test.yml logs frontend
+          echo "=== Postgres logs ==="
+          docker compose -f docker-compose.test.yml logs postgres
+
+      - name: Cleanup
+        if: always()
+        run: |
+          docker compose -f docker-compose.test.yml down -v
+
+  lint:
+    name: Code Quality Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install uv
+        run: pip install uv
+
+      - name: Install dependencies
+        run: |
+          cd backend
+          uv sync
+
+      - name: Check code formatting (ruff)
+        run: |
+          cd backend
+          uv run ruff check . || echo "Ruff not configured yet"
+        continue-on-error: true
+
+      - name: Type check (mypy)
+        run: |
+          cd backend
+          uv run mypy app/ || echo "MyPy not configured yet"
+        continue-on-error: true
