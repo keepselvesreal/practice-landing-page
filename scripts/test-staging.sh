@@ -37,6 +37,9 @@ if [ -f "$PROJECT_ROOT/$ENV_FILE" ]; then
     set +a
 else
     log_error "$ENV_FILE 파일이 없습니다."
+    log_error "다음 중 하나를 수행하세요:"
+    log_error "  1. 로컬: 프로젝트 루트에 $ENV_FILE 파일 생성"
+    log_error "  2. GitHub Actions: Secrets에서 환경변수 설정 후 워크플로우에서 파일 생성"
     exit 1
 fi
 

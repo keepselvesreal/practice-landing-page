@@ -1,33 +1,53 @@
 name: Deploy to Production
 
 on:
-  workflow_dispatch:  # 수동 실행만 허용
+  # Staging 워크플로우 성공 시 자동 트리거
+  workflow_run:
+    workflows: ["Deploy to Staging"]
+    types: [completed]
+    branches: [main, mvp-v2/walking-skeleton]
+
+  # 수동 실행도 가능
+  workflow_dispatch:
     inputs:
       version:
         description: 'Version to deploy (e.g., v1.0.0)'
-        required: true
+        required: false
         type: string
 
 env:
   PYTHON_VERSION: '3.11'
+  STAGING_URL: 'https://kbeauty-landing-page-staging.web.app'
   PRODUCTION_URL: 'https://kbeauty-landing-page.web.app'
 
 jobs:
+  # Staging 성공 확인 (workflow_run으로 트리거된 경우)
+  check-staging-success:
+    name: Check Staging Success
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_run'
+    steps:
+      - name: Check if staging workflow succeeded
+        if: github.event.workflow_run.conclusion != 'success'
+        run: |
+          echo "::error::Staging workflow did not succeed. Conclusion: ${{ github.event.workflow_run.conclusion }}"
+          exit 1
+
+      - name: Staging success confirmed
+        run: |
+          echo "✅ Staging deployment and tests passed successfully!"
+          echo "Staging workflow: ${{ github.event.workflow_run.html_url }}"
+
   # 배포 전 체크
   pre-deployment-check:
     name: Pre-deployment Checks
+    needs: [check-staging-success]
+    if: always() && (needs.check-staging-success.result == 'success' || needs.check-staging-success.result == 'skipped')
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Verify staging tests passed
-        run: |
-          echo "Checking if staging tests passed..."
-          # 실제로는 이전 워크플로우 성공 여부를 확인
-          # gh run list --workflow=deploy-staging.yml --limit 1 --json conclusion
-          echo "✓ Staging tests verified"
 
       - name: Create deployment checklist
         run: |
@@ -37,12 +57,54 @@ jobs:
           echo "- [x] Database migrations ready" >> $GITHUB_STEP_SUMMARY
           echo "- [x] Environment variables configured" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**Version:** ${{ inputs.version }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Ready for production deployment!**" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "⚠️ **Approval required to proceed**" >> $GITHUB_STEP_SUMMARY
+          echo "Go to: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" >> $GITHUB_STEP_SUMMARY
+
+  # 승인 대기 알림
+  notify-approval-required:
+    name: Notify Approval Required
+    needs: [pre-deployment-check]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Create approval notification
+        run: |
+          echo "## 🚀 Production Deployment Approval Required" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Staging deployment and tests completed successfully!" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Next steps:**" >> $GITHUB_STEP_SUMMARY
+          echo "1. Review the staging deployment" >> $GITHUB_STEP_SUMMARY
+          echo "2. Approve the production deployment below" >> $GITHUB_STEP_SUMMARY
+          echo "3. Click 'Review deployments' and select 'Approve and deploy'" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Staging URL:** ${{ env.STAGING_URL }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Production URL:** ${{ env.PRODUCTION_URL }}" >> $GITHUB_STEP_SUMMARY
+
+      # Slack/Discord 알림 (선택사항)
+      # - name: Send Slack notification
+      #   run: |
+      #     curl -X POST ${{ secrets.SLACK_WEBHOOK_URL }} \
+      #       -H 'Content-Type: application/json' \
+      #       -d '{
+      #         "text": "🚀 Production deployment approval required!",
+      #         "blocks": [
+      #           {
+      #             "type": "section",
+      #             "text": {
+      #               "type": "mrkdwn",
+      #               "text": "*Staging deployment successful!*\n\nProduction deployment is ready and waiting for approval.\n\n<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Review and approve deployment>"
+      #             }
+      #           }
+      #         ]
+      #       }'
 
   # 운영 배포 (승인 필요)
   deploy-production:
     name: Deploy to Production
-    needs: pre-deployment-check
+    needs: [notify-approval-required]
     runs-on: ubuntu-latest
     environment:
       name: production
@@ -57,44 +119,75 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
+      - name: Install uv
+        run: pip install uv
+
+      # Google Cloud 인증
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      # .env.production 파일 생성
+      - name: Create .env.production from secrets
+        run: |
+          cat > .env.production << EOF
+          # Database (Cloud SQL Production)
+          DATABASE_URL=${{ secrets.DATABASE_URL }}
+
+          # Google Places API
+          GOOGLE_PLACES_API_KEY=${{ secrets.GOOGLE_PLACES_API_KEY }}
+
+          # PayPal Production
+          PAYPAL_API_BASE=${{ secrets.PAYPAL_API_BASE }}
+          PAYPAL_CLIENT_ID=${{ secrets.PAYPAL_CLIENT_ID }}
+          PAYPAL_CLIENT_SECRET=${{ secrets.PAYPAL_CLIENT_SECRET }}
+          PAYPAL_WEBHOOK_ID=${{ secrets.PAYPAL_WEBHOOK_ID }}
+
+          # Gmail / SMTP
+          GMAIL_ADDRESS=${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD="${{ secrets.GMAIL_APP_PASSWORD }}"
+          SMTP_HOST=${{ secrets.SMTP_HOST }}
+          SMTP_PORT=${{ secrets.SMTP_PORT }}
+
+          # Security
+          ENCRYPTION_KEY=${{ secrets.ENCRYPTION_KEY }}
+          ADMIN_API_KEY=${{ secrets.ADMIN_API_KEY }}
+
+          # Production Environment
+          BASE_URL=${{ env.PRODUCTION_URL }}
+          EOF
+
+      # Make 스크립트에 실행 권한 부여
+      - name: Make scripts executable
+        run: chmod +x scripts/*.sh
+
       # ====================
       # Backend 배포
       # ====================
 
-      # 옵션 1: Google Cloud Run
-      # - name: Authenticate to Google Cloud
-      #   uses: google-github-actions/auth@v2
-      #   with:
-      #     credentials_json: ${{ secrets.GCP_SA_KEY_PROD }}
-      #
-      # - name: Deploy backend to Cloud Run (Production)
-      #   run: |
-      #     gcloud run deploy kbeauty-backend-prod \
-      #       --image gcr.io/${{ secrets.GCP_PROJECT_ID }}/kbeauty-backend:${{ inputs.version }} \
-      #       --platform managed \
-      #       --region asia-northeast3 \
-      #       --allow-unauthenticated \
-      #       --min-instances 1 \
-      #       --max-instances 10
-
-      # 옵션 2: Database Migration (운영 DB)
-      # - name: Run database migrations
-      #   run: |
-      #     # 운영 DB에 마이그레이션 실행
-      #     DATABASE_URL=${{ secrets.DATABASE_URL_PROD }} \
-      #       cd backend && uv run alembic upgrade head
+      # 백엔드 배포 (Production)
+      - name: Deploy backend to Cloud Run (Production)
+        run: ENV_FILE=.env.production make deploy-backend
 
       # ====================
       # Frontend 배포
       # ====================
 
-      - name: Deploy frontend to Firebase Hosting (Production)
-        uses: FirebaseExtended/action-hosting-deploy@v0
+      # Firebase 서비스 계정으로 재인증
+      - name: Authenticate to Google Cloud (Firebase)
+        uses: google-github-actions/auth@v2
         with:
-          repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PROD }}
-          channelId: live
-          projectId: ${{ secrets.FIREBASE_PROJECT_ID }}
+          credentials_json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+
+      # 프론트엔드 배포 (Production)
+      - name: Deploy frontend to Firebase Hosting (Production)
+        run: ENV_FILE=.env.production make deploy-frontend
+        env:
+          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
         id: deploy
 
       - name: Create Git tag

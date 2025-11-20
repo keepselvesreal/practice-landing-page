@@ -29,15 +29,28 @@ log_info "프로젝트 루트: $PROJECT_ROOT"
 # 환경 파일 결정 (기본값: .env.staging)
 ENV_FILE="${ENV_FILE:-.env.staging}"
 
-# .env 파일 로드 (선택적)
+# .env 파일 로드
 if [ -f "$PROJECT_ROOT/$ENV_FILE" ]; then
     log_info "$ENV_FILE 파일 로드 중..."
     set -a
     source "$PROJECT_ROOT/$ENV_FILE"
     set +a
 else
-    log_warning "$ENV_FILE 파일이 없습니다. 기본 설정을 사용합니다."
+    log_error "$ENV_FILE 파일이 없습니다."
+    log_error "다음 중 하나를 수행하세요:"
+    log_error "  1. 로컬: 프로젝트 루트에 $ENV_FILE 파일 생성"
+    log_error "  2. GitHub Actions: Secrets에서 환경변수 설정 후 워크플로우에서 파일 생성"
+    exit 1
 fi
+
+# 환경 변수 검증 실행
+log_info "환경 변수 검증 중..."
+if ! "$SCRIPT_DIR/verify-env.sh"; then
+    log_error "환경 변수 검증 실패. 배포를 중단합니다."
+    exit 1
+fi
+log_info "환경 변수 검증 완료"
+echo ""
 
 # Firebase CLI 설치 확인
 if ! command -v firebase &> /dev/null; then
@@ -82,15 +95,24 @@ fi
 log_info "gcloud 기본 프로젝트 설정..."
 gcloud config set project "$FIREBASE_PROJECT_ID" 2>/dev/null || true
 
+# 환경에 따라 Firebase Hosting 타겟 결정
+if [[ "$ENV_FILE" == *"production"* ]]; then
+    FIREBASE_TARGET="production"
+    FIREBASE_URL="https://kbeauty-landing-page.web.app"
+else
+    FIREBASE_TARGET="staging"
+    FIREBASE_URL="https://kbeauty-landing-page-staging.web.app"
+fi
+
 # Firebase 배포
-log_info "Firebase Hosting (staging)에 프론트엔드 배포 시작..."
+log_info "Firebase Hosting ($FIREBASE_TARGET)에 프론트엔드 배포 시작..."
 cd "$PROJECT_ROOT"
 
-firebase deploy --only hosting:staging --project "$FIREBASE_PROJECT_ID"
+firebase deploy --only hosting:$FIREBASE_TARGET --project "$FIREBASE_PROJECT_ID"
 
 if [ $? -eq 0 ]; then
     log_info "프론트엔드 배포 성공!"
-    log_info "Staging URL: https://kbeauty-landing-page-staging.web.app"
+    log_info "$FIREBASE_TARGET URL: $FIREBASE_URL"
 else
     log_error "프론트엔드 배포 실패"
     exit 1
