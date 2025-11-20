@@ -28,6 +28,7 @@ steps:
       - '--port=8000'
       - '--add-cloudsql-instances=kbeauty-landing-page:asia-northeast3:kbeauty-db'
       - '--set-env-vars=DATABASE_URL=${_DATABASE_URL}'
+      - '--set-env-vars=BASE_URL=${_BASE_URL}'
       - '--set-env-vars=GMAIL_ADDRESS=${_GMAIL_ADDRESS}'
       - '--set-env-vars=GMAIL_APP_PASSWORD=${_GMAIL_APP_PASSWORD}'
       - '--set-env-vars=SMTP_HOST=${_SMTP_HOST}'
