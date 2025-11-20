@@ -12,6 +12,8 @@ venv/
 .env
 .env.local
 .env.*.local
+.env.staging
+.env.production
 
 # IDE
 .vscode/
