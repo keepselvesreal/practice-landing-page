@@ -10,6 +10,7 @@ on:
 
 env:
   PYTHON_VERSION: '3.11'
+  PRODUCTION_URL: 'https://kbeauty-landing-page.web.app'
 
 jobs:
   # 배포 전 체크
@@ -45,7 +46,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: production
-      url: https://kbeauty-landing-page.web.app  # 실제 운영 URL
+      url: ${{ env.PRODUCTION_URL }}
 
     steps:
       - name: Checkout code
@@ -151,7 +152,7 @@ jobs:
 
       - name: Health check
         run: |
-          response=$(curl -s -o /dev/null -w "%{http_code}" https://kbeauty-landing-page.web.app/api/health)
+          response=$(curl -s -o /dev/null -w "%{http_code}" ${{ env.PRODUCTION_URL }}/api/health)
           if [ $response -eq 200 ]; then
             echo "✓ Health check passed"
           else

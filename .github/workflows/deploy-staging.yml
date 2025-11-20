@@ -7,6 +7,7 @@ on:
 
 env:
   PYTHON_VERSION: '3.11'
+  STAGING_URL: 'https://kbeauty-landing-page-staging.web.app'
 
 jobs:
   deploy-staging:
@@ -14,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: staging
-      url: https://kbeauty-landing-page-staging.web.app
+      url: ${{ env.STAGING_URL }}
 
     steps:
       - name: Checkout code
@@ -64,7 +65,7 @@ jobs:
           ADMIN_API_KEY=${{ secrets.ADMIN_API_KEY }}
 
           # Staging Environment
-          BASE_URL=https://kbeauty-landing-page-staging.web.app
+          BASE_URL=${{ env.STAGING_URL }}
           EOF
 
       # Make 스크립트에 실행 권한 부여
@@ -89,7 +90,7 @@ jobs:
 
       - name: Output deployment URL
         run: |
-          echo "Staging URL: https://kbeauty-landing-page-staging.web.app"
+          echo "Staging URL: ${{ env.STAGING_URL }}"
 
   test-staging:
     name: Test Staging Environment
@@ -112,7 +113,7 @@ jobs:
       - name: Create .env.staging for testing
         run: |
           cat > .env.staging << EOF
-          BASE_URL=https://kbeauty-landing-page-staging.web.app
+          BASE_URL=${{ env.STAGING_URL }}
           EOF
 
       # Make 스크립트에 실행 권한 부여
@@ -128,7 +129,7 @@ jobs:
         run: |
           echo "## Staging Test Results" >> $GITHUB_STEP_SUMMARY
           echo "- Environment: Staging" >> $GITHUB_STEP_SUMMARY
-          echo "- URL: https://kbeauty-landing-page-staging.web.app" >> $GITHUB_STEP_SUMMARY
+          echo "- URL: ${{ env.STAGING_URL }}" >> $GITHUB_STEP_SUMMARY
           echo "- Status: ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
 
       - name: Notify on failure

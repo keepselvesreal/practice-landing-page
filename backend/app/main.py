@@ -11,13 +11,10 @@ app = FastAPI(
     version="0.1.0"
 )
 
-# Configure CORS
+# Configure CORS - Allow requests from BASE_URL
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "https://kbeauty-landing-page.web.app",
-        "http://localhost:8080",
-    ],
+    allow_origins=[settings.base_url],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

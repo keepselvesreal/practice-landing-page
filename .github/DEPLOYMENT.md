@@ -341,10 +341,104 @@ firebase deploy --only hosting:staging
 
 ---
 
-## 8. 다음 단계
+## 8. Cloud SQL 설정 (GCP 배포용)
+
+### 8.1 Cloud SQL 인스턴스 생성
+
+```bash
+# 1. Cloud SQL Admin API 활성화
+gcloud services enable sqladmin.googleapis.com
+
+# 2. PostgreSQL 인스턴스 생성
+gcloud sql instances create kbeauty-db \
+  --database-version=POSTGRES_14 \
+  --tier=db-f1-micro \
+  --region=asia-northeast3 \
+  --root-password=YOUR_SECURE_PASSWORD
+
+# 3. 데이터베이스 생성
+gcloud sql databases create kbeauty \
+  --instance=kbeauty-db
+
+# 4. 사용자 생성
+gcloud sql users create kbeauty-user \
+  --instance=kbeauty-db \
+  --password=YOUR_USER_PASSWORD
+```
+
+### 8.2 Cloud SQL Proxy 설정 (로컬 개발용)
+
+```bash
+# 1. Cloud SQL Proxy 다운로드
+curl -o cloud_sql_proxy https://dl.google.com/cloudsql/cloud_sql_proxy.darwin.amd64
+chmod +x cloud_sql_proxy
+
+# 2. Proxy 실행
+./cloud_sql_proxy -instances=PROJECT_ID:REGION:INSTANCE_NAME=tcp:5432
+
+# 3. 로컬에서 연결
+# DATABASE_URL=postgresql://kbeauty-user:password@localhost:5432/kbeauty
+```
+
+### 8.3 연결 문자열 형식
+
+**Cloud Run에서 사용:**
+```
+DATABASE_URL=postgresql://USER:PASSWORD@/DATABASE?host=/cloudsql/PROJECT_ID:REGION:INSTANCE_NAME
+```
+
+**로컬/Docker에서 사용:**
+```
+DATABASE_URL=postgresql://USER:PASSWORD@HOST:5432/DATABASE
+```
+
+### 8.4 Cloud SQL 인스턴스 확인
+
+```bash
+# 인스턴스 목록 조회
+gcloud sql instances list
+
+# 인스턴스 상세 정보
+gcloud sql instances describe kbeauty-db
+
+# 연결 테스트
+gcloud sql connect kbeauty-db --user=postgres
+```
+
+### 8.5 트러블슈팅
+
+**문제: Cloud Run에서 Cloud SQL 연결 실패**
+
+```bash
+# Cloud Build 서비스 계정에 Cloud SQL Client 역할 부여
+gcloud projects add-iam-policy-binding PROJECT_ID \
+  --member=serviceAccount:PROJECT_NUMBER@cloudbuild.gserviceaccount.com \
+  --role=roles/cloudsql.client
+
+# Cloud Run 서비스 계정에도 동일 역할 부여
+gcloud projects add-iam-policy-binding PROJECT_ID \
+  --member=serviceAccount:PROJECT_NUMBER-compute@developer.gserviceaccount.com \
+  --role=roles/cloudsql.client
+```
+
+**문제: 데이터베이스 마이그레이션 실패**
+
+Cloud Run 로그 확인:
+```bash
+# 최근 로그 조회
+gcloud run logs read kbeauty-api --limit=50
+
+# 실시간 로그 스트리밍
+gcloud run logs tail kbeauty-api
+```
+
+---
+
+## 9. 다음 단계
 
 - [ ] GitHub Secrets 모두 등록
 - [ ] Environments 설정 (승인자 지정)
+- [ ] Cloud SQL 인스턴스 생성 및 설정
 - [ ] Firebase 프로젝트 생성 (또는 다른 호스팅)
 - [ ] 첫 번째 배포 테스트 (Staging)
 - [ ] 운영 배포 리허설

@@ -34,28 +34,30 @@ def test_env():
 
 @pytest.fixture(scope="session")
 def base_url(test_env):
-    """Get base URL based on test environment."""
-    # Check if BASE_URL environment variable is set (for CI/CD)
+    """Get base URL from BASE_URL environment variable."""
     env_base_url = os.getenv('BASE_URL')
-    if env_base_url:
-        return env_base_url
-
-    # Otherwise use default URLs
-    urls = {
-        'local': 'http://localhost:8080',
-        'docker': 'http://localhost:8080',  # Test runs on host, accesses via port mapping
-        'production': 'https://kbeauty-landing-page.web.app'
-    }
-    return urls[test_env]
+    if not env_base_url:
+        raise ValueError(
+            "BASE_URL environment variable must be set.\n"
+            "Example:\n"
+            "  Local: export BASE_URL=http://localhost:8080\n"
+            "  Docker: set in docker-compose.test.yml\n"
+            "  CI/CD: set in GitHub Actions workflow"
+        )
+    return env_base_url
 
 
 @pytest.fixture(scope="session")
-def api_url(test_env):
+def api_url(test_env, base_url):
     """Get API URL based on test environment."""
+    # For production, API is accessed via /api path
+    if test_env == 'production':
+        return f"{base_url}/api"
+
+    # For local/docker, API runs on separate port
     urls = {
         'local': 'http://localhost:8000',
         'docker': 'http://localhost:8000',  # Test runs on host, accesses via port mapping
-        'production': 'https://kbeauty-landing-page.web.app/api'
     }
     return urls[test_env]
 

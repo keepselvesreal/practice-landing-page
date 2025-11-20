@@ -28,5 +28,8 @@ class Settings(BaseSettings):
     paypal_client_secret: str
     paypal_api_base: str
 
+    # Base URL (for CORS)
+    base_url: str
+
 
 settings = Settings()

@@ -26,6 +26,7 @@ services:
     environment:
       TEST_ENV: docker
       DATABASE_URL: postgresql://test_user:test_pass@postgres:5432/kbeauty_test
+      BASE_URL: ${BASE_URL:-http://localhost:8080}
       GOOGLE_PLACES_API_KEY: ${GOOGLE_PLACES_API_KEY}
       PAYPAL_API_BASE: ${PAYPAL_API_BASE}
       PAYPAL_CLIENT_ID: ${PAYPAL_CLIENT_ID}
