@@ -55,33 +55,32 @@ log_info "Firebase 프로젝트: $FIREBASE_PROJECT_ID"
 # 인증 확인
 log_info "Firebase 인증 확인 중..."
 
-# GOOGLE_APPLICATION_CREDENTIALS가 설정되어 있으면 서비스 계정 활성화
-if [ -n "$GOOGLE_APPLICATION_CREDENTIALS" ] && [ -f "$GOOGLE_APPLICATION_CREDENTIALS" ]; then
-    log_info "서비스 계정으로 인증: $GOOGLE_APPLICATION_CREDENTIALS"
-
-    # gcloud에서 서비스 계정 활성화 (Firebase CLI가 gcloud 인증을 따라감)
-    log_info "gcloud 서비스 계정 활성화 중..."
-    if gcloud auth activate-service-account --key-file="$GOOGLE_APPLICATION_CREDENTIALS"; then
-        log_info "gcloud 서비스 계정 활성화 성공"
-    else
-        log_warning "gcloud 서비스 계정 활성화 실패, 환경변수만 사용"
-    fi
-
-    # Firebase가 gcloud의 활성 계정을 사용하도록 프로젝트 설정
-    log_info "gcloud 기본 프로젝트 설정..."
-    gcloud config set project "$FIREBASE_PROJECT_ID" 2>/dev/null || true
-else
-    # gcloud 인증 사용 (로컬 개발 환경)
-    log_info "gcloud 인증 사용"
-    if ! gcloud auth list --filter=status:ACTIVE --format="value(account)" | grep -q .; then
-        log_error "gcloud 인증이 필요합니다. 'gcloud auth login'을 실행하세요."
-        exit 1
-    fi
-
-    # gcloud 계정을 Firebase에도 적용
-    log_info "gcloud 계정으로 Firebase 인증..."
-    gcloud auth application-default login --quiet 2>/dev/null || true
+# GOOGLE_APPLICATION_CREDENTIALS 환경변수로 인증
+if [ -z "$GOOGLE_APPLICATION_CREDENTIALS" ]; then
+    log_error "GOOGLE_APPLICATION_CREDENTIALS 환경변수가 설정되지 않았습니다."
+    log_error "로컬: export GOOGLE_APPLICATION_CREDENTIALS=\"/path/to/service-account-key.json\""
+    log_error "GitHub Actions: google-github-actions/auth@v2 사용"
+    exit 1
 fi
+
+if [ ! -f "$GOOGLE_APPLICATION_CREDENTIALS" ]; then
+    log_error "서비스 계정 키 파일을 찾을 수 없습니다: $GOOGLE_APPLICATION_CREDENTIALS"
+    exit 1
+fi
+
+log_info "서비스 계정으로 인증: $GOOGLE_APPLICATION_CREDENTIALS"
+
+# gcloud에서 서비스 계정 활성화 (Firebase CLI가 gcloud 인증을 따라감)
+log_info "gcloud 서비스 계정 활성화 중..."
+if gcloud auth activate-service-account --key-file="$GOOGLE_APPLICATION_CREDENTIALS"; then
+    log_info "gcloud 서비스 계정 활성화 성공"
+else
+    log_warning "gcloud 서비스 계정 활성화 실패, 환경변수만 사용"
+fi
+
+# Firebase가 gcloud의 활성 계정을 사용하도록 프로젝트 설정
+log_info "gcloud 기본 프로젝트 설정..."
+gcloud config set project "$FIREBASE_PROJECT_ID" 2>/dev/null || true
 
 # Firebase 배포
 log_info "Firebase Hosting (staging)에 프론트엔드 배포 시작..."

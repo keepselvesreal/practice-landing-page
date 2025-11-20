@@ -75,11 +75,11 @@ jobs:
       - name: Deploy backend to Cloud Run
         run: make deploy-backend
 
-      # Firebase 서비스 계정으로 전환
-      - name: Setup Firebase service account
-        run: |
-          echo "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}" | base64 -d > $HOME/firebase-sa-key.json
-          echo "GOOGLE_APPLICATION_CREDENTIALS=$HOME/firebase-sa-key.json" >> $GITHUB_ENV
+      # Firebase 서비스 계정으로 인증
+      - name: Authenticate to Google Cloud (Firebase)
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
 
       # 프론트엔드 배포 (Firebase 서비스 계정 사용)
       - name: Deploy frontend to Firebase Hosting
