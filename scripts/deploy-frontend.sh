@@ -58,8 +58,18 @@ log_info "Firebase 인증 확인 중..."
 # GOOGLE_APPLICATION_CREDENTIALS가 설정되어 있으면 서비스 계정 활성화
 if [ -n "$GOOGLE_APPLICATION_CREDENTIALS" ] && [ -f "$GOOGLE_APPLICATION_CREDENTIALS" ]; then
     log_info "서비스 계정으로 인증: $GOOGLE_APPLICATION_CREDENTIALS"
+
     # gcloud에서 서비스 계정 활성화 (Firebase CLI가 gcloud 인증을 따라감)
-    gcloud auth activate-service-account --key-file="$GOOGLE_APPLICATION_CREDENTIALS" 2>/dev/null || true
+    log_info "gcloud 서비스 계정 활성화 중..."
+    if gcloud auth activate-service-account --key-file="$GOOGLE_APPLICATION_CREDENTIALS"; then
+        log_info "gcloud 서비스 계정 활성화 성공"
+    else
+        log_warning "gcloud 서비스 계정 활성화 실패, 환경변수만 사용"
+    fi
+
+    # Firebase가 gcloud의 활성 계정을 사용하도록 프로젝트 설정
+    log_info "gcloud 기본 프로젝트 설정..."
+    gcloud config set project "$FIREBASE_PROJECT_ID" 2>/dev/null || true
 else
     # gcloud 인증 사용 (로컬 개발 환경)
     log_info "gcloud 인증 사용"

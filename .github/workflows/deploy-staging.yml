@@ -67,21 +67,21 @@ jobs:
           BASE_URL=https://kbeauty-landing-page-staging.web.app
           EOF
 
-      # Firebase 서비스 계정 키 파일 생성
-      - name: Setup Firebase service account
-        run: |
-          echo "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}" > $HOME/gcp-key.json
-          echo "GOOGLE_APPLICATION_CREDENTIALS=$HOME/gcp-key.json" >> $GITHUB_ENV
-
       # Make 스크립트에 실행 권한 부여
       - name: Make scripts executable
         run: chmod +x scripts/*.sh
 
-      # 백엔드 배포
+      # 백엔드 배포 (GCP_SA_KEY 서비스 계정 사용)
       - name: Deploy backend to Cloud Run
         run: make deploy-backend
 
-      # 프론트엔드 배포
+      # Firebase 서비스 계정으로 전환
+      - name: Setup Firebase service account
+        run: |
+          echo "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}" > $HOME/firebase-sa-key.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$HOME/firebase-sa-key.json" >> $GITHUB_ENV
+
+      # 프론트엔드 배포 (Firebase 서비스 계정 사용)
       - name: Deploy frontend to Firebase Hosting
         run: make deploy-frontend
         env:
