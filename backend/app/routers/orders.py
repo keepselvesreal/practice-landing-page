@@ -1,3 +1,6 @@
+import logging
+import traceback
+
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
@@ -6,6 +9,7 @@ from app.schemas import OrderCreate, OrderResponse
 from app.services.order_service import create_order
 
 router = APIRouter()
+logger = logging.getLogger(__name__)
 
 
 @router.post("/orders/create", response_model=OrderResponse)
@@ -29,4 +33,12 @@ def create_new_order(order: OrderCreate, db: Session = Depends(get_db)):
         )
 
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Failed to create order: {str(e)}")
+        # Log detailed error information
+        logger.error(f"Failed to create order: {str(e)}")
+        logger.error(f"Traceback: {traceback.format_exc()}")
+        logger.error(f"Order data: {order.model_dump()}")
+
+        raise HTTPException(
+            status_code=500,
+            detail=f"Failed to create order: {str(e)}"
+        )

@@ -38,6 +38,18 @@ steps:
       - '--set-env-vars=PAYPAL_API_BASE=${_PAYPAL_API_BASE}'
     id: 'deploy-cloud-run'
 
+  # Step 4: Cloud Run Invoker 권한 부여 (allUsers - 테스트용)
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'run'
+      - 'services'
+      - 'add-iam-policy-binding'
+      - 'kbeauty-backend-staging'
+      - '--region=asia-northeast3'
+      - '--member=allUsers'
+      - '--role=roles/run.invoker'
+    id: 'grant-invoker-permission'
+
 # 로그를 Cloud Logging에만 저장 (Storage bucket 사용 안 함)
 options:
   logging: CLOUD_LOGGING_ONLY
