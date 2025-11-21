@@ -43,6 +43,14 @@ if [ ! -f "$TEMPLATE_FILE" ]; then
     exit 1
 fi
 
+# GitHub Actions 환경에서는 검증 스킵 (시크릿 조회 권한 없음)
+# 로컬 배포에서만 GitHub Secrets 검증 수행
+if [ -n "$GITHUB_ACTIONS" ]; then
+    log_info "GitHub Actions 환경: 시크릿 검증 스킵"
+    log_info "이미 생성된 .env 파일로 배포 진행"
+    exit 0
+fi
+
 log_check "1. 필수 변수 추출 중..."
 
 # 템플릿에서 필수 변수 추출
