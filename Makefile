@@ -22,17 +22,22 @@ help:
 	@echo "  make clean                      - Clean up build artifacts"
 	@echo ""
 	@echo "Environment variables:"
-	@echo "  ENV_FILE             - Environment file to use (default: .env.staging)"
+	@echo "  ENV_FILE             - Environment file to use (required for deploy-backend/frontend)"
 
-# 백엔드 배포
-deploy-backend:
-	@echo "🚀 Deploying backend to Cloud Run..."
-	@./scripts/deploy-backend.sh
+# 기본 배포 (staging으로 매핑)
+deploy-backend: deploy-staging-backend
 
-# 프론트엔드 배포
-deploy-frontend:
-	@echo "🚀 Deploying frontend to Firebase Hosting..."
-	@./scripts/deploy-frontend.sh
+deploy-frontend: deploy-staging-frontend
+
+# Staging 백엔드 배포
+deploy-staging-backend:
+	@echo "🚀 Deploying backend to Cloud Run (Staging)..."
+	@ENV_FILE=.env.staging ./scripts/deploy-backend.sh
+
+# Staging 프론트엔드 배포
+deploy-staging-frontend:
+	@echo "🚀 Deploying frontend to Firebase Hosting (Staging)..."
+	@ENV_FILE=.env.staging ./scripts/deploy-frontend.sh
 
 # 스모크 테스트 (Staging)
 smoke-test-staging:
@@ -43,9 +48,9 @@ smoke-test-staging:
 test-staging:
 	@echo "🧪 Running E2E tests against staging..."
 	@./scripts/test-staging.sh
-
+	
 # Staging 전체 배포 (백엔드 → 프론트엔드)
-deploy-staging: deploy-backend deploy-frontend
+deploy-staging: deploy-staging-backend deploy-staging-frontend
 	@echo "✅ Staging deployment complete!"
 
 # Staging 배포 + E2E 검증 (안전한 배포)

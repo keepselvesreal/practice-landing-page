@@ -131,6 +131,10 @@ jobs:
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v2
 
+      # Make 스크립트에 실행 권한 부여
+      - name: Make scripts executable
+        run: chmod +x scripts/*.sh
+
       # .env.production 파일 생성
       - name: Create .env.production from secrets
         run: |
@@ -161,17 +165,13 @@ jobs:
           BASE_URL=${{ env.PRODUCTION_URL }}
           EOF
 
-      # Make 스크립트에 실행 권한 부여
-      - name: Make scripts executable
-        run: chmod +x scripts/*.sh
-
       # ====================
       # Backend 배포
       # ====================
 
       # 백엔드 배포 (Production)
       - name: Deploy backend to Cloud Run (Production)
-        run: ENV_FILE=.env.production make deploy-backend
+        run: make deploy-production-backend
 
       # ====================
       # Frontend 배포
@@ -185,7 +185,7 @@ jobs:
 
       # 프론트엔드 배포 (Production)
       - name: Deploy frontend to Firebase Hosting (Production)
-        run: ENV_FILE=.env.production make deploy-frontend
+        run: make deploy-production-frontend
         env:
           FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
         id: deploy

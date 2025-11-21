@@ -26,8 +26,13 @@ PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 log_info "프로젝트 루트: $PROJECT_ROOT"
 
-# 환경 파일 결정 (기본값: .env.staging)
-ENV_FILE="${ENV_FILE:-.env.staging}"
+# 환경 파일 확인
+if [ -z "$ENV_FILE" ]; then
+    log_error "ENV_FILE 환경변수가 설정되지 않았습니다."
+    log_error "사용법: ENV_FILE=.env.staging ./scripts/deploy-frontend.sh"
+    log_error "또는: ENV_FILE=.env.production ./scripts/deploy-frontend.sh"
+    exit 1
+fi
 
 # .env 파일 로드
 if [ -f "$PROJECT_ROOT/$ENV_FILE" ]; then

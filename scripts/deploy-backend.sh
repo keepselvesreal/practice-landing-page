@@ -26,8 +26,13 @@ PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 log_info "프로젝트 루트: $PROJECT_ROOT"
 
-# 환경 파일 결정 (기본값: .env.staging)
-ENV_FILE="${ENV_FILE:-.env.staging}"
+# 환경 파일 확인
+if [ -z "$ENV_FILE" ]; then
+    log_error "ENV_FILE 환경변수가 설정되지 않았습니다."
+    log_error "사용법: ENV_FILE=.env.staging ./scripts/deploy-backend.sh"
+    log_error "또는: ENV_FILE=.env.production ./scripts/deploy-backend.sh"
+    exit 1
+fi
 
 # .env 파일 로드
 if [ -f "$PROJECT_ROOT/$ENV_FILE" ]; then
@@ -44,8 +49,13 @@ else
 fi
 
 # 환경 변수 검증 실행
+# 템플릿 파일 기반으로 필수 변수 검증
 log_info "환경 변수 검증 중..."
-if ! "$SCRIPT_DIR/verify-env.sh"; then
+
+# ENV_FILE에서 환경 추출 (.env.staging -> .staging)
+TEMPLATE_ENV=$(echo "$ENV_FILE" | sed 's/\.env//')
+
+if ! env ENV_FILE="$ENV_FILE" "$SCRIPT_DIR/validate-secrets.sh" "$TEMPLATE_ENV"; then
     log_error "환경 변수 검증 실패. 배포를 중단합니다."
     exit 1
 fi
