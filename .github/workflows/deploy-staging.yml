@@ -1,0 +1,142 @@
+name: Deploy to Staging
+
+on:
+  push:
+    branches: [main, mvp-v2/walking-skeleton]
+  workflow_dispatch:  # 수동 실행 가능
+
+env:
+  PYTHON_VERSION: '3.11'
+  STAGING_URL: 'https://kbeauty-landing-page-staging.web.app'
+
+jobs:
+  deploy-staging:
+    name: Deploy to Staging Environment
+    runs-on: ubuntu-latest
+    environment:
+      name: staging
+      url: ${{ env.STAGING_URL }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install uv
+        run: pip install uv
+
+      # Google Cloud 인증
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      # Make 스크립트에 실행 권한 부여
+      - name: Make scripts executable
+        run: chmod +x scripts/*.sh
+
+      # .env.staging 파일 생성
+      - name: Create .env.staging from secrets
+        run: |
+          cat > .env.staging << EOF
+          # Database (Cloud SQL)
+          DATABASE_URL=${{ secrets.DATABASE_URL }}
+
+          # Google Places API
+          GOOGLE_PLACES_API_KEY=${{ secrets.GOOGLE_PLACES_API_KEY }}
+
+          # PayPal
+          PAYPAL_API_BASE=${{ secrets.PAYPAL_API_BASE }}
+          PAYPAL_CLIENT_ID=${{ secrets.PAYPAL_CLIENT_ID }}
+          PAYPAL_CLIENT_SECRET=${{ secrets.PAYPAL_CLIENT_SECRET }}
+          PAYPAL_WEBHOOK_ID=${{ secrets.PAYPAL_WEBHOOK_ID }}
+
+          # Gmail / SMTP
+          GMAIL_ADDRESS=${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD="${{ secrets.GMAIL_APP_PASSWORD }}"
+          SMTP_HOST=${{ secrets.SMTP_HOST }}
+          SMTP_PORT=${{ secrets.SMTP_PORT }}
+
+          # Security
+          ENCRYPTION_KEY=${{ secrets.ENCRYPTION_KEY }}
+          ADMIN_API_KEY=${{ secrets.ADMIN_API_KEY }}
+
+          # Staging Environment
+          BASE_URL=${{ env.STAGING_URL }}
+          EOF
+
+      # 백엔드 배포 (GCP_SA_KEY 서비스 계정 사용)
+      - name: Deploy backend to Cloud Run
+        run: make deploy-staging-backend
+
+      # Firebase 서비스 계정으로 인증
+      - name: Authenticate to Google Cloud (Firebase)
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+
+      # 프론트엔드 배포 (Firebase 서비스 계정 사용)
+      - name: Deploy frontend to Firebase Hosting
+        run: make deploy-staging-frontend
+        env:
+          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+
+      - name: Output deployment URL
+        run: |
+          echo "Staging URL: ${{ env.STAGING_URL }}"
+
+  test-staging:
+    name: Test Staging Environment
+    needs: deploy-staging
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install uv
+        run: pip install uv
+
+      # .env.staging 파일 생성 (테스트용)
+      - name: Create .env.staging for testing
+        run: |
+          cat > .env.staging << EOF
+          BASE_URL=${{ env.STAGING_URL }}
+          EOF
+
+      # Make 스크립트에 실행 권한 부여
+      - name: Make scripts executable
+        run: chmod +x scripts/*.sh
+
+      # E2E 테스트 실행
+      - name: Run E2E tests against staging
+        run: make test-staging
+
+      - name: Create test report
+        if: always()
+        run: |
+          echo "## Staging Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "- Environment: Staging" >> $GITHUB_STEP_SUMMARY
+          echo "- URL: ${{ env.STAGING_URL }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Status: ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "::error::Staging deployment tests failed"
+          # Slack/Discord 알림 추가 가능
+          # curl -X POST ${{ secrets.SLACK_WEBHOOK_URL }} \
+          #   -H 'Content-Type: application/json' \
+          #   -d '{"text":"Staging deployment failed!"}'

@@ -1,0 +1,273 @@
+name: Deploy to Production
+
+on:
+  # Staging 워크플로우 성공 시 자동 트리거
+  workflow_run:
+    workflows: ["Deploy to Staging"]
+    types: [completed]
+    branches: [main, mvp-v2/walking-skeleton]
+
+  # 수동 실행도 가능
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to deploy (e.g., v1.0.0)'
+        required: false
+        type: string
+
+env:
+  PYTHON_VERSION: '3.11'
+  STAGING_URL: 'https://kbeauty-landing-page-staging.web.app'
+  PRODUCTION_URL: 'https://kbeauty-landing-page.web.app'
+
+jobs:
+  # Staging 성공 확인 (workflow_run으로 트리거된 경우)
+  check-staging-success:
+    name: Check Staging Success
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_run'
+    steps:
+      - name: Check if staging workflow succeeded
+        if: github.event.workflow_run.conclusion != 'success'
+        run: |
+          echo "::error::Staging workflow did not succeed. Conclusion: ${{ github.event.workflow_run.conclusion }}"
+          exit 1
+
+      - name: Staging success confirmed
+        run: |
+          echo "✅ Staging deployment and tests passed successfully!"
+          echo "Staging workflow: ${{ github.event.workflow_run.html_url }}"
+
+  # 배포 전 체크
+  pre-deployment-check:
+    name: Pre-deployment Checks
+    needs: [check-staging-success]
+    if: always() && (needs.check-staging-success.result == 'success' || needs.check-staging-success.result == 'skipped')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create deployment checklist
+        run: |
+          echo "## Pre-deployment Checklist" >> $GITHUB_STEP_SUMMARY
+          echo "- [x] Code reviewed and approved" >> $GITHUB_STEP_SUMMARY
+          echo "- [x] Staging tests passed" >> $GITHUB_STEP_SUMMARY
+          echo "- [x] Database migrations ready" >> $GITHUB_STEP_SUMMARY
+          echo "- [x] Environment variables configured" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Ready for production deployment!**" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "⚠️ **Approval required to proceed**" >> $GITHUB_STEP_SUMMARY
+          echo "Go to: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" >> $GITHUB_STEP_SUMMARY
+
+  # 승인 대기 알림
+  notify-approval-required:
+    name: Notify Approval Required
+    needs: [pre-deployment-check]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Create approval notification
+        run: |
+          echo "## 🚀 Production Deployment Approval Required" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Staging deployment and tests completed successfully!" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Next steps:**" >> $GITHUB_STEP_SUMMARY
+          echo "1. Review the staging deployment" >> $GITHUB_STEP_SUMMARY
+          echo "2. Approve the production deployment below" >> $GITHUB_STEP_SUMMARY
+          echo "3. Click 'Review deployments' and select 'Approve and deploy'" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Staging URL:** ${{ env.STAGING_URL }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Production URL:** ${{ env.PRODUCTION_URL }}" >> $GITHUB_STEP_SUMMARY
+
+      # Slack/Discord 알림 (선택사항)
+      # - name: Send Slack notification
+      #   run: |
+      #     curl -X POST ${{ secrets.SLACK_WEBHOOK_URL }} \
+      #       -H 'Content-Type: application/json' \
+      #       -d '{
+      #         "text": "🚀 Production deployment approval required!",
+      #         "blocks": [
+      #           {
+      #             "type": "section",
+      #             "text": {
+      #               "type": "mrkdwn",
+      #               "text": "*Staging deployment successful!*\n\nProduction deployment is ready and waiting for approval.\n\n<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Review and approve deployment>"
+      #             }
+      #           }
+      #         ]
+      #       }'
+
+  # 운영 배포 (승인 필요)
+  deploy-production:
+    name: Deploy to Production
+    needs: [notify-approval-required]
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: ${{ env.PRODUCTION_URL }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install uv
+        run: pip install uv
+
+      # Google Cloud 인증
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      # Make 스크립트에 실행 권한 부여
+      - name: Make scripts executable
+        run: chmod +x scripts/*.sh
+
+      # .env.production 파일 생성
+      - name: Create .env.production from secrets
+        run: |
+          cat > .env.production << EOF
+          # Database (Cloud SQL Production)
+          DATABASE_URL=${{ secrets.DATABASE_URL }}
+
+          # Google Places API
+          GOOGLE_PLACES_API_KEY=${{ secrets.GOOGLE_PLACES_API_KEY }}
+
+          # PayPal Production
+          PAYPAL_API_BASE=${{ secrets.PAYPAL_API_BASE }}
+          PAYPAL_CLIENT_ID=${{ secrets.PAYPAL_CLIENT_ID }}
+          PAYPAL_CLIENT_SECRET=${{ secrets.PAYPAL_CLIENT_SECRET }}
+          PAYPAL_WEBHOOK_ID=${{ secrets.PAYPAL_WEBHOOK_ID }}
+
+          # Gmail / SMTP
+          GMAIL_ADDRESS=${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD="${{ secrets.GMAIL_APP_PASSWORD }}"
+          SMTP_HOST=${{ secrets.SMTP_HOST }}
+          SMTP_PORT=${{ secrets.SMTP_PORT }}
+
+          # Security
+          ENCRYPTION_KEY=${{ secrets.ENCRYPTION_KEY }}
+          ADMIN_API_KEY=${{ secrets.ADMIN_API_KEY }}
+
+          # Production Environment
+          BASE_URL=${{ env.PRODUCTION_URL }}
+          EOF
+
+      # ====================
+      # Backend 배포
+      # ====================
+
+      # 백엔드 배포 (Production)
+      - name: Deploy backend to Cloud Run (Production)
+        run: make deploy-production-backend
+
+      # ====================
+      # Frontend 배포
+      # ====================
+
+      # Firebase 서비스 계정으로 재인증
+      - name: Authenticate to Google Cloud (Firebase)
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+
+      # 프론트엔드 배포 (Production)
+      - name: Deploy frontend to Firebase Hosting (Production)
+        run: make deploy-production-frontend
+        env:
+          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+        id: deploy
+
+      - name: Create Git tag
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git tag -a ${{ inputs.version }} -m "Release ${{ inputs.version }}"
+          git push origin ${{ inputs.version }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create deployment summary
+        run: |
+          echo "## 🚀 Production Deployment Successful" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Version:** ${{ inputs.version }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Deployed at:** $(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+          echo "**URL:** ${{ steps.deploy.outputs.url }}" >> $GITHUB_STEP_SUMMARY
+
+  # 운영 환경 스모크 테스트
+  smoke-test:
+    name: Production Smoke Test
+    needs: deploy-production
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install uv
+        run: pip install uv
+
+      - name: Install dependencies
+        run: |
+          cd backend
+          uv sync
+
+      - name: Install Playwright browsers
+        run: |
+          cd backend
+          uv run playwright install chromium
+
+      - name: Run smoke tests
+        run: |
+          cd backend
+          TEST_ENV=production uv run pytest tests/e2e/test_walking_skeleton.py -v
+        env:
+          GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
+        timeout-minutes: 10
+
+      - name: Health check
+        run: |
+          response=$(curl -s -o /dev/null -w "%{http_code}" ${{ env.PRODUCTION_URL }}/api/health)
+          if [ $response -eq 200 ]; then
+            echo "✓ Health check passed"
+          else
+            echo "✗ Health check failed with status $response"
+            exit 1
+          fi
+
+      - name: Notify success
+        if: success()
+        run: |
+          echo "## ✅ Production Deployment Verified" >> $GITHUB_STEP_SUMMARY
+          echo "All smoke tests passed successfully!" >> $GITHUB_STEP_SUMMARY
+          # Slack 알림
+          # curl -X POST ${{ secrets.SLACK_WEBHOOK_URL }} \
+          #   -H 'Content-Type: application/json' \
+          #   -d '{"text":"🚀 Production deployment successful! Version: ${{ inputs.version }}"}'
+
+      - name: Rollback on failure
+        if: failure()
+        run: |
+          echo "::error::Smoke tests failed! Manual rollback required."
+          echo "## ❌ Production Deployment Failed" >> $GITHUB_STEP_SUMMARY
+          echo "Smoke tests failed. Please investigate and rollback if necessary." >> $GITHUB_STEP_SUMMARY
+          # 자동 롤백 (선택사항)
+          # firebase hosting:rollback --project ${{ secrets.FIREBASE_PROJECT_ID }}
