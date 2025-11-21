@@ -1,5 +1,4 @@
 from logging.config import fileConfig
-import os
 import sys
 from pathlib import Path
 
@@ -13,7 +12,6 @@ sys.path.append(str(Path(__file__).parent.parent))
 
 # Import models and database
 from app.database import Base
-from app.models import Order, EmailLog  # Import all models
 from app.config import settings
 
 # this is the Alembic Config object, which provides

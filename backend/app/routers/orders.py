@@ -27,7 +27,7 @@ def create_new_order(order: OrderCreate, db: Session = Depends(get_db)):
         db_order, email_sent = create_order(db, order)
 
         return OrderResponse(
-            order_id=db_order.order_number,
+            order_id=str(db_order.order_number),
             status="created",
             email_sent=email_sent
         )

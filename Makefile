@@ -1,8 +1,13 @@
-.PHONY: help deploy-backend deploy-frontend deploy-staging test-staging smoke-test-staging deploy-staging-verified smoke-test-production deploy-production-backend deploy-production-frontend deploy-production clean
+.PHONY: help test-docker lint ci deploy-backend deploy-frontend deploy-staging test-staging smoke-test-staging deploy-staging-verified smoke-test-production deploy-production-backend deploy-production-frontend deploy-production clean
 
 # 기본 타겟
 help:
 	@echo "K-Beauty Landing Page - Deployment Makefile"
+	@echo ""
+	@echo "=== CI Commands ==="
+	@echo "  make test-docker                - Run E2E tests with Docker Compose"
+	@echo "  make lint                       - Run code quality checks (ruff, mypy)"
+	@echo "  make ci                         - Run all CI checks (test-docker + lint)"
 	@echo ""
 	@echo "=== Staging Commands ==="
 	@echo "  make deploy-backend             - Deploy backend only (staging)"
@@ -23,6 +28,18 @@ help:
 	@echo ""
 	@echo "Environment variables:"
 	@echo "  ENV_FILE             - Environment file to use (required for deploy-backend/frontend)"
+
+# CI 관련 타겟
+test-docker:
+	@echo "🧪 Running E2E tests with Docker Compose..."
+	@./scripts/test-docker.sh
+
+lint:
+	@echo "🔍 Running code quality checks..."
+	@./scripts/lint.sh
+
+ci: lint test-docker
+	@echo "✅ All CI checks passed!"
 
 # 기본 배포 (staging으로 매핑)
 deploy-backend: deploy-staging-backend

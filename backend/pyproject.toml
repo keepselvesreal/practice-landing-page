@@ -16,11 +16,13 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "mypy>=1.14.1",
     "playwright>=1.56.0",
     "pytest>=8.4.2",
     "pytest-asyncio>=1.3.0",
     "pytest-playwright>=0.7.1",
     "requests>=2.32.5",
+    "ruff>=0.9.3",
 ]
 
 [tool.pytest.ini_options]
@@ -34,3 +36,25 @@ log_file = "tests/logs/e2e.log"
 log_file_level = "DEBUG"
 log_file_format = "%(asctime)s [%(levelname)s] %(name)s: %(message)s"
 log_file_date_format = "%Y-%m-%d %H:%M:%S"
+
+[tool.mypy]
+python_version = "3.11"
+plugins = ["pydantic.mypy"]
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+check_untyped_defs = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+strict_optional = true
+
+[[tool.mypy.overrides]]
+module = "sqlalchemy.*"
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "alembic.*"
+ignore_missing_imports = true

@@ -36,67 +36,22 @@ jobs:
           cd backend
           uv run playwright install chromium
 
-      - name: Create .env file for tests
-        run: |
-          cat > .env << EOF
-          # Test Environment
-          TEST_ENV=docker
+      - name: Make scripts executable
+        run: chmod +x scripts/*.sh
 
-          # URLs
-          BASE_URL=http://localhost:8080
-
-          # Database
-          POSTGRES_PORT=5432
-
-          # API Keys
-          GOOGLE_PLACES_API_KEY=${{ secrets.GOOGLE_PLACES_API_KEY }}
-
-          # PayPal
-          PAYPAL_API_BASE=${{ secrets.PAYPAL_API_BASE }}
-          PAYPAL_CLIENT_ID=${{ secrets.PAYPAL_CLIENT_ID }}
-          PAYPAL_CLIENT_SECRET=${{ secrets.PAYPAL_CLIENT_SECRET }}
-
-          # Email
-          GMAIL_ADDRESS=${{ secrets.GMAIL_ADDRESS }}
-          GMAIL_APP_PASSWORD="${{ secrets.GMAIL_APP_PASSWORD }}"
-          SMTP_HOST=${{ secrets.SMTP_HOST }}
-          SMTP_PORT=${{ secrets.SMTP_PORT }}
-          EOF
-
-      - name: Start Docker services
-        run: |
-          docker compose -f docker-compose.test.yml up -d
-
-      - name: Wait for services to be ready
-        run: |
-          echo "Waiting for services to be healthy..."
-          timeout 60 bash -c 'until docker compose -f docker-compose.test.yml ps | grep -q "healthy"; do sleep 2; done'
-          docker compose -f docker-compose.test.yml ps
-
-      - name: Run E2E tests
-        run: |
-          # Load .env file and export all variables
-          set -a
-          source .env
-          set +a
-
-          cd backend
-          uv run pytest tests/e2e/ -v --tb=short
-
-      - name: Show logs on failure
-        if: failure()
-        run: |
-          echo "=== Backend logs ==="
-          docker compose -f docker-compose.test.yml logs backend
-          echo "=== Frontend logs ==="
-          docker compose -f docker-compose.test.yml logs frontend
-          echo "=== Postgres logs ==="
-          docker compose -f docker-compose.test.yml logs postgres
-
-      - name: Cleanup
-        if: always()
-        run: |
-          docker compose -f docker-compose.test.yml down -v
+      - name: Run Docker E2E tests
+        run: make test-docker
+        env:
+          TEST_ENV: docker
+          BASE_URL: http://localhost:8080
+          GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
+          PAYPAL_API_BASE: ${{ secrets.PAYPAL_API_BASE }}
+          PAYPAL_CLIENT_ID: ${{ secrets.PAYPAL_CLIENT_ID }}
+          PAYPAL_CLIENT_SECRET: ${{ secrets.PAYPAL_CLIENT_SECRET }}
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
 
   lint:
     name: Code Quality Check
@@ -119,14 +74,9 @@ jobs:
           cd backend
           uv sync
 
-      - name: Check code formatting (ruff)
-        run: |
-          cd backend
-          uv run ruff check . || echo "Ruff not configured yet"
-        continue-on-error: true
+      - name: Make scripts executable
+        run: chmod +x scripts/*.sh
 
-      - name: Type check (mypy)
-        run: |
-          cd backend
-          uv run mypy app/ || echo "MyPy not configured yet"
+      - name: Run code quality checks
+        run: make lint
         continue-on-error: true
