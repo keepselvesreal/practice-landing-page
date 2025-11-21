@@ -1,0 +1,178 @@
+# 5.7 Third-Party Assertion Libraries (pp.118-121)
+
+---
+**Page 118**
+
+You’ve demonstrated that fast half works for 0, 1, many, and negative number
+cases. For very large numbers, rather than show many-digit barfages in the
+test, you can write an assertion that emphasizes the inverse mathematical
+relationship between input and output:
+utj3-junit/01/src/test/java/util/SomeMathUtils.java
+@Test
+void handlesLargeNumbers() {
+var number = 489_935_889_934_389_890L;
+assertEquals(number, fastHalf(number) * 2);
+}
+Mathematical computations represent the canonical examples for verifying
+via inverse relationships: you can verify division by using multiplication,
+addition by using subtraction, square roots by squares, and so on. Other
+domains where you can verify using inverse operations include cryptography,
+accounting, physics, computer graphics, finance, and data compression.
+Cross-checking via inversion ensures that everything adds up and balances,
+much like the general ledger in a double-entry bookkeeping system. It’s not
+a technique you should reach for often, but it can occasionally help make
+your tests considerably more expressive. You might find particular value in
+inversion when your test demands voluminous amounts of data.
+Be careful with the code you use for verification! If both the actual routine
+and the assertion share the same code (perhaps a common utility class you
+wrote), they could share a common defect.
+Third-Party Assertion Libraries
+JUnit provides all the assertions you’ll need, but it’s worth taking a look at
+the third-party assertion libraries available—AssertJ, Hamcrest, Truth, and
+more. These libraries primarily seek to improve upon the expressiveness of
+assertions, which can help streamline and simplify your tests.
+Let’s take a very quick look at AssertJ, a popular choice, to see a little bit of
+its power. AssertJ offers fluent assertions, which are designed to help tests
+flow better and read more naturally. A half-dozen simple examples should
+get the idea across quickly. Each of the examples assumes the following
+declaration:
+String name = "my big fat acct";
+The core AssertJ form reverses JUnit order. You specify the actual value first
+as an argument to an assertThat method that all assertions use. You then make
+a chained call to one of many methods that complete or continue the assertion.
+Chapter 5. Examining Outcomes with Assertions • 118
+report erratum  •  discuss
+
+
+---
+**Page 119**
+
+Here’s what an AssertJ assertion looks like when applied to the common need
+of comparing one object to another—isEqualTo is analogous to assertEquals in JUnit:
+utj3-junit/01/src/test/java/scratch/SomeAssertJExamples.java
+assertThat(name).isEqualTo("my big fat acct");
+So far, so simple. To note:
+• You can take advantage of autocomplete to flesh out the assertion.
+• The assertion reads like an English sentence, left to right.
+AssertJ provides numerous inversions of positively stated assertions. Thus,
+the converse of isEqualTo is isNotEqualTo:
+utj3-junit/01/src/test/java/scratch/SomeAssertJExamples.java
+assertThat(name).isNotEqualTo("plunderings");
+A few more examples follow. Most of them speak for themselves, and that’s
+part of the point.
+You can use chaining to specify multiple expected outcomes in a single
+statement. The following assertion passes if the name references a string that
+both starts with "my" and ends with "acct":
+utj3-junit/01/src/test/java/scratch/SomeAssertJExamples.java
+assertThat(name)
+.startsWith("my")
+.endsWith("acct");
+A type-checking example:
+utj3-junit/01/src/test/java/scratch/SomeAssertJExamples.java
+assertThat(name).isInstanceOf(String.class);
+Using regular expressions:
+utj3-junit/01/src/test/java/scratch/SomeAssertJExamples.java
+assertThat(name).containsPattern(
+compile("\\s+(big fat|small)\\s+"));
+AssertJ contains numerous tests around lists:
+utj3-junit/01/src/test/java/scratch/SomeAssertJExamples.java
+@Test
+public void simpleListTests() {
+var names = List.of("Moe", "Larry", "Curly");
+assertThat(names).contains("Curly");
+assertThat(names).contains("Curly", "Moe");
+assertThat(names).anyMatch(name -> name.endsWith("y"));
+assertThat(names).allMatch(name -> name.length() < 6);
+}
+report erratum  •  discuss
+Third-Party Assertion Libraries • 119
+
+
+---
+**Page 120**
+
+The third list assertion passes if any one or more of the elements in the list
+ends with the substring "y". (The strings "Larry" or "Curly" here make it pass.)
+The fourth assertion passes if all of the elements in the list have a length less
+than 6. (They do.)
+(Caveat: The preceding asserts that verify only part of a string might be con-
+sidered weak assertions. You likely need to verify more.)
+AssertJ’s failing fluent assertions provide far more useful failure messages
+than what JUnit might give you. Here’s a failing assertion for the list of names:
+utj3-junit/01/src/test/java/scratch/SomeAssertJExamples.java
+assertThat(names).allMatch(name -> name.length() < 5);
+… and here’s the failure message generated by AssertJ:
+Expecting all elements of:
+["Moe", "Larry", "Curly"]
+to match given predicate but these elements did not:
+["Larry", "Curly"]
+Knowing exactly why the assert failed should speed up your fix.
+AssertJ allows you to express your assertions in the most concise manner
+possible, particularly as things get more complex. Occasionally, your tests will
+need to extract specific data from results in order to effectively assert against
+it. With JUnit, doing so might require one or more lines of code before you
+can write the assertion. With AssertJ, you might be able to directly express
+your needs in a single statement.
+The Power of Fluency
+Let’s look at a small example that still demonstrates some of AssertJ’s power.
+The example uses two classes:
+• a Flight class that declares a segment field of type Segment
+• a Segment class containing the fields origin, destination, and distance
+utj3-junit/01/src/test/java/scratch/SomeAssertJExamples.java
+record Segment(String origin, String destination, int distance) {
+boolean includes(String airport) {
+return origin.equals(airport) || destination.equals(airport);
+}
+}
+record Flight(Segment segment, LocalDateTime dateTime) {
+Flight(String origin, String destination,
+int distance, LocalDateTime dateTime) {
+Chapter 5. Examining Outcomes with Assertions • 120
+report erratum  •  discuss
+
+
+---
+**Page 121**
+
+this(new Segment(origin, destination, distance), dateTime);
+}
+boolean includes(String airport) {
+return segment.includes(airport);
+}
+}
+The following AssertJ assertion compares against a list of Flight objects stored
+in the variable flights:
+utj3-junit/01/src/test/java/scratch/SomeAssertJExamples.java
+@Test
+void filterAndExtract() {
+// ...
+assertThat(flights)
+.filteredOn(flight -> flight.includes("DEN"))
+.extracting("segment.distance", Integer.class)
+.allMatch(distance -> distance < 1700);
+}
+The call to filteredOn returns a subset of flights involving the flight code "DEN".
+The call to extracting applies an AssertJ property reference ("segment.distance") to
+each "DEN" flight. The reference tells AssertJ to first retrieve the segment object
+from a flight, then retrieve the distance value from that segment as an Integer.
+Yes, you could manually code an equivalent to the AssertJ solution, but the
+resulting code would lose the declarative nature that AssertJ can provide.
+Your test would require more effort to both write and read. In contrast,
+AssertJ’s support for method chaining creates a fluent sentence that you can
+read as a single concept.
+Regardless of whether you choose to adopt AssertJ or another third-party
+assertions library, streamline your tests so they read as concise documenta-
+tion. A well-designed assertion step minimizes stepwise reading.
+Eliminating Non-Tests
+Assertions are what make a test an automated test. Omitting assertions from
+your tests would render them pointless. And yet, some developers do exactly
+that in order to meet code coverage mandates easily. Another common ruse
+is to write tests that exercise a large amount of code, then assert something
+simple—for example, that a method’s return value is not null.
+Such non-tests provide almost zero value at a significant cost in time and
+effort. Worse, they carry an increasingly negative return on investment: you
+must expend time on non-tests when they fail or error, when they appear in
+report erratum  •  discuss
+Eliminating Non-Tests • 121
+
+

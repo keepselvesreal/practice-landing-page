@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "kbeauty-landing-page"
+  },
+  "targets": {
+    "kbeauty-landing-page": {
+      "hosting": {
+        "production": [
+          "kbeauty-landing-page"
+        ],
+        "staging": [
+          "kbeauty-landing-page-staging"
+        ]
+      }
+    }
+  }
+}

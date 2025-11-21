@@ -1,0 +1,426 @@
+{
+  "1.1": {
+    "title": "Reasons to Write a Unit Test",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-1/1-1-reasons-to-write-a-unit-test.md"
+  },
+  "1.2": {
+    "title": "Learning JUnit Basics: Your First Testing Challenge",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-1/1-2-learning-junit-basics-your-first-testing-challenge.md"
+  },
+  "1.3": {
+    "title": "Writing a First Real Test",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-1/1-3-writing-a-first-real-test.md"
+  },
+  "1.4": {
+    "title": "Dealing with Failure",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-1/1-4-dealing-with-failure.md"
+  },
+  "1.5": {
+    "title": "Moving On to a One-Based Test: Something’s Happening!",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-1/1-5-moving-on-to-a-one-based-test-somethings-happening.md"
+  },
+  "1.6": {
+    "title": "Increasing Your ROI: Cleaning Up Tests",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-1/1-6-increasing-your-roi-cleaning-up-tests.md"
+  },
+  "1.7": {
+    "title": "ZOM: Zero and One Done, Now Testing Many",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-1/1-7-zom-zero-and-one-done-now-testing-many.md"
+  },
+  "1.8": {
+    "title": "Covering Other Cases: Creating a Test List",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-1/1-8-covering-other-cases-creating-a-test-list.md"
+  },
+  "1.9": {
+    "title": "Congratulations!…But Don’t Stop Yet",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-1/1-9-congratulationsbut-dont-stop-yet.md"
+  },
+  "2.1": {
+    "title": "Units",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-2/2-1-units.md"
+  },
+  "2.2": {
+    "title": "A Wee Bit Bigger Than a Unit?",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-2/2-2-a-wee-bit-bigger-than-a-unit.md"
+  },
+  "2.3": {
+    "title": "Concepts as Building Blocks",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-2/2-3-concepts-as-building-blocks.md"
+  },
+  "2.4": {
+    "title": "Testing the Simpler Things",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-2/2-4-testing-the-simpler-things.md"
+  },
+  "2.5": {
+    "title": "Verifying Side Effects",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-2/2-5-verifying-side-effects.md"
+  },
+  "2.6": {
+    "title": "Testing Common Code Circumstances",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-2/2-6-testing-common-code-circumstances.md"
+  },
+  "2.7": {
+    "title": "Exploring Boundaries with CORRECT",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-2/2-7-exploring-boundaries-with-correct.md"
+  },
+  "2.8": {
+    "title": "Summary",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-2/2-8-summary.md"
+  },
+  "3.1": {
+    "title": "A Testing Challenge",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-3/3-1-a-testing-challenge.md"
+  },
+  "3.2": {
+    "title": "Replacing Troublesome Behavior with Stubs",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-3/3-2-replacing-troublesome-behavior-with-stubs.md"
+  },
+  "3.3": {
+    "title": "Changing Your Design to Support Testing",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-3/3-3-changing-your-design-to-support-testing.md"
+  },
+  "3.4": {
+    "title": "Adding Smarts to Your Stub: Verifying Parameters",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-3/3-4-adding-smarts-to-your-stub-verifying-parameters.md"
+  },
+  "3.5": {
+    "title": "Simplifying Testing Using a Mock Tool",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-3/3-5-simplifying-testing-using-a-mock-tool.md"
+  },
+  "3.6": {
+    "title": "Injecting Mocks with Mockito",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-3/3-6-injecting-mocks-with-mockito.md"
+  },
+  "3.7": {
+    "title": "Verifying a Method Was Called…or Not",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-3/3-7-verifying-a-method-was-calledor-not.md"
+  },
+  "3.8": {
+    "title": "Testing Exception Handling",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-3/3-8-testing-exception-handling.md"
+  },
+  "3.9": {
+    "title": "Fast Tests",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-3/3-9-fast-tests.md"
+  },
+  "3.10": {
+    "title": "A Mélange of Important Test Double Tips",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-3/3-10-a-mélange-of-important-test-double-tips.md"
+  },
+  "3.11": {
+    "title": "Summary",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-3/3-11-summary.md"
+  },
+  "4.1": {
+    "title": "Improving Unit Testing Skills Using Code Coverage",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-4/4-1-improving-unit-testing-skills-using-code-coverage.md"
+  },
+  "4.2": {
+    "title": "Testing Multithreaded Code",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-4/4-2-testing-multithreaded-code.md"
+  },
+  "4.3": {
+    "title": "Writing Integration Tests",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-4/4-3-writing-integration-tests.md"
+  },
+  "4.4": {
+    "title": "Exploratory Unit Testing",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-4/4-4-exploratory-unit-testing.md"
+  },
+  "4.5": {
+    "title": "Summary",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-4/4-5-summary.md"
+  },
+  "5.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-5/5-0-introduction-auto-generated.md"
+  },
+  "5.1": {
+    "title": "Using the Core Assertion Forms",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-5/5-1-using-the-core-assertion-forms.md"
+  },
+  "5.2": {
+    "title": "Assertion Messages: Redundant Messages for Assertions",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-5/5-2-assertion-messages-redundant-messages-for-assertions.md"
+  },
+  "5.3": {
+    "title": "Other Common JUnit Assertion Forms",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-5/5-3-other-common-junit-assertion-forms.md"
+  },
+  "5.4": {
+    "title": "Expecting Exceptions",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-5/5-4-expecting-exceptions.md"
+  },
+  "5.5": {
+    "title": "Assert That Nothing Happened: assertDoesNotThrow",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-5/5-5-assert-that-nothing-happened-assertdoesnotthrow.md"
+  },
+  "5.6": {
+    "title": "Alternate Assertion Approaches",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-5/5-6-alternate-assertion-approaches.md"
+  },
+  "5.7": {
+    "title": "Third-Party Assertion Libraries",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-5/5-7-third-party-assertion-libraries.md"
+  },
+  "5.8": {
+    "title": "Eliminating Non-Tests",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-5/5-8-eliminating-non-tests.md"
+  },
+  "5.9": {
+    "title": "Summary",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-5/5-9-summary.md"
+  },
+  "6.1": {
+    "title": "The Parts of an Individual Test",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-6/6-1-the-parts-of-an-individual-test.md"
+  },
+  "6.2": {
+    "title": "Setting Up and Tearing Down Using Lifecycle Methods",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-6/6-2-setting-up-and-tearing-down-using-lifecycle-methods.md"
+  },
+  "6.3": {
+    "title": "Organizing Related Tests into Nested Classes",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-6/6-3-organizing-related-tests-into-nested-classes.md"
+  },
+  "6.4": {
+    "title": "Avoiding Dependency Despair: Don’t Order Your Tests!",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-6/6-4-avoiding-dependency-despair-dont-order-your-tests.md"
+  },
+  "6.5": {
+    "title": "Executing Multiple Data Cases with Parameterized Tests",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-6/6-5-executing-multiple-data-cases-with-parameterized-tests.md"
+  },
+  "6.6": {
+    "title": "Summary",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-6/6-6-summary.md"
+  },
+  "7.1": {
+    "title": "Testing Habits: What Tests to Run",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-7/7-1-testing-habits-what-tests-to-run.md"
+  },
+  "7.2": {
+    "title": "Creating Arbitrary Test Groups Using Tags",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-7/7-2-creating-arbitrary-test-groups-using-tags.md"
+  },
+  "7.3": {
+    "title": "Temporarily Disabling Tests with @Disabled",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-7/7-3-temporarily-disabling-tests-with-disabled.md"
+  },
+  "7.4": {
+    "title": "Exploring More Features",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-7/7-4-exploring-more-features.md"
+  },
+  "7.5": {
+    "title": "Summary",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-7/7-5-summary.md"
+  },
+  "8.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-8/8-0-introduction-auto-generated.md"
+  },
+  "8.1": {
+    "title": "A Little Bit o’ Refactor",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-8/8-1-a-little-bit-o-refactor.md"
+  },
+  "8.2": {
+    "title": "Finding Better Homes for Your Methods",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-8/8-2-finding-better-homes-for-your-methods.md"
+  },
+  "8.3": {
+    "title": "Removing Temporaries of Little Value",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-8/8-3-removing-temporaries-of-little-value.md"
+  },
+  "8.4": {
+    "title": "Amplifying the Core Intent of Code",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-8/8-4-amplifying-the-core-intent-of-code.md"
+  },
+  "8.5": {
+    "title": "Are You Kidding Me? Addressing Concerns over Performance",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-8/8-5-are-you-kidding-me-addressing-concerns-over-performance.md"
+  },
+  "8.6": {
+    "title": "Final Cleanup",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-8/8-6-final-cleanup.md"
+  },
+  "8.7": {
+    "title": "Summary",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-8/8-7-summary.md"
+  },
+  "9.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-9/9-0-introduction-auto-generated.md"
+  },
+  "9.1": {
+    "title": "The Profile Class and the SRP",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-9/9-1-the-profile-class-and-the-srp.md"
+  },
+  "9.2": {
+    "title": "Extracting a New Class",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-9/9-2-extracting-a-new-class.md"
+  },
+  "9.3": {
+    "title": "Command-Query Separation",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-9/9-3-command-query-separation.md"
+  },
+  "9.4": {
+    "title": "The Costs of Maintaining Unit Tests",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-9/9-4-the-costs-of-maintaining-unit-tests.md"
+  },
+  "9.5": {
+    "title": "Summary",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-9/9-5-summary.md"
+  },
+  "10.1": {
+    "title": "Tests as Documentation",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-10/10-1-tests-as-documentation.md"
+  },
+  "10.2": {
+    "title": "Searching for an Understanding",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-10/10-2-searching-for-an-understanding.md"
+  },
+  "10.3": {
+    "title": "Test Smell: Legacy Code Constructs",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-10/10-3-test-smell-legacy-code-constructs.md"
+  },
+  "10.4": {
+    "title": "Test Smell: Unnecessary Test Code",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-10/10-4-test-smell-unnecessary-test-code.md"
+  },
+  "10.5": {
+    "title": "Test Smells: Generalized and Stepwise Assertions",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-10/10-5-test-smells-generalized-and-stepwise-assertions.md"
+  },
+  "10.6": {
+    "title": "Test Smell: Missing Abstractions",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-10/10-6-test-smell-missing-abstractions.md"
+  },
+  "10.7": {
+    "title": "Test Smell: Bloated Construction",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-10/10-7-test-smell-bloated-construction.md"
+  },
+  "10.8": {
+    "title": "Test Smell: Multiple Assertions",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-10/10-8-test-smell-multiple-assertions.md"
+  },
+  "10.9": {
+    "title": "Test Smell: Irrelevant Details in a Test",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-10/10-9-test-smell-irrelevant-details-in-a-test.md"
+  },
+  "10.10": {
+    "title": "Test Smell: Misleading Organization",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-10/10-10-test-smell-misleading-organization.md"
+  },
+  "10.11": {
+    "title": "Test Smell: Implicit Meaning",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-10/10-11-test-smell-implicit-meaning.md"
+  },
+  "10.12": {
+    "title": "Adding Tests from Your Test List",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-10/10-12-adding-tests-from-your-test-list.md"
+  },
+  "10.13": {
+    "title": "Summary",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-10/10-13-summary.md"
+  },
+  "11.0": {
+    "title": "Introduction [auto-generated]",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-11/11-0-introduction-auto-generated.md"
+  },
+  "11.1": {
+    "title": "The Primary Benefit of TDD",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-11/11-1-the-primary-benefit-of-tdd.md"
+  },
+  "11.2": {
+    "title": "Starting Simple",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-11/11-2-starting-simple.md"
+  },
+  "11.3": {
+    "title": "Increment 1: Deferring Complexity",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-11/11-3-increment-1-deferring-complexity.md"
+  },
+  "11.4": {
+    "title": "Increment 2: Generalizing the Implementation",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-11/11-4-increment-2-generalizing-the-implementation.md"
+  },
+  "11.5": {
+    "title": "Increment 3: Factoring Out Redundancies",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-11/11-5-increment-3-factoring-out-redundancies.md"
+  },
+  "11.6": {
+    "title": "Increment 4: Introducing a Test Double",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-11/11-6-increment-4-introducing-a-test-double.md"
+  },
+  "11.7": {
+    "title": "Test-Driven Development vs. Test-After Development",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-11/11-7-test-driven-development-vs-test-after-development.md"
+  },
+  "11.8": {
+    "title": "The Rhythm of TDD",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-11/11-8-the-rhythm-of-tdd.md"
+  },
+  "11.9": {
+    "title": "Summary",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-11/11-9-summary.md"
+  },
+  "12.1": {
+    "title": "Coming up to Speed",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-12/12-1-coming-up-to-speed.md"
+  },
+  "12.2": {
+    "title": "Getting on the Same Page with Your Team",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-12/12-2-getting-on-the-same-page-with-your-team.md"
+  },
+  "12.3": {
+    "title": "Practicing Continuous Integration",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-12/12-3-practicing-continuous-integration.md"
+  },
+  "12.4": {
+    "title": "Summary",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-12/12-4-summary.md"
+  },
+  "13.1": {
+    "title": "AI Isn’t Going Away",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-13/13-1-ai-isnt-going-away.md"
+  },
+  "13.2": {
+    "title": "Exploring a Simple Example with ChatGPT",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-13/13-2-exploring-a-simple-example-with-chatgpt.md"
+  },
+  "13.3": {
+    "title": "Establishing a Java Standard",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-13/13-3-establishing-a-java-standard.md"
+  },
+  "13.4": {
+    "title": "Providing Examples to ChatGPT",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-13/13-4-providing-examples-to-chatgpt.md"
+  },
+  "13.5": {
+    "title": "Telling Your LLM to Clean Up Its Act",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-13/13-5-telling-your-llm-to-clean-up-its-act.md"
+  },
+  "13.6": {
+    "title": "Adding a New Feature: Suffixes",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-13/13-6-adding-a-new-feature-suffixes.md"
+  },
+  "13.7": {
+    "title": "Getting the LLM to Do Final Design Cleanup",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-13/13-7-getting-the-llm-to-do-final-design-cleanup.md"
+  },
+  "13.8": {
+    "title": "For Extra Credit",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-13/13-8-for-extra-credit.md"
+  },
+  "13.9": {
+    "title": "Increasing Odds of Success with AI-Generated Code",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-13/13-9-increasing-odds-of-success-with-ai-generated-code.md"
+  },
+  "13.10": {
+    "title": "Will I Go Faster?",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-13/13-10-will-i-go-faster.md"
+  },
+  "13.11": {
+    "title": "Summary",
+    "path": "/home/nadle/para/resources/books/pragmatic-unit-testing-in-java-with-junit/chapter-13/13-11-summary.md"
+  }
+}

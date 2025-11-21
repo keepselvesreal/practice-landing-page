@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주문 확인 - K-Beauty</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>K-Beauty</h1>
+        </header>
+
+        <main class="confirmation">
+            <div class="success-icon">✓</div>
+            <h2>주문이 접수되었습니다!</h2>
+
+            <div class="order-details">
+                <p class="order-number">
+                    주문번호: <strong id="orderNumber"></strong>
+                </p>
+                <p class="email-status" id="emailStatus"></p>
+            </div>
+
+            <div class="message">
+                <p>주문 확인 이메일이 발송되었습니다.</p>
+                <p>곧 연락드리겠습니다. 감사합니다!</p>
+            </div>
+
+            <div class="actions">
+                <a href="/" class="btn-primary">홈으로 돌아가기</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 K-Beauty. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // URL에서 주문 정보 가져오기
+        const urlParams = new URLSearchParams(window.location.search);
+        const orderId = urlParams.get('order_id');
+        const emailSent = urlParams.get('email_sent') === 'true';
+
+        if (orderId) {
+            document.getElementById('orderNumber').textContent = orderId;
+        } else {
+            document.getElementById('orderNumber').textContent = '정보 없음';
+        }
+
+        const emailStatusEl = document.getElementById('emailStatus');
+        if (emailSent) {
+            emailStatusEl.textContent = '✓ 이메일 발송 완료';
+            emailStatusEl.style.color = '#28a745';
+        } else {
+            emailStatusEl.textContent = '⚠ 이메일 발송 실패 (주문은 정상 접수됨)';
+            emailStatusEl.style.color = '#ffc107';
+        }
+    </script>
+</body>
+</html>

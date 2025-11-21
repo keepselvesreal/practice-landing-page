@@ -1,0 +1,54 @@
+{
+  "hosting": [
+    {
+      "target": "production",
+      "public": "frontend",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "/api/**",
+          "run": {
+            "serviceId": "kbeauty-api",
+            "region": "asia-northeast3"
+          }
+        },
+        {
+          "source": "/health",
+          "run": {
+            "serviceId": "kbeauty-api",
+            "region": "asia-northeast3"
+          }
+        }
+      ]
+    },
+    {
+      "target": "staging",
+      "public": "frontend",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "/api/**",
+          "run": {
+            "serviceId": "kbeauty-backend-staging",
+            "region": "asia-northeast3"
+          }
+        },
+        {
+          "source": "/health",
+          "run": {
+            "serviceId": "kbeauty-backend-staging",
+            "region": "asia-northeast3"
+          }
+        }
+      ]
+    }
+  ]
+}
