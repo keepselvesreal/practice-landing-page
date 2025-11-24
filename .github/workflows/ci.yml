@@ -36,9 +36,9 @@ jobs:
           cd backend
           uv run playwright install chromium
 
-      - name: Create .env file for tests
+      - name: Create .env.docker file for tests
         run: |
-          cat > .env << EOF
+          cat > .env.docker << EOF
           # Test Environment
           TEST_ENV=docker
           BASE_URL=http://localhost:8080
@@ -68,9 +68,9 @@ jobs:
 
       - name: Run E2E tests
         run: |
-          # Load .env file and export all variables
+          # Load .env.docker file and export all variables
           set -a
-          source .env
+          source .env.docker
           set +a
 
           cd backend

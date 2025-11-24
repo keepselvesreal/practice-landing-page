@@ -145,6 +145,9 @@ jobs:
           # Google Places API
           GOOGLE_PLACES_API_KEY=${{ secrets.GOOGLE_PLACES_API_KEY }}
 
+          # Firebase
+          FIREBASE_PROJECT_ID=${{ secrets.FIREBASE_PROJECT_ID }}
+
           # PayPal Production
           PAYPAL_API_BASE=${{ secrets.PAYPAL_API_BASE }}
           PAYPAL_CLIENT_ID=${{ secrets.PAYPAL_CLIENT_ID }}
