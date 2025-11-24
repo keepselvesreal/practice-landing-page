@@ -41,26 +41,19 @@ jobs:
           cat > .env << EOF
           # Test Environment
           TEST_ENV=docker
-
-          # URLs
           BASE_URL=http://localhost:8080
 
-          # Database
-          POSTGRES_PORT=5432
-
-          # API Keys
+          # API Keys (from GitHub Secrets)
           GOOGLE_PLACES_API_KEY=${{ secrets.GOOGLE_PLACES_API_KEY }}
 
-          # PayPal
+          # PayPal (from GitHub Secrets)
           PAYPAL_API_BASE=${{ secrets.PAYPAL_API_BASE }}
           PAYPAL_CLIENT_ID=${{ secrets.PAYPAL_CLIENT_ID }}
           PAYPAL_CLIENT_SECRET=${{ secrets.PAYPAL_CLIENT_SECRET }}
 
-          # Email
+          # Gmail (from GitHub Secrets)
           GMAIL_ADDRESS=${{ secrets.GMAIL_ADDRESS }}
           GMAIL_APP_PASSWORD="${{ secrets.GMAIL_APP_PASSWORD }}"
-          SMTP_HOST=${{ secrets.SMTP_HOST }}
-          SMTP_PORT=${{ secrets.SMTP_PORT }}
           EOF
 
       - name: Start Docker services

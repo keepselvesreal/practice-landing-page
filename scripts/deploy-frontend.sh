@@ -48,9 +48,13 @@ else
     exit 1
 fi
 
-# 환경 변수 검증 실행
-log_info "환경 변수 검증 중..."
-if ! "$SCRIPT_DIR/verify-env.sh"; then
+# 환경 변수 검증 실행 (엄격 모드)
+log_info "환경 변수 검증 중 (엄격 모드)..."
+
+# ENV_FILE에서 환경 추출 (.env.staging -> staging)
+DEPLOY_ENV=$(echo "$ENV_FILE" | sed 's/\.env\.//')
+
+if ! "$SCRIPT_DIR/validate-env-file.sh" "$DEPLOY_ENV" --strict; then
     log_error "환경 변수 검증 실패. 배포를 중단합니다."
     exit 1
 fi
@@ -67,37 +71,30 @@ else
 fi
 
 # Firebase 프로젝트 ID 확인
-FIREBASE_PROJECT_ID="${FIREBASE_PROJECT_ID:-kbeauty-landing-page}"
+if [ -z "$FIREBASE_PROJECT_ID" ]; then
+    log_error "FIREBASE_PROJECT_ID 환경변수가 설정되지 않았습니다."
+    log_error "$ENV_FILE 파일에 FIREBASE_PROJECT_ID를 설정하세요."
+    exit 1
+fi
 log_info "Firebase 프로젝트: $FIREBASE_PROJECT_ID"
 
 # 인증 확인
 log_info "Firebase 인증 확인 중..."
 
-# GOOGLE_APPLICATION_CREDENTIALS 환경변수로 인증
-if [ -z "$GOOGLE_APPLICATION_CREDENTIALS" ]; then
-    log_error "GOOGLE_APPLICATION_CREDENTIALS 환경변수가 설정되지 않았습니다."
-    log_error "로컬: export GOOGLE_APPLICATION_CREDENTIALS=\"/path/to/service-account-key.json\""
-    log_error "GitHub Actions: google-github-actions/auth@v2 사용"
-    exit 1
-fi
-
-if [ ! -f "$GOOGLE_APPLICATION_CREDENTIALS" ]; then
-    log_error "서비스 계정 키 파일을 찾을 수 없습니다: $GOOGLE_APPLICATION_CREDENTIALS"
-    exit 1
-fi
-
-log_info "서비스 계정으로 인증: $GOOGLE_APPLICATION_CREDENTIALS"
-
-# gcloud에서 서비스 계정 활성화 (Firebase CLI가 gcloud 인증을 따라감)
-log_info "gcloud 서비스 계정 활성화 중..."
-if gcloud auth activate-service-account --key-file="$GOOGLE_APPLICATION_CREDENTIALS"; then
-    log_info "gcloud 서비스 계정 활성화 성공"
+# CI 환경 (GitHub Actions/Cloud Build)에서는 인증 스킵
+if [ -n "$CI" ] || [ -n "$GITHUB_ACTIONS" ] || [ -n "$BUILDER_OUTPUT" ]; then
+    log_info "CI 환경 - 기존 인증 사용"
 else
-    log_warning "gcloud 서비스 계정 활성화 실패, 환경변수만 사용"
+    # 로컬 환경 - gcloud 인증 확인
+    log_info "로컬 환경 - gcloud 인증 확인 중..."
+    if ! gcloud auth list --filter=status:ACTIVE --format="value(account)" 2>/dev/null | grep -q .; then
+        log_error "인증이 필요합니다: gcloud auth login"
+        exit 1
+    fi
+    log_info "gcloud 인증 확인됨"
 fi
 
-# Firebase가 gcloud의 활성 계정을 사용하도록 프로젝트 설정
-log_info "gcloud 기본 프로젝트 설정..."
+# Firebase 프로젝트 설정
 gcloud config set project "$FIREBASE_PROJECT_ID" 2>/dev/null || true
 
 # 환경에 따라 Firebase Hosting 타겟 결정

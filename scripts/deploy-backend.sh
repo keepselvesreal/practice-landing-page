@@ -48,14 +48,13 @@ else
     exit 1
 fi
 
-# 환경 변수 검증 실행
-# 템플릿 파일 기반으로 필수 변수 검증
-log_info "환경 변수 검증 중..."
+# 환경 변수 검증 실행 (엄격 모드)
+log_info "환경 변수 검증 중 (엄격 모드)..."
 
-# ENV_FILE에서 환경 추출 (.env.staging -> .staging)
-TEMPLATE_ENV=$(echo "$ENV_FILE" | sed 's/\.env//')
+# ENV_FILE에서 환경 추출 (.env.staging -> staging)
+DEPLOY_ENV=$(echo "$ENV_FILE" | sed 's/\.env\.//')
 
-if ! env ENV_FILE="$ENV_FILE" "$SCRIPT_DIR/validate-secrets.sh" "$TEMPLATE_ENV"; then
+if ! "$SCRIPT_DIR/validate-env-file.sh" "$DEPLOY_ENV" --strict; then
     log_error "환경 변수 검증 실패. 배포를 중단합니다."
     exit 1
 fi
@@ -99,7 +98,7 @@ cd "$PROJECT_ROOT"
 
 gcloud builds submit backend/ \
     --config=backend/cloudbuild.yaml \
-    --substitutions="_SERVICE_NAME=$SERVICE_NAME,_DB_INSTANCE=$DB_INSTANCE,_DATABASE_URL=$DATABASE_URL,_BASE_URL=$BASE_URL,_GMAIL_ADDRESS=$GMAIL_ADDRESS,_GMAIL_APP_PASSWORD=$GMAIL_APP_PASSWORD,_SMTP_HOST=$SMTP_HOST,_SMTP_PORT=$SMTP_PORT,_GOOGLE_PLACES_API_KEY=$GOOGLE_PLACES_API_KEY,_PAYPAL_CLIENT_ID=$PAYPAL_CLIENT_ID,_PAYPAL_CLIENT_SECRET=$PAYPAL_CLIENT_SECRET,_PAYPAL_API_BASE=$PAYPAL_API_BASE"
+    --substitutions="_SERVICE_NAME=$SERVICE_NAME,_DB_INSTANCE=$DB_INSTANCE,_DATABASE_URL=$DATABASE_URL,_BASE_URL=$BASE_URL,_GMAIL_ADDRESS=$GMAIL_ADDRESS,_GMAIL_APP_PASSWORD=$GMAIL_APP_PASSWORD,_GOOGLE_PLACES_API_KEY=$GOOGLE_PLACES_API_KEY,_PAYPAL_CLIENT_ID=$PAYPAL_CLIENT_ID,_PAYPAL_CLIENT_SECRET=$PAYPAL_CLIENT_SECRET,_PAYPAL_API_BASE=$PAYPAL_API_BASE"
 
 if [ $? -eq 0 ]; then
     log_info "백엔드 배포 성공!"

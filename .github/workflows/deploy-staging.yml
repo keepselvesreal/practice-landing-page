@@ -61,8 +61,6 @@ jobs:
           # Gmail / SMTP
           GMAIL_ADDRESS=${{ secrets.GMAIL_ADDRESS }}
           GMAIL_APP_PASSWORD="${{ secrets.GMAIL_APP_PASSWORD }}"
-          SMTP_HOST=${{ secrets.SMTP_HOST }}
-          SMTP_PORT=${{ secrets.SMTP_PORT }}
 
           # Security
           ENCRYPTION_KEY=${{ secrets.ENCRYPTION_KEY }}

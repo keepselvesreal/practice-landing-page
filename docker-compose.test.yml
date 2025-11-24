@@ -6,7 +6,7 @@ services:
       POSTGRES_USER: test_user
       POSTGRES_PASSWORD: test_pass
     ports:
-      - "${POSTGRES_PORT:-5432}:5432"
+      - "5433:5432"  # 로컬 postgres와 충돌 방지를 위해 5433 포트 사용
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U test_user -d kbeauty_test"]
       interval: 5s
@@ -24,17 +24,9 @@ services:
     volumes:
       - ./backend/tests:/app/tests:ro
     environment:
-      TEST_ENV: docker
-      DATABASE_URL: postgresql://test_user:test_pass@postgres:5432/kbeauty_test
-      BASE_URL: ${BASE_URL:-http://localhost:8080}
-      GOOGLE_PLACES_API_KEY: ${GOOGLE_PLACES_API_KEY}
-      PAYPAL_API_BASE: ${PAYPAL_API_BASE}
-      PAYPAL_CLIENT_ID: ${PAYPAL_CLIENT_ID}
-      PAYPAL_CLIENT_SECRET: ${PAYPAL_CLIENT_SECRET}
-      GMAIL_ADDRESS: ${GMAIL_ADDRESS}
-      GMAIL_APP_PASSWORD: ${GMAIL_APP_PASSWORD}
-      SMTP_HOST: ${SMTP_HOST}
-      SMTP_PORT: ${SMTP_PORT}
+      ENV: docker  # config.py가 .env.docker 파일을 로드하도록 지정
+    env_file:
+      - .env.docker
     ports:
       - "8000:8000"
     command: >

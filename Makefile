@@ -1,8 +1,11 @@
-.PHONY: help deploy-backend deploy-frontend deploy-staging test-staging smoke-test-staging deploy-staging-verified smoke-test-production deploy-production-backend deploy-production-frontend deploy-production clean
+.PHONY: help deploy-backend deploy-frontend deploy-staging test-staging smoke-test-staging deploy-staging-verified smoke-test-production deploy-production-backend deploy-production-frontend deploy-production test-e2e-docker clean
 
 # 기본 타겟
 help:
-	@echo "K-Beauty Landing Page - Deployment Makefile"
+	@echo "K-Beauty Landing Page - Makefile"
+	@echo ""
+	@echo "=== E2E Tests ==="
+	@echo "  make test-e2e-docker            - Run E2E tests with docker-compose (auto cleanup)"
 	@echo ""
 	@echo "=== Staging Commands ==="
 	@echo "  make deploy-backend             - Deploy backend only (staging)"
@@ -75,6 +78,21 @@ smoke-test-production:
 # Production 전체 배포 (백엔드 → 프론트엔드 → 스모크 테스트)
 deploy-production: deploy-production-backend deploy-production-frontend smoke-test-production
 	@echo "✅ Production deployment complete!"
+
+# E2E 테스트 (도커 환경)
+test-e2e-docker:
+	@echo "🔨 Building latest images..."
+	docker compose -f docker-compose.test.yml build
+	@echo "🐳 Starting services with docker compose..."
+	docker compose -f docker-compose.test.yml up -d
+	@echo "⏳ Waiting for services to be ready..."
+	@sleep 15
+	@echo "🧪 Running E2E tests..."
+	cd backend && TEST_ENV=docker BASE_URL=http://localhost:8080 \
+		uv run pytest tests/e2e/ -v -s
+	@echo "🧹 Cleaning up..."
+	docker compose -f docker-compose.test.yml down -v --rmi all
+	@echo "✅ Docker E2E tests complete!"
 
 # 정리
 clean:

@@ -31,8 +31,6 @@ steps:
       - '--set-env-vars=BASE_URL=${_BASE_URL}'
       - '--set-env-vars=GMAIL_ADDRESS=${_GMAIL_ADDRESS}'
       - '--set-env-vars=GMAIL_APP_PASSWORD=${_GMAIL_APP_PASSWORD}'
-      - '--set-env-vars=SMTP_HOST=${_SMTP_HOST}'
-      - '--set-env-vars=SMTP_PORT=${_SMTP_PORT}'
       - '--set-env-vars=GOOGLE_PLACES_API_KEY=${_GOOGLE_PLACES_API_KEY}'
       - '--set-env-vars=PAYPAL_CLIENT_ID=${_PAYPAL_CLIENT_ID}'
       - '--set-env-vars=PAYPAL_CLIENT_SECRET=${_PAYPAL_CLIENT_SECRET}'

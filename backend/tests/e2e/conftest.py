@@ -1,15 +1,45 @@
 """
 E2E Test Configuration
 
-Environment variables:
-- TEST_ENV: 'local', 'docker', or 'production' (required)
+Environment variables are loaded from .env.test file.
+Required variables:
+- ENV: 'test' (for config.py to load .env.test)
+- TEST_ENV: 'local', 'docker', 'staging', or 'production'
+- BASE_URL: Base URL for the application
 """
 import os
 import time
 import subprocess
 import pytest
+from pathlib import Path
 from playwright.sync_api import Page
 from dotenv import load_dotenv
+
+# 테스트 시작 시 환경에 맞는 .env 파일 로드
+# TEST_ENV 환경변수로 어떤 파일을 로드할지 결정
+test_env_type = os.getenv("TEST_ENV", "local")
+project_root = Path(__file__).parent.parent.parent.parent
+
+if test_env_type == "docker":
+    # 도커 환경: .env.docker 로드
+    env_file = project_root / ".env.docker"
+elif test_env_type in ["staging", "production"]:
+    # 스테이징/프로덕션: 환경변수만 사용 (파일 로드 안 함)
+    env_file = None
+else:
+    # 로컬 환경 (기본): .env.test 로드
+    env_file = project_root / ".env.test"
+
+if env_file:
+    if not env_file.exists():
+        raise FileNotFoundError(
+            f"{env_file.name} 파일이 없습니다: {env_file}\n"
+            f"예: cp .env.dev {env_file.name}"
+        )
+    load_dotenv(env_file)
+    print(f"✓ Loaded test environment from {env_file}")
+else:
+    print(f"✓ Using environment variables only (TEST_ENV={test_env_type})")
 
 
 @pytest.fixture(scope="session")
@@ -19,10 +49,10 @@ def test_env():
     if not env:
         raise ValueError(
             "TEST_ENV environment variable must be set. "
-            "Valid values: 'local', 'docker', 'production'"
+            "Valid values: 'local', 'docker', 'staging', 'production'"
         )
 
-    valid_envs = ['local', 'docker', 'production']
+    valid_envs = ['local', 'docker', 'staging', 'production']
     if env not in valid_envs:
         raise ValueError(
             f"Invalid TEST_ENV='{env}'. "
@@ -118,24 +148,22 @@ def backend_server(test_env, postgres_container):
     """
     Start Backend FastAPI server.
 
-    - local: Start uvicorn in subprocess (reads from .env)
+    - local: Start uvicorn in subprocess (ENV=test, reads from .env.test)
     - docker: Started by docker-compose
-    - production: Already deployed
+    - staging/production: Already deployed
     """
-    if test_env in ['docker', 'production']:
+    if test_env in ['docker', 'staging', 'production']:
         yield None
         return
 
-    # local environment: Load .env and start Backend server
-    print("Loading environment variables from .env...")
-    env_path = os.path.join(os.path.dirname(__file__), '..', '..', '..', '.env')
-    load_dotenv(env_path)
-
+    # local environment: .env.test already loaded at module level
+    # config.py will read ENV=test and load .env.test (or use already loaded env vars)
     print("Starting Backend server (uvicorn)...")
     backend_path = os.path.join(os.path.dirname(__file__), '..', '..')
     process = subprocess.Popen(
         ['uv', 'run', 'uvicorn', 'app.main:app', '--host', '0.0.0.0', '--port', '8000'],
         cwd=backend_path,
+        env=os.environ.copy(),  # .env.test에서 로드된 환경변수 전달
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE
     )
@@ -238,9 +266,8 @@ def cleanup_database(test_env, postgres_container):
         # Local: conftest.py starts postgres on port 5432
         db_url = 'postgresql://test_user:test_pass@localhost:5432/kbeauty_test'
     elif test_env == 'docker':
-        # Docker: docker-compose uses POSTGRES_PORT env var
-        postgres_port = os.getenv('POSTGRES_PORT', '5432')
-        db_url = f'postgresql://test_user:test_pass@localhost:{postgres_port}/kbeauty_test'
+        # Docker: docker-compose.test.yml에서 5433:5432로 고정 (로컬 postgres와 충돌 방지)
+        db_url = 'postgresql://test_user:test_pass@localhost:5433/kbeauty_test'
     else:
         return
 
